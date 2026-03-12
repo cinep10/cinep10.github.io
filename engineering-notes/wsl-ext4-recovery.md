@@ -2,265 +2,243 @@
 
 ## Incident Summary
 
-Environment
+### Environment
 
 - Windows 11
 - WSL2 Ubuntu
-- ext4.vhdx (WSL virtual disk)
+- `ext4.vhdx` (WSL virtual disk)
 - MariaDB + ETL scripts
 
-Accidental command executed:
+### Accidental command executed
 
+```bash
 rm -rf /home/dwkim_nethru/log
+```
 
-Deleted structure
+### Deleted structure
 
+```text
 log/
-└ etl/
-└ task/
-├ script1.sh
-├ script2.sh
-├ script3.sh
+└── etl/
+    └── task/
+        ├── script1.sh
+        ├── script2.sh
+        └── script3.sh
+```
 
-
-Goal
+### Goal
 
 Restore the deleted `log` directory with its original structure.
 
-Result
+### Result
 
-- `log` directory recovery failed  
-- other directories (`data`, `install`, `app`) successfully recovered
+- `log` directory recovery failed
+- other directories such as `data`, `install`, and `app` were recovered successfully
 
 ---
 
-# WSL Filesystem Architecture
+## WSL Filesystem Architecture
 
 WSL2 does not run on a physical Linux disk.
 
-Instead it stores the filesystem inside a **virtual disk (VHDX)**.
+Instead, it stores the Linux filesystem inside a virtual disk file.
 
+```text
 Windows
-└ WSL2
-└ ext4.vhdx
-└ ext4 filesystem
-└ /home/dwkim_nethru
+└── WSL2
+    └── ext4.vhdx
+        └── ext4 filesystem
+            └── /home/dwkim_nethru
+```
 
-Location of the virtual disk:
+Typical location of the virtual disk:
 
-C:\Users<user>\AppData\Local\Packages...\ext4.vhdx
+```text
+C:\Users\<user>\AppData\Local\Packages\...\ext4.vhdx
+```
 
-This file contains the entire Linux filesystem.
+This file contains the full Linux filesystem used by WSL.
 
-Therefore the following command affects the actual ext4 filesystem inside the virtual disk:
-
-rm -rf
+That means file deletion happens inside the actual ext4 filesystem stored in the VHDX file.
 
 ---
 
-# How ext4 Deletes Files
+## How `rm -rf` Works in ext4
 
-From an ext4 filesystem perspective, deletion follows these steps.
+From an ext4 filesystem perspective, deletion usually follows these steps:
 
-1. directory entry removal  
-2. inode link count decrement  
-3. inode orphan processing  
-4. block return to free list  
+1. remove directory entry
+2. decrease inode link count
+3. mark inode as orphan
+4. return blocks to the free list
 
 Important point:
 
-File data blocks may still exist temporarily.
+- file data blocks may still remain temporarily
+- but filename, path, and directory metadata are removed first
 
-However the following metadata is removed immediately:
-
-- filename
-- directory structure
-- path information
-
-This makes directory reconstruction very difficult.
+This is why recovering the original directory structure is much harder than recovering raw file content.
 
 ---
 
-# Initial Recovery Strategy
+## Initial Recovery Strategy
 
-Because extundelete requires an **unmounted filesystem**, the initial idea was:
+Because `extundelete` requires an **unmounted filesystem**, the initial recovery idea was:
 
+```text
+WSL
+└── ext4.vhdx
+    └── attach to Ubuntu VM
+        └── mount read-only
+```
 
-WSL → ext4.vhdx
-→ attach to Ubuntu VM
-→ read-only mount
-
-
-This is normally considered a safe recovery approach for ext4 filesystems.
-
----
-
-# Why VM-Based Recovery Failed
-
-Several issues occurred when attaching `ext4.vhdx` to a VM.
-
-### 1. Dynamic VHDX
-
-WSL disks are **dynamic VHDX files**.
-
-When attached to a VM they may cause block mapping issues.
+The goal was to recover the ext4 filesystem in a safer and more standard Linux recovery environment.
 
 ---
+
+## Why VM-Based Recovery Failed
+
+### 1. Dynamic VHDX behavior
+
+WSL disks use a dynamic VHDX format.
+
+When attached to a VM, this may introduce block mapping or device recognition issues.
 
 ### 2. No partition table
 
-Typical Linux disks:
+Typical Linux disks often look like this:
 
-
+```text
 MBR/GPT
-└ partition
-└ filesystem
+└── partition
+    └── filesystem
+```
 
+WSL disks are often closer to this:
 
-WSL disks:
+```text
+ext4 filesystem directly inside VHDX
+```
 
-
-ext4 filesystem only
-
-
-Some recovery tools fail to detect the filesystem correctly.
-
----
+This can confuse recovery tools that expect a normal partition layout.
 
 ### 3. Recovery timing
 
-Recovery success rate is highest **immediately after deletion**.
+Recovery success is highest immediately after deletion.
 
-In this case several mount and scan operations occurred before recovery attempts.
+In this case, several mount and scan operations happened before recovery was completed.
 
-During this time ext4 journal cleanup removed inode metadata.
+During that process, ext4 journal cleanup likely removed inode metadata.
 
 ---
 
-# Final Recovery Method
+## Final Recovery Method
 
-The successful access method was:
+The most practical access path was:
 
-
+```bash
 wsl --mount ext4_backup.vhdx
+```
 
+This allowed the disk to be mounted directly inside WSL.
 
-WSL2 supports direct mounting of VHDX files.
-
-
+```text
 WSL kernel
-→ ext4 mount
-→ /mnt/recover
+└── ext4 mount
+    └── /mnt/recover
+```
 
-
-In practice this approach is more compatible with WSL disks than VM-based recovery.
+In practice, this worked more reliably than the VM-based approach for a WSL disk.
 
 ---
 
-# Why Directory Recovery Failed
+## Why Directory Recovery Failed
 
-Recovery tools produced the following results.
+The recovery tools behaved as follows:
 
-| Tool | Result |
-|-----|------|
-| extundelete | failed |
-| debugfs lsdel | no deleted inode |
-| photorec | partial data recovery |
+- `extundelete` → failed
+- `debugfs lsdel` → no deleted inode found
+- `photorec` → partial raw file recovery possible
 
 Interpretation:
 
-ext4 journal had already committed metadata cleanup.
-
-This removed the directory inode record.
-
-Without inode metadata, directory structure reconstruction becomes impossible.
+- ext4 journal had already committed metadata cleanup
+- deleted directory inode information was no longer available
+- without inode metadata, original directory structure could not be reconstructed
 
 ---
 
-# Recovered Data
+## Recovered Data
 
-The following directories were successfully restored:
+The following directories were recovered successfully:
 
-
+```text
 /home/dwkim_nethru/data
 /home/dwkim_nethru/install
 /home/dwkim_nethru/app
-
+```
 
 Reason:
 
-These directories were not deleted.
-
+These directories were not deleted.  
 They were simply copied after mounting the filesystem.
 
 ---
 
-# Lessons Learned
+## Lessons Learned
 
-## 1. `rm -rf` removes directory metadata immediately
+### 1. `rm -rf` removes directory metadata immediately
 
-Directory reconstruction is extremely difficult once metadata is removed.
+Directory reconstruction becomes very difficult once metadata is gone.
 
----
+### 2. `extundelete` is time-sensitive
 
-## 2. extundelete only works immediately after deletion
+It works best only when:
 
-Success conditions:
+- the filesystem is unmounted
+- the journal is still intact
+- overwrite activity has not occurred
 
-- filesystem unmounted
-- journal intact
-- no overwrite activity
+### 3. WSL disks are best handled with WSL-compatible tooling
 
----
+For this case, `wsl --mount` was more reliable than attaching the disk to a VM.
 
-## 3. WSL disks are best recovered using WSL tools
+### 4. Immediate response matters most
 
+After accidental deletion, the most important step is:
 
-wsl --mount
-
-
-proved more reliable than VM-based recovery.
+**stop further write activity immediately**
 
 ---
 
-## 4. Immediate response is critical
+## Prevention Strategy
 
-After accidental deletion the most important action is:
+### 1. Backup automation
 
-**stop the system immediately**
+Use scheduled archive backups such as:
 
-to prevent metadata overwrite.
-
----
-
-# Prevention Strategy
-
-## Automated backup
-
-
+```text
 cron + tar backup
+```
 
+### 2. Full WSL backup
 
----
-
-## WSL environment backup
-
-
+```bash
 wsl --export Ubuntu ubuntu_backup.tar
+```
 
-
----
-
-## Source control
+### 3. Source control
 
 ETL scripts should always be stored in a Git repository.
 
 ---
 
-# Conclusion
+## Conclusion
 
-In WSL ext4 filesystems, once journal metadata is cleaned up after a deletion caused by `rm -rf`, directory structure recovery becomes nearly impossible.
+In WSL ext4 filesystems, once journal metadata is cleaned up after an `rm -rf` deletion, directory structure recovery becomes nearly impossible.
 
-Therefore the most effective strategy is not recovery but prevention.
+The real lesson from this case is simple:
 
-Backup and version control are essential safeguards.
+**recovery is difficult, prevention is cheaper**
+
+Reliable engineering starts with backup and version control, not recovery tooling.
