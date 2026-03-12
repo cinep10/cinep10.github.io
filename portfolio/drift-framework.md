@@ -1,15 +1,16 @@
 # Drift Monitoring Framework
 
-Digital services depend on reliable event data and operational metrics.
+Drift Monitoring Framework
 
-However, changes in data distribution can indicate hidden problems such as:
+Purpose
+
+Detect abnormal changes in digital channel data that may indicate:
 
 - event collection failures
-- pipeline delays
-- schema changes
-- system inconsistencies
+- pipeline processing issues
+- schema inconsistencies
+- cross-system mismatches
 
-This portfolio describes an architecture for detecting abnormal changes in digital channel data.
 
 ## Architecture
 
