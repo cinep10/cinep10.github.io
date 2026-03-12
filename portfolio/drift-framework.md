@@ -1,5 +1,6 @@
 # Drift Monitoring Framework
 
+
 Purpose
 
 Detect abnormal changes in digital channel data that may indicate:
@@ -8,7 +9,6 @@ Detect abnormal changes in digital channel data that may indicate:
 - pipeline processing issues
 - schema inconsistencies
 - cross-system mismatches
-
 
 ## Architecture
 
