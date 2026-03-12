@@ -1,17 +1,26 @@
 # DWKim Engineering Notes
 
-Welcome to my technical archive.
-
-This site records experiments and engineering case studies related to:
+I document engineering case studies and portfolio work around:
 
 - Linux / WSL
 - Data pipelines
 - Data reliability
 - Observability
 - Data drift detection
+- Financial digital channel data
 
 ---
 
+## About
+
+[About Me](./about)
+
+## Portfolio
+
+[Data Reliability & Drift Portfolio](./portfolio)
+
 ## Posts
 
-Coming soon.
+- [WSL ext4 recovery case study](./posts/wsl-ext4-recovery)
+- [What data drift means in digital channels](./posts/data-drift-overview)
+- [Why digital channel data reliability matters](./posts/digital-channel-data-reliability)
