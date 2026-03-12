@@ -1,12 +1,35 @@
-# About Me
+# DWKim Engineering Notes
 
-I am interested in the reliability of digital channel data, operational metrics stability, and data quality monitoring.
+Engineering notes and portfolio focused on data reliability, data drift monitoring, and digital channel data systems.
 
-My recent focus is on:
+This site documents technical experiments, architecture thinking, and engineering case studies.
 
-- Data drift detection
-- Observability for data pipelines
-- Cross-system validation
-- Data reliability in financial digital channels
+---
 
-This site is used as a technical archive for experiments, engineering notes, and portfolio-related documentation.
+## About
+
+[About Me](./about)
+
+---
+
+## Portfolio
+
+- [Drift Framework](./portfolio/drift-framework)
+- [Data Reliability Architecture](./portfolio/data-reliability-architecture)
+- [Digital Channel Data Validation](./portfolio/digital-channel-data-validation)
+
+---
+
+## Engineering Notes
+
+- [WSL ext4 Recovery Case Study](./engineering-notes/wsl-ext4-recovery)
+- [Data Pipeline Architecture](./engineering-notes/data-pipeline-architecture)
+- [Data Observability Concepts](./engineering-notes/data-observability)
+
+---
+
+## Articles
+
+- [Data Drift in Digital Channels](./articles/data-drift-digital-channels)
+- [Digital Channel Data Challenges](./articles/digital-channel-data)
+- [Reliability Engineering for Data Systems](./articles/reliability-engineering)
