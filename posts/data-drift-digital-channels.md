@@ -68,3 +68,123 @@ This can cause sudden drops in event counts.
 ### 3. Pipeline Delays or Failures
 
 Event pipelines often include multiple components:
+
+Application
+→ Event Collector
+→ Message Queue
+→ Stream Processing
+→ Data Warehouse
+→ Metrics Layer
+
+
+Failures or delays at any stage can distort metrics.
+
+---
+
+### 4. Cross-System Inconsistencies
+
+Digital platforms often combine multiple systems.
+
+Examples:
+
+- event logs
+- transaction databases
+- CRM systems
+- recommendation engines
+
+When these systems fall out of sync, the resulting data may become inconsistent.
+
+---
+
+# Detecting Data Drift in Operational Metrics
+
+Data drift detection in digital systems usually involves monitoring statistical changes in key indicators.
+
+Common techniques include:
+
+### Distribution Monitoring
+
+Compare current data distribution with historical baselines.
+
+Example metrics:
+
+- event frequency
+- attribute distribution
+- user activity patterns
+
+---
+
+### KPI Stability Monitoring
+
+Sudden changes in operational metrics may indicate data issues.
+
+Examples:
+
+- conversion rate drop
+- session count spikes
+- unexpected traffic shifts
+
+---
+
+### Cross-System Validation
+
+Comparing data between different systems can reveal inconsistencies.
+
+Examples:
+
+Event logs vs database transactions
+Analytics metrics vs billing records
+
+
+---
+
+# Observability for Data Reliability
+
+Data drift detection should be part of a broader **data observability framework**.
+
+A simplified architecture might look like this:
+
+
+Data Sources
+↓
+Event Collection
+↓
+Streaming / ETL Pipeline
+↓
+Data Warehouse
+↓
+Metric Layer
+↓
+Drift Detection
+↓
+Alerting and Investigation
+
+
+The goal is not just detecting anomalies, but ensuring that **operational data remains trustworthy**.
+
+---
+
+# Lessons from Production Systems
+
+In many real-world digital systems, unexpected metric changes are not caused by business behavior.
+
+Instead they are often caused by:
+
+- data collection errors
+- schema mismatches
+- pipeline delays
+- infrastructure issues
+
+Without proper monitoring, these issues may go unnoticed.
+
+---
+
+# Conclusion
+
+In digital platforms, **data reliability is as important as system reliability**.
+
+Data drift is not only a machine learning concern.
+
+It is also a critical operational problem.
+
+Monitoring distribution changes, validating metrics across systems, and building observability into data pipelines are essential steps toward reliable digital services.
