@@ -1,8 +1,13 @@
 # DWKim Engineering Notes
 
-Engineering notes and portfolio focused on data reliability, data drift monitoring, and digital channel data systems.
+Engineering notes and architecture experiments focused on
 
-This site documents technical experiments, architecture thinking, and engineering case studies.
+- Data Reliability
+- Statistical Data Drift Detection
+- Digital Channel Data Validation
+- Data Observability
+
+This site documents engineering experiments and architectural approaches for building trustworthy data systems.
 
 ---
 
