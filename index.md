@@ -1,40 +1,51 @@
 # DWKim Engineering Notes
 
-Engineering notes and architecture experiments focused on
+Engineering notes and architecture experiments focused on building **trustworthy data systems**.
+
+This site documents technical experiments and architectural approaches related to:
 
 - Data Reliability
 - Statistical Data Drift Detection
-- Digital Channel Data Validation
-- Data Observability
+- Data Validation & Observability
+- Digital Channel Data Architecture
 
-This site documents engineering experiments and architectural approaches for building trustworthy data systems.
-
----
-
-## About
-
-[About Me](./about)
+Rather than treating data quality as a downstream issue, I focus on designing **control architectures** that ensure operational data remains trustworthy across collection, processing, and analytics layers.
 
 ---
 
 ## Portfolio
 
-- [Drift Framework](./portfolio/drift-framework)
-- [Data Reliability Architecture](./portfolio/data-reliability-architecture)
-- [Digital Channel Data Validation](./portfolio/digital-channel-data-validation)
+Key architectural work and design approaches:
+
+- **Statistical Data Drift Framework**
+- **Data Reliability Architecture**
+- **Digital Channel Data Validation**
+
+See details → [Portfolio](./portfolio)
 
 ---
 
 ## Engineering Notes
 
-- [WSL ext4 Recovery Case Study](./engineering-notes/wsl-ext4-recovery)
-- [Data Pipeline Architecture](./engineering-notes/data-pipeline-architecture)
-- [Data Observability Concepts](./engineering-notes/data-observability)
+Technical experiments and case studies.
+
+Topics include:
+
+- WSL / Linux systems
+- Data pipeline reliability
+- Observability and monitoring
+- recovery and operational incidents
+
+Latest article:
+
+- [WSL ext4 Recovery Case Study](./posts/wsl-ext4-recovery)
 
 ---
 
 ## Articles
 
-- [Data Drift in Digital Channels](./articles/data-drift-digital-channels)
-- [Digital Channel Data Challenges](./articles/digital-channel-data)
-- [Reliability Engineering for Data Systems](./articles/reliability-engineering)
+Research notes and conceptual writing about:
+
+- Data Drift
+- Data Reliability Engineering
+- Digital Channel Data Architecture
