@@ -1,7 +1,5 @@
 # Drift Monitoring Framework
 
-Drift Monitoring Framework
-
 Purpose
 
 Detect abnormal changes in digital channel data that may indicate:
