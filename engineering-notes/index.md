@@ -1,8 +1,4 @@
----
 
-# 4) `engineering-notes/index.md` 최종본
-
-이 파일이 앞으로 **기술 글 목록 페이지** 역할을 합니다.
 
 ```markdown
 # Engineering Notes
