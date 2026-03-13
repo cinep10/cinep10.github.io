@@ -1,28 +1,45 @@
-# Drift Monitoring Framework
+# Statistical Data Drift Framework
 
+A statistical monitoring framework designed to detect abnormal changes in operational data.
 
-Purpose
+## Purpose
 
-Detect abnormal changes in digital channel data that may indicate:
+The framework is designed to identify hidden data risks such as:
 
-- event collection failures
-- pipeline processing issues
-- schema inconsistencies
-- cross-system mismatches
+- distribution shift
+- sudden metric deviation
+- null ratio spikes
+- event volume anomalies
 
-## Architecture
+## Typical Methods
 
-Application  
-→ Event Collector  
-→ Message Queue  
-→ Stream Processing  
-→ Data Warehouse  
-→ Metric Layer  
-→ Drift Detection  
+- PSI (Population Stability Index)
+- ratio monitoring
+- anomaly band detection
+- statistical baseline comparison
 
-## Key Components
+## Monitoring Flow
 
-- Event validation
-- Metric stability monitoring
-- Distribution drift detection
-- Cross-system validation
+```text
+Operational Data
+   ↓
+Metric Layer
+   ↓
+Baseline Comparison
+   ↓
+Drift Detection
+   ↓
+Alerting / Investigation
+```
+
+Why It Matters
+
+Unexpected data shifts are often interpreted as business changes.
+
+In practice, they may also indicate:
+ - event collection failures
+ - schema inconsistencies
+ - pipeline delays
+ - aggregation issues
+
+The goal is to detect hidden failures in data systems before they affect analytics and decision-making.
