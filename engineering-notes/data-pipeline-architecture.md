@@ -20,7 +20,7 @@ Analytics / Metrics
 ```
 
 Engineering Concerns
-	•	ingestion delay
+ - ingestion delay
 	•	partial processing failure
 	•	duplicate events
 	•	schema evolution
