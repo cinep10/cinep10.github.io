@@ -63,7 +63,7 @@ Key risks addressed:
 
 This architecture introduces validation checkpoints across each stage of the data lifecycle.
 
-⸻
+---
 
 Digital Channel Data Validation
 
