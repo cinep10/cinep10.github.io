@@ -65,7 +65,7 @@ This architecture introduces validation checkpoints across each stage of the dat
 
 ---
 
-Digital Channel Data Validation
+## Digital Channel Data Validation
 
 Digital platforms typically rely on multiple independent data sources:
 
