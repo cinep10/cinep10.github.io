@@ -32,6 +32,7 @@ A design approach that ensures operational data remains trustworthy across distr
 
 Typical architecture:
 
+```
 Application
 ↓
 Event Collector
@@ -43,6 +44,7 @@ Data Warehouse
 Metric Layer
 ↓
 Monitoring
+```
 
 
 Key risks addressed:
