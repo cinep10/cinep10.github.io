@@ -1,14 +1,19 @@
+
 # Data Observability
 
-Traditional system monitoring focuses on infrastructure.
+Traditional monitoring focuses on servers, CPU, memory, and application health.
 
 Data observability focuses on the data itself.
 
-Key monitoring dimensions:
+## Core Dimensions
 
-- data freshness
-- data completeness
+- freshness
+- completeness
 - schema stability
-- distribution changes
+- distribution change
 
-Observability enables early detection of hidden failures in data pipelines.
+## Why It Matters
+
+A system may appear healthy while the data flowing through it is incomplete, delayed, or inconsistent.
+
+Observability helps detect hidden failures before they become business issues.
