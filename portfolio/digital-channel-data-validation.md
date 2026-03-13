@@ -1,8 +1,4 @@
----
 
-# 8) `portfolio/digital-channel-data-validation.md` 최종본
-
-```markdown
 # Digital Channel Data Validation
 
 Digital platforms rely on multiple independent data sources.
