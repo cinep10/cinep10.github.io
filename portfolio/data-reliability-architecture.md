@@ -1,26 +1,32 @@
+
 # Data Reliability Architecture
 
-Reliable digital services depend on reliable data.
+A design approach that ensures operational data remains trustworthy across distributed systems.
 
-Common failure points include:
+## Typical Architecture
 
-- event ingestion errors
-- partial pipeline failures
-- delayed processing
-- metric calculation inconsistencies
+```text
+Application
+   ↓
+Event Collector
+   ↓
+Data Pipeline
+   ↓
+Data Warehouse
+   ↓
+Metric Layer
+   ↓
+Monitoring / Validation
+```
 
-A typical reliability architecture includes:
+Key Risks Addressed
+ - cross-system metric mismatch
+ - data loss during pipeline processing
+ - inconsistent aggregation logic
+ - silent data drift
 
-Data Sources  
-↓  
-Collection Layer  
-↓  
-Streaming / ETL  
-↓  
-Warehouse  
-↓  
-Metrics Layer  
-↓  
-Monitoring & Validation  
+Design Principle
 
-The goal is ensuring that business decisions rely on trustworthy metrics.
+The architecture introduces validation checkpoints across each stage of the data lifecycle.
+
+The objective is not only to process data, but to ensure that the data remains trustworthy for analytics, reporting, and operational decision-making.
