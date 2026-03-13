@@ -18,7 +18,7 @@ Rather than treating data quality as a downstream analytics issue, I focus on de
 
 Background and engineering focus.
 
-➡️ [About](./about.md)
+➡️ [About](./about)
 
 ---
 
