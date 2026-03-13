@@ -11,12 +11,12 @@ This includes:
 - analytics layers
 - operational metrics
 
-Rather than treating data quality as a downstream analytics issue, I approach it as a **system architecture problem**.
+Rather than treating data quality as a downstream analytics issue, I approach it as a **system architecture and control problem**.
 
 My engineering focus includes:
 
 - Statistical Data Drift Detection
-- Cross-system Data Validation
+- Cross-System Data Validation
 - Data Reliability Architecture
 - Data Governance and Operational Controls
 
