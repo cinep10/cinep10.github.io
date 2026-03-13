@@ -60,11 +60,12 @@ Key risks addressed:
 
 Digital platforms often rely on multiple data sources:
 
+```
 Client Events
 Server Logs
 Data Collectors
 Analytics Engines
-
+```
 
 Validation mechanisms compare metrics across these systems to detect discrepancies early.
 
