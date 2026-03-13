@@ -1,13 +1,39 @@
+---
+
+# 8) `portfolio/digital-channel-data-validation.md` 최종본
+
+```markdown
 # Digital Channel Data Validation
 
-Digital platforms rely heavily on behavioral event data.
+Digital platforms rely on multiple independent data sources.
 
-However, validation is required to ensure consistency between systems.
+## Typical Data Sources
 
-Example validation strategies:
+```text
+Client Events
+Server Logs
+Data Collectors
+Analytics Engines
+```
 
-Event logs vs transaction database  
-Analytics metrics vs billing records  
-Session counts vs authentication logs  
+Validation Goal
 
-Cross-system validation is critical for maintaining data integrity.
+Validation mechanisms compare metrics across these systems to detect discrepancies early.
+
+Examples
+ - event count reconciliation
+ - pipeline validation queries
+ - cross-system KPI comparison
+
+Why It Matters
+
+Different systems often apply different logic, timing, and filters.
+
+Without validation, these differences can create:
+ - metric inconsistencies
+ - interpretation risks
+ - reporting disputes
+ - hidden data integrity issues
+
+These validation processes help maintain data integrity and operational trust in production environments.
+
