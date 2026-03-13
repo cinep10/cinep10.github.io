@@ -21,10 +21,10 @@ Analytics / Metrics
 
 Engineering Concerns
  - ingestion delay
-	•	partial processing failure
-	•	duplicate events
-	•	schema evolution
-	•	metric inconsistency
+ - partial processing failure
+ - duplicate events
+ - schema evolution
+ - metric inconsistency
 
 Reliable pipelines require both infrastructure monitoring and data validation controls.
 
