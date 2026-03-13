@@ -1,12 +1,23 @@
-# Challenges in Digital Channel Data
+# Digital Channel Data
 
-Digital platforms rely on behavioral event data to understand user activity.
+Digital platforms depend on behavioral event data to understand user activity and service performance.
 
-However, these systems face challenges such as:
+Typical digital channel data includes:
 
-- event collection errors
-- inconsistent session tracking
+- page view events
+- clickstream data
+- session information
+- navigation paths
+- transaction-related events
+
+## Common Problems
+
+- event collection gaps
+- inconsistent session logic
 - cross-platform differences
-- delayed analytics pipelines
+- delayed ingestion
+- analytics mismatch
 
-Understanding these challenges is important for maintaining reliable operational metrics.
+These issues can distort operational metrics and lead to interpretation risk.
+
+Reliable digital channel data requires validation, monitoring, and structured control across the full lifecycle.
