@@ -1,6 +1,16 @@
 # Portfolio
 
-This section describes architectural ideas and experimental frameworks related to **data reliability and data risk control**.
+This section introduces architectural ideas and experimental frameworks related to **data reliability and data risk control** in digital platforms.
+
+The designs focus on ensuring that operational data remains trustworthy across the entire lifecycle — from event collection to analytics and decision-making.
+
+---
+
+## Overview
+
+- [Statistical Data Drift Framework](./drift-framework)
+- [Data Reliability Architecture](./data-reliability-architecture)
+- [Digital Channel Data Validation](./digital-channel-data-validation)
 
 ---
 
@@ -10,10 +20,10 @@ A statistical monitoring framework designed to detect abnormal changes in operat
 
 The framework focuses on identifying issues such as:
 
-- distribution shift  
-- sudden metric deviation  
-- null ratio spikes  
-- event volume anomalies  
+- distribution shift
+- sudden metric deviation
+- null ratio spikes
+- event volume anomalies
 
 Typical methods include:
 
@@ -22,7 +32,7 @@ Typical methods include:
 - anomaly band detection
 - statistical baseline comparison
 
-The goal is to detect hidden failures in data pipelines **before they affect business decisions.**
+The goal is to detect hidden failures in data pipelines **before they affect analytics or business decisions.**
 
 ---
 
@@ -32,33 +42,32 @@ A design approach that ensures operational data remains trustworthy across distr
 
 Typical architecture:
 
-```
+```text
 Application
-↓
+   ↓
 Event Collector
-↓
+   ↓
 Data Pipeline
-↓
+   ↓
 Data Warehouse
-↓
+   ↓
 Metric Layer
-↓
-Monitoring
+   ↓
+Monitoring / Validation
 ```
-
-
 Key risks addressed:
+ - cross-system metric mismatch
+ - data loss during pipeline processing
+ - inconsistent aggregation logic
+ - silent data drift
 
-- cross-system metric mismatch
-- data loss during pipeline processing
-- inconsistent aggregation logic
-- silent data drift
+This architecture introduces validation checkpoints across each stage of the data lifecycle.
 
----
+⸻
 
-## Digital Channel Data Validation
+Digital Channel Data Validation
 
-Digital platforms often rely on multiple data sources:
+Digital platforms typically rely on multiple independent data sources:
 
 ```
 Client Events
@@ -70,10 +79,10 @@ Analytics Engines
 Validation mechanisms compare metrics across these systems to detect discrepancies early.
 
 Examples include:
+ - event count reconciliation
+ - pipeline validation queries
+ - cross-system KPI comparison
 
-- event count reconciliation
-- pipeline validation queries
-- cross-system KPI comparison
+These validation processes help maintain data integrity and operational trust in production environments.
 
-These validation processes help maintain **data integrity in production environments**.
 
