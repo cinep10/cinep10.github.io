@@ -38,7 +38,7 @@ Topics include:
 
 Latest article:
 
-- [WSL ext4 Recovery Case Study](./posts/wsl-ext4-recovery)
+- [WSL ext4 Recovery Case Study](./engineering-notes/wsl-ext4-recovery)
 
 ---
 
