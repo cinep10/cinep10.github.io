@@ -24,12 +24,12 @@ All service identifiers and URLs have been anonymized.
 
 During a validation process, a discrepancy was discovered for a specific page.
 
-```
+
 | Source | Page Views |
 |------|------|
 | Web Server Access Log | 1,587 |
 | Analytics Platform | 1,097 |
-```
+
 
 The difference was significant (about 30%).
 
