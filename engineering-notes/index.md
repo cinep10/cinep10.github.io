@@ -1,27 +1,24 @@
 # Engineering Notes
 
-Technical case studies and system experiments.
+Technical case studies, system experiments, and operational troubleshooting notes.
 
-This section documents practical engineering experiences related to:
-
-- Linux / WSL
-- data pipelines
-- analytics validation
-- system troubleshooting
-- data reliability
+This section focuses on practical engineering topics related to system behavior, debugging, data pipelines, and operational reliability.
 
 ---
 
-## Case Studies
+## Incident / Recovery
 
 - [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
+
+---
+
+## Data Validation / Analytics
 
 - [Web Log Session ID Data Consistency Issue](./web-log-session-id-data-consistency)
 
 ---
 
-## Data Systems
+## Pipeline / Monitoring
 
 - [Data Pipeline Architecture](./data-pipeline-architecture)
-
 - [Data Observability](./data-observability)
