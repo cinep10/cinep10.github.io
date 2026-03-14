@@ -41,6 +41,7 @@ https://example.service/page.do?event_id=14
 
 The analytics system architecture looked like this:
 
+```text
 User Browser
 │
 ▼
@@ -54,6 +55,7 @@ Analytics Engine
 │
 ▼
 Dashboard / Reports
+```
 
 In theory:
 
