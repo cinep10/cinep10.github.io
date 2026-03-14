@@ -1,8 +1,8 @@
 # DWKim Engineering Notes
 
-Engineering notes and architecture experiments focused on building **trustworthy data systems**.
+Engineering notes and architectural work focused on building **trustworthy data systems**.
 
-This site documents technical experiments, validation frameworks, and architectural approaches related to:
+This site documents practical and conceptual work related to:
 
 - Data Reliability
 - Statistical Data Drift Detection
@@ -14,32 +14,47 @@ Rather than treating data quality as a downstream analytics issue, I focus on de
 
 ---
 
-## About
+## Featured Topics
 
-Background and engineering focus.
+Selected topics that reflect my core engineering focus:
 
-➡️ [About](./about)
+- [Data Drift in Digital Channels](./articles/data-drift-digital-channels)
+- [Digital Channel Data Validation](./portfolio/digital-channel-data-validation)
+- [Data Reliability Architecture](./portfolio/data-reliability-architecture)
 
 ---
 
 ## Portfolio
 
-Architecture patterns and framework-oriented work related to data reliability and data risk control.
+Framework-oriented and architectural work related to data reliability and data risk control.
 
-➡️ [Portfolio](./portfolio)
+➡️ [Go to Portfolio](./portfolio)
 
 ---
 
 ## Engineering Notes
 
-Technical case studies and system experiments.
+Technical case studies, system experiments, and operational lessons.
 
-➡️ [Engineering Notes](./engineering-notes)
+➡️ [Go to Engineering Notes](./engineering-notes)
+
+Examples include:
+
+- Web Log Session ID Data Consistency
+- WSL ext4 Recovery Case Study
 
 ---
 
 ## Articles
 
-Conceptual writing and engineering notes on data systems.
+Conceptual and architectural notes on data systems, validation, and reliability.
 
-➡️ [Articles](./articles)
+➡️ [Go to Articles](./articles)
+
+---
+
+## About
+
+Background, engineering focus, and current interests.
+
+➡️ [About](./about)
