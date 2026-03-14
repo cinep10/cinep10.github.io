@@ -2,18 +2,22 @@
 
 Conceptual writing on data reliability, validation, and digital channel data systems.
 
-This section includes notes and essays on:
-
-- Data Drift
-- Data Reliability
-- Data Quality
-- Cross-System Validation
-- Digital Channel Data
+This section includes notes and essays on how data systems become unreliable, how discrepancies appear, and how control architectures can reduce risk.
 
 ---
 
-## Articles
+## Data Reliability
+
+- [Reliability Engineering](./reliability-engineering)
+
+---
+
+## Data Drift
 
 - [Data Drift in Digital Channels](./data-drift-digital-channels)
+
+---
+
+## Digital Channel Data
+
 - [Digital Channel Data](./digital-channel-data)
-- [Reliability Engineering](./reliability-engineering)
