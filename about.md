@@ -83,4 +83,4 @@ GitHub
 https://cinep10.github.io
 
 Email  
-name [at] gmail.com
+cinep10 [at] gmail.com
