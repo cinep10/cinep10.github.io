@@ -1,12 +1,12 @@
 # Portfolio
 
-This section introduces architectural ideas and experimental frameworks related to **data reliability and data risk control** in digital platforms.
+This section introduces architectural ideas and framework-oriented work related to **data reliability and data risk control**.
 
 The designs focus on ensuring that operational data remains trustworthy across the entire lifecycle — from event collection to analytics and decision-making.
 
 ---
 
-## Overview
+## Portfolio Overview
 
 - [Statistical Data Drift Framework](./drift-framework)
 - [Data Reliability Architecture](./data-reliability-architecture)
@@ -14,75 +14,35 @@ The designs focus on ensuring that operational data remains trustworthy across t
 
 ---
 
-## Statistical Data Drift Framework
+## Focus
 
-A statistical monitoring framework designed to detect abnormal changes in operational data.
+This portfolio is built around three themes:
 
-The framework focuses on identifying issues such as:
+### 1. Statistical Stability
+
+Detecting abnormal changes in operational data such as:
 
 - distribution shift
 - sudden metric deviation
 - null ratio spikes
 - event volume anomalies
 
-Typical methods include:
+### 2. Reliability Architecture
 
-- PSI (Population Stability Index)
-- ratio monitoring
-- anomaly band detection
-- statistical baseline comparison
+Designing validation and monitoring layers across:
 
-The goal is to detect hidden failures in data pipelines **before they affect analytics or business decisions.**
+- event collection
+- pipeline processing
+- warehouse loading
+- metric generation
 
----
+### 3. Validation Across Systems
 
-## Data Reliability Architecture
+Comparing metrics across:
 
-A design approach that ensures operational data remains trustworthy across distributed systems.
+- client events
+- server logs
+- collectors
+- analytics engines
 
-Typical architecture:
-
-```text
-Application
-   ↓
-Event Collector
-   ↓
-Data Pipeline
-   ↓
-Data Warehouse
-   ↓
-Metric Layer
-   ↓
-Monitoring / Validation
-```
-Key risks addressed:
- - cross-system metric mismatch
- - data loss during pipeline processing
- - inconsistent aggregation logic
- - silent data drift
-
-This architecture introduces validation checkpoints across each stage of the data lifecycle.
-
----
-
-## Digital Channel Data Validation
-
-Digital platforms typically rely on multiple independent data sources:
-
-```
-Client Events
-Server Logs
-Data Collectors
-Analytics Engines
-```
-
-Validation mechanisms compare metrics across these systems to detect discrepancies early.
-
-Examples include:
- - event count reconciliation
- - pipeline validation queries
- - cross-system KPI comparison
-
-These validation processes help maintain data integrity and operational trust in production environments.
-
-
+The goal is to reduce interpretation risk and improve trust in operational data.
