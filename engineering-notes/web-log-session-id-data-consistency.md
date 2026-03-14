@@ -85,7 +85,9 @@ Actual URL in logs
 
 Important part:
 
+```
 ;jsessionid=XXXX
+```
 
 This value represents the **Session ID**.
 
@@ -126,7 +128,9 @@ If cookies are unavailable, session IDs are embedded into the URL path.
 
 Example:
 
+```
 /page.do;jsessionid=ABCD123456789
+```
 
 This method is called **URL Rewriting**.
 
@@ -138,8 +142,10 @@ The investigated system was using URL rewriting.
 
 Web log URLs:
 
+```
 /service/page.do;jsessionid=ABC123
 /service/page.do;jsessionid=XYZ987
+```
 
 Analytics system interpretation:
 
@@ -199,16 +205,22 @@ The solution was to normalize URLs by removing session identifiers.
 
 Example regex rule:
 
+```
 ;jsessionid=.*
+```
 
 Or a normalized pattern:
 
+```
 /service/page.do(;jsessionid=.*)?
+```
 
 After normalization:
 
+```
 /page.do
 /page.do;jsessionid=xxxxx
+```
 
 Both URLs are treated as the same page.
 
