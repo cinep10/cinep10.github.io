@@ -72,3 +72,14 @@ This site serves as a collection of:
 - operational troubleshooting notes
 
 All content here reflects practical engineering experiences and explorations around **data reliability and trustworthy analytics systems**.
+
+## Contact
+
+LinkedIn  
+https://linkedin.com/in/xxxx
+
+GitHub  
+https://github.com/xxxx
+
+Email  
+name [at] gmail.com
