@@ -1,49 +1,72 @@
 # About
 
-I design **data reliability and validation architectures** for regulated digital environments.
+I work on building **trustworthy data systems**.
 
-My work focuses on ensuring that operational data remains trustworthy across the full lifecycle of digital platforms.
+My work focuses on understanding why operational data becomes unreliable and how validation and control mechanisms can reduce risk across complex data pipelines.
 
-This includes:
+Rather than treating data quality as a downstream analytics problem, I approach it as a **system architecture problem**.
 
-- event collection systems
-- data pipelines
-- analytics layers
-- operational metrics
+---
 
-Rather than treating data quality as a downstream analytics issue, I approach it as a **system architecture and control problem**.
+## Focus Areas
 
-My engineering focus includes:
+My current work and interests revolve around:
 
+- Data Reliability Engineering
 - Statistical Data Drift Detection
 - Cross-System Data Validation
-- Data Reliability Architecture
-- Data Governance and Operational Controls
+- Data Observability
+- Digital Channel Data Architecture
+
+These topics often appear in large-scale analytics environments where data flows through multiple systems such as web servers, collectors, data pipelines, and analytics platforms.
 
 ---
 
 ## Background
 
-I have worked on digital channel data platforms in financial and public-sector environments, focusing on log analytics, data validation pipelines, and metric consistency across distributed systems.
+Over the years, I have worked on data systems in **financial and public-sector IT environments**, particularly in areas involving:
 
-Many real-world systems suffer from hidden risks such as:
+- web log analytics
+- digital channel data collection
+- cross-system metric validation
+- operational data troubleshooting
 
-- event loss
-- cross-system metric mismatch
-- schema inconsistencies
-- silent data drift
+Many of these environments involve multiple layers of data processing:
 
-My work aims to detect and control these risks through structured validation frameworks.
+User Events
+→ Web Server Logs
+→ Data Collectors
+→ ETL Pipelines
+→ Analytics Engines
+→ Dashboards
+
+In these systems, small inconsistencies can lead to large interpretation risks.
+
+My work focuses on identifying these hidden failures and designing validation mechanisms to reduce them.
 
 ---
 
-## Engineering Notes
+## Current Interests
 
-This site serves as a technical archive documenting experiments, case studies, and architectural ideas.
+Currently I am particularly interested in the following areas:
 
-Topics include:
+- Data Reliability Architecture
+- Statistical Monitoring for Data Drift
+- Cross-System Metric Reconciliation
+- Observability for Data Pipelines
+- Data Risk in Analytics Systems
 
-- Linux / WSL system behavior
-- data pipeline reliability
-- statistical monitoring
-- data observability
+These interests are reflected in the articles, engineering notes, and portfolio projects documented on this site.
+
+---
+
+## About This Site
+
+This site serves as a collection of:
+
+- technical case studies
+- architectural ideas
+- validation frameworks
+- operational troubleshooting notes
+
+All content here reflects practical engineering experiences and explorations around **data reliability and trustworthy analytics systems**.
