@@ -77,7 +77,7 @@ All content here reflects practical engineering experiences and explorations aro
 ## Contact
 
 LinkedIn  
-https://linkedin.com/in/xxxx
+https://www.linkedin.com/in/동욱-김-0179083b1
 
 GitHub  
 https://cinep10.github.io
