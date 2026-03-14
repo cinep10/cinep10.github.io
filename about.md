@@ -74,13 +74,16 @@ This site serves as a collection of:
 All content here reflects practical engineering experiences and explorations around **data reliability and trustworthy analytics systems**.
 
 ---
+
 ## Contact
 
+If you are interested in topics related to data reliability, data validation, or analytics systems, feel free to connect.
+
 LinkedIn  
-https://www.linkedin.com/in/동욱-김-0179083b1
+https://linkedin.com/in/동욱-김-0179083b1
 
 GitHub  
-https://cinep10.github.io
+https://github.com/cinep10
 
 Email  
 cinep10 [at] gmail.com
