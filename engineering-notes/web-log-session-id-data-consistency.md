@@ -91,8 +91,10 @@ This value represents the **Session ID**.
 
 Example access log:
 
+```text
 192.168.0.1 - - [12/Feb/2026:09:12:44] “GET /service/page.do;jsessionid=A123BC?event_id=14 HTTP/1.1” 200
 192.168.0.2 - - [12/Feb/2026:09:12:51] “GET /service/page.do;jsessionid=D992XY?event_id=14 HTTP/1.1” 200
+```
 
 From the web server perspective, these requests are simply page views.
 
