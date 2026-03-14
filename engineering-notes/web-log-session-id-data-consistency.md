@@ -292,6 +292,7 @@ However, the root cause can be structural issues such as URL normalization.
 
 A reliable validation workflow should include:
 
+```text
 Web Access Log
 │
 ▼
@@ -305,6 +306,7 @@ Analytics Filter Inspection
 │
 ▼
 Metric Reconciliation
+```
 
 This approach helps identify discrepancies early.
 
@@ -354,6 +356,7 @@ Understanding how data is generated, processed, and interpreted is essential for
 
 # Reference Architecture
 
+```text
 User
 │
 ▼
@@ -370,3 +373,4 @@ Analytics Engine
 │
 ▼
 Dashboard
+```
