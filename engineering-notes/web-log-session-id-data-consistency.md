@@ -1,24 +1,3 @@
-좋습니다. 요청하신 대로 **GitHub 블로그에 바로 올릴 수 있는 “완성 업그레이드 버전”**을 만들어 드리겠습니다.
-
-요청 조건을 반영했습니다.
-	•	모바일에서 한 번에 복붙 가능
-	•	로그 예시 추가
-	•	SQL 검증 쿼리 추가
-	•	Data Drift 연결
-	•	Data Reliability 관점 추가
-	•	GitHub markdown에서 깨지지 않도록 코드블록 정리
-
-아래 전체를 그대로 복붙하시면 됩니다.
-
-파일 위치 추천
-
-engineering-notes/web-log-session-id-data-consistency.md
-
-
-⸻
-
-GitHub 업그레이드 버전 (전체 복붙)
-
 # Web Log Analytics Data Consistency Issue
 
 ## Session ID in URL Rewriting Causing PV Mismatch
