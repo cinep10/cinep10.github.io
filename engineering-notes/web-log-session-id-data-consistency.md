@@ -73,11 +73,15 @@ During the log inspection, an unusual URL pattern appeared.
 
 Normal URL
 
+```
 /service/page.do?event_id=14
+```
 
 Actual URL in logs
 
+```
 /service/page.do;jsessionid=ABCD123456789?event_id=14
+```
 
 Important part:
 
