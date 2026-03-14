@@ -79,7 +79,7 @@ LinkedIn
 https://linkedin.com/in/xxxx
 
 GitHub  
-https://github.com/xxxx
+https://cinep10.github.io
 
 Email  
 name [at] gmail.com
