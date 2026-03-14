@@ -168,12 +168,14 @@ To validate the discrepancy, raw logs were analyzed.
 
 Example SQL validation query:
 
+```sql
 SELECT
 COUNT(*) AS pv
 FROM
 access_logs
 WHERE
 request_uri LIKE ‘/service/page.do%’
+```
 
 Result:
 
