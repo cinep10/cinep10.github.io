@@ -33,12 +33,14 @@ Over the years, I have worked on data systems in **financial and public-sector I
 
 Many of these environments involve multiple layers of data processing:
 
+```text
 User Events
 → Web Server Logs
 → Data Collectors
 → ETL Pipelines
 → Analytics Engines
 → Dashboards
+```
 
 In these systems, small inconsistencies can lead to large interpretation risks.
 
