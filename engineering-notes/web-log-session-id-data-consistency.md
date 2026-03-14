@@ -225,6 +225,7 @@ It is a **data reliability problem**.
 
 Modern analytics pipelines depend on multiple processing layers:
 
+```text
 User Event
 │
 ▼
@@ -241,6 +242,7 @@ Analytics Engine
 │
 ▼
 Dashboard
+```
 
 Small inconsistencies in any stage can produce misleading metrics.
 
