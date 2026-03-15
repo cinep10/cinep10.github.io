@@ -50,7 +50,7 @@ Examples:
 
 👉 **Open**
 
-[Data Drift Framework](/portfolio/drift-framework)
+[Data Drift Framework](/portfolio/data-drift-framework)
 
 ---
 
