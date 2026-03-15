@@ -48,7 +48,7 @@ Examples:
 - ratio change in key metrics
 - distribution shift
 
-👉 **Open**
+→ **View Drift Framework**
 
 [Data Drift Framework](/portfolio/data-drift-framework)
 
