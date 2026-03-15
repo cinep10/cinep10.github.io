@@ -34,7 +34,7 @@ Typical problems include:
 
 → **Open**
 
-[Data Reliability Architecture](portfolio/data-reliability-architecture.md)
+[portfolio](./data-reliability-architecture.md)
 
 ---
 
