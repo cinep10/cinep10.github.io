@@ -10,6 +10,7 @@ This architecture focuses on detecting those failures.
 
 # Typical Analytics Pipeline
 
+```text
 User Event  
 ↓  
 Web Server Log  
@@ -21,6 +22,7 @@ Data Pipeline
 Analytics Tables  
 ↓  
 Dashboard
+```
 
 Each stage introduces potential reliability risks.
 
