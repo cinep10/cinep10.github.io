@@ -8,24 +8,27 @@ This site documents engineering notes and architectural ideas related to **data 
 
 # About
 
-I focus on improving the reliability of analytics data used in digital services.
+I work on improving the reliability of analytics data used in digital services.
 
-Modern digital platforms depend on complex analytics pipelines composed of multiple systems:
+Modern digital platforms depend on complex analytics pipelines composed of multiple systems such as:
 
-Web Applications  
-Web Server Logs  
-Collectors  
-Data Pipelines  
-Analytics Warehouses  
+Web applications  
+Log collectors  
+Data pipelines  
+Analytics warehouses  
 Dashboards  
 
 Failures can occur silently between these systems and eventually affect business metrics and decision making.
 
 My work focuses on detecting and controlling these hidden risks in analytics pipelines.
 
+👉 **About**
+
+[About](/about)
+
 ---
 
-# Core Topics
+# Core Areas
 
 ### Data Reliability
 
@@ -33,10 +36,9 @@ Ensuring analytics data remains trustworthy across multiple systems.
 
 Topics include:
 
-- cross-system validation
-- analytics data consistency
-- pipeline reliability
-- metric reconciliation
+- cross-system validation  
+- analytics data consistency  
+- pipeline reliability  
 
 ---
 
@@ -44,18 +46,17 @@ Topics include:
 
 Detecting unexpected statistical changes in operational data.
 
-Examples:
+Examples include:
 
-- abnormal user behavior shifts
-- sudden metric changes
-- distribution drift
-- traffic anomalies
+- abnormal user behavior shifts  
+- sudden metric changes  
+- distribution drift  
 
-Methods explored:
+Methods explored include:
 
-- Population Stability Index (PSI)
-- ratio monitoring
-- statistical anomaly detection
+- Population Stability Index (PSI)  
+- ratio monitoring  
+- anomaly detection  
 
 ---
 
@@ -65,10 +66,10 @@ Monitoring the operational health of analytics pipelines.
 
 Key signals include:
 
-- freshness
-- volume
-- schema
-- pipeline latency
+- freshness  
+- volume  
+- schema stability  
+- pipeline latency  
 
 Observability provides early detection of pipeline failures before they affect reporting systems.
 
@@ -80,10 +81,10 @@ Architecture frameworks and design documents related to data reliability and dri
 
 Topics include:
 
-- Data Reliability Architecture
-- Drift Monitoring Framework
-- Cross-System Data Validation
-- Data Observability Design
+- Data Reliability Architecture  
+- Data Drift Monitoring Framework  
+- Cross-System Data Validation  
+- Data Observability Design  
 
 👉 **Open Portfolio**
 
@@ -93,40 +94,14 @@ Topics include:
 
 # Engineering Notes
 
-Technical investigations and operational experiences from real-world analytics environments.
+Technical investigations and operational experiences from analytics environments.
 
 Examples include:
 
-- WSL filesystem behavior
-- web log data consistency issues
-- analytics pipeline troubleshooting
-- monitoring and validation techniques
+- WSL filesystem behavior  
+- web log data consistency issues  
+- analytics pipeline troubleshooting  
 
 👉 **Open Engineering Notes**
 
 [Go to Engineering Notes](/engineering-notes)
-
----
-
-# Site Structure
-
-This site is organized into two main sections.
-
-Home
-│
-├── Portfolio
-│      ├ Architecture Design
-│      ├ Drift Monitoring Framework
-│      └ Validation Architecture
-│
-└── Engineering Notes
-├ Linux / WSL
-├ Data Pipeline
-└ Observability
-
----
-
-# Contact
-
-LinkedIn  
-GitHub
