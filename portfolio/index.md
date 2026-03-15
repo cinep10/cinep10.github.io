@@ -9,7 +9,7 @@ Web Server Logs
 Collectors  
 Data Pipelines  
 Analytics Warehouses  
-Dashboards
+Dashboards  
 
 Failures may occur silently between these systems and lead to incorrect business insights.
 
@@ -30,9 +30,9 @@ Typical problems include:
 - schema changes
 - transformation errors
 
-→ **Open**
+👉 **Open**
 
-[Data Reliability Architecture](../portfolio/data-reliability-architecture/)
+[Data Reliability Architecture](/portfolio/data-reliability-architecture)
 
 ---
 
@@ -46,9 +46,9 @@ Examples:
 - ratio change in key metrics
 - distribution shift
 
-→ **Open**
+👉 **Open**
 
-[Data Drift Framework](../portfolio/data-drift-framework/)
+[Data Drift Framework](/portfolio/data-drift-framework)
 
 ---
 
@@ -61,9 +61,9 @@ Examples:
 - raw log vs collector validation
 - collector vs analytics warehouse validation
 
-→ **Open**
+👉 **Open**
 
-[Validation Framework](../portfolio/data-validation-framework/)
+[Validation Framework](/portfolio/data-validation-framework)
 
 ---
 
@@ -91,10 +91,12 @@ Drift Detection
 ↓  
 Observability
 
+Each layer detects different reliability risks.
+
 ---
 
 # Related Engineering Notes
 
 Technical investigations and operational notes are available here.
 
-[Engineering Notes](../engineering-notes/)
+👉 [Engineering Notes](/engineering-notes)
