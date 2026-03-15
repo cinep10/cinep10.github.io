@@ -19,7 +19,7 @@ Rather than treating data quality as a downstream analytics issue, I focus on de
 Selected articles that represent my core focus on data reliability and validation.
 
 - [Data Drift in Digital Channels](./articles/data-drift-digital-channels.md)
-- [Digital Channel Data Validation](./portfolio/digital-channel-data-validation.md)
+- [Digital Channel Data Validation](./portfolio/data-reliability-architecture.md)
 - [Data Reliability vs Data Quality](./articles/reliability-engineering.md)
 - [Web Log Session ID Data Consistency Issue](./engineering-notes/web-log-session-id-data-consistency.md)
 
