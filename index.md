@@ -1,6 +1,6 @@
 # DWKim Engineering Notes
 
-Data Reliability • Data Drift • Analytics Infrastructur
+Data Reliability • Data Drift • Analytics Infrastructure
 
 This site documents engineering notes and architectural ideas related to **data reliability, analytics pipelines, and drift monitoring** in modern digital systems.
 
