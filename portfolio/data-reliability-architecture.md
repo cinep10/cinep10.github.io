@@ -30,6 +30,7 @@ The framework introduces reliability monitoring layers on top of analytics pipel
 
 Analytics Pipeline
 
+```text
 User Event  
 ↓  
 Web Log  
@@ -41,19 +42,23 @@ Data Pipeline
 Analytics Warehouse  
 ↓  
 Dashboard
+```
 
 Monitoring Layers
 
+```text
 Validation  
 ↓  
 Drift Detection  
 ↓  
 Observability
+```
 
 ---
 
 # Project Structure
 
+```text
 drift-risk-framework
 │
 ├── README.md
@@ -94,9 +99,10 @@ drift-risk-framework
 │   └ observability_report_example.html
 │
 └── 08_documentation
-├ risk_framework.md
-├ drift_methodology.md
-└ monitoring_strategy.md
+     ├ risk_framework.md
+     ├ drift_methodology.md
+     └ monitoring_strategy.md
+```
 
 ---
 
@@ -104,6 +110,7 @@ drift-risk-framework
 
 The architecture monitors analytics data across pipeline stages.
 
+```text
 Raw Data  
 ↓  
 Validation  
@@ -113,6 +120,7 @@ Drift Detection
 Observability Monitoring  
 ↓  
 Operational Alerts
+```
 
 Each monitoring layer detects different types of data risks.
 
@@ -124,11 +132,13 @@ Cross-system validation compares data across pipeline stages.
 
 Example validation flow:
 
+```text
 Raw Log  
 ↓  
 Collector Data  
 ↓  
 Analytics Tables
+```
 
 Validation checks include:
 
