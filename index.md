@@ -22,7 +22,7 @@ Failures can occur silently between these systems and eventually affect business
 
 My work focuses on detecting and controlling these hidden risks in analytics pipelines.
 
-👉 **About**
+→ **About**
 
 [About](/about)
 
@@ -86,7 +86,7 @@ Topics include:
 - Cross-System Data Validation  
 - Data Observability Design  
 
-👉 **Open Portfolio**
+→ **Open Portfolio**
 
 [Go to Portfolio](/portfolio)
 
@@ -102,6 +102,6 @@ Examples include:
 - web log data consistency issues  
 - analytics pipeline troubleshooting  
 
-👉 **Open Engineering Notes**
+→ **Open Engineering Notes**
 
 [Go to Engineering Notes](/engineering-notes)
