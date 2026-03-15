@@ -1,68 +1,73 @@
 # Portfolio
 
-This portfolio documents architectural work related to **data reliability and drift monitoring in analytics systems**.
+This portfolio documents architectural work related to **Data Reliability, Data Drift Monitoring, and Analytics Pipeline Validation**.
 
-Modern analytics environments involve multiple systems and pipelines.
+Modern analytics systems depend on multiple independent systems such as:
 
-Failures may occur silently and affect business metrics without immediate detection.
+Web Applications  
+Web Server Logs  
+Collectors  
+Data Pipelines  
+Analytics Warehouses  
+Dashboards
 
-This portfolio explores architectural approaches to detect and control those risks.
+Failures may occur silently between these systems and lead to incorrect business insights.
+
+This portfolio explores architectural approaches for detecting and controlling those risks.
 
 ---
 
 # Portfolio Topics
 
-The work focuses on three major areas.
-
 ## Data Reliability Architecture
 
-Ensuring analytics data remains consistent across systems.
+Designing monitoring systems that ensure analytics data remains reliable across pipeline stages.
 
 Typical problems include:
 
 - pipeline data loss
-- metric mismatches
+- metric mismatch
 - schema changes
 - transformation errors
 
-→ **View Architecture**
+→ **Open**
 
-/portfolio/data-reliability-architecture
+[Data Reliability Architecture](../portfolio/data-reliability-architecture/)
 
 ---
 
 ## Statistical Drift Monitoring
 
-Detecting abnormal changes in operational data distributions.
+Detecting abnormal statistical changes in operational data.
 
 Examples:
 
 - unexpected traffic spikes
-- ratio changes in key metrics
-- distribution shifts
+- ratio change in key metrics
+- distribution shift
 
-→ **View Drift Framework**
+→ **Open**
 
-/portfolio/data-drift-framework
+[Data Drift Framework](../portfolio/data-drift-framework/)
 
 ---
 
 ## Cross-System Data Validation
 
-Comparing data across multiple pipeline systems.
+Ensuring data consistency between pipeline systems.
 
 Examples:
 
 - raw log vs collector validation
-- collector vs analytics table comparison
+- collector vs analytics warehouse validation
 
-→ **View Validation Framework**
+→ **Open**
 
-/portfolio/data-validation-framework
+[Validation Framework](../portfolio/data-validation-framework/)
 
 ---
 
-# Architecture Overview
+# Architecture Concept
 
 Analytics pipelines typically look like this:
 
@@ -78,18 +83,18 @@ Analytics Warehouse
 ↓  
 Dashboard
 
-The framework introduces monitoring layers:
+Monitoring layers are introduced:
 
 Validation  
+↓  
 Drift Detection  
+↓  
 Observability
-
-Each layer detects different reliability risks.
 
 ---
 
 # Related Engineering Notes
 
-Additional technical investigations are available here.
+Technical investigations and operational notes are available here.
 
-→ /engineering-notes
+[Engineering Notes](../engineering-notes/)
