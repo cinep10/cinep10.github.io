@@ -32,7 +32,7 @@ Typical problems include:
 - schema changes
 - transformation errors
 
-👉 **Open**
+→ **View Architecture*
 
 [Data Reliability Architecture](/portfolio/data-reliability-architecture)
 
