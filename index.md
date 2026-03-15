@@ -111,3 +111,22 @@ Examples include:
 # Site Structure
 
 This site is organized into two main sections.
+
+Home
+│
+├── Portfolio
+│      ├ Architecture Design
+│      ├ Drift Monitoring Framework
+│      └ Validation Architecture
+│
+└── Engineering Notes
+├ Linux / WSL
+├ Data Pipeline
+└ Observability
+
+---
+
+# Contact
+
+LinkedIn  
+GitHub
