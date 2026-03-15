@@ -1,61 +1,113 @@
 # DWKim Engineering Notes
 
-Engineering notes and architectural work focused on building **trustworthy data systems**.
+Data Reliability • Data Drift • Analytics Infrastructure
 
-This site documents technical experiments, validation frameworks, and architectural approaches related to:
-
-- Data Reliability
-- Statistical Data Drift Detection
-- Cross-System Data Validation
-- Data Observability
-- Digital Channel Data Architecture
-
-Rather than treating data quality as a downstream analytics issue, I focus on designing **control architectures that keep operational data trustworthy across collection, processing, and analytics layers.**
-
----
-
-# Featured Work
-
-Selected articles that represent my core focus on data reliability and validation.
-
-- [Data Drift in Digital Channels](./articles/data-drift-digital-channels.md)
-- [Digital Channel Data Validation](./portfolio/data-reliability-architecture.md)
-- [Data Reliability vs Data Quality](./articles/reliability-engineering.md)
-- [Web Log Session ID Data Consistency Issue](./engineering-notes/web-log-session-id-data-consistency.md)
-
----
-
-# Portfolio
-
-Architecture patterns and framework-oriented work related to data reliability and data risk control.
-
-➡️ [Go to Portfolio](./portfolio)
-
----
-
-# Engineering Notes
-
-Technical case studies and system experiments.
-
-➡️ [Go to Engineering Notes](./engineering-notes)
-
-Examples include:
-
-- WSL ext4 Recovery Case Study
-- Web Log Session ID Data Consistency Issue
-
----
-
-# Articles
-
-Conceptual and architectural discussions related to data systems.
-
-➡️ [Go to Articles](./articles)
+This site documents engineering notes and architectural ideas related to **data reliability, analytics pipelines, and drift monitoring** in modern digital systems.
 
 ---
 
 # About
 
-Background and engineering focus.
+I focus on improving the reliability of analytics data used in digital services.
 
-➡️ [About](./about.md)
+Modern digital platforms depend on complex analytics pipelines composed of multiple systems:
+
+Web Applications  
+Web Server Logs  
+Collectors  
+Data Pipelines  
+Analytics Warehouses  
+Dashboards  
+
+Failures can occur silently between these systems and eventually affect business metrics and decision making.
+
+My work focuses on detecting and controlling these hidden risks in analytics pipelines.
+
+---
+
+# Core Topics
+
+### Data Reliability
+
+Ensuring analytics data remains trustworthy across multiple systems.
+
+Topics include:
+
+- cross-system validation
+- analytics data consistency
+- pipeline reliability
+- metric reconciliation
+
+---
+
+### Data Drift Monitoring
+
+Detecting unexpected statistical changes in operational data.
+
+Examples:
+
+- abnormal user behavior shifts
+- sudden metric changes
+- distribution drift
+- traffic anomalies
+
+Methods explored:
+
+- Population Stability Index (PSI)
+- ratio monitoring
+- statistical anomaly detection
+
+---
+
+### Data Observability
+
+Monitoring the operational health of analytics pipelines.
+
+Key signals include:
+
+- freshness
+- volume
+- schema
+- pipeline latency
+
+Observability provides early detection of pipeline failures before they affect reporting systems.
+
+---
+
+# Portfolio
+
+Architecture frameworks and design documents related to data reliability and drift monitoring.
+
+Topics include:
+
+- Data Reliability Architecture
+- Drift Monitoring Framework
+- Cross-System Data Validation
+- Data Observability Design
+
+👉 **Open Portfolio**
+
+[Go to Portfolio](/portfolio)
+
+---
+
+# Engineering Notes
+
+Technical investigations and operational experiences from real-world analytics environments.
+
+Examples include:
+
+- WSL filesystem behavior
+- web log data consistency issues
+- analytics pipeline troubleshooting
+- monitoring and validation techniques
+
+👉 **Open Engineering Notes**
+
+[Go to Engineering Notes](/engineering-notes)
+
+---
+
+# Site Structure
+
+This site is organized into two main sections.
