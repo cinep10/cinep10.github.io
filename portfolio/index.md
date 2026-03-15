@@ -32,7 +32,7 @@ Typical problems include:
 
 → **Open**
 
-[Data Reliability Architecture](../portfolio/data-reliability-architecture/)
+[Data Reliability Architecture](./portfolio/data-reliability-architecture/)
 
 ---
 
