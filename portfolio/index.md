@@ -63,7 +63,7 @@ Examples:
 - raw log vs collector validation
 - collector vs analytics warehouse validation
 
-👉 **Open**
+→ **View Validation Framework**
 
 [Validation Framework](/portfolio/data-validation-framework)
 
