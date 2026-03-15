@@ -80,7 +80,7 @@ All content here reflects practical engineering experiences and explorations aro
 If you are interested in topics related to data reliability, data validation, or analytics systems, feel free to connect.
 
 LinkedIn  
-https://linkedin.com/in/동욱-김-0179083b1
+https://linkedin.com/in/DWKIM-0179083b1
 
 GitHub  
 https://github.com/cinep10
