@@ -12,11 +12,13 @@ I work on improving the reliability of analytics data used in digital services.
 
 Modern digital platforms depend on complex analytics pipelines composed of multiple systems such as:
 
+```text
 Web applications  
 Log collectors  
 Data pipelines  
 Analytics warehouses  
 Dashboards  
+```
 
 Failures can occur silently between these systems and eventually affect business metrics and decision making.
 
