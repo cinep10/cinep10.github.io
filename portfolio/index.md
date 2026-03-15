@@ -105,4 +105,4 @@ Each layer detects different reliability risks.
 
 Technical investigations and operational notes are available here.
 
-👉 [Engineering Notes](/engineering-notes)
+→ [Engineering Notes](/engineering-notes)
