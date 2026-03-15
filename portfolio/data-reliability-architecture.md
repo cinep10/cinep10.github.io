@@ -1,89 +1,55 @@
-# Data Reliability Architecture
+# Data Reliability & Drift Monitoring Framework
 
-Modern analytics systems depend on data pipelines composed of multiple independent systems.
+This project explores a framework designed to detect reliability risks in analytics pipelines.
 
-Failures can occur silently between these systems and affect business metrics.
+Modern digital analytics systems involve multiple independent components such as web servers, log collectors, ETL pipelines, analytics warehouses, and dashboards.
 
-This architecture focuses on detecting those failures.
+Failures between these components can silently corrupt analytics metrics.
+
+This framework introduces monitoring mechanisms to detect those failures early.
 
 ---
 
-# Typical Analytics Pipeline
+# Problem Definition
 
-```text
+Analytics data reliability problems commonly include:
+
+- event loss during pipeline processing
+- inconsistent metric aggregation
+- schema drift
+- unexpected behavioral changes
+- delayed data ingestion
+
+These issues may remain undetected and lead to incorrect business decisions.
+
+---
+
+# Framework Overview
+
+The framework introduces reliability monitoring layers on top of analytics pipelines.
+
+Analytics Pipeline
+
 User Event  
 ↓  
-Web Server Log  
+Web Log  
 ↓  
-Log Collector  
+Collector  
 ↓  
 Data Pipeline  
 ↓  
-Analytics Tables  
+Analytics Warehouse  
 ↓  
 Dashboard
-```
 
-Each stage introduces potential reliability risks.
-
-Examples:
-
-missing events  
-duplicate records  
-schema changes  
-pipeline delays
-
----
-
-# Reliability Monitoring Layers
-
-The framework introduces three monitoring layers.
+Monitoring Layers
 
 Validation  
+↓  
 Drift Detection  
+↓  
 Observability
 
 ---
 
-## Validation Layer
-
-Ensures data consistency across systems.
-
-Examples:
-
-Raw Log vs Collector comparison
-
-Collector vs Analytics Tables validation
-
----
-
-## Drift Detection Layer
-
-Detects abnormal statistical changes.
-
-Methods:
-
-Population Stability Index
-
-Ratio monitoring
-
-Anomaly band detection
-
----
-
-## Observability Layer
-
-Monitors pipeline health signals.
-
-Signals include:
-
-freshness  
-volume  
-schema  
-latency
-
----
-
-# Objective
-
-The goal of this architecture is to detect hidden failures in analytics pipelines before they affect business decision-making.
+# Project Structure
