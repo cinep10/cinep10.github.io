@@ -99,9 +99,9 @@ drift-risk-framework
 │   └ observability_report_example.html
 │
 └── 08_documentation
-     ├ risk_framework.md
-     ├ drift_methodology.md
-     └ monitoring_strategy.md
+    ├ risk_framework.md
+    ├ drift_methodology.md
+    └ monitoring_strategy.md
 ```
 
 ---
