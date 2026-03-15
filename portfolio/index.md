@@ -4,14 +4,12 @@ This portfolio documents architectural work related to **Data Reliability, Data 
 
 Modern analytics systems depend on multiple independent systems such as:
 
-```text
 Web Applications  
 Web Server Logs  
 Collectors  
 Data Pipelines  
 Analytics Warehouses  
 Dashboards
-```
 
 Failures may occur silently between these systems and lead to incorrect business insights.
 
@@ -34,7 +32,7 @@ Typical problems include:
 
 → **Open**
 
-[portfolio](./data-reliability-architecture.md)
+[Data Reliability Architecture](../portfolio/data-reliability-architecture/)
 
 ---
 
@@ -73,7 +71,6 @@ Examples:
 
 Analytics pipelines typically look like this:
 
-```
 User Event  
 ↓  
 Web Log  
@@ -85,17 +82,14 @@ Data Pipeline
 Analytics Warehouse  
 ↓  
 Dashboard
-```
 
 Monitoring layers are introduced:
 
-```text
 Validation  
 ↓  
 Drift Detection  
 ↓  
 Observability
-```
 
 ---
 
