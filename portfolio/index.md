@@ -1,48 +1,95 @@
 # Portfolio
 
-This section introduces architectural ideas and framework-oriented work related to **data reliability and data risk control**.
+This portfolio documents architectural work related to **data reliability and drift monitoring in analytics systems**.
 
-The designs focus on ensuring that operational data remains trustworthy across the entire lifecycle — from event collection to analytics and decision-making.
+Modern analytics environments involve multiple systems and pipelines.
 
----
+Failures may occur silently and affect business metrics without immediate detection.
 
-## Portfolio Overview
-
-- [Statistical Data Drift Framework](./drift-framework)
-- [Data Reliability Architecture](./data-reliability-architecture)
-- [Digital Channel Data Validation](./digital-channel-data-validation)
+This portfolio explores architectural approaches to detect and control those risks.
 
 ---
 
-## Focus
+# Portfolio Topics
 
-This portfolio is built around three themes:
+The work focuses on three major areas.
 
-### 1. Statistical Stability
+## Data Reliability Architecture
 
-Detecting abnormal changes in operational data such as:
+Ensuring analytics data remains consistent across systems.
 
-- distribution shift
-- sudden metric deviation
-- null ratio spikes
-- event volume anomalies
+Typical problems include:
 
-### 2. Reliability Architecture
+- pipeline data loss
+- metric mismatches
+- schema changes
+- transformation errors
 
-Designing validation and monitoring layers across:
+→ **View Architecture**
 
-- event collection
-- pipeline processing
-- warehouse loading
-- metric generation
+/portfolio/data-reliability-architecture
 
-### 3. Validation Across Systems
+---
 
-Comparing metrics across:
+## Statistical Drift Monitoring
 
-- client events
-- server logs
-- collectors
-- analytics engines
+Detecting abnormal changes in operational data distributions.
 
-The goal is to reduce interpretation risk and improve trust in operational data.
+Examples:
+
+- unexpected traffic spikes
+- ratio changes in key metrics
+- distribution shifts
+
+→ **View Drift Framework**
+
+/portfolio/data-drift-framework
+
+---
+
+## Cross-System Data Validation
+
+Comparing data across multiple pipeline systems.
+
+Examples:
+
+- raw log vs collector validation
+- collector vs analytics table comparison
+
+→ **View Validation Framework**
+
+/portfolio/data-validation-framework
+
+---
+
+# Architecture Overview
+
+Analytics pipelines typically look like this:
+
+User Event  
+↓  
+Web Log  
+↓  
+Collector  
+↓  
+Data Pipeline  
+↓  
+Analytics Warehouse  
+↓  
+Dashboard
+
+The framework introduces monitoring layers:
+
+Validation  
+Drift Detection  
+Observability
+
+Each layer detects different reliability risks.
+
+---
+
+# Related Engineering Notes
+
+Additional technical investigations are available here.
+
+→ /engineering-notes
