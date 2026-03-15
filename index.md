@@ -2,6 +2,8 @@
 
 Data Reliability • Data Drift • Analytics Infrastructure
 
+I design monitoring and validation frameworks that improve the reliability of analytics data used in digital platforms.
+
 This site documents engineering notes and architectural ideas related to **data reliability, analytics pipelines, and drift monitoring** in modern digital systems.
 
 ---
