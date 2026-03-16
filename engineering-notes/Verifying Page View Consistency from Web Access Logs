@@ -1,15 +1,3 @@
----
-title: "Verifying Page View Consistency from Web Access Logs"
-date: 2026-03-16
-categories:
-  - Engineering Notes
-tags:
-  - analytics
-  - data validation
-  - web logs
-  - data reliability
----
-
 # Verifying Page View Consistency from Web Access Logs
 
 In web analytics environments, it is common to observe differences between **raw web server requests** and **page view (PV) metrics reported by analytics systems**.
