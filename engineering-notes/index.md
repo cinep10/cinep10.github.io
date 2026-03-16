@@ -8,7 +8,7 @@ This section focuses on practical engineering topics related to system behavior,
 
 ## Incident / Recovery
 
-- [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
+- [WSL ext4 Recovery Case Study](engineering-notes/wsl-ext4-recovery)
 
 ---
 
