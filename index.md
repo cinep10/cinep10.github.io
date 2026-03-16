@@ -60,4 +60,4 @@ The goal is to understand how to build systems that ensure **trustworthy analyti
 
 Information about background and experience.
 
-→ [About](about/)
+→ [About](./about/)
