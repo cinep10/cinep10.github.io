@@ -114,7 +114,9 @@ One important detail is that **the filtering should be applied to the path porti
 
 For example:
 
+```text
 /downloadFile.do?file=test.jpg
+```
 
 Although the query contains `.jpg`, the path itself represents an application endpoint and may still correspond to a page request.
 
