@@ -28,6 +28,7 @@ Without monitoring, these issues can degrade model performance without immediate
 
 The proposed architecture monitors feature reliability before data is used by machine learning systems.
 
+```text
 Feature Table
 ↓
 Feature Validation
@@ -37,7 +38,7 @@ Feature Drift Detection
 Feature Risk Score
 ↓
 ML Input Monitoring
-
+```
 
 ---
 
