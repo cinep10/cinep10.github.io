@@ -36,13 +36,13 @@ This site serves two purposes.
 
 Architecture-oriented projects exploring approaches for building reliable data systems.
 
-→ /portfolio/
+→ [View Portfolio](/portfolio/)
 
 **Engineering Notes**
 
 Operational investigations and technical notes documenting real system issues, debugging processes, and reliability analysis.
 
-→ /engineering-notes/
+→ [View Engineering Notes](/engineering-notes/)
 
 ---
 
