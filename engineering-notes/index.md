@@ -3,6 +3,7 @@
 Practical engineering notes on data reliability, system behavior, validation, and operational troubleshooting.
 
 This section documents real-world observations from working with production systems, analytics pipelines, and web log data.  
+
 Rather than tutorials, these notes focus on investigation, validation, recovery, and reliability-oriented engineering practice.
 
 These notes also complement the architecture and framework ideas presented in the Portfolio section.
