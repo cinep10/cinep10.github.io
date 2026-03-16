@@ -15,7 +15,7 @@ This section focuses on practical engineering topics related to system behavior,
 ## Data Validation / Analytics
 
 - [Web Log Session ID Data Consistency Issue](./web-log-session-id-data-consistency)
-- [Web Log Session ID Data Consistency Issue](./web-log-session-id-data-consistency)
+- [Verifying Page View Consistency from Web Access Logs](./web-log-session-id-data-consistency)
 
 ---
 
