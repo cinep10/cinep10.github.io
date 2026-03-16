@@ -1,89 +1,65 @@
 # About
 
-I work on building **trustworthy data systems**.
+This site documents architectural approaches for building **reliable data systems**.
 
-My work focuses on understanding why operational data becomes unreliable and how validation and control mechanisms can reduce risk across complex data pipelines.
-
-Rather than treating data quality as a downstream analytics problem, I approach it as a **system architecture problem**.
-
----
-
-## Focus Areas
-
-My current work and interests revolve around:
-
-- Data Reliability Engineering
-- Statistical Data Drift Detection
-- Cross-System Data Validation
-- Data Observability
-- Digital Channel Data Architecture
-
-These topics often appear in large-scale analytics environments where data flows through multiple systems such as web servers, collectors, data pipelines, and analytics platforms.
+The focus is on improving the reliability of analytics pipelines and ensuring the quality of data used for analytics and machine learning systems.
 
 ---
 
 ## Background
 
-Over the years, I have worked on data systems in **financial and public-sector IT environments**, particularly in areas involving:
+I work on problems related to **data reliability, analytics pipelines, and system observability**.
 
-- web log analytics
-- digital channel data collection
-- cross-system metric validation
-- operational data troubleshooting
-
-Many of these environments involve multiple layers of data processing:
-
-```text
-User Events
-→ Web Server Logs
-→ Data Collectors
-→ ETL Pipelines
-→ Analytics Engines
-→ Dashboards
-```
-
-In these systems, small inconsistencies can lead to large interpretation risks.
-
-My work focuses on identifying these hidden failures and designing validation mechanisms to reduce them.
+My primary interest is understanding how data systems can be designed and monitored to ensure that analytics and machine learning outputs remain trustworthy.
 
 ---
 
-## Current Interests
+## Focus Areas
 
-Currently I am particularly interested in the following areas:
+Key areas explored in this site include:
 
-- Data Reliability Architecture
-- Statistical Monitoring for Data Drift
-- Cross-System Metric Reconciliation
-- Observability for Data Pipelines
-- Data Risk in Analytics Systems
+- Data reliability architecture
+- Analytics pipeline validation
+- Metric drift detection
+- Data observability
+- ML input data monitoring
 
-These interests are reflected in the articles, engineering notes, and portfolio projects documented on this site.
+These topics are closely related to the emerging field of **Data Observability**, where the goal is to detect data quality issues before they affect downstream systems.
 
 ---
 
-## About This Site
+## This Site
 
-This site serves as a collection of:
+This site serves two purposes.
 
-- technical case studies
-- architectural ideas
-- validation frameworks
-- operational troubleshooting notes
+**Portfolio**
 
-All content here reflects practical engineering experiences and explorations around **data reliability and trustworthy analytics systems**.
+Architecture-oriented projects exploring approaches for building reliable data systems.
+
+→ /portfolio/
+
+**Engineering Notes**
+
+Operational investigations and technical notes documenting real system issues, debugging processes, and reliability analysis.
+
+→ /engineering-notes/
+
+---
+
+## Perspective
+
+Unlike typical data portfolios that focus mainly on tools or model development, this site explores **architecture and reliability design for data systems**.
+
+The central idea can be summarized as:
+
+Reliable Data  
+↓  
+Reliable Analytics  
+↓  
+Reliable Machine Learning
 
 ---
 
 ## Contact
 
-If you are interested in topics related to data reliability, data validation, or analytics systems, feel free to connect.
-
-LinkedIn  
-https://linkedin.com/in/dwkim-0179083b1
-
-GitHub  
-https://github.com/cinep10
-
-Email  
-cinep10 [at] gmail.com
+This site is maintained as part of ongoing exploration into **data reliability architecture and analytics system design**.
