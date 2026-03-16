@@ -1,108 +1,63 @@
 # Portfolio
 
-This portfolio documents architectural work related to **Data Reliability, Data Drift Monitoring, and Analytics Pipeline Validation**.
+Architecture-focused projects exploring **data reliability, analytics validation, and ML input monitoring**.
 
-Modern analytics systems depend on multiple independent systems such as:
+This portfolio focuses on the design of **reliable data systems**, with emphasis on validation, drift detection, and observability in data pipelines.
 
-```text
-Web Applications  
-Web Server Logs  
-Collectors  
-Data Pipelines  
-Analytics Warehouses  
-Dashboards  
-```
+Core concept:
 
-Failures may occur silently between these systems and lead to incorrect business insights.
-
-This portfolio explores architectural approaches for detecting and controlling those risks.
+Reliable Data → Reliable Analytics → Reliable Machine Learning
 
 ---
 
-# Portfolio Topics
+## Core Architecture Projects
 
-## Data Reliability Architecture
+### Data Reliability Architecture
 
-Designing monitoring systems that ensure analytics data remains reliable across pipeline stages.
+Architecture for monitoring reliability in analytics data pipelines.
 
-Typical problems include:
+This project explores how validation, drift detection, and observability can be used to ensure trustworthy analytics metrics.
 
-- pipeline data loss
-- metric mismatch
-- schema changes
-- transformation errors
-
-→ **View Architecture**
-
-[Data Reliability Architecture](/portfolio/data-reliability-architecture)
+→ [View Project](/portfolio/data-reliability-architecture)
 
 ---
 
-## Statistical Drift Monitoring
+### Analytics Pipeline Validation Framework
 
-Detecting abnormal statistical changes in operational data.
+Framework design for detecting inconsistencies in analytics pipelines caused by log processing differences, session handling, and aggregation logic.
 
-Examples:
+The project introduces systematic validation rules and consistency checks for analytics systems.
 
-- unexpected traffic spikes
-- ratio change in key metrics
-- distribution shift
-
-→ **View Drift Framework**
-
-[Data Drift Framework](/portfolio/data-drift-framework)
+→ [View Project](/portfolio/analytics-pipeline-validation-framework)
 
 ---
 
-## Cross-System Data Validation
+### ML Input Data Reliability Monitoring
 
-Ensuring data consistency between pipeline systems.
+Monitoring architecture for detecting drift and reliability issues in machine learning input data.
 
-Examples:
+This project focuses on feature validation, feature drift detection, and monitoring of ML input stability.
 
-- raw log vs collector validation
-- collector vs analytics warehouse validation
-
-→ **View Validation Framework**
-
-[Validation Framework](/portfolio/data-validation-framework)
+→ [View Project](/portfolio/ml-input-data-reliability-monitoring)
 
 ---
 
-# Architecture Concept
+## Portfolio Focus
 
-Analytics pipelines typically look like this:
+Unlike typical data portfolios that focus mainly on tools or coding, this portfolio emphasizes **architecture and reliability design for data systems**.
 
-```text
-User Event  
-↓  
-Web Log  
-↓  
-Collector  
-↓  
-Data Pipeline  
-↓  
-Analytics Warehouse  
-↓  
-Dashboard
-```
+Focus areas include:
 
-Monitoring layers are introduced:
-
-```text
-Validation  
-↓  
-Drift Detection  
-↓  
-Observability
-```
-
-Each layer detects different reliability risks.
+- Data reliability architecture
+- Analytics validation frameworks
+- Metric drift detection
+- ML input monitoring
+- Data observability
 
 ---
 
-# Related Engineering Notes
+## Engineering Notes
 
-Technical investigations and operational notes are available here.
+Operational investigations, troubleshooting cases, and technical experiments related to data pipelines and system reliability are documented in **Engineering Notes**.
 
-→ [Engineering Notes](/engineering-notes)
+→ [Engineering Notes](/engineering-notes/)
