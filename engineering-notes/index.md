@@ -16,7 +16,6 @@ This section focuses on practical engineering topics related to system behavior,
 
 - [Web Log Session ID Data Consistency Issue](./web-log-session-id-data-consistency)
 - [Verifying Page View Consistency from Web Access Logs](./Verifying Page View Consistency from Web Access Logs)
-
 ---
 
 ## Pipeline / Monitoring
