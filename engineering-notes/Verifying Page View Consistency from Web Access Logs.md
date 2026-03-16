@@ -113,3 +113,90 @@ Typical examples include:
 One important detail is that **the filtering should be applied to the path portion of the URL**, not the query string.
 
 For example:
+
+/downloadFile.do?file=test.jpg
+
+Although the query contains `.jpg`, the path itself represents an application endpoint and may still correspond to a page request.
+
+---
+
+# Recommended Validation Process
+
+A stable validation workflow usually follows these steps.
+
+### Step 1: Confirm Comparison Scope
+
+Ensure that both systems are using:
+
+- the same date range
+- the same log source
+- the same service scope
+
+---
+
+### Step 2: Derive PV from Access Logs
+
+Apply the defined aggregation rules:
+
+- allowed HTTP methods
+- status code range
+- URL normalization
+- static resource filtering
+
+This produces page-level PV counts derived from raw logs.
+
+---
+
+### Step 3: Compare Top Pages
+
+Compare the following between the two systems:
+
+- Top URLs
+- page rankings
+- PV counts
+
+Minor differences may occur due to timing or environment differences, but the overall distribution should be consistent.
+
+---
+
+### Step 4: Confirm Status Code Handling
+
+To better understand the analytics system behavior, it can be useful to check whether certain status codes are included in the PV calculation.
+
+This can be done by separating requests into groups such as:
+
+- successful responses
+- server errors
+
+and verifying how they affect page counts.
+
+---
+
+# Lessons Learned
+
+The most important insight from PV validation work is that **data consistency problems are usually definition problems rather than counting problems**.
+
+The key is to align the following:
+
+- page definition
+- URL normalization rules
+- filtering criteria
+
+Once these rules are aligned, the difference between analytics reports and server logs becomes much easier to explain.
+
+---
+
+# Conclusion
+
+Verifying page view metrics using access logs requires a clear understanding of **how page views are defined and filtered**.
+
+Instead of comparing total request counts, a more reliable method is to:
+
+- normalize URLs
+- filter non-page resources
+- aggregate requests by page
+- compare top pages across systems
+
+This approach provides a practical and reproducible way to validate analytics metrics derived from web traffic data.
+
+---
