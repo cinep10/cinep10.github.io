@@ -25,6 +25,7 @@ Without validation mechanisms, these issues can lead to **incorrect analytics me
 
 The proposed validation framework introduces systematic checks at different stages of the analytics pipeline.
 
+```text
 Raw Events
 ↓
 Validation Rules
@@ -34,7 +35,7 @@ Consistency Check
 Validation Result
 ↓
 Alert / Monitoring
-
+```
 
 ---
 
