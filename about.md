@@ -52,11 +52,13 @@ Unlike typical data portfolios that focus mainly on tools or model development, 
 
 The central idea can be summarized as:
 
+```text
 Reliable Data  
 ↓  
 Reliable Analytics  
 ↓  
 Reliable Machine Learning
+```
 
 ---
 
