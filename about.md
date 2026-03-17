@@ -65,3 +65,14 @@ Reliable Machine Learning
 ## Contact
 
 This site is maintained as part of ongoing exploration into **data reliability architecture and analytics system design**.
+
+If you are interested in topics related to data reliability, data validation, or analytics systems, feel free to connect.
+
+LinkedIn  
+https://linkedin.com/in/dwkim-0179083b1
+
+GitHub  
+https://github.com/cinep10
+
+Email  
+cinep10 [at] gmail.com
