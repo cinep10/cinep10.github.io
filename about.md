@@ -64,8 +64,7 @@ Reliable Machine Learning
 
 ## Contact
 
-This site is maintained as part of ongoing exploration into **data reliability architecture and analytics system design**. 
-If you are interested in topics related to data reliability architecture, data validation, or analytics systems, feel free to connect.
+Open to discussions on data reliability architecture, analytics systems, and data observability.
 
 LinkedIn  
 https://linkedin.com/in/dwkim-0179083b1
