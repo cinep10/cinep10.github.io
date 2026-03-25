@@ -156,10 +156,10 @@ It can be extended to:
 
 Batch processing should not be evaluated by execution success.
 
-It should be evaluated by data reliability.
+> It should be evaluated by data reliability.
 
 One-line Summary
 
-A batch is not successful when it runs —
-it is successful when its data can be trusted.
+> A batch is not successful when it runs —
+> it is successful when its data can be trusted.
 
