@@ -68,8 +68,9 @@ A simple and practical decision model is critical in operations.
 | FAIL | Immediate action required |
 
 ### Priority Rule
+```text
 OK < WARN < FAIL
-
+```
 
 - Any FAIL → Final FAIL
 - No FAIL but WARN exists → Final WARN
@@ -106,7 +107,7 @@ grep -i 'unknown'
 ```
 These five checks alone significantly improve production stability.
 
-6. Key Design Principles
+## 6. Key Design Principles
 1. Use absolute + relative checks together
 Absolute values alone are not enough
 Day-over-day comparison is critical
@@ -123,7 +124,8 @@ Per-file validation result
 Final status summary
 Historical log (append-only)
 Alert message
-7. What This System Really Is
+
+## 7. What This System Really Is
 
 This is not just a validation script.
 
@@ -137,7 +139,7 @@ We ask:
 
 "Is this data trustworthy?"
 
-8. Extensibility
+## 8. Extensibility
 
 This approach is not limited to log data.
 
@@ -148,7 +150,8 @@ Settlement / transaction systems
 ML feature validation
 Data pipeline observability
 Privacy-sensitive data validation
-9. Conclusion
+
+## 9. Conclusion
 
 Batch processing should not be evaluated by execution success.
 
