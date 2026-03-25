@@ -7,7 +7,10 @@
 ## 1. The Problem
 Most analytics systems assume that:
 
+```text
 If data exists → it is correct
+```
+
 This is often false.
 Common issues:
 - missing events
@@ -20,7 +23,16 @@ Common issues:
 ## 2. Validation Framework Overview
 This project introduces a structured validation layer:
 
-Metric → Validation → Validation Result → Summary
+```text
+Metric Layer
+    ↓
+Validation Rules
+    ↓
+validation_result
+    ↓
+validation_summary_day
+```
+
 Outputs
 - validation_result
 - validation_summary_day
@@ -29,19 +41,30 @@ Outputs
 
 ## 3. Types of Validation
 1️⃣ Completeness Validation
+
+```text
 Expected events vs actual events
+```
+
 Example:
 - missing page views
 - missing sessions
 
 2️⃣ Structural Validation
+
+```text
 Relationships between metrics
+```
+
 Example:
 - login → submit flow
 - session → page_view consistency
 
 3️⃣ Mapping Validation
+```text
 Raw data → metric mapping correctness
+```
+
 Example:
 - URL → page_type mapping coverage
 
@@ -51,8 +74,10 @@ Example:
 Validation is not just about errors.
 
 It defines:
-
+```text
 “How reliable the analytics layer is”
+```
+
 Without validation:
 - dashboards can be misleading
 - drift analysis becomes unreliable
