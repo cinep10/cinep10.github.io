@@ -18,9 +18,9 @@ These notes also complement the architecture and framework ideas presented in th
 
 ## Data Reliability / Validation
 
-- [Web Log Session ID Data Consistency Issue](/engineering-notes/web-log-session-id-data-consistency)
-- [Verifying Page View Consistency from Web Access Logs](/engineering-notes/verifying-page-view-consistency-from-web-access-logs)
 - [How to Validate Batch Output Data:A Data Reliability Approach](/engineering-notes/data-reliability-approach)
+- [Verifying Page View Consistency from Web Access Logs](/engineering-notes/verifying-page-view-consistency-from-web-access-logs)
+- [Web Log Session ID Data Consistency Issue](/engineering-notes/web-log-session-id-data-consistency)
 
 ---
 
