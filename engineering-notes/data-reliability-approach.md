@@ -107,6 +107,8 @@ grep -i 'unknown'
 ```
 These five checks alone significantly improve production stability.
 
+---
+
 ## 6. Key Design Principles
 ### 1. Use absolute + relative checks together
 - Absolute values alone are not enough
@@ -126,6 +128,8 @@ At minimum, store:
 - Historical log (append-only)
 - Alert message
 
+---
+
 ## 7. What This System Really Is
 
 This is not just a validation script.
@@ -140,6 +144,8 @@ We ask:
 
 "Is this data trustworthy?"
 
+---
+
 ## 8. Extensibility
 
 This approach is not limited to log data.
@@ -151,6 +157,8 @@ It can be extended to:
 - ML feature validation
 - Data pipeline observability
 - Privacy-sensitive data validation
+
+---
 
 ## 9. Conclusion
 
