@@ -33,14 +33,14 @@ The objective of this implementation was:
 
 ```text
 ETL Pipeline → Data Warehouse → Grafana Dashboard
-↑
-Render API (Script)
-↓
-Grafana Image Renderer (Docker)
-↓
-PNG Image Files
-↓
-Report / Slack / Storage
+                                      ↑
+                               Render API (Script)
+                                      ↓
+                         Grafana Image Renderer (Docker)
+                                      ↓
+                              PNG Image Files
+                                      ↓
+                           Report / Slack / Storage
 ```
 
 
