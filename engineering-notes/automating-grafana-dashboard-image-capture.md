@@ -87,10 +87,14 @@ This introduces several issues:
 failed to render: net::ERR_CONNECTION_REFUSED
 ```
 
+--
+
 ### 2) Partial "No data" in panels
 
 - Grafana UI → works correctly
 - Rendered image → missing data in some panels
+
+--
 
 ### 3) Authentication error
 
