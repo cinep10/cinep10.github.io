@@ -10,12 +10,6 @@ These notes also complement the architecture and framework ideas presented in th
 
 ---
 
-## Incident / Recovery
-
-- [WSL ext4 Recovery Case Study](/engineering-notes/wsl-ext4-recovery)
-
----
-
 ## Data Reliability / Validation
 
 - [How to Validate Batch Output Data:A Data Reliability Approach](/engineering-notes/data-reliability-approach)
@@ -26,5 +20,11 @@ These notes also complement the architecture and framework ideas presented in th
 
 ## Pipeline / Observability
 
-- [Data Pipeline Architecture](/engineering-notes/data-pipeline-architecture)
-- [Data Observability](/engineering-notes/data-observability)
+- [Automating Grafana Dashboard Image Capture](/engineering-notes/automating-grafana-dashboard-image-capture)
+
+---
+
+## Incident / Recovery
+
+- [WSL ext4 Recovery Case Study](/engineering-notes/wsl-ext4-recovery)
+
