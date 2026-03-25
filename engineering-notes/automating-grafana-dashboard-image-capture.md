@@ -14,7 +14,7 @@ Typical requirements include:
 
 This leads to the need for:
 
-> Automating Grafana dashboard rendering as images (PNG)
+> **Automating Grafana dashboard rendering as images (PNG)**
 
 ---
 
