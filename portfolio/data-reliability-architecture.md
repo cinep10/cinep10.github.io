@@ -23,6 +23,8 @@ But they often lack:
 
 This project addresses that gap by building a **Data Reliability Architecture**.
 
+---
+
 ## 2. Architecture Overview
 The system is designed as a layered pipeline:
 
@@ -79,6 +81,8 @@ Grafana
 - Aggregated risk scoring
 - Signal integration
 
+---
+
 ## 3. Core Design Philosophy
 This architecture is built on three principles:
 
@@ -107,11 +111,15 @@ Each layer has a clear responsibility:
 | Drift | change detection |
 | Risk | impact aggregation |
 
+---
+
 ## 4. What Makes This Different
 Unlike typical analytics pipelines, this system:
 - Detects data meaning breakdown, not just anomalies
 - Connects data issues → risk → interpretation
 - Supports scenario-based testing
+
+---
 
 ## 5. Key Outcome
 This architecture enables:
