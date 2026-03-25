@@ -83,8 +83,9 @@ This introduces several issues:
 
 ### 1) Render API failure
 
+```text
 failed to render: net::ERR_CONNECTION_REFUSED
-
+```
 
 ---
 
@@ -97,8 +98,9 @@ failed to render: net::ERR_CONNECTION_REFUSED
 
 ### 3) Authentication error
 
-
+```text
 Invalid API key
+```
 
 ---
 
@@ -118,16 +120,20 @@ Solution:
 ### 2) Docker networking issue
 
 Initial setup:
-http://host.docker.internal:3000
 
+```text
+http://host.docker.internal:3000
+```
 
 → Not accessible from container
 
 ---
 
 Solution:
-http://<host-ip>:3000
 
+```text
+http://<host-ip>:3000
+```
 
 → Works correctly
 
