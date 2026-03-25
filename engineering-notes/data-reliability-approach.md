@@ -168,6 +168,6 @@ Batch processing should not be evaluated by execution success.
 
 ## One-line Summary
 
-> A batch is not successful when it runs —
-> **it is successful when its data can be trusted.**
+A batch is not successful when it runs —
+> **It is successful when its data can be trusted.**
 
