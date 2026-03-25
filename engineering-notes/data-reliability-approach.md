@@ -166,8 +166,4 @@ Batch processing should not be evaluated by execution success.
 
 > **It should be evaluated by data reliability.**
 
-## One-line Summary
-
-A batch is not successful when it runs —
-> **It is successful when its data can be trusted.**
 
