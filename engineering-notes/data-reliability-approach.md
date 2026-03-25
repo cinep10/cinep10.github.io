@@ -1,5 +1,5 @@
 # How to Validate Batch Output Data: A Data Reliability Approach
-
+---
 ## 1. Problem: "Batch Success ≠ Data Reliability"
 
 In many production systems, we often assume:
