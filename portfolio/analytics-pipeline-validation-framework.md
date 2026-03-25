@@ -88,8 +88,10 @@ Without validation:
 ## 5. Key Insight
 A critical observation from this framework:
 
+```text
 Validation warnings are often persistent
 → indicating structural weaknesses
+```
 This means:
 
 Problems are not always spikes
