@@ -1,6 +1,6 @@
 # Data Reliability Architecture
 
-Building a Data Reliability Architecture: From Raw Logs to Risk Intelligence
+**Building a Data Reliability Architecture: From Raw Logs to Risk Intelligence**
 
 ---
 
