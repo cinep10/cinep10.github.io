@@ -6,91 +6,117 @@
 
 ## 1. Why Data Reliability Matters
 In modern data systems, collecting data is easy.
-Ensuring that the data is trustworthy, explainable, and consistent is the real challenge.
+Ensuring that the data is **trustworthy, explainable, and consistent** is the real challenge.
 
 Most pipelines focus on:
-
-ingestion
-
-transformation
-
-visualization
+- ingestion
+- transformation
+- visualization
 
 But they often lack:
 
+```text
 “Can we trust this data?”
 “Why is this metric changing?”
 “Is this anomaly meaningful or noise?”
-This project addresses that gap by building a Data Reliability Architecture.
+```
+
+This project addresses that gap by building a **Data Reliability Architecture**.
 
 ## 2. Architecture Overview
 The system is designed as a layered pipeline:
 
-Raw Log → ETL → Metric → Validation → Drift → Risk Score → Dashboard
-Key Layers
-1. Data Layer
-Synthetic web logs (simulation)
+```text
+[DATA LAYER]
+Raw Log (Simulator)
+    ↓
+ETL / Parsing
+    ↓
+stg_webserver_log_hit
 
-Structured staging tables
+[METRIC LAYER]
+collector → analyzer
+    ↓
+metric_value_hh / metric_value_day
 
-2. Metric Layer
-Aggregated behavioral metrics
+[VALIDATION LAYER]
+validation_runner
+    ↓
+validation_result / validation_summary_day
 
-Time-based feature generation
+[DRIFT LAYER]
+drift analysis
+    ↓
+metric_drift_result
 
-3. Validation Layer
-Data completeness checks
+[RISK LAYER]
+risk_score_runner
+    ↓
+data_risk_score_day
 
-Structural consistency validation
+[DASHBOARD]
+Grafana
+```
 
-4. Drift Layer
-Distribution change detection
+## Key Layers
+### 1. Data Layer
+- Synthetic web logs (simulation)
+- Structured staging tables
 
-Time-based anomaly detection
+### 2. Metric Layer
+- Aggregated behavioral metrics
+- Time-based feature generation
 
-5. Risk Layer
-Aggregated risk scoring
+### 3. Validation Layer
+- Data completeness checks
+- Structural consistency validation
 
-Signal integration
+### 4. Drift Layer
+- Distribution change detection
+- Time-based anomaly detection
+
+### 5. Risk Layer
+- Aggregated risk scoring
+- Signal integration
 
 ## 3. Core Design Philosophy
 This architecture is built on three principles:
 
-1. Reliability First
+### 1. Reliability First
 Instead of asking:
-
-“What insights can we get?”
+> “What insights can we get?”
 
 We ask:
+> “Can we trust the data behind those insights?”
 
-“Can we trust the data behind those insights?”
-
-2. Explainability by Design
+### 2. Explainability by Design
 Every risk or anomaly must be explainable:
 
+```text
 Drift → Which feature changed?
 Validation → What failed?
 Risk → Why did it increase?
+```
 
-3. Layered Abstraction
+### 3. Layered Abstraction
 Each layer has a clear responsibility:
 
-Layer	Responsibility
-Validation	correctness
-Drift	change detection
-Risk	impact aggregation
+| Layer | Responsibility |
+|----------|-------------|
+| Validation | correctness |
+| Drift | change detection |
+| Risk | impact aggregation |
 
 ## 4. What Makes This Different
 Unlike typical analytics pipelines, this system:
-
-Detects data meaning breakdown, not just anomalies
-
-Connects data issues → risk → interpretation
-
-Supports scenario-based testing
+- Detects data meaning breakdown, not just anomalies
+- Connects data issues → risk → interpretation
+- Supports scenario-based testing
 
 ## 5. Key Outcome
 This architecture enables:
 
+```text
 “Understanding not just that something changed,
 but why it changed and whether it matters.”
+```
