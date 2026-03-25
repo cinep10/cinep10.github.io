@@ -134,7 +134,7 @@ At minimum, store:
 
 This is not just a validation script.
 
-It is a Data Reliability Control System.
+> It is a Data Reliability Control System.
 
 Instead of asking:
 
@@ -142,7 +142,7 @@ Instead of asking:
 
 We ask:
 
-"Is this data trustworthy?"
+> "Is this data trustworthy?"
 
 ---
 
