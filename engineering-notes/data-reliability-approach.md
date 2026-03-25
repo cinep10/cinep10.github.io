@@ -26,13 +26,14 @@ In other words:
 Instead of simple validation, we design a **Data Reliability Control framework**.
 
 ### Core Flow
+```text
 File existence check
 → Structure validation
 → Data completeness check
 → Day-over-day change detection
 → Invalid / abnormal value detection
 → Final decision (OK / WARN / FAIL)
-
+```
 
 The key question is:
 
