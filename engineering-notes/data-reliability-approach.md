@@ -108,22 +108,23 @@ grep -i 'unknown'
 These five checks alone significantly improve production stability.
 
 ## 6. Key Design Principles
-1. Use absolute + relative checks together
-Absolute values alone are not enough
-Day-over-day comparison is critical
+### 1. Use absolute + relative checks together
+- Absolute values alone are not enough
+- Day-over-day comparison is critical
 
-2. Use escalation-based final status
-
+### 2. Use escalation-based final status
+```text
 OK → WARN → FAIL
+```
 
-3. Always persist results
+### 3. Always persist results
 
 At minimum, store:
 
-Per-file validation result
-Final status summary
-Historical log (append-only)
-Alert message
+- Per-file validation result
+- Final status summary
+- Historical log (append-only)
+- Alert message
 
 ## 7. What This System Really Is
 
@@ -133,7 +134,7 @@ It is a Data Reliability Control System.
 
 Instead of asking:
 
-"Was the batch successful?"
+- "Was the batch successful?"
 
 We ask:
 
@@ -145,11 +146,11 @@ This approach is not limited to log data.
 
 It can be extended to:
 
-Financial data validation
-Settlement / transaction systems
-ML feature validation
-Data pipeline observability
-Privacy-sensitive data validation
+- Financial data validation
+- Settlement / transaction systems
+- ML feature validation
+- Data pipeline observability
+- Privacy-sensitive data validation
 
 ## 9. Conclusion
 
