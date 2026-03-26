@@ -14,7 +14,7 @@ This section focuses on how data is collected and structured.
 
 ## Notes
 
-- [Data Layer: From Raw Logs to Reliable Data](./data-layer)
+- (coming soon) ETL
 
 ---
 
