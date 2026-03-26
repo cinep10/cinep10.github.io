@@ -50,7 +50,7 @@ This section focuses on how data is generated, validated, and monitored.
 - [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)  
   Case study on data consistency issues.
 
-→ [Go to Data Reliability](./data-reliability/data-reliability)
+→ [Go to Data Reliability (Engineering)](./data-reliability/data-reliability)
 
 ---
 
@@ -61,6 +61,8 @@ This section covers how data pipelines and metrics are designed.
 - (coming soon) Metric Layer  
 - (coming soon) ETL Architecture  
 
+→ [Go to Data Reliability (Engineering)](./data-reliability/data-reliability)
+
 ---
 
 ## Observability
@@ -70,7 +72,7 @@ This section focuses on monitoring and visualizing data systems.
 - [Grafana Dashboard Image Capture](./grafana-dashboard-image-capture)  
   Automating dashboard rendering and reporting.
 
-→ [Go to Data Platform](./data-reliability/data-reliability)
+→ [Go to Observability](./data-reliability/data-reliability)
 
 ---
 
