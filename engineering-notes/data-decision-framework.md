@@ -14,7 +14,6 @@ However, without a decision framework:
 - risk remains descriptive  
 - no action is triggered  
 
----
 
 ### Core Problem
 
