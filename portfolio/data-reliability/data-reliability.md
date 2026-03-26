@@ -1,10 +1,10 @@
-# Data Reliability Portfolio
+# Data Reliability
 
-This section covers the design and implementation of data reliability systems.
+This section presents the design and implementation of a data reliability system.
 
 ---
 
-## Structure
+## Overview
 
 ```text
 Data → Metric → Validation → Drift → Risk
@@ -15,6 +15,8 @@ Data → Metric → Validation → Drift → Risk
 
 ## 1. Analysis & Design
 
+Defining how data reliability should be structured.
+
 - Data Reliability Architecture
 - Validation Framework
 - Drift Detection Design
@@ -24,15 +26,19 @@ Data → Metric → Validation → Drift → Risk
 
 ## 2. Implementation
 
-- Data Layer
-- Metric Layer
-- Validation Layer
-- Drift Layer
-- Risk Layer
+Building the system components.
+
+- [Data Layer](./data-layer)
+- (coming soon) Metric Layer
+- [Validation Framework](./analytics-pipeline-validation-framework)
+- [Drift Detection](./drift-detection-design)
+- (coming soon) Risk Layer
 
 ---
 
 ## 3. Results
+
+Demonstrating system outcomes.
 
 - Improved data quality
 - Early anomaly detection
@@ -43,6 +49,12 @@ Data → Metric → Validation → Drift → Risk
 ## Notes
 
 - [Data Reliability Approach](./data-reliability-approach)
-- [Data Layer](./data-layer)
-- [Validation Framework](./analytics-pipeline-validation-framework)
-- [Drift Detection](./drift-detection-design)
+- [Web Log Session ID Consistency](./web-log-session-id-data-consistency)
+
+---
+
+## Key Idea
+
+Data reliability is not a validation step.
+
+It is a system.
