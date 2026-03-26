@@ -27,7 +27,6 @@ based on real-world implementation and operational experience.
 Ensuring that data is correct, consistent, and usable.
 
 - [Data Reliability Approach](./data-reliability-approach)
-- [Batch Validation Automation](./batch-validation-automation)
 - [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)
 
 ---
@@ -36,7 +35,7 @@ Ensuring that data is correct, consistent, and usable.
 
 Defining how data correctness is verified.
 
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
+- [Analytics Pipeline Validation Framework](./verifying-page-view-consistency-from-web-access-logs)
 
 ---
 
@@ -44,7 +43,7 @@ Defining how data correctness is verified.
 
 Detecting when data changes in unexpected ways.
 
-- [Drift Detection Design](./drift-detection-design)
+- (coming soon) Drift Detection Design
 
 ---
 
