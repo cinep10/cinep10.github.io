@@ -1,99 +1,252 @@
 # Validation Layer
 
-## Defining Data Reliability Through Systematic Validation
+## Ensuring That Measured Data Can Be Trusted
 
 ---
 
 ## 1. Problem
 
-Most data pipelines follow a simple structure:
-
-```text
-Raw Data → ETL → Metric → Dashboard
-```
-
-However, this structure assumes that the data is already correct.
-
-In practice, this assumption does not hold.
+Even if metrics are well-defined,  
+they are not always reliable.
 
 ---
 
-### What Actually Happens
+### What Happens in Real Systems
 
-- Missing data  
-- Incorrect event mapping  
-- Broken user/session relationships  
-- Funnel structure collapse  
-- Inconsistent metrics  
+- missing logs → certain metrics become zero  
+- mapping errors → submit > click  
+- identity issues → abnormal user_count spikes  
+- session errors → distorted session metrics  
+- delayed or partial data ingestion  
+
+---
+
+### Key Insight
+
+> Metrics are always subject to error
 
 ---
 
 ### Result
 
-> Data appears correct, but is fundamentally wrong
+> Data may appear valid, but be structurally incorrect
 
 This leads to:
 
 - incorrect analysis  
-- unreliable decision-making  
+- misleading conclusions  
+- unreliable decisions  
 
 ---
 
-## 2. Why Validation Matters
+## 2. Design Goal
 
-Validation is not just about detecting errors.
+The Validation Layer is designed to:
 
-It is about answering a fundamental question:
-
-> Can this data be trusted?
+> Quantitatively determine whether metrics are trustworthy
 
 ---
 
-### Design Objectives
+### Objectives
 
-- Quantify data reliability  
-- Detect structural issues  
-- Enable continuous monitoring  
-- Integrate with Risk layer  
-
----
-
-## 3. Role in Architecture
-
-```text
-Data → Metric → Validation → Drift → Risk
-```
+- validate metric reliability  
+- detect structural inconsistencies  
+- continuously measure data quality  
+- generate signals for Risk Layer  
 
 ---
 
-Validation acts as:
+## 3. Architecture
 
-> A mandatory reliability filter before data is interpreted
 
----
-
-## 4. Layer Structure
-
----
-
-### 4.1 Input
-
-- metric_value_day / hh  
-- user, session, event metrics  
-- funnel-based metrics  
-
----
-
-### 4.2 Output
-
-```text
+metric_value_hh / metric_value_day
+↓
+validation rules
+↓
 validation_result
+↓
+aggregation
+↓
 validation_summary_day
-```
+
 
 ---
 
-### 4.3 validation_result
+## 4. Input
+
+The Validation Layer operates exclusively on metrics:
+
+
+metric_value_hh
+metric_value_day
+
+
+---
+
+### Design Principle
+
+> Validation does not inspect raw data  
+> It validates interpreted data (metrics)
+
+---
+
+### Reason
+
+- raw validation belongs to ETL  
+- validation focuses on semantic correctness  
+
+---
+
+## 5. Validation Design
+
+Validation is structured into four categories.
+
+---
+
+### 5.1 Completeness Validation
+
+---
+
+#### Purpose
+
+Does the data exist?
+
+---
+
+#### Examples
+
+- page_view = 0  
+- sudden drop in user_count  
+
+---
+
+#### Logic
+
+
+IF metric_value = 0
+THEN validation_status = 'warn'
+
+
+---
+
+#### Interpretation
+
+Indicates ingestion or parsing issues.
+
+---
+
+---
+
+### 5.2 Structural Validation
+
+---
+
+#### Purpose
+
+Are relationships between metrics valid?
+
+---
+
+#### Rules
+
+- session_count ≥ user_count  
+- click_count ≤ page_view  
+- submit_count ≤ click_count  
+
+---
+
+#### Logic
+
+
+IF submit_count > click_count
+THEN validation_status = 'fail'
+
+
+---
+
+#### Key Insight
+
+> This validates behavior structure, not just values
+
+---
+
+#### Interpretation
+
+Detects funnel distortion.
+
+---
+
+---
+
+### 5.3 Mapping Validation
+
+---
+
+#### Purpose
+
+Are metrics correctly derived from raw data?
+
+---
+
+#### Examples
+
+- missing page_type  
+- incorrect event mapping  
+- critical metrics = 0  
+
+---
+
+#### Logic
+
+
+IF login_success_count = 0
+THEN validation_status = 'warn'
+
+
+---
+
+#### Interpretation
+
+Detects ETL / parsing / mapping issues.
+
+---
+
+---
+
+### 5.4 Ratio / Range Validation
+
+---
+
+#### Purpose
+
+Are values within valid ranges?
+
+---
+
+#### Examples
+
+- conversion_rate > 1  
+- auth_success_rate > 1  
+- negative latency  
+
+---
+
+#### Logic
+
+
+IF conversion_rate > 1
+THEN validation_status = 'fail'
+
+
+---
+
+---
+
+## 6. Output Design
+
+---
+
+### 6.1 validation_result
 
 Stores individual validation outcomes.
 
@@ -105,15 +258,23 @@ Stores individual validation outcomes.
 - metric_name  
 - validation_type  
 - validation_status (normal / warn / fail)  
-- value  
+- metric_value  
 - threshold  
 - message  
 
 ---
 
-### 4.4 validation_summary_day
+### Design Insight
 
-Aggregates validation results at daily level.
+> Validation results are stored as structured data, not logs
+
+---
+
+---
+
+### 6.2 validation_summary_day
+
+Aggregated daily validation results.
 
 ---
 
@@ -125,109 +286,49 @@ Aggregates validation results at daily level.
 
 ---
 
-## 5. Validation Types
+#### Meaning
+
+> A quantitative measure of daily data quality
 
 ---
 
-### 5.1 Completeness Validation
+---
 
-Checks whether data exists.
+## 7. Design Principles
 
 ---
 
-#### Examples
-
-- page_view = 0  
-- session_count sudden drop  
+### 7.1 From Rules to Signals
 
 ---
-
-#### Interpretation
-
-Indicates data pipeline issues.
-
----
-
-### 5.2 Structural Validation
-
-Checks relationships between metrics.
-
----
-
-#### Examples
-
-- session ≥ user  
-- submit ≤ click  
-- click ≤ view  
-
----
-
-#### Interpretation
-
-Indicates funnel structure breakdown.
-
----
-
-### 5.3 Mapping Validation
-
-Validates transformation from raw data to metrics.
-
----
-
-#### Examples
-
-- KV parsing failure  
-- missing page_type  
-- incorrect event mapping  
-
----
-
-#### Interpretation
-
-Indicates ETL or parsing issues.
-
----
-
-### 5.4 Distribution Sanity Check
-
-Validates whether values fall within expected ranges.
-
----
-
-#### Examples
-
-- conversion_rate > 1  
-- negative latency  
-
----
-
-## 6. Design Principles
-
----
-
-### 6.1 From Rules to Signals
 
 Traditional approach:
 
-```text
+
 if error → log
-```
+
 
 ---
 
 This system:
 
-```text
+
 validation → signal → aggregation → risk
-```
+
 
 ---
 
-Validation results are treated as structured data.
+### Key Insight
+
+Validation outputs are inputs to Risk.
 
 ---
 
-### 6.2 Quantification
+---
+
+### 7.2 Quantification
+
+---
 
 Instead of:
 
@@ -239,72 +340,81 @@ We measure:
 
 ---
 
-This is captured in:
+---
 
-```text
-validation_summary_day
-```
+### 7.3 Persistence
 
 ---
 
-### 6.3 Persistence
-
-Validation is not a one-time check.
+Validation is continuous:
 
 - executed daily  
 - supports trend analysis  
 
 ---
 
-### 6.4 Explainability
+---
 
-Each validation must answer:
+### 7.4 Explainability
+
+---
+
+Each validation must clearly explain:
 
 - why it failed  
 - why it triggered a warning  
 
 ---
 
-## 7. Connection to Drift and Risk
+---
+
+## 8. Relationship with Other Layers
 
 ---
 
 ### Core Flow
 
-```text
-Validation → Drift → Risk
-```
+
+Metric → Validation → Drift → Risk
+
 
 ---
 
 ### Interpretation
 
-- Validation → Is data correct now?  
-- Drift → Has data changed?  
-- Risk → Does this change matter?  
+- Metric → what is measured  
+- Validation → is it correct  
+- Drift → has it changed  
 
 ---
 
-### Key Insight
+---
 
-- Validation detects structural issues  
-- Drift detects environmental change  
+### Critical Insight
+
+> Drift analysis is meaningless if validation fails
 
 ---
 
-Validation issues can exist continuously,  
-while drift occurs when conditions change.
+---
+
+### Conceptual Model
+
+- Validation = baseline integrity  
+- Drift = change detection  
 
 ---
 
-## 8. Role in Real Systems
+---
+
+## 9. Observations in Real Systems
 
 ---
 
-### Observed Pattern
+### Typical Pattern
 
 - validation warnings occur continuously  
-- drift alerts spike under specific conditions  
+- drift alerts spike during specific events  
 
 ---
 
@@ -314,15 +424,19 @@ while drift occurs when conditions change.
 
 ---
 
-### Typical Issues Detected
+---
+
+### Common Issues Detected
 
 - incomplete mapping  
-- undefined funnel structures  
-- missing events  
+- weak funnel definition  
+- inconsistent event structure  
 
 ---
 
-## 9. Key Insights
+---
+
+## 10. Key Insights
 
 ---
 
@@ -334,39 +448,42 @@ Perfect data does not exist.
 
 ### Validation precedes Drift
 
-Drift analysis is meaningless without correct data.
+It defines the baseline.
 
 ---
 
-### Validation checks meaning, not just values
+### Validation checks structure
 
-It validates relationships and structure.
+It validates relationships, not just values.
 
 ---
 
-### Validation is the starting point of Risk
+### Validation drives Risk
 
 In many systems, it contributes the majority of risk signals.
 
 ---
 
-## 10. Conclusion
+---
 
-Validation Layer is not just an error detection mechanism.
+## 11. Conclusion
+
+Validation Layer is not an error detection system.
 
 It is:
 
-> A system that defines whether data can be trusted
+> A system that determines whether data can be trusted
 
 ---
 
 ## One-line Summary
 
-Validation = A layer that quantifies data reliability
+Validation = Making measured data trustworthy
 
 ---
 
 ## Portfolio Statement
 
-Data validation was designed not as a simple error check,  
-but as a continuously measurable reliability metric.
+Validation was designed not as a simple rule check,  
+but as a continuously measurable reliability signal  
+that integrates directly into the Risk Layer.
