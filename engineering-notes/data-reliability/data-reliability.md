@@ -15,9 +15,7 @@ This section focuses on ensuring data can be trusted.
 ## Notes
 
 - [Data Reliability Approach](./data-reliability-approach)
-
 - [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
-
 - [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency) 
 
 ---
