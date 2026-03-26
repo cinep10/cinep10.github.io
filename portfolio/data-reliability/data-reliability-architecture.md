@@ -8,8 +8,9 @@
 
 Most data systems follow a simple flow:
 
+```text
 Raw Data → ETL → Dashboard
-
+```
 
 This structure assumes:
 
