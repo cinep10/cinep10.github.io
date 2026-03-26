@@ -47,8 +47,7 @@ Turning data signals into actionable decisions.
 
 How data is collected, processed, and structured.
 
-- (coming soon) Data Pipeline Architecture  
-- (coming soon) Metric Design  
+- [Data Layer](./data-layer)
 
 ---
 
