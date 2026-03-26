@@ -23,8 +23,6 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 
 ### Data Reliability
 - [Data Reliability Approach](./data-reliability/data-reliability-approach)
-- [Analytics Pipeline Validation Framework](./data-reliability/analytics-pipeline-validation-framework)
-- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)
 
 ### Data Platform
 - [Data Layer: From Raw Logs to Reliable Data](./data-platform/data-layer)
