@@ -11,9 +11,10 @@ but to define, measure, and control data reliability.
 
 The work is structured around two main areas:
 
+```text
 Data Reliability System
 ML Input Monitoring System
-
+```
 
 ---
 
@@ -33,8 +34,9 @@ Designing systems that validate, monitor, and explain data behavior.
 
 ### Structure
 
+```text
 Data → Metric → Validation → Drift → Risk → Decision
-
+```
 
 ---
 
@@ -63,7 +65,7 @@ Data → Metric → Validation → Drift → Risk → Decision
 
 ---
 
-👉 [View Data Reliability Portfolio](../engineering-notes/data-reliability)
+→ [View Data Reliability Portfolio](../engineering-notes/data-reliability)
 
 ---
 
@@ -87,8 +89,9 @@ However, in real systems:
 
 ### Approach
 
+```text
 Metric → Feature Drift → Risk → Monitoring
-
+```
 
 ---
 
@@ -123,7 +126,7 @@ Metric → Feature Drift → Risk → Monitoring
 
 ---
 
-👉 [View ML Input Monitoring Notes](../engineering-notes)
+→ [View ML Input Monitoring Notes](../engineering-notes)
 
 ---
 
