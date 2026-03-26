@@ -38,9 +38,8 @@ Engineering Notes document practical investigations and troubleshooting cases en
 
 Topics include:
 
-* Data validation cases
-* Web log data consistency
-* Page view (PV) verification from access logs
+* Data Reliability cases
+* Risk & Decision
 * Data pipeline observability
 * System recovery and troubleshooting
 
