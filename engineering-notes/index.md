@@ -83,7 +83,7 @@ Understanding and resolving data issues.
 
 - [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
 
-→ [See all Incident notes](./incident)
+→ [See all Incident notes](./incident/incident)
 
 ---
 
