@@ -73,7 +73,7 @@ Making systems visible and explainable.
 
 - [Grafana Dashboard Image Capture Automation](./observability/grafana-dashboard-image-capture)
 
-→ [See all Observability notes](./observability//observability)
+→ [See all Observability notes](./observability/observability)
 
 ---
 
