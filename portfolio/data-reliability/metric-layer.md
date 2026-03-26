@@ -139,8 +139,6 @@ Before counting page views, we must define:
 
 ---
 
----
-
 ### 5.2 Identity Resolution
 
 User-based metrics require a stable identity definition.
@@ -175,8 +173,6 @@ uid → pcid → ip
 
 ---
 
----
-
 ### 5.3 Sessionization
 
 Session is not blindly trusted from logs.
@@ -204,8 +200,6 @@ It is redefined based on behavior.
 
 - session_count  
 - avg_session_duration_sec  
-
----
 
 ---
 
@@ -275,8 +269,6 @@ new_user_ratio = new_users / total_users
 
 ---
 
----
-
 ### 6.2 Authentication Metrics
 
 ---
@@ -300,8 +292,6 @@ auth_success_rate = success / attempt
 
 auth_fail_rate = fail / attempt
 
-
----
 
 ---
 
@@ -338,8 +328,6 @@ submit_rate = submit / start
 
 ---
 
----
-
 ### 6.4 System Metrics
 
 ---
@@ -351,8 +339,6 @@ Used for:
 - volume monitoring  
 - pipeline comparison  
 - traffic vs quality analysis  
-
----
 
 ---
 
@@ -402,8 +388,6 @@ Purpose:
 
 ---
 
----
-
 ### metric_value_day
 
 - profile_id  
@@ -412,8 +396,6 @@ Purpose:
 - metric_value  
 - numerator_value  
 - denominator_value  
-
----
 
 ---
 
@@ -438,8 +420,6 @@ It defines the meaning of the system.
 - Validation depends on metric correctness  
 - Drift depends on metric stability  
 - Risk depends on metric signals  
-
----
 
 ---
 
@@ -468,8 +448,6 @@ They reveal structure, not just volume.
 ### Metric Layer is often underestimated
 
 But it determines all downstream logic.
-
----
 
 ---
 
