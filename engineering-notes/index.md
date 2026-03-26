@@ -13,8 +13,9 @@ but on answering a more important question:
 
 The content is organized around a single flow:
 
+```text
 Data → Metric → Validation → Drift → Risk → Dashboard
-
+```
 
 Each note represents a part of this flow,  
 based on real-world implementation and operational experience.
