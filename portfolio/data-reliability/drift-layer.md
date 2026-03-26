@@ -72,9 +72,9 @@ The Drift Layer is designed to:
 
 ## 4. Architecture
 
-
+```text
 Metric → Drift → Drift Result
-
+```
 
 ---
 
@@ -175,9 +175,9 @@ Measures deviation from expected value.
 
 ---
 
-
+```text
 z = (current - mean) / std
-
+```
 
 ---
 
@@ -228,9 +228,9 @@ The system focuses on relationships, not isolated values.
 
 ### Core Flow
 
-
+```text
 Validation → Drift → Risk
-
+```
 
 ---
 
