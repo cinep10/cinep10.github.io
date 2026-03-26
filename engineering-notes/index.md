@@ -82,7 +82,7 @@ This section covers data-related issues and recovery strategies.
 
 - (coming soon) Data Incident Case  
 
-→ [Go to Incident & Recovery](./data-reliability/data-reliability)
+→ [Go to Incident & Recovery](./incident/incident)
 
 ---
 
