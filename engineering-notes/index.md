@@ -26,7 +26,7 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 - [Drift Detection Design](./drift-detection-design)
 
 ### Data Platform
-- [Data Layer: From Raw Logs to Reliable Data](./data-layer)
+- [Data Layer: From Raw Logs to Reliable Data](./data-platform/data-layer)
 
 ### Observability
 - [Grafana Dashboard Image Capture Automation](./observability/grafana-dashboard-image-capture)
