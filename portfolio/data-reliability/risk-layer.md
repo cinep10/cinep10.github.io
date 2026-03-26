@@ -90,9 +90,9 @@ The Risk Layer is designed to:
 
 ## 4. Architecture
 
-
+```text
 Validation + Drift + Feature Signals → Risk Score
-
+```
 
 ---
 
@@ -106,9 +106,9 @@ Validation + Drift + Feature Signals → Risk Score
 
 ### Output
 
-
+```text
 data_risk_score_day
-
+```
 
 ---
 
@@ -122,12 +122,12 @@ Risk operates as an aggregation layer.
 
 ### Core Structure
 
-
+```text
 Risk Score =
-Validation Contribution
-
-Drift Contribution
-Feature Contribution
+  Validation Contribution
+  + Drift Contribution
+  + Feature Contribution
+```
 
 ---
 
@@ -160,7 +160,6 @@ Represents ML input stability.
 - feature_alert_count  
 - feature_drift_score  
 
----
 
 ---
 
@@ -185,8 +184,6 @@ Risk is computed from aggregated signals.
 
 ---
 
----
-
 ### 6.2 Weighted Model
 
 Not all signals are equal.
@@ -202,8 +199,6 @@ Typical priority:
 Because:
 
 - structural issues invalidate all downstream data  
-
----
 
 ---
 
@@ -223,8 +218,6 @@ Example:
 
 ---
 
----
-
 ### 6.4 Explainability
 
 Risk must be decomposable.
@@ -233,18 +226,17 @@ Risk must be decomposable.
 
 ### Example
 
-
+```text
 Risk = 85
 
 Validation: 50 (row drop)
 Drift: 25 (traffic spike)
 Feature: 10 (conversion instability)
+```
 
 ---
 
 Each component must be traceable.
-
----
 
 ---
 
@@ -265,17 +257,15 @@ Trend analysis enables early detection.
 
 ---
 
----
-
 ## 7. Relationship with Other Layers
 
 ---
 
 ### Full Flow
 
-
+```text
 Validation → Drift → Risk → Root Cause → Decision
-
+```
 
 ---
 
@@ -286,8 +276,6 @@ Validation → Drift → Risk → Root Cause → Decision
 - Risk → impact  
 - Root Cause → explanation  
 - Decision → action  
-
----
 
 ---
 
@@ -315,15 +303,11 @@ Validation → Drift → Risk → Root Cause → Decision
 
 ---
 
----
-
 ### Typical High-Risk Scenarios
 
 - validation failure + drift spike  
 - funnel distortion + traffic surge  
 - feature instability under load  
-
----
 
 ---
 
@@ -356,8 +340,6 @@ Without risk, signals remain analytical.
 ### Risk is a business abstraction
 
 It translates technical signals into operational impact.
-
----
 
 ---
 
