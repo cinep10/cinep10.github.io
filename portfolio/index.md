@@ -65,7 +65,7 @@ Data → Metric → Validation → Drift → Risk → Decision
 
 ---
 
-→ [View Data Reliability Portfolio](../engineering-notes/data-reliability)
+→ [View Data Reliability Portfolio](./data-reliability/data-reliability)
 
 ---
 
@@ -126,7 +126,7 @@ Metric → Feature Drift → Risk → Monitoring
 
 ---
 
-→ [View ML Input Monitoring Notes](../engineering-notes)
+→ [View ML Input Monitoring Notes](./ml-input-monitoring/ml-input-monitoring)
 
 ---
 
