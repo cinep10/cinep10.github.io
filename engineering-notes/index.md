@@ -61,7 +61,7 @@ This section covers how data pipelines and metrics are designed.
 - (coming soon) Metric Layer  
 - (coming soon) ETL Architecture  
 
-→ [Go to Data Reliability (Engineering)](./data-reliability/data-reliability)
+→ [Go to Data Platform](./data-platform/data-platform)
 
 ---
 
