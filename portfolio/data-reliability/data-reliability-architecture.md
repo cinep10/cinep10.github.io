@@ -1,130 +1,156 @@
 # Data Reliability Architecture
 
-**Building a Data Reliability Architecture: From Raw Logs to Risk Intelligence**
+## From Data to Decision: A Reliability-Centered Architecture
 
 ---
 
-## 1. Why Data Reliability Matters
-In modern data systems, collecting data is easy.
-Ensuring that the data is **trustworthy, explainable, and consistent** is the real challenge.
+## 1. Problem
 
-Most pipelines focus on:
-- ingestion
-- transformation
-- visualization
+Most data systems follow a simple flow:
 
-But they often lack:
+Raw Data → ETL → Dashboard
 
-```text
-“Can we trust this data?”
-“Why is this metric changing?”
-“Is this anomaly meaningful or noise?”
-```
 
-This project addresses that gap by building a **Data Reliability Architecture**.
+This structure assumes:
+
+- Data is correct  
+- Metrics are reliable  
+- Changes are meaningful  
+
+However, in real-world systems, this assumption often fails.
 
 ---
 
-## 2. Architecture Overview
-The system is designed as a layered pipeline:
+### Common Issues
 
-```text
-[DATA LAYER]
-Raw Log (Simulator)
-    ↓
-ETL / Parsing
-    ↓
-stg_webserver_log_hit
-
-[METRIC LAYER]
-collector → analyzer
-    ↓
-metric_value_hh / metric_value_day
-
-[VALIDATION LAYER]
-validation_runner
-    ↓
-validation_result / validation_summary_day
-
-[DRIFT LAYER]
-drift analysis
-    ↓
-metric_drift_result
-
-[RISK LAYER]
-risk_score_runner
-    ↓
-data_risk_score_day
-
-[DASHBOARD]
-Grafana
-```
-
-## Key Layers
-### 1. Data Layer
-- Synthetic web logs (simulation)
-- Structured staging tables
-
-### 2. Metric Layer
-- Aggregated behavioral metrics
-- Time-based feature generation
-
-### 3. Validation Layer
-- Data completeness checks
-- Structural consistency validation
-
-### 4. Drift Layer
-- Distribution change detection
-- Time-based anomaly detection
-
-### 5. Risk Layer
-- Aggregated risk scoring
-- Signal integration
+- Missing data  
+- Incorrect event mapping  
+- Broken user behavior structure  
+- Distribution shifts (drift)  
+- Misleading metrics  
 
 ---
 
-## 3. Core Design Philosophy
-This architecture is built on three principles:
+### Result
 
-### 1. Reliability First
-Instead of asking:
-> “What insights can we get?”
-
-We ask:
-> “Can we trust the data behind those insights?”
-
-### 2. Explainability by Design
-Every risk or anomaly must be explainable:
-
-```text
-Drift → Which feature changed?
-Validation → What failed?
-Risk → Why did it increase?
-```
-
-### 3. Layered Abstraction
-Each layer has a clear responsibility:
-
-| Layer | Responsibility |
-|----------|-------------|
-| Validation | correctness |
-| Drift | change detection |
-| Risk | impact aggregation |
+> Decisions are made based on unreliable data
 
 ---
 
-## 4. What Makes This Different
-Unlike typical analytics pipelines, this system:
-- Detects data meaning breakdown, not just anomalies
-- Connects data issues → risk → interpretation
-- Supports scenario-based testing
+## 2. Why This Architecture Exists
+
+The goal is not just to analyze data.
+
+It is to:
+
+> Ensure data can be trusted,  
+> detect changes, and explain their impact.
 
 ---
 
-## 5. Key Outcome
-This architecture enables:
+### Design Goals
 
-```text
-“Understanding not just that something changed,
-but why it changed and whether it matters.”
-```
+- Ensure data reliability  
+- Detect meaningful changes  
+- Quantify risk  
+- Enable explainability  
+
+---
+
+## 3. Architecture Overview
+
+Risk Score =
+Validation Contribution
+
+Drift Contribution
+Feature Contribution
+
+
+---
+
+#### Design Principles
+
+- Signal-based aggregation  
+- Explainability  
+- Trend tracking  
+
+---
+
+#### Key Insight
+
+> Risk translates data issues into business impact
+
+---
+
+---
+
+## 5. What Makes This Different
+
+---
+
+### Conventional Approach
+
+Data
+→ Metric (meaning)
+→ Validation (correctness)
+→ Drift (change)
+→ Risk (impact)
+
+
+---
+
+### Core Difference
+
+> This is not a system that shows data  
+> but a system that explains data
+
+---
+
+---
+
+## 6. Key Insights
+
+---
+
+### 1) Data problems are constant
+
+Validation warnings are not exceptions  
+they are signals
+
+---
+
+### 2) Drift is event-driven
+
+Traffic changes → distribution shifts → metric distortion
+
+---
+
+### 3) Risk is not a simple sum
+
+It reflects structure, change, and input quality
+
+---
+
+### 4) The real issue is meaning collapse
+
+- Funnel distortion  
+- Correlation breakdown  
+
+---
+
+---
+
+## 7. Conclusion
+
+This architecture is not just about data processing.
+
+It is about:
+
+> Managing data reliability, meaning, and impact
+
+---
+
+## One-line Summary
+
+> Data Reliability Architecture is a system that explains  
+> data correctness, change, and impact.
