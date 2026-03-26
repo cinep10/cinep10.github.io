@@ -2,19 +2,20 @@
 
 This portfolio focuses on building systems that ensure data can be trusted.
 
-The goal is not only to process data,  
+The goal is not just to process data,  
 but to define, measure, and control data reliability.
 
 ---
 
 ## Overview
 
-The work is structured around two main areas:
+The work is structured around two core systems:
 
 ```text
 Data Reliability System
 ML Input Monitoring System
 ```
+
 
 ---
 
@@ -24,7 +25,7 @@ Designing systems that validate, monitor, and explain data behavior.
 
 ### Scope
 
-- Data Validation
+- Validation
 - Drift Detection
 - Data Quality
 - Risk Scoring
@@ -38,34 +39,10 @@ Designing systems that validate, monitor, and explain data behavior.
 Data → Metric → Validation → Drift → Risk → Decision
 ```
 
----
-
-### Portfolio Breakdown
-
-#### 1) Analysis & Design
-
-- Data Reliability Architecture  
-- Validation Framework Design  
-- Drift Detection Strategy  
-- Risk Scoring Model  
-
-#### 2) Implementation
-
-- Data Pipeline (ETL / Parsing / Metric)
-- Validation Layer
-- Drift Detection Engine
-- Risk Scoring System
-
-#### 3) Results
-
-- Data Quality Improvement
-- Early Detection of Data Issues
-- Explainable Data Behavior
-- Reliable Decision Support
 
 ---
 
-→ [View Data Reliability Portfolio](./data-reliability/data-reliability)
+→ [Go to Data Reliability Portfolio](./data-reliability/data-reliability)
 
 ---
 
@@ -77,9 +54,7 @@ Ensuring machine learning systems operate on reliable input data.
 
 ### Problem
 
-ML models assume stable input data.
-
-However, in real systems:
+ML systems assume stable input data, but in practice:
 
 - Data distribution changes
 - Feature relationships shift
@@ -87,62 +62,28 @@ However, in real systems:
 
 ---
 
-### Approach
+### Structure
 
 ```text
 Metric → Feature Drift → Risk → Monitoring
 ```
 
----
-
-### Scope
-
-- Feature Drift Detection
-- Input Data Validation
-- Risk-based Monitoring
-- Explainability
 
 ---
 
-### Portfolio Breakdown
-
-#### 1) Analysis & Design
-
-- ML Input Reliability Framework
-- Feature Drift Definition
-- Risk Integration Design
-
-#### 2) Implementation
-
-- Feature Drift Calculation (PSI / Z-score)
-- ML Feature Monitoring Pipeline
-- Integration with Risk Layer
-
-#### 3) Results
-
-- Early detection of data drift
-- Improved ML reliability
-- Reduced model risk
+→ [Go to ML Input Monitoring](./ml-input-monitoring/ml-input-monitoring)
 
 ---
 
-→ [View ML Input Monitoring Notes](./ml-input-monitoring/ml-input-monitoring)
+## Key Idea
 
----
+This portfolio is not about building pipelines.
 
-## Key Differentiation
-
-This portfolio is not focused on building pipelines.
-
-It focuses on:
-
-- Defining data reliability
-- Detecting structural issues
-- Converting signals into risk
-- Enabling decision-making
+It is about building systems that make data trustworthy.
 
 ---
 
 ## One-line Summary
 
-Building systems that make data trustworthy and explainable.
+From data generation to decision-making,  
+this portfolio focuses on reliability.
