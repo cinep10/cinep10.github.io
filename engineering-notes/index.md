@@ -50,6 +50,8 @@ This section focuses on how data is generated, validated, and monitored.
 - [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)  
   Case study on data consistency issues.
 
+→ [Go to Data Reliability Portfolio](./data-reliability/data-reliability)
+
 ---
 
 ## Data Platform
@@ -68,6 +70,8 @@ This section focuses on monitoring and visualizing data systems.
 - [Grafana Dashboard Image Capture](./grafana-dashboard-image-capture)  
   Automating dashboard rendering and reporting.
 
+→ [Go to Data Reliability Portfolio](./data-reliability/data-reliability)
+
 ---
 
 ## Incident & Recovery
@@ -75,6 +79,8 @@ This section focuses on monitoring and visualizing data systems.
 This section covers data-related issues and recovery strategies.
 
 - (coming soon) Data Incident Case  
+
+→ [Go to Data Reliability Portfolio](./data-reliability/data-reliability)
 
 ---
 
