@@ -240,11 +240,10 @@ Integrate validation and drift into a unified risk signal.
 
 ```text
 Risk Score =
-Validation Contribution
+    Validation Contribution
+ + Drift Contribution
+ + ML Feature Contribution
 ```
-
-- Drift Contribution
-- Feature Contribution
 
 ---
 
