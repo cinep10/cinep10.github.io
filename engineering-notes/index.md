@@ -47,9 +47,6 @@ This section focuses on how data is generated, validated, and monitored.
 - [Verifying Page View Consistency from Web Access Logs](./data-reliability/verifying-page-view-consistency-from-web-access-logs.md)
   Real-world consistency issue.
 
-- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)  
-  Real-world consistency issue.
-
 
 → [Go to Data Reliability (Engineering)](./data-reliability/data-reliability)
 
