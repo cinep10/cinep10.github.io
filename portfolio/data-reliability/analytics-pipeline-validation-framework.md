@@ -40,7 +40,7 @@ Outputs
 ---
 
 ## 3. Types of Validation
-### 1️⃣ Completeness Validation
+### 1. Completeness Validation
 
 ```text
 Expected events vs actual events
@@ -50,7 +50,7 @@ Example:
 - missing page views
 - missing sessions
 
-### 2️⃣ Structural Validation
+### 2. Structural Validation
 
 ```text
 Relationships between metrics
@@ -60,7 +60,7 @@ Example:
 - login → submit flow
 - session → page_view consistency
 
-### 3️⃣ Mapping Validation
+### 3. Mapping Validation
 ```text
 Raw data → metric mapping correctness
 ```
