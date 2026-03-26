@@ -39,7 +39,7 @@ Engineering Notes document practical investigations and troubleshooting cases en
 Topics include:
 
 * Data Reliability cases
-* Risk & Decision
+* Data Platform
 * Data pipeline observability
 * System recovery and troubleshooting
 
