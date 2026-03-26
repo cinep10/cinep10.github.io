@@ -29,10 +29,10 @@ The following documents define how data is interpreted and controlled.
 - [Data Reliability Architecture](./portfolio/data-reliability/data-reliability-architecture)
   Overall structure for managing data correctness, change, and impact.
 
-- [Data Risk Scoring Architecture](./data-risk-scoring)  
+- (coming soon) Data Risk Scoring Architecture
   Method for integrating multiple signals into a unified risk score.
 
-- [Data Decision Framework](./data-decision-framework)  
+- (coming soon) Data Decision Framework
   Criteria for determining whether data is acceptable or requires action.
 
 ---
