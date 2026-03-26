@@ -29,6 +29,7 @@ Defining how data reliability should be structured.
 Building the system components.
 
 - [Data Layer](./data-layer)
+- [Metric Layer](./metric-layer) 
 - [Validation Layer](./validation-layer)
 - [Drift Layer](./drift-layer)
 - [Risk Layer](./risk-layer)
