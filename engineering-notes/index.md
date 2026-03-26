@@ -41,14 +41,15 @@ The following documents define how data is interpreted and controlled.
 
 This section focuses on how data is generated, validated, and monitored.
 
-- [Data Layer](./data-reliability/data-layer)  
-  Raw log generation, parsing, normalization, and loading.
+- [Data Reliability Approach](./data-reliability-approach)  
+  Framework for understanding data trust.
 
-- [Analytics Pipeline Validation Framework](./data-reliability/analytics-pipeline-validation-framework)  
-  Validation rules for ensuring data correctness.
+- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
+  Real-world consistency issue.
 
-- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)  
-  Case study on data consistency issues.
+- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
+  Real-world consistency issue.
+
 
 → [Go to Data Reliability (Engineering)](./data-reliability/data-reliability)
 
