@@ -55,7 +55,7 @@ How data is collected, processed, and structured.
 
 Making data systems visible and interpretable.
 
-- [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
+- [Grafana Dashboard Image Capture Automation](./automating-grafana-dashboard-image-capture)
 
 ---
 
