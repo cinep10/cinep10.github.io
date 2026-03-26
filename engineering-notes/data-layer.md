@@ -43,6 +43,7 @@ Its purpose is not simply to ingest data, but to:
 
 ## 3. Architecture Overview
 
+```text
 Raw Log (Simulator)
 ↓
 ETL / Parsing
@@ -52,7 +53,7 @@ TSV (Intermediate)
 Bulk Load (DB)
 ↓
 stg_webserver_log_hit
-
+```
 
 ---
 
@@ -104,15 +105,17 @@ The simulator is based on a behavior-driven model:
 
 ### Example log
 
+```text
 192.168.0.1 [09/Mar/2026:10:23:45 +0900] "GET /login.do HTTP/1.1" 200 512 "-" "Mozilla/5.0" "pcid=abc123;sid=xyz456;evt=view;page_type=login"
-
+```
 
 ---
 
 ### Key Design: Parseable Logs
 
+```text
 pcid=abc123;sid=xyz456;evt=view;page_type=login
-
+```
 
 Logs are designed from the beginning to align with database schema.
 
@@ -135,8 +138,9 @@ The simulator can control:
 
 ### 4.5 Unified pipeline design
 
+```text
 Simulator → Log → Parser → TSV → DB
-
+```
 
 ---
 
@@ -165,6 +169,7 @@ This layer converts raw logs into structured, meaningful data.
 
 ### 5.2 Processing flow
 
+```text
 Raw Log
 → Regex Parsing
 → Timestamp normalization
@@ -172,7 +177,7 @@ Raw Log
 → Key-Value extraction
 → TSV generation
 → DB Load
-
+```
 
 ---
 
@@ -194,21 +199,24 @@ Raw Log
 
 URL normalization:
 
+```text
 /login.do?ref=home → /login.do
-
+```
 
 Timestamp normalization:
 
+```text
 09/Mar/2026 → 2026-03-09
-
+```
 
 ---
 
 #### 3) Key-Value structuring
 
+```text
 pcid=abc123;sid=xyz456;evt=view
 → structured columns
-
+```
 
 ---
 
@@ -222,8 +230,9 @@ Align parsed data to database schema
 
 ### Why introduce TSV?
 
+```text
 Log → TSV → DB
-
+```
 
 ---
 
@@ -281,15 +290,17 @@ LINES TERMINATED BY '\n';
 
 ### Conventional approach
 
+```text
 Log → Python → INSERT
-
+```
 
 ---
 
 ### This system
 
+```text
 Log → TSV → Bulk Load
-
+```
 
 ---
 
