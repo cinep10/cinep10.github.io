@@ -58,7 +58,7 @@ The Validation Layer is designed to:
 
 ## 3. Architecture
 
-
+```text
 metric_value_hh / metric_value_day
 ↓
 validation rules
@@ -68,7 +68,7 @@ validation_result
 aggregation
 ↓
 validation_summary_day
-
+```
 
 ---
 
@@ -76,10 +76,10 @@ validation_summary_day
 
 The Validation Layer operates exclusively on metrics:
 
-
+```text
 metric_value_hh
 metric_value_day
-
+```
 
 ---
 
@@ -122,10 +122,10 @@ Does the data exist?
 
 #### Logic
 
-
+```text
 IF metric_value = 0
 THEN validation_status = 'warn'
-
+```
 
 ---
 
@@ -155,10 +155,10 @@ Are relationships between metrics valid?
 
 #### Logic
 
-
+```text
 IF submit_count > click_count
 THEN validation_status = 'fail'
-
+```
 
 ---
 
@@ -194,10 +194,10 @@ Are metrics correctly derived from raw data?
 
 #### Logic
 
-
+```text
 IF login_success_count = 0
 THEN validation_status = 'warn'
-
+```
 
 ---
 
@@ -227,10 +227,10 @@ Are values within valid ranges?
 
 #### Logic
 
-
+```text
 IF conversion_rate > 1
 THEN validation_status = 'fail'
-
+```
 
 ---
 
@@ -292,17 +292,17 @@ Aggregated daily validation results.
 
 Traditional approach:
 
-
+```text
 if error → log
-
+```
 
 ---
 
 This system:
 
-
+```text
 validation → signal → aggregation → risk
-
+```
 
 ---
 
@@ -354,9 +354,9 @@ Each validation must clearly explain:
 
 ### Core Flow
 
-
+```text
 Metric → Validation → Drift → Risk
-
+```
 
 ---
 
