@@ -84,9 +84,9 @@ The Root Cause Layer is designed to:
 
 ## 4. Architecture
 
-
+```text
 Risk Signals → Rule Engine → Root Cause
-
+```
 
 ---
 
@@ -100,9 +100,9 @@ Risk Signals → Rule Engine → Root Cause
 
 ### Output
 
-
+```text
 data_risk_root_cause_day
-
+```
 
 ---
 
@@ -125,30 +125,30 @@ Root Cause is derived from combinations of signals.
 
 ### Example Rule 1: Traffic Spike
 
-
+```text
 IF drift_alert_count ↑
 AND user_count ↑
 THEN traffic_spike
-
+```
 
 ---
 
 ### Example Rule 2: Funnel Distortion
 
-
+```text
 IF submit ↓
 AND click stable
 THEN funnel_distortion
-
+```
 
 ---
 
 ### Example Rule 3: Mapping Issue
 
-
+```text
 IF validation_fail ↑
 THEN mapping_issue
-
+```
 
 ---
 
@@ -170,11 +170,11 @@ These rules transform signals into semantic explanations.
 
 ### Example
 
-
+```text
 cause_type: funnel_distortion
 description: conversion dropped while upstream activity remained stable
 confidence: 0.82
-
+```
 
 ---
 
@@ -191,8 +191,6 @@ It requires:
 - validation signals  
 - drift signals  
 - contextual metrics  
-
----
 
 ---
 
@@ -214,8 +212,6 @@ Good:
 
 ---
 
----
-
 ### 8.3 Deterministic Rules
 
 Rules must be:
@@ -226,15 +222,13 @@ Rules must be:
 
 ---
 
----
-
 ### 8.4 Integration with Risk
 
 Root Cause is not independent.
 
-
+```text
 Risk → Root Cause → Decision
-
+```
 
 ---
 
@@ -248,14 +242,14 @@ Root Cause explains *why* risk increased.
 
 ### Full Flow
 
-
+```text
 Data
 → Metric
 → Validation
 → Drift
 → Risk
 → Root Cause
-
+```
 
 ---
 
@@ -265,8 +259,6 @@ Data
 - Drift → behavioral change  
 - Risk → impact  
 - Root Cause → explanation  
-
----
 
 ---
 
