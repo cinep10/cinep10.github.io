@@ -19,22 +19,6 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 
 ---
 
-## Featured Notes (Start Here)
-
-### Data Reliability
-- [Data Reliability Approach](./data-reliability/data-reliability-approach)
-
-### Data Platform
-- [Data Layer: From Raw Logs to Reliable Data](./data-platform/data-layer)
-
-### Observability
-- [Grafana Dashboard Image Capture Automation](./observability/grafana-dashboard-image-capture)
-
-### Incident & Recovery
-- [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
-
----
-
 ## 1. Data Reliability
 
 Ensuring data is correct, consistent, and interpretable.
