@@ -26,7 +26,7 @@ based on real-world implementation and operational experience.
 
 The following documents define how data is interpreted and controlled.
 
-- [Data Reliability Architecture](./data-reliability-architecture)  
+- [Data Reliability Architecture](./portfolio/data-reliability/data-reliability-architecture)
   Overall structure for managing data correctness, change, and impact.
 
 - [Data Risk Scoring Architecture](./data-risk-scoring)  
