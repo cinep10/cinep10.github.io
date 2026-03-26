@@ -46,7 +46,7 @@ Turning data signals into decisions.
 
 Building data pipelines and metric systems.
 
-- [Data Layer: From Raw Logs to Reliable Data](./data-platform/data-layer)
+- (coming soon) ETL
 
 → [See all Data Platform notes](./data-platform/data-platform)
 
