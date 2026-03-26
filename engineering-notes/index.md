@@ -44,9 +44,6 @@ This section focuses on how data is generated, validated, and monitored.
 - [Data Reliability Approach](./data-reliability/data-reliability-approach)  
   Framework for understanding data trust.
 
-- [Verifying Page View Consistency from Web Access Logs](./data-reliability/verifying-page-view-consistency-from-web-access-logs.md)
-  Real-world consistency issue.
-
 
 → [Go to Data Reliability (Engineering)](./data-reliability/data-reliability)
 
