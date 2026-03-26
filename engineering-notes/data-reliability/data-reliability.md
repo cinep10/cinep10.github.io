@@ -14,14 +14,11 @@ This section focuses on ensuring data can be trusted.
 
 ## Notes
 
-- [Data Reliability Approach](./data-reliability-approach)  
-  Framework for understanding data trust.
+- [Data Reliability Approach](./data-reliability-approach)
 
 - [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
-  Real-world consistency issue.
 
-- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
-  Real-world consistency issue.
+- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency) 
 
 ---
 
