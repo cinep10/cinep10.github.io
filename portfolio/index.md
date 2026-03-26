@@ -19,7 +19,7 @@ ML Input Monitoring System
 
 ---
 
-## 1. Data Reliability
+## Data Reliability
 
 Designing systems that validate, monitor, and explain data behavior.
 
@@ -46,7 +46,7 @@ Data → Metric → Validation → Drift → Risk → Decision
 
 ---
 
-## 2. ML Input Monitoring
+## ML Input Monitoring
 
 Ensuring machine learning systems operate on reliable input data.
 
