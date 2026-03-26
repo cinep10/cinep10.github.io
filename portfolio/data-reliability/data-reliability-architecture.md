@@ -76,7 +76,6 @@ It is:
 
 ## 4. Layer-by-Layer Design
 
----
 
 ### 4.1 Data Layer  
 *(Data generation and structuring)*
@@ -265,7 +264,6 @@ Validation Contribution
 
 ## 5. What Makes This Different
 
----
 
 ### Conventional Approach
 
