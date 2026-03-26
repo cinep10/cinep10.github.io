@@ -112,8 +112,6 @@ Transform raw, unstructured data into structured datasets.
 
 ---
 
----
-
 ### 4.2 Metric Layer  
 *(Defining data meaning)*
 
@@ -145,8 +143,6 @@ Convert raw data into meaningful metrics.
 #### Key Insight
 
 > Metrics define the meaning of data
-
----
 
 ---
 
@@ -186,8 +182,6 @@ Verify whether data is valid.
 #### Key Insight
 
 > Validation acts as the first reliability filter
-
----
 
 ---
 
@@ -232,8 +226,6 @@ Detect changes in data distribution and behavior.
 
 ---
 
----
-
 ### 4.5 Risk Layer  
 *(Quantifying impact)*
 
@@ -271,8 +263,6 @@ Validation Contribution
 
 ---
 
----
-
 ## 5. What Makes This Different
 
 ---
@@ -304,8 +294,6 @@ Data
 
 ---
 
----
-
 ## 6. Key Insights
 
 ---
@@ -333,8 +321,6 @@ It reflects structure, change, and input quality
 
 - Funnel distortion  
 - Correlation breakdown  
-
----
 
 ---
 
