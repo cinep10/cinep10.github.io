@@ -24,6 +24,8 @@ based on real-world implementation and operational experience.
 
 ## 1. Data Reliability
 
+Defining how data correctness is verified.
+Detecting when data changes in unexpected ways.
 Ensuring that data is correct, consistent, and usable.
 
 - [Data Reliability Approach](./data-reliability-approach)
@@ -31,23 +33,7 @@ Ensuring that data is correct, consistent, and usable.
 
 ---
 
-## 2. Validation & Data Quality
-
-Defining how data correctness is verified.
-
-- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs)
-
----
-
-## 3. Drift & Change Detection
-
-Detecting when data changes in unexpected ways.
-
-- (coming soon) Drift Detection Design
-
----
-
-## 4. Risk & Decision
+## 2. Risk & Decision
 
 Turning data signals into actionable decisions.
 
@@ -56,7 +42,7 @@ Turning data signals into actionable decisions.
 
 ---
 
-## 5. Pipeline & Platform
+## 3. Pipeline & Platform
 
 How data is collected, processed, and structured.
 
@@ -65,7 +51,7 @@ How data is collected, processed, and structured.
 
 ---
 
-## 6. Observability
+## 4. Observability
 
 Making data systems visible and interpretable.
 
@@ -73,7 +59,7 @@ Making data systems visible and interpretable.
 
 ---
 
-## 7. Incident & Recovery
+## 5. Incident & Recovery
 
 Understanding and resolving data issues.
 
