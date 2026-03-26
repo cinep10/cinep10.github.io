@@ -69,7 +69,7 @@ This section covers how data pipelines and metrics are designed.
 
 This section focuses on monitoring and visualizing data systems.
 
-- [Grafana Dashboard Image Capture](./grafana-dashboard-image-capture)  
+- [Grafana Dashboard Image Capture](./observability/grafana-dashboard-image-capture)  
   Automating dashboard rendering and reporting.
 
 → [Go to Observability](./observability/observability)
