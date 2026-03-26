@@ -258,7 +258,7 @@ LOAD DATA LOCAL INFILE 'file.tsv'
 INTO TABLE stg_webserver_log_hit
 FIELDS TERMINATED BY '\t'
 LINES TERMINATED BY '\n';
-``` id="load-data"
+```
 
 ---
 
