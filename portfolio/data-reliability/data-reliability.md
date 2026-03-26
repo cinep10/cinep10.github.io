@@ -17,8 +17,8 @@ Data → Metric → Validation → Drift → Risk
 
 Defining how data reliability should be structured.
 
-- Data Reliability Architecture
-- Validation Framework
+- [Data Reliability Architecture](./data-reliability-architecture)
+- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
 - Drift Detection Design
 - Risk Scoring Design
 
@@ -30,8 +30,6 @@ Building the system components.
 
 - [Data Layer](./data-layer)
 - (coming soon) Metric Layer
-- [Validation Framework](./analytics-pipeline-validation-framework)
-- [Drift Detection](./drift-detection-design)
 - (coming soon) Risk Layer
 
 ---
