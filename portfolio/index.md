@@ -1,63 +1,145 @@
 # Portfolio
 
-Architecture-focused projects exploring **data reliability, analytics validation, and ML input monitoring**.
+This portfolio focuses on building systems that ensure data can be trusted.
 
-This portfolio focuses on the design of **reliable data systems**, with emphasis on validation, drift detection, and observability in data pipelines.
-
-Core concept:
-
-Reliable Data → Reliable Analytics → Reliable Machine Learning
+The goal is not only to process data,  
+but to define, measure, and control data reliability.
 
 ---
 
-## Core Architecture Projects
+## Overview
 
-### Data Reliability Architecture
+The work is structured around two main areas:
 
-Architecture for monitoring reliability in analytics data pipelines.
+Data Reliability System
+ML Input Monitoring System
 
-This project explores how validation, drift detection, and observability can be used to ensure trustworthy analytics metrics.
-
-→ [View Project](/portfolio/data-reliability-architecture)
 
 ---
 
-### Analytics Pipeline Validation Framework
+## 1. Data Reliability
 
-Framework design for detecting inconsistencies in analytics pipelines caused by log processing differences, session handling, and aggregation logic.
+Designing systems that validate, monitor, and explain data behavior.
 
-The project introduces systematic validation rules and consistency checks for analytics systems.
+### Scope
 
-→ [View Project](/portfolio/analytics-pipeline-validation-framework)
-
----
-
-### ML Input Data Reliability Monitoring
-
-Monitoring architecture for detecting drift and reliability issues in machine learning input data.
-
-This project focuses on feature validation, feature drift detection, and monitoring of ML input stability.
-
-→ [View Project](/portfolio/ml-input-data-reliability-monitoring)
+- Data Validation
+- Drift Detection
+- Data Quality
+- Risk Scoring
+- Root Cause Analysis
 
 ---
 
-## Portfolio Focus
+### Structure
 
-Unlike typical data portfolios that focus mainly on tools or coding, this portfolio emphasizes **architecture and reliability design for data systems**.
+Data → Metric → Validation → Drift → Risk → Decision
 
-Focus areas include:
-
-- Data reliability architecture
-- Analytics validation frameworks
-- Metric drift detection
-- ML input monitoring
-- Data observability
 
 ---
 
-## Engineering Notes
+### Portfolio Breakdown
 
-Operational investigations, troubleshooting cases, and technical experiments related to data pipelines and system reliability are documented in **Engineering Notes**.
+#### 1) Analysis & Design
 
-→ [Engineering Notes](/engineering-notes/)
+- Data Reliability Architecture  
+- Validation Framework Design  
+- Drift Detection Strategy  
+- Risk Scoring Model  
+
+#### 2) Implementation
+
+- Data Pipeline (ETL / Parsing / Metric)
+- Validation Layer
+- Drift Detection Engine
+- Risk Scoring System
+
+#### 3) Results
+
+- Data Quality Improvement
+- Early Detection of Data Issues
+- Explainable Data Behavior
+- Reliable Decision Support
+
+---
+
+👉 [View Data Reliability Portfolio](../engineering-notes/data-reliability)
+
+---
+
+## 2. ML Input Monitoring
+
+Ensuring machine learning systems operate on reliable input data.
+
+---
+
+### Problem
+
+ML models assume stable input data.
+
+However, in real systems:
+
+- Data distribution changes
+- Feature relationships shift
+- Data quality degrades
+
+---
+
+### Approach
+
+Metric → Feature Drift → Risk → Monitoring
+
+
+---
+
+### Scope
+
+- Feature Drift Detection
+- Input Data Validation
+- Risk-based Monitoring
+- Explainability
+
+---
+
+### Portfolio Breakdown
+
+#### 1) Analysis & Design
+
+- ML Input Reliability Framework
+- Feature Drift Definition
+- Risk Integration Design
+
+#### 2) Implementation
+
+- Feature Drift Calculation (PSI / Z-score)
+- ML Feature Monitoring Pipeline
+- Integration with Risk Layer
+
+#### 3) Results
+
+- Early detection of data drift
+- Improved ML reliability
+- Reduced model risk
+
+---
+
+👉 [View ML Input Monitoring Notes](../engineering-notes)
+
+---
+
+## Key Differentiation
+
+This portfolio is not focused on building pipelines.
+
+It focuses on:
+
+- Defining data reliability
+- Detecting structural issues
+- Converting signals into risk
+- Enabling decision-making
+
+---
+
+## One-line Summary
+
+Building systems that make data trustworthy and explainable.
