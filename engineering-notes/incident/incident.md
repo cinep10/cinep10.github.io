@@ -14,7 +14,7 @@ This section focuses on data issues and failures.
 
 ## Notes
 
-- (coming soon) Data Incident Case Studies
+- [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
 
 ---
 
