@@ -8,9 +8,9 @@
 
 Most data pipelines follow a simple structure:
 
-
+```text
 Raw Data → ETL → Metric → Dashboard
-
+```
 
 However, this structure assumes that the data is already correct.
 
@@ -60,9 +60,9 @@ It is about answering a fundamental question:
 
 ## 3. Role in Architecture
 
-
+```text
 Data → Metric → Validation → Drift → Risk
-
+```
 
 ---
 
@@ -86,10 +86,10 @@ Validation acts as:
 
 ### 4.2 Output
 
-
+```text
 validation_result
 validation_summary_day
-
+```
 
 ---
 
@@ -223,17 +223,17 @@ Validates whether values fall within expected ranges.
 
 Traditional approach:
 
-
+```text
 if error → log
-
+```
 
 ---
 
 This system:
 
-
+```text
 validation → signal → aggregation → risk
-
+```
 
 ---
 
@@ -257,9 +257,9 @@ We measure:
 
 This is captured in:
 
-
+```text
 validation_summary_day
-
+```
 
 ---
 
@@ -293,9 +293,9 @@ Each validation must answer:
 
 ### Core Flow
 
-
+```text
 Validation → Drift → Risk
-
+```
 
 ---
 
