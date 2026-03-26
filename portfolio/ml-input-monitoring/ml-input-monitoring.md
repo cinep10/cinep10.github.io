@@ -1,10 +1,10 @@
 # ML Input Monitoring
 
-This section focuses on ensuring ML systems receive reliable input data.
+This section focuses on ensuring machine learning systems receive reliable input data.
 
 ---
 
-## Structure
+## Overview
 
 ```text
 Metric → Feature Drift → Risk → Monitoring
@@ -17,28 +17,28 @@ Metric → Feature Drift → Risk → Monitoring
 
 - ML Input Reliability Framework
 - Feature Drift Definition
-- Risk Integration
+- Risk Integration Design
 
 ---
 
 ## 2. Implementation
 
 - Feature Drift Calculation
-- ML Monitoring Pipeline
+- Monitoring Pipeline
 - Risk Integration
 
 ---
 
 ## 3. Results
 
-- Drift detection
+- Early drift detection
 - Improved model stability
 - Reduced data-related failures
 
 ---
 
-## Key Idea
+## Key Insight
 
-Most ML problems are not model problems.
+Most ML failures are not model problems.
 
 They are data problems.
