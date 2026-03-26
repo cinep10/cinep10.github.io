@@ -78,7 +78,7 @@ Making data systems visible and interpretable.
 
 Understanding and resolving data issues.
 
-- (coming soon) Data Incident Case Studies  
+- [WSL ext4 Recovery Case Study](./web-log-session-id-data-consistency)
 
 ---
 
