@@ -93,8 +93,6 @@ validation_summary_day
 
 ---
 
----
-
 ### 4.3 validation_result
 
 Stores individual validation outcomes.
@@ -113,8 +111,6 @@ Stores individual validation outcomes.
 
 ---
 
----
-
 ### 4.4 validation_summary_day
 
 Aggregates validation results at daily level.
@@ -126,8 +122,6 @@ Aggregates validation results at daily level.
 - validation_fail_count  
 - validation_warn_count  
 - total_validation_count  
-
----
 
 ---
 
@@ -154,8 +148,6 @@ Indicates data pipeline issues.
 
 ---
 
----
-
 ### 5.2 Structural Validation
 
 Checks relationships between metrics.
@@ -173,8 +165,6 @@ Checks relationships between metrics.
 #### Interpretation
 
 Indicates funnel structure breakdown.
-
----
 
 ---
 
@@ -198,8 +188,6 @@ Indicates ETL or parsing issues.
 
 ---
 
----
-
 ### 5.4 Distribution Sanity Check
 
 Validates whether values fall within expected ranges.
@@ -210,8 +198,6 @@ Validates whether values fall within expected ranges.
 
 - conversion_rate > 1  
 - negative latency  
-
----
 
 ---
 
@@ -241,8 +227,6 @@ Validation results are treated as structured data.
 
 ---
 
----
-
 ### 6.2 Quantification
 
 Instead of:
@@ -263,8 +247,6 @@ validation_summary_day
 
 ---
 
----
-
 ### 6.3 Persistence
 
 Validation is not a one-time check.
@@ -274,16 +256,12 @@ Validation is not a one-time check.
 
 ---
 
----
-
 ### 6.4 Explainability
 
 Each validation must answer:
 
 - why it failed  
 - why it triggered a warning  
-
----
 
 ---
 
@@ -307,8 +285,6 @@ Validation → Drift → Risk
 
 ---
 
----
-
 ### Key Insight
 
 - Validation detects structural issues  
@@ -318,8 +294,6 @@ Validation → Drift → Risk
 
 Validation issues can exist continuously,  
 while drift occurs when conditions change.
-
----
 
 ---
 
@@ -340,15 +314,11 @@ while drift occurs when conditions change.
 
 ---
 
----
-
 ### Typical Issues Detected
 
 - incomplete mapping  
 - undefined funnel structures  
 - missing events  
-
----
 
 ---
 
@@ -377,8 +347,6 @@ It validates relationships and structure.
 ### Validation is the starting point of Risk
 
 In many systems, it contributes the majority of risk signals.
-
----
 
 ---
 
