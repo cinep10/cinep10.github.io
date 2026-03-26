@@ -110,7 +110,6 @@ Changes in value distribution.
 
 The scale of activity has changed.
 
----
 
 ---
 
@@ -135,7 +134,6 @@ Changes in relationships between metrics.
 
 This is the most critical form of drift.
 
----
 
 ---
 
@@ -158,8 +156,6 @@ System behavior differs from historical patterns.
 
 ---
 
----
-
 ## 6. Detection Methods
 
 ---
@@ -170,8 +166,6 @@ Comparison against historical baseline:
 
 - weekday  
 - hour  
-
----
 
 ---
 
@@ -187,8 +181,6 @@ z = (current - mean) / std
 
 ---
 
----
-
 ### 6.3 PSI-like Metrics
 
 Measures distribution difference.
@@ -199,8 +191,6 @@ Used for:
 
 - feature distribution comparison  
 - population shift detection  
-
----
 
 ---
 
@@ -232,8 +222,6 @@ The system focuses on relationships, not isolated values.
 
 ---
 
----
-
 ## 8. Relationship with Validation and Risk
 
 ---
@@ -251,8 +239,6 @@ Validation → Drift → Risk
 - Validation → Is the data correct?  
 - Drift → Has the data changed?  
 - Risk → Does the change matter?  
-
----
 
 ---
 
@@ -284,15 +270,11 @@ Both are required for reliable interpretation.
 
 ---
 
----
-
 ### Typical Drift Signals
 
 - traffic spikes  
 - funnel conversion drop  
 - correlation breakdown  
-
----
 
 ---
 
@@ -321,8 +303,6 @@ Incorrect data makes drift analysis meaningless.
 ### Drift is the first signal of behavioral change
 
 It often precedes visible failures.
-
----
 
 ---
 
