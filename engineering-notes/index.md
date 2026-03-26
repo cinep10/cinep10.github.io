@@ -29,7 +29,7 @@ Detecting when data changes in unexpected ways.
 Ensuring that data is correct, consistent, and usable.
 
 - [Data Reliability Approach](./data-reliability-approach)
-- [Web Log Session ID Data Consistency](./verifying-page-view-consistency-from-web-access-logs)
+- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs)
 - [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)
 
 ---
