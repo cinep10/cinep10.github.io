@@ -53,7 +53,7 @@ Turning data signals into decisions.
 - (coming soon) Risk Scoring Framework
 - (coming soon) Decision Framework (OK / WARN / FAIL)
 
-→ [See all Data Risk notes](./data-risk)
+→ [See all Data Risk notes](./data-risk/data-risk)
 
 ---
 
