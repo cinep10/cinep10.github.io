@@ -135,8 +135,6 @@ Indicates ingestion or parsing issues.
 
 ---
 
----
-
 ### 5.2 Structural Validation
 
 ---
@@ -176,8 +174,6 @@ Detects funnel distortion.
 
 ---
 
----
-
 ### 5.3 Mapping Validation
 
 ---
@@ -211,8 +207,6 @@ Detects ETL / parsing / mapping issues.
 
 ---
 
----
-
 ### 5.4 Ratio / Range Validation
 
 ---
@@ -237,8 +231,6 @@ Are values within valid ranges?
 IF conversion_rate > 1
 THEN validation_status = 'fail'
 
-
----
 
 ---
 
@@ -270,8 +262,6 @@ Stores individual validation outcomes.
 
 ---
 
----
-
 ### 6.2 validation_summary_day
 
 Aggregated daily validation results.
@@ -289,8 +279,6 @@ Aggregated daily validation results.
 #### Meaning
 
 > A quantitative measure of daily data quality
-
----
 
 ---
 
@@ -324,8 +312,6 @@ Validation outputs are inputs to Risk.
 
 ---
 
----
-
 ### 7.2 Quantification
 
 ---
@@ -340,8 +326,6 @@ We measure:
 
 ---
 
----
-
 ### 7.3 Persistence
 
 ---
@@ -353,8 +337,6 @@ Validation is continuous:
 
 ---
 
----
-
 ### 7.4 Explainability
 
 ---
@@ -363,8 +345,6 @@ Each validation must clearly explain:
 
 - why it failed  
 - why it triggered a warning  
-
----
 
 ---
 
@@ -388,13 +368,9 @@ Metric → Validation → Drift → Risk
 
 ---
 
----
-
 ### Critical Insight
 
 > Drift analysis is meaningless if validation fails
-
----
 
 ---
 
@@ -402,8 +378,6 @@ Metric → Validation → Drift → Risk
 
 - Validation = baseline integrity  
 - Drift = change detection  
-
----
 
 ---
 
@@ -424,15 +398,11 @@ Metric → Validation → Drift → Risk
 
 ---
 
----
-
 ### Common Issues Detected
 
 - incomplete mapping  
 - weak funnel definition  
 - inconsistent event structure  
-
----
 
 ---
 
@@ -461,8 +431,6 @@ It validates relationships, not just values.
 ### Validation drives Risk
 
 In many systems, it contributes the majority of risk signals.
-
----
 
 ---
 
