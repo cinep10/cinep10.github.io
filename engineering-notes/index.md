@@ -35,7 +35,7 @@ Ensuring that data is correct, consistent, and usable.
 
 Defining how data correctness is verified.
 
-- [Analytics Pipeline Validation Framework](./verifying-page-view-consistency-from-web-access-logs)
+- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs)
 
 ---
 
