@@ -29,7 +29,7 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 - [Data Layer: From Raw Logs to Reliable Data](./data-layer)
 
 ### Observability
-- [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
+- [Grafana Dashboard Image Capture Automation](./observability/grafana-dashboard-image-capture)
 
 ---
 
