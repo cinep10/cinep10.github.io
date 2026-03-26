@@ -2,8 +2,8 @@
 
 This page documents how to build data systems that are not only functional, but trustworthy.
 
-The goal is not just to process data,  
-but to answer a more important question:
+The focus is not just on pipelines,  
+but on answering a more important question:
 
 > Can this data be trusted?
 
@@ -16,114 +16,74 @@ The content is structured around a single flow:
 Data → Metric → Validation → Drift → Risk → Dashboard
 
 
-Each note represents a part of this system,  
-based on real-world implementation and operational experience.
-
 ---
 
 ## Featured Notes (Start Here)
 
-If you are new, start with these:
+### Data Reliability
+- [Data Reliability Approach](./data-reliability-approach)
+- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
+- [Drift Detection Design](./drift-detection-design)
 
-- [Data Reliability Approach](./data-reliability-approach)  
-  Overall philosophy of building reliable data systems.
+### Data Platform
+- [Data Layer: From Raw Logs to Reliable Data](./data-layer)
 
-- [Data Layer: From Raw Logs to Reliable Data](./data-layer)  
-  How raw logs are transformed into structured and reliable datasets.
-
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)  
-  How validation becomes the foundation of trustworthy analytics.
-
-- [Drift Detection Design](./drift-detection-design)  
-  How to detect meaningful changes in data.
-
-- (coming soon) Risk Scoring Framework  
-  How to convert data signals into decisions.
+### Observability
+- [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
 
 ---
 
 ## 1. Data Reliability
 
-Ensuring that data is correct, consistent, and usable.
+Ensuring data is correct, consistent, and interpretable.
 
-- [Data Reliability Approach](./data-reliability-approach)  
-  A framework for thinking about data trust.
-
-- [Batch Validation Automation](./batch-validation-automation)  
-  File-based validation system with OK/WARN/FAIL decisions.
-
-- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
-  How inconsistent session handling breaks data.
+- [Data Reliability Approach](./data-reliability-approach)
+- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
+- [Drift Detection Design](./drift-detection-design)
+- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)
 
 → [See all Data Reliability notes](./data-reliability)
 
 ---
 
-## 2. Validation & Data Quality
+## 2. Data Risk
 
-Defining how data correctness is verified.
+Turning data signals into decisions.
 
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)  
-  Completeness, structural, and mapping validation design.
+- (coming soon) Risk Scoring Framework
+- (coming soon) Decision Framework (OK / WARN / FAIL)
 
-→ [See all Validation notes](./validation-quality)
-
----
-
-## 3. Drift & Change Detection
-
-Detecting unexpected changes in data behavior.
-
-- [Drift Detection Design](./drift-detection-design)  
-  Distribution-based anomaly detection.
-
-→ [See all Drift notes](./drift-detection)
+→ [See all Data Risk notes](./data-risk)
 
 ---
 
-## 4. Risk & Decision
+## 3. Data Platform
 
-Turning data signals into actionable decisions.
+Building data pipelines and metric systems.
 
-- (coming soon) Risk Scoring Framework  
-- (coming soon) OK / WARN / FAIL Decision Model  
+- [Data Layer: From Raw Logs to Reliable Data](./data-layer)
 
-→ [See all Risk notes](./data-risk)
-
----
-
-## 5. Pipeline & Platform
-
-How data is collected, processed, and structured.
-
-- [Data Layer: From Raw Logs to Reliable Data](./data-layer)  
-  Simulator + ETL + Bulk Load design.
-
-- (coming soon) Metric Layer Design  
-- (coming soon) ETL Architecture  
-
-→ [See all Platform notes](./data-platform)
+→ [See all Data Platform notes](./data-platform)
 
 ---
 
-## 6. Observability
+## 4. Observability
 
-Making data systems visible and interpretable.
+Making systems visible and explainable.
 
-- [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)  
-  Rendering dashboards into reproducible artifacts.
+- [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
 
 → [See all Observability notes](./observability)
 
 ---
 
-## 7. Incident & Recovery
+## 5. Incident & Recovery
 
 Understanding and resolving data issues.
 
-- (coming soon) Data Incident Case Studies  
+- (coming soon) Data Incident Case Studies
 
-→ [See all Incident notes](./incident-recovery)
+→ [See all Incident notes](./incident)
 
 ---
 
@@ -137,6 +97,6 @@ It is reliable when its data can be trusted.
 
 ## One-line Summary
 
-This is not a collection of engineering notes.
+This is not a collection of notes.
 
 It is a record of building a data reliability system.
