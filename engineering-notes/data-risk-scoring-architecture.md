@@ -59,9 +59,9 @@ It is a decision-enabling mechanism.
 
 ## 3. Architecture Overview
 
-
+```text
 Validation + Drift + Feature Signals → Risk Score
-
+```
 
 ---
 
@@ -110,12 +110,12 @@ Indicates whether model inputs remain stable.
 
 ### Base Model
 
-
+```text
 Risk Score =
-w1 * Validation
-
-w2 * Drift
-w3 * Feature
+  w1 * Validation
+  w2 * Drift
+  w3 * Feature
+```
 
 ---
 
@@ -161,12 +161,14 @@ Different signal levels contribute differently:
 
 ### Example
 
-
+```text
 Risk = 78
 
-Validation: 45 (row drop)
-Drift: 20 (traffic shift)
-Feature: 13 (conversion instability)
+ - Validation: 45 (row drop)
+ - Drift: 20 (traffic shift)
+ - Feature: 13 (conversion instability)
+```
+
 
 ---
 
