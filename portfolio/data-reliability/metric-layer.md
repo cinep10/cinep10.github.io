@@ -68,7 +68,7 @@ The Metric Layer is designed to:
 
 ## 3. Architecture
 
-
+```text
 stg_webserver_log_hit
 ↓
 event interpretation / identity resolution / sessionization
@@ -80,7 +80,7 @@ metric_value_hh
 daily aggregation
 ↓
 metric_value_day
-
+```
 
 ---
 
@@ -88,9 +88,9 @@ metric_value_day
 
 The Metric Layer operates on structured staging data:
 
-
+```text
 stg_webserver_log_hit
-
+```
 
 ---
 
@@ -147,9 +147,9 @@ User-based metrics require a stable identity definition.
 
 ### Hierarchical Identity Strategy
 
-
+```text
 uid → pcid → ip
-
+```
 
 ---
 
@@ -240,9 +240,9 @@ Metrics are grouped into four categories.
 
 #### Daily Active Users (DAU)
 
-
+```text
 DAU = count(distinct identity with valid activity)
-
+```
 
 ---
 
@@ -254,18 +254,18 @@ Defined as meaningful page interactions, not raw hits.
 
 #### Avg Session Duration
 
-
+```text
 duration = event_ts - session_start_ts
 avg_duration = mean(duration)
-
+```
 
 ---
 
 #### New User Ratio
 
-
+```text
 new_user_ratio = new_users / total_users
-
+```
 
 ---
 
@@ -281,9 +281,9 @@ new_user_ratio = new_users / total_users
 
 #### Success Rate
 
-
+```text
 auth_success_rate = success / attempt
-
+```
 
 ---
 
@@ -316,9 +316,9 @@ auth_fail_rate = fail / attempt
 
 #### Conversion Rate
 
-
+```text
 submit_rate = submit / start
-
+```
 
 ---
 
