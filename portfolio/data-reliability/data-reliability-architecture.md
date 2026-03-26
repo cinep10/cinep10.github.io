@@ -8,9 +8,9 @@
 
 Most data systems follow a simple flow:
 
-
+```text
 Raw Data → ETL → Dashboard
-
+```
 
 This structure assumes:
 
@@ -60,9 +60,9 @@ It is to:
 
 ## 3. Architecture Overview
 
-
+```text
 Data → Metric → Validation → Drift → Risk
-
+```
 
 ---
 
@@ -247,12 +247,13 @@ Integrate validation and drift into a unified risk signal.
 
 #### Structure
 
-
+```text
 Risk Score =
 Validation Contribution
+```
 
-Drift Contribution
-Feature Contribution
+- Drift Contribution
+- Feature Contribution
 
 ---
 
@@ -278,21 +279,21 @@ Feature Contribution
 
 ### Conventional Approach
 
-
+```text
 Data → Dashboard
-
+```
 
 ---
 
 ### This Architecture
 
-
+```text
 Data
 → Metric (meaning)
 → Validation (correctness)
 → Drift (change)
 → Risk (impact)
-
+```
 
 ---
 
