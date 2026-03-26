@@ -15,7 +15,7 @@ Metric → Feature Drift → Risk → Monitoring
 
 ## 1. Analysis & Design
 
-- ML Input Reliability Framework
+- [ML Input Data Reliability Monitoring](./ml-input-data-reliability-monitoring)
 - Feature Drift Definition
 - Risk Integration Design
 
