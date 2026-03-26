@@ -108,8 +108,6 @@ Serve as the source of all ML features.
 
 ---
 
----
-
 ### 4.2 Feature Drift Layer  
 *(Detecting input change)*
 
@@ -160,8 +158,6 @@ ml_feature_drift_result
 
 ---
 
----
-
 ### 4.3 Risk Layer (ML Integrated)
 
 ---
@@ -199,8 +195,6 @@ Risk Score =
 
 ---
 
----
-
 ### 4.4 Monitoring Layer  
 *(Tracking prediction reliability)*
 
@@ -235,8 +229,6 @@ Monitor both predictions and input conditions.
 
 ---
 
----
-
 ## 5. What Makes This Different
 
 ---
@@ -267,8 +259,6 @@ Metric
 
 ---
 
----
-
 ## 6. Key Insights
 
 ---
@@ -295,8 +285,6 @@ Aggregate metrics hide meaningful changes
 
 Drift alone is analysis  
 Risk enables action
-
----
 
 ---
 
