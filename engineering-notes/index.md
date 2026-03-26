@@ -1,9 +1,9 @@
 # Engineering Notes
 
-This page documents how to build data systems that are not only functional, but trustworthy.
+This page documents how data systems are built, validated, and made reliable.
 
-The focus is not just on pipelines,  
-but on answering a more important question:
+The focus is not only on building pipelines,  
+but on answering a more fundamental question:
 
 > Can this data be trusted?
 
@@ -11,64 +11,71 @@ but on answering a more important question:
 
 ## Overview
 
-The content is structured around a single flow:
+The content is structured as a reliability flow:
 
-```text
-Data → Metric → Validation → Drift → Risk → Dashboard
-```
+Data → Metric → Validation → Drift → Risk → Decision
 
----
-
-## 1. Data Reliability
-
-Ensuring data is correct, consistent, and interpretable.
-
-- [Data Reliability Approach](./data-reliability/data-reliability-approach)
-- [Verifying Page View Consistency from Web Access Logs](./data-reliability/verifying-page-view-consistency-from-web-access-logs.md)
-- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)
-
-→ [See all Data Reliability notes](./data-reliability/data-reliability)
+Each note represents a component of this system,  
+based on real-world implementation and operational experience.
 
 ---
 
-## 2. Data Risk
+## Core Framework
 
-Turning data signals into decisions.
+The following documents define how data is interpreted and controlled.
 
-- (coming soon) Risk Scoring Framework
-- (coming soon) Decision Framework (OK / WARN / FAIL)
+- [Data Reliability Architecture](./data-reliability-architecture)  
+  Overall structure for managing data correctness, change, and impact.
 
-→ [See all Data Risk notes](./data-risk/data-risk)
+- [Data Risk Scoring Architecture](./data-risk-scoring)  
+  Method for integrating multiple signals into a unified risk score.
 
----
-
-## 3. Data Platform
-
-Building data pipelines and metric systems.
-
-- (coming soon) ETL
-
-→ [See all Data Platform notes](./data-platform/data-platform)
+- [Data Decision Framework](./data-decision-framework)  
+  Criteria for determining whether data is acceptable or requires action.
 
 ---
 
-## 4. Observability
+## Data Reliability (Engineering)
 
-Making systems visible and explainable.
+This section focuses on how data is generated, validated, and monitored.
 
-- [Grafana Dashboard Image Capture Automation](./observability/grafana-dashboard-image-capture)
+- [Data Layer](./data-layer)  
+  Raw log generation, parsing, normalization, and loading.
 
-→ [See all Observability notes](./observability/observability)
+- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)  
+  Validation rules for ensuring data correctness.
+
+- [Drift Detection Design](./drift-detection-design)  
+  Detecting changes in data distribution and behavior.
+
+- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
+  Case study on data consistency issues.
 
 ---
 
-## 5. Incident & Recovery
+## Data Platform
 
-Understanding and resolving data issues.
+This section covers how data pipelines and metrics are designed.
 
-- [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
+- (coming soon) Metric Layer  
+- (coming soon) ETL Architecture  
 
-→ [See all Incident notes](./incident/incident)
+---
+
+## Observability
+
+This section focuses on monitoring and visualizing data systems.
+
+- [Grafana Dashboard Image Capture](./grafana-dashboard-image-capture)  
+  Automating dashboard rendering and reporting.
+
+---
+
+## Incident & Recovery
+
+This section covers data-related issues and recovery strategies.
+
+- (coming soon) Data Incident Case  
 
 ---
 
@@ -77,11 +84,3 @@ Understanding and resolving data issues.
 A system is not reliable because it runs successfully.
 
 It is reliable when its data can be trusted.
-
----
-
-## One-line Summary
-
-This is not a collection of notes.
-
-It is a record of building a data reliability system.
