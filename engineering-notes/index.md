@@ -40,7 +40,7 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 Ensuring data is correct, consistent, and interpretable.
 
 - [Data Reliability Approach](./data-reliability/data-reliability-approach)
-- [Analytics Pipeline Validation Framework](./data-reliability/analytics-pipeline-validation-framework)
+- [Verifying Page View Consistency from Web Access Logs](./data-reliability/verifying-page-view-consistency-from-web-access-logs.md)
 - [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)
 
 → [See all Data Reliability notes](./data-reliability/data-reliability)
