@@ -17,11 +17,8 @@ This section focuses on ensuring data can be trusted.
 - [Data Reliability Approach](./data-reliability-approach)  
   Framework for understanding data trust.
 
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)  
-  How validation defines correctness.
-
-- [Drift Detection Design](./drift-detection-design)  
-  Detecting meaningful changes.
+- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
+  Real-world consistency issue.
 
 - [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
   Real-world consistency issue.
