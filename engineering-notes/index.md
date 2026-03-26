@@ -81,7 +81,7 @@ This section focuses on monitoring and visualizing data systems.
 
 This section covers data-related issues and recovery strategies.
 
-- [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
+- [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
 
 → [Go to Incident & Recovery](./incident/incident)
 
