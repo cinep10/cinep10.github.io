@@ -13,8 +13,9 @@ but on answering a more important question:
 
 The content is structured around a single flow:
 
+```text
 Data → Metric → Validation → Drift → Risk → Dashboard
-
+```
 
 ---
 
