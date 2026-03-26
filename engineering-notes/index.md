@@ -41,16 +41,13 @@ The following documents define how data is interpreted and controlled.
 
 This section focuses on how data is generated, validated, and monitored.
 
-- [Data Layer](./data-layer)  
+- [Data Layer](./data-reliability/data-layer)  
   Raw log generation, parsing, normalization, and loading.
 
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)  
+- [Analytics Pipeline Validation Framework](./data-reliability/analytics-pipeline-validation-framework)  
   Validation rules for ensuring data correctness.
 
-- [Drift Detection Design](./drift-detection-design)  
-  Detecting changes in data distribution and behavior.
-
-- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
+- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)  
   Case study on data consistency issues.
 
 ---
