@@ -21,9 +21,9 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 ## Featured Notes (Start Here)
 
 ### Data Reliability
-- [Data Reliability Approach](./data-reliability-approach)
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
-- [Drift Detection Design](./drift-detection-design)
+- [Data Reliability Approach](./data-reliability/data-reliability-approach)
+- [Analytics Pipeline Validation Framework](./data-reliability/analytics-pipeline-validation-framework)
+- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)
 
 ### Data Platform
 - [Data Layer: From Raw Logs to Reliable Data](./data-platform/data-layer)
@@ -31,18 +31,20 @@ Data → Metric → Validation → Drift → Risk → Dashboard
 ### Observability
 - [Grafana Dashboard Image Capture Automation](./observability/grafana-dashboard-image-capture)
 
+### Incident & Recovery
+- [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
+
 ---
 
 ## 1. Data Reliability
 
 Ensuring data is correct, consistent, and interpretable.
 
-- [Data Reliability Approach](./data-reliability-approach)
-- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
-- [Drift Detection Design](./drift-detection-design)
-- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)
+- [Data Reliability Approach](./data-reliability/data-reliability-approach)
+- [Analytics Pipeline Validation Framework](./data-reliability/analytics-pipeline-validation-framework)
+- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)
 
-→ [See all Data Reliability notes](./data-reliability)
+→ [See all Data Reliability notes](./data-reliability/data-reliability)
 
 ---
 
