@@ -41,13 +41,13 @@ The following documents define how data is interpreted and controlled.
 
 This section focuses on how data is generated, validated, and monitored.
 
-- [Data Reliability Approach](./data-reliability-approach)  
+- [Data Reliability Approach](./data-reliability/data-reliability-approach)  
   Framework for understanding data trust.
 
-- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
+- [Verifying Page View Consistency from Web Access Logs](./data-reliability/verifying-page-view-consistency-from-web-access-logs.md)
   Real-world consistency issue.
 
-- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency)  
+- [Web Log Session ID Data Consistency](./data-reliability/web-log-session-id-data-consistency)  
   Real-world consistency issue.
 
 
