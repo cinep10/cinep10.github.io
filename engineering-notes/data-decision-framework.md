@@ -49,9 +49,9 @@ It is an operational contract.
 
 ## 3. Decision Model
 
-
+```text
 OK / WARN / FAIL
-
+```
 
 ---
 
@@ -129,7 +129,7 @@ Immediate action is required.
 
 ### Example
 
-
+```text
 IF row_count == 0 → FAIL
 
 ELSE IF drop_pct > 80 → FAIL
@@ -137,7 +137,7 @@ ELSE IF drop_pct > 80 → FAIL
 ELSE IF drop_pct > 50 → WARN
 
 ELSE → OK
-
+```
 
 ---
 
@@ -157,11 +157,11 @@ Decisions must consider multiple conditions.
 
 ### Example
 
-
+```text
 IF validation_fail OR drift_high → FAIL
 
 IF validation_warn AND drift_warn → WARN
-
+```
 
 ---
 
@@ -179,10 +179,10 @@ Decision is derived from Risk interpretation.
 
 ### Example
 
-
+```text
 Risk > 80 → FAIL
 Risk > 50 → WARN
-
+```
 
 ---
 
