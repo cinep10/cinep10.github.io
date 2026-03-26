@@ -48,8 +48,8 @@ Demonstrating system outcomes.
 
 ## Notes
 
-- [Data Reliability Approach](./data-reliability-approach)
-- [Web Log Session ID Consistency](./web-log-session-id-data-consistency)
+- [Data Reliability Architecture](./data-reliability-architecture)
+- [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
 
 ---
 
