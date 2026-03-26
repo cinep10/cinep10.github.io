@@ -8,9 +8,9 @@
 
 Most data systems follow a simple flow:
 
-```text
+
 Raw Data → ETL → Dashboard
-```
+
 
 This structure assumes:
 
@@ -60,12 +60,199 @@ It is to:
 
 ## 3. Architecture Overview
 
+
+Data → Metric → Validation → Drift → Risk
+
+
+---
+
+This is not just a pipeline.
+
+It is:
+
+> A layered system that progressively interprets data
+
+---
+
+## 4. Layer-by-Layer Design
+
+---
+
+### 4.1 Data Layer  
+*(Data generation and structuring)*
+
+---
+
+#### Role
+
+Transform raw, unstructured data into structured datasets.
+
+---
+
+#### Core Functions
+
+- Log generation (Simulator)  
+- Parsing  
+- Normalization  
+- Database loading  
+
+---
+
+#### Design Principles
+
+- Schema-first design  
+- Deterministic processing  
+- Bulk loading (LOAD DATA)  
+
+---
+
+#### Key Insight
+
+> Data reliability starts at the data generation stage
+
+---
+
+---
+
+### 4.2 Metric Layer  
+*(Defining data meaning)*
+
+---
+
+#### Role
+
+Convert raw data into meaningful metrics.
+
+---
+
+#### Examples
+
+- page_view  
+- session  
+- user_count  
+- conversion  
+
+---
+
+#### Design Principles
+
+- Business-driven metric design  
+- Funnel definition (view → click → submit)  
+- Clear aggregation rules (hourly / daily)  
+
+---
+
+#### Key Insight
+
+> Metrics define the meaning of data
+
+---
+
+---
+
+### 4.3 Validation Layer  
+*(Ensuring correctness)*
+
+---
+
+#### Role
+
+Verify whether data is valid.
+
+---
+
+#### Types of Validation
+
+- Completeness → missing data  
+- Structural → relationship checks  
+- Mapping → transformation correctness  
+
+---
+
+#### Examples
+
+- session ≥ user  
+- submit ≤ click  
+
+---
+
+#### Design Principles
+
+- Quantified outputs  
+- Continuous detection  
+
+---
+
+#### Key Insight
+
+> Validation acts as the first reliability filter
+
+---
+
+---
+
+### 4.4 Drift Layer  
+*(Detecting change)*
+
+---
+
+#### Role
+
+Detect changes in data distribution and behavior.
+
+---
+
+#### Targets
+
+- Traffic patterns  
+- User behavior  
+- Event distributions  
+
+---
+
+#### Methods
+
+- PSI-like drift  
+- Z-score  
+- Time pattern anomaly  
+- Correlation anomaly  
+
+---
+
+#### Design Principles
+
+- Baseline comparison (weekday + hour)  
+- Structural change detection  
+
+---
+
+#### Key Insight
+
+> Drift represents a change in data meaning
+
+---
+
+---
+
+### 4.5 Risk Layer  
+*(Quantifying impact)*
+
+---
+
+#### Role
+
+Integrate validation and drift into a unified risk signal.
+
+---
+
+#### Structure
+
+
 Risk Score =
 Validation Contribution
 
 Drift Contribution
 Feature Contribution
-
 
 ---
 
@@ -90,6 +277,15 @@ Feature Contribution
 ---
 
 ### Conventional Approach
+
+
+Data → Dashboard
+
+
+---
+
+### This Architecture
+
 
 Data
 → Metric (meaning)
