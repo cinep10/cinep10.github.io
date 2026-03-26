@@ -50,9 +50,9 @@ It is to:
 
 ## 3. Architecture Overview
 
-
+```text
 Metric → Feature Drift → Risk → Monitoring
-
+```
 
 ---
 
@@ -137,9 +137,9 @@ Detect distribution changes in ML features.
 
 #### Output
 
-
+```text
 ml_feature_drift_result
-
+```
 
 ---
 
@@ -174,12 +174,12 @@ Integrate data and ML signals into a unified risk score.
 
 #### Structure
 
-
+```text
 Risk Score =
-Validation
-
-Metric Drift
-ML Feature Drift
+    Validation
+  + Metric Drift
+  + ML Feature Drift
+```
 
 ---
 
@@ -243,20 +243,20 @@ Monitor both predictions and input conditions.
 
 ### Conventional ML Pipeline
 
-
+```text
 Data → Model → Prediction
-
+```
 
 ---
 
 ### This Architecture
 
-
+```text
 Metric
 → Feature Drift
 → Risk
 → Monitoring
-
+```
 
 ---
 
