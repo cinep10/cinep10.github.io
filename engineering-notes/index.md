@@ -80,7 +80,7 @@ This section focuses on monitoring and visualizing data systems.
 
 This section covers data-related issues and recovery strategies.
 
-- (coming soon) Data Incident Case  
+- [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
 
 → [Go to Incident & Recovery](./incident/incident)
 
