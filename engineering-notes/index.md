@@ -13,7 +13,9 @@ but on answering a more fundamental question:
 
 The content is structured as a reliability flow:
 
+```text
 Data → Metric → Validation → Drift → Risk → Decision
+```
 
 Each note represents a component of this system,  
 based on real-world implementation and operational experience.
