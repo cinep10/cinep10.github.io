@@ -37,6 +37,13 @@ Metric → Feature Drift → Risk → Monitoring
 
 ---
 
+## Notes
+
+- [Data Reliability Approach](./data-reliability-approach)
+- [Web Log Session ID Consistency](./web-log-session-id-data-consistency)
+
+---
+
 ## Key Insight
 
 Most ML failures are not model problems.
