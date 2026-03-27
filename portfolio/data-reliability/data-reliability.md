@@ -51,6 +51,8 @@ Demonstrating system outcomes.
 
 - [Data Reliability Architecture](./data-reliability-architecture)
 - [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
+- [Drift Detection Design](./drift-detection-design)
+- [Risk Scoring Design](./risk-scoring-design)
 
 ---
 
