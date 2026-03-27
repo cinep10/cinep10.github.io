@@ -41,9 +41,9 @@ Building the system components.
 
 Demonstrating system outcomes.
 
-- Improved data quality
+- [Explainable data behavior](./explainable-data-behavior)
 - Early anomaly detection
-- Explainable data behavior
+- Improved data quality
 
 ---
 
