@@ -46,7 +46,7 @@ The Risk Layer is designed to:
 
 ## 3. Architecture
 
-
+```text
 Validation + Drift + ML Feature
 ↓
 Signal Generation
@@ -54,7 +54,7 @@ Signal Generation
 Weighted Aggregation
 ↓
 Risk Score
-
+```
 
 ---
 
@@ -90,12 +90,12 @@ Risk is not a single number.
 
 ---
 
-
+```text
 Risk =
-Validation Contribution
-
-Drift Contribution
-ML Feature Contribution
+  Validation Contribution
+  + Drift Contribution
+  + ML Feature Contribution
+```
 
 ---
 
@@ -122,9 +122,9 @@ Not all signals are equal.
 
 ### Concept
 
-
+```text
 Risk = Σ (signal × weight)
-
+```
 
 ---
 
@@ -138,12 +138,13 @@ Risk must be decomposable.
 
 ### Example
 
-
+```text
 Risk = 87
 
 Drift: 60%
 Validation: 35%
 ML Feature: 5%
+```
 
 ---
 
@@ -174,9 +175,9 @@ Risk must be interpreted over time.
 
 ### Table
 
-
+```text
 data_risk_score_day_v3
-
+```
 
 ---
 
