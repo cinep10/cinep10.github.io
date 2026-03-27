@@ -114,8 +114,6 @@ Compare Monday 10AM with previous Mondays 10AM
 
 ---
 
----
-
 ## 5. Core Design 2: Drift Calculation
 
 ---
@@ -136,8 +134,6 @@ z = (current - mean) / std
 
 ---
 
----
-
 ### 5.2 PSI-like Drift
 
 Used to measure distribution differences.
@@ -148,8 +144,6 @@ Used to measure distribution differences.
 
 - detect shape changes  
 - not just value differences  
-
----
 
 ---
 
@@ -177,8 +171,6 @@ Aggregated averages hide localized issues.
 
 ---
 
----
-
 ## 7. Core Design 4: Structural Drift
 
 ---
@@ -202,8 +194,6 @@ It is about relationships between metrics.
 
 ---
 
----
-
 ## 8. Output Structure
 
 ---
@@ -217,8 +207,6 @@ It is about relationships between metrics.
 - drift_score  
 - drift_status (normal / warn / alert)  
 - severity  
-
----
 
 ---
 
@@ -241,8 +229,6 @@ Incorrect baseline leads to incorrect drift
 ### Structure matters more than values
 
 Funnel distortion and correlation breakdown are critical
-
----
 
 ---
 
