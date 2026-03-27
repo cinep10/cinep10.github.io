@@ -82,8 +82,6 @@ Standardize different problems into a common format.
 
 ---
 
----
-
 ## 5. Core Design 2: Contribution Decomposition
 
 ---
@@ -107,8 +105,6 @@ Explains why risk increased.
 
 ---
 
----
-
 ## 6. Core Design 3: Weighted Aggregation
 
 ---
@@ -129,8 +125,6 @@ Not all signals are equal.
 
 Risk = Σ (signal × weight)
 
-
----
 
 ---
 
@@ -159,8 +153,6 @@ Not just a score, but an explanation.
 
 ---
 
----
-
 ## 8. Core Design 5: Time-based Risk
 
 ---
@@ -173,8 +165,6 @@ Risk must be interpreted over time.
 
 - spike → event-driven anomaly  
 - steady increase → structural issue  
-
----
 
 ---
 
@@ -199,8 +189,6 @@ data_risk_score_day_v3
 - drift_alert_count  
 - ml_feature_alert_count  
 - total_signal_count  
-
----
 
 ---
 
@@ -229,8 +217,6 @@ Patterns over time define real risk.
 ### Risk precedes ML
 
 Without risk, ML results are not interpretable.
-
----
 
 ---
 
