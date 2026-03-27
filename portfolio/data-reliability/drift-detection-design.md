@@ -141,3 +141,118 @@ z = (current - mean) / std
 ### 5.2 PSI-like Drift
 
 Used to measure distribution differences.
+
+---
+
+### Purpose
+
+- detect shape changes  
+- not just value differences  
+
+---
+
+---
+
+## 6. Core Design 3: Feature-level Analysis
+
+---
+
+### Key Principle
+
+> Drift must be analyzed at the feature level
+
+---
+
+### Examples
+
+- user_count drift  
+- session_count drift  
+- conversion_rate drift  
+
+---
+
+### Reason
+
+Aggregated averages hide localized issues.
+
+---
+
+---
+
+## 7. Core Design 4: Structural Drift
+
+---
+
+Drift is not only about values.
+
+It is about relationships between metrics.
+
+---
+
+### Examples
+
+- click stable, submit decreases → funnel distortion  
+- login stable, auth_success decreases → auth issue  
+
+---
+
+### Key Insight
+
+> Structural change represents true behavioral change
+
+---
+
+---
+
+## 8. Output Structure
+
+---
+
+### Key Fields
+
+- dt / hh  
+- metric_name  
+- baseline_value  
+- observed_value  
+- drift_score  
+- drift_status (normal / warn / alert)  
+- severity  
+
+---
+
+---
+
+## 9. Key Design Summary
+
+---
+
+### Drift is change, not error
+
+Validation ≠ Drift
+
+---
+
+### Baseline defines correctness
+
+Incorrect baseline leads to incorrect drift
+
+---
+
+### Structure matters more than values
+
+Funnel distortion and correlation breakdown are critical
+
+---
+
+---
+
+## One-line Summary
+
+Drift Detection = Identifying changes in data distribution and structure
+
+---
+
+## Portfolio Statement
+
+Drift detection was designed not as anomaly detection,  
+but as a system that captures temporal and structural changes in data behavior.
