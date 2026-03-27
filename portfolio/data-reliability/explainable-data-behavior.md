@@ -44,11 +44,13 @@ But to:
 
 The system is structured as a layered interpretation pipeline.
 
-
+```text
 Raw Log
 → Parsing / Load
 → Metric Generation
+```
 
+```text
 [VALIDATION]
 → validation_summary_day
 
@@ -72,7 +74,7 @@ Raw Log
 
 [OBSERVABILITY]
 → Grafana Dashboard
-
+```
 
 ---
 
@@ -220,9 +222,9 @@ problem → cause → action
 
 ### Validation
 
-
+```text
 Rule-based data integrity check
-
+```
 
 - completeness  
 - mapping consistency  
@@ -232,9 +234,9 @@ Rule-based data integrity check
 
 ### Drift
 
-
+```text
 Distribution change detection
-
+```
 
 - traffic shift  
 - behavior change  
@@ -244,23 +246,23 @@ Distribution change detection
 
 ### Funnel Metrics
 
-
+```text
 Step-wise behavioral structure
-
+```
 
 Example:
 
-
+```text
 auth → apply_start → submit
-
+```
 
 ---
 
 ### Conversion Metrics
 
-
+```text
 Business outcome indicators
-
+```
 
 - auth_success_rate  
 - card_conversion  
@@ -270,9 +272,9 @@ Business outcome indicators
 
 ### Root Cause
 
-
+```text
 Categorized explanation of issues
-
+```
 
 - funnel_distortion → structural problem  
 - metric_drift → behavioral change  
@@ -282,9 +284,9 @@ Categorized explanation of issues
 
 ### Action
 
-
+```text
 Recommended response
-
+```
 
 - mapping_fix  
 - funnel_fix  
@@ -311,19 +313,19 @@ Most issues were caused by:
 
 Before:
 
-
+```text
 Anomaly detected → unknown reason
-
+```
 
 After:
 
-
+```text
 Anomaly detected
 → drift?
 → funnel issue?
 → mapping issue?
 → what action to take?
-
+```
 
 ---
 
@@ -390,20 +392,20 @@ It demonstrates:
 
 ### Action engine automation
 
-
+```text
 IF funnel_distortion
 → check mapping coverage
 → detect missing events
 → suggest fix
-
+```
 
 ---
 
 ### ML integration
 
-
+```text
 feature → risk prediction
-
+```
 
 → Explainable ML layer
 
