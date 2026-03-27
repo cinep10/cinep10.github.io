@@ -55,9 +55,9 @@ The Drift Detection Layer is designed to:
 
 ## 3. Architecture
 
-
+```text
 Metric → Baseline → Drift Calculation → Drift Result
-
+```
 
 ---
 
@@ -83,9 +83,9 @@ Drift cannot exist without a reference.
 
 ### Selected Baseline
 
-
+```text
 weekday + hour baseline
-
+```
 
 ---
 
@@ -100,9 +100,9 @@ weekday + hour baseline
 
 ### Selected Approach
 
-
+```text
 Compare Monday 10AM with previous Mondays 10AM
-
+```
 
 ---
 
@@ -120,9 +120,9 @@ Compare Monday 10AM with previous Mondays 10AM
 
 ### 5.1 Z-score Drift
 
-
+```text
 z = (current - mean) / std
-
+```
 
 ---
 
