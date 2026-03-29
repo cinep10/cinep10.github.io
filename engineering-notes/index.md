@@ -45,7 +45,7 @@ This section focuses on how data is generated, validated, and monitored.
   Framework for understanding data trust.
 
 
-→ [Go to Data Reliability](./data-reliability/)
+→ [Go to Data Reliability](/engineering-notes/data-reliability/)
 
 ---
 
@@ -56,7 +56,7 @@ This section covers how data pipelines and metrics are designed.
 - (coming soon) Metric Layer  
 - (coming soon) ETL Architecture  
 
-→ [Go to Data Platform](./data-platform/)
+→ [Go to Data Platform](/engineering-notes/data-platform/)
 
 ---
 
@@ -67,7 +67,7 @@ This section focuses on monitoring and visualizing data systems.
 - [Grafana Dashboard Image Capture](./observability/grafana-dashboard-image-capture)  
   Automating dashboard rendering and reporting.
 
-→ [Go to Observability](./observability/)
+→ [Go to Observability](/engineering-notes/observability/)
 
 ---
 
@@ -77,7 +77,7 @@ This section covers data-related issues and recovery strategies.
 
 - [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
 
-→ [Go to Incident & Recovery](./incident/)
+→ [Go to Incident & Recovery](/engineering-notes/incident/)
 
 ---
 
