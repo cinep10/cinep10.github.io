@@ -23,10 +23,12 @@ from building and operating data systems.
 
 ---
 
-## Observability and Monitoring
+## Observability
 
 * Grafana dashboard setup
 * Dashboard image rendering and automation
+
+→ [Go to Observability](/engineering-notes/observability/)
 
 ---
 
