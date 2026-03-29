@@ -1,4 +1,4 @@
-# Data Reliability (Engineering)
+# Data Reliability
 
 This section focuses on ensuring data can be trusted.
 
