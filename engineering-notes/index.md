@@ -1,88 +1,74 @@
 # Engineering Notes
 
-This page documents how data systems are built, validated, and made reliable.
+Engineering Notes focus on implementation details, performance optimization, and operational issues.
 
-The focus is not only on building pipelines,  
-but on answering a more fundamental question:
-
-> Can this data be trusted?
+This section captures practical engineering experience
+from building and operating data systems.
 
 ---
 
-## Overview
+## ETL and Data Processing
 
-The content is structured as a reliability flow:
+* Web log parsing and session handling
+  /engineering-notes/web-log-session-id-data-consistency/
 
-```text
-Data → Metric → Validation → Drift → Risk → Decision
-```
-
-Each note represents a component of this system,  
-based on real-world implementation and operational experience.
+* ETL pipeline implementation and data transformation
 
 ---
 
-## Core Framework
+## Data Loading and Performance
 
-The following documents define how data is interpreted and controlled.
-
-- [Data Reliability Architecture](/architecture/data-reliability-architecture)   
-  Overall structure for managing data correctness, change, and impact.
-
-- [Data Risk Scoring Architecture](/architecture/data-risk-scoring-architecture)   
-  Method for integrating multiple signals into a unified risk score.
-
-- [Data Decision Framework](/architecture/data-decision-framework)   
-  Criteria for determining whether data is acceptable or requires action.
+* Bulk loading strategy (LOAD DATA vs INSERT)
+* File-based ingestion (TSV / CSV)
 
 ---
 
-## Data Reliability
+## Observability and Monitoring
 
-This section focuses on how data is generated, validated, and monitored.
-
-- [Data Reliability Approach](./data-reliability/data-reliability-approach)  
-  Framework for understanding data trust.
-
-
-→ [Go to Data Reliability](/engineering-notes/data-reliability/)
+* Grafana dashboard setup
+* Dashboard image rendering and automation
 
 ---
 
-## Data Platform
+## Debugging and Troubleshooting
 
-This section covers how data pipelines and metrics are designed.
-
-- (coming soon) Metric Layer  
-- (coming soon) ETL Architecture  
-
-→ [Go to Data Platform](/engineering-notes/data-platform/)
+* Data inconsistency issues
+* Event mapping problems
+* Pipeline debugging cases
 
 ---
 
-## Observability
+## Infrastructure and Deployment
 
-This section focuses on monitoring and visualizing data systems.
-
-- [Grafana Dashboard Image Capture](./observability/grafana-dashboard-image-capture)  
-  Automating dashboard rendering and reporting.
-
-→ [Go to Observability](/engineering-notes/observability/)
+* Docker-based renderer setup
+* Service configuration and networking
 
 ---
 
-## Incident & Recovery
+## Perspective
 
-This section covers data-related issues and recovery strategies.
+Engineering Notes focus on how systems are implemented and operated in practice.
 
-- [WSL ext4 Recovery Case Study](./incident/wsl-ext4-recovery)
+This includes:
 
-→ [Go to Incident & Recovery](/engineering-notes/incident/)
+* performance trade-offs
+* debugging approaches
+* real-world failure handling
 
 ---
 
-## Key Idea
+## Relationship to Architecture
 
-A system is not reliable because it runs successfully.
+Architecture explains design decisions.
 
-It is reliable when its data can be trusted.
+Engineering Notes explain how those decisions are implemented and validated in real systems.
+
+---
+
+## Summary
+
+This section is not about system design.
+
+It is about building, debugging, optimizing, and operating data systems.
+
+---
