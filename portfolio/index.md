@@ -44,7 +44,7 @@ Monitoring system for managing the reliability of machine learning inputs.
 * ML input risk integration
 * Monitoring and interpretation
 
-→ [ML Input Monitoring](/portfolio/ml-reliability/)
+→ [ML Input Monitoring](/portfolio/ml-input-monitoring/)
 
 ---
 
