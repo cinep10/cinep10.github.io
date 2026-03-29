@@ -38,12 +38,16 @@ from building and operating data systems.
 * Event mapping problems
 * Pipeline debugging cases
 
+→ [Go to Incident & Recovery](/engineering-notes/incident/)
+
 ---
 
 ## Infrastructure and Deployment
 
 * Docker-based renderer setup
 * Service configuration and networking
+
+→ [Go to Data Platform](/engineering-notes/data-platform/)
 
 ---
 
