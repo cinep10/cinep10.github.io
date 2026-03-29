@@ -30,7 +30,7 @@ This section focuses on monitoring and visualizing data systems.
 - [Grafana Dashboard Image Capture](./observability/grafana-dashboard-image-capture)  
   Automating dashboard rendering and reporting. 
 
-→ [Go to Observability](/engineering-notes/observability/)
+→ [Go to Observability and Monitoring](/engineering-notes/observability/)
 
 ---
 
