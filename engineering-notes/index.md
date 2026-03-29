@@ -14,12 +14,16 @@ from building and operating data systems.
 
 * ETL pipeline implementation and data transformation
 
+→ [Go to ETL & Data Processing](/engineering-notes/eel-data_processing/)
+
 ---
 
 ## Data Loading and Performance
 
 * Bulk loading strategy (LOAD DATA vs INSERT)
 * File-based ingestion (TSV / CSV)
+
+→ [Go to Data Loading & Performance](/engineering-notes/data-loading-performance/)
 
 ---
 
