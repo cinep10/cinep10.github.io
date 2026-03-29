@@ -1,62 +1,85 @@
-# Data Reliability Architecture
+# Data Reliability Engineering
 
-This site documents architectural approaches for building **reliable data systems**.
-
-The focus is on improving the reliability of analytics pipelines and monitoring the quality of data used for decision-making and machine learning.
-
-Key areas explored in this site include:
-
-* Data reliability architecture
-* Analytics pipeline validation
-* Metric drift detection
-* Data observability
-* ML input data monitoring
+Designing systems that make data trustworthy, interpretable, and actionable
 
 ---
 
-## Portfolio
+## What This Site Covers
 
-The portfolio presents architecture-focused projects exploring how to build reliable data systems.
+This blog documents the design and implementation of data reliability systems.
 
-Core concept:
+The focus is not only on building data pipelines,
+but on ensuring that data can be trusted and explained.
 
-Reliable Data → Reliable Analytics → Reliable Machine Learning
+---
 
-Main projects:
+## Core Areas
+
+### Portfolio
+
+End-to-end systems for data reliability and ML input monitoring.
 
 * Data Reliability Architecture
-* Analytics Pipeline Validation Framework
-* ML Input Data Reliability Monitoring
+* Validation Framework
+* ML Input Monitoring
 
-→ [View Portfolio](/portfolio/)
-
----
-
-## Engineering Notes
-
-Engineering Notes document practical investigations and troubleshooting cases encountered in real data pipelines and system operations.
-
-Topics include:
-
-* Data Reliability cases
-* Data Platform
-* Data pipeline observability
-* System recovery and troubleshooting
-
-→ [View Engineering Notes](/engineering-notes/)
+→ /portfolio/
 
 ---
 
-## Focus
+### Case Studies
 
-Unlike typical data portfolios focused on tools or coding, this site explores **architecture and reliability design for data systems**.
+Problem-solving cases based on real system behavior.
 
-The goal is to understand how to build systems that ensure **trustworthy analytics and machine learning pipelines**.
+* Traffic spike and conversion drop
+* Funnel distortion detection
+* Data mapping issues
+* Drift to risk escalation
+
+→ /case-studies/
+
+---
+
+### Architecture
+
+Design principles behind the system.
+
+* Data Layer
+* Metric Layer
+* Validation Layer
+* Drift Detection
+* Risk Scoring
+* Root Cause Analysis
+
+→ /architecture/
+
+---
+
+### Engineering Notes
+
+Implementation details and technical records.
+
+* ETL processing
+* Data loading strategies
+* Grafana and monitoring
+* Debugging and troubleshooting
+
+→ /engineering-notes/
+
+---
+
+## Key Perspective
+
+Reliable data is not assumed.
+
+It is defined, validated, monitored, and explained through system design.
 
 ---
 
 ## About
 
-Information about background and experience.
+More about background and focus:
 
-→ [About](/about)
+/about/
+
+---
