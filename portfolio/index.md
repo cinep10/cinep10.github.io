@@ -1,89 +1,57 @@
 # Portfolio
 
-This portfolio focuses on building systems that ensure data can be trusted.
-
-The goal is not just to process data,  
-but to define, measure, and control data reliability.
-
----
-
-## Overview
-
-The work is structured around two core systems:
-
-```text
-Data Reliability System
-ML Input Monitoring System
-```
-
+This section presents systems designed to ensure data reliability
+and stability of analytics and machine learning inputs.
 
 ---
 
 ## Data Reliability
 
-Designing systems that validate, monitor, and explain data behavior.
-
-### Scope
-
-- Validation
-- Drift Detection
-- Data Quality
-- Risk Scoring
-- Root Cause Analysis
-
----
+End-to-end architecture that transforms raw data into
+validated, monitored, and risk-aware signals.
 
 ### Structure
 
-```text
-Data → Metric → Validation → Drift → Risk → Decision
-```
+Analysis and Design
 
+* Data Reliability Architecture
+* Validation Framework
+* Drift Detection Design
 
----
+Implementation
 
-→ [Go to Data Reliability Portfolio](./data-reliability/data-reliability)
+* Data Layer
+* Metric Layer
+* Validation Layer
+* Drift / Risk / Root Cause
+
+Result
+
+* Explainable data behavior
+* Dashboard interpretation
+
+/portfolio/data-reliability/data-reliability/
 
 ---
 
 ## ML Input Monitoring
 
-Ensuring machine learning systems operate on reliable input data.
-
----
-
-### Problem
-
-ML systems assume stable input data, but in practice:
-
-- Data distribution changes
-- Feature relationships shift
-- Data quality degrades
-
----
+Monitoring system for managing the reliability of machine learning inputs.
 
 ### Structure
 
-```text
-Metric → Feature Drift → Risk → Monitoring
-```
+* Feature drift detection
+* ML input risk integration
+* Monitoring and interpretation
 
-
----
-
-→ [Go to ML Input Monitoring](./ml-input-monitoring/ml-input-monitoring)
+/portfolio/ml-reliability/ml-reliability/
 
 ---
 
-## Key Idea
+## Perspective
 
-This portfolio is not about building pipelines.
+The goal is not to build pipelines.
 
-It is about building systems that make data trustworthy.
+The goal is to make data measurable, reliable, and explainable.
 
 ---
-
-## One-line Summary
-
-From data generation to decision-making,  
-this portfolio focuses on reliability.
