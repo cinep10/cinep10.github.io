@@ -1,4 +1,4 @@
-# Data Loading and Performance
+# Data Loading & Performance
 
 This section focuses on how data is efficiently loaded into storage systems
 and how performance is optimized in data pipelines.
