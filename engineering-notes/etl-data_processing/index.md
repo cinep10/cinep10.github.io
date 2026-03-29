@@ -1,4 +1,4 @@
-# ETL and Data Processing
+# ETL & Data Processing
 
 This section focuses on how raw data is processed, transformed, and prepared for downstream systems.
 
