@@ -36,7 +36,7 @@ Problem-solving cases based on real system behavior.
 * Data mapping issues
 * Drift to risk escalation
 
-→ /case-studies/
+→ [case-studies](/case-studies/)
 
 ---
 
@@ -51,7 +51,7 @@ Design principles behind the system.
 * Risk Scoring
 * Root Cause Analysis
 
-→ /architecture/
+→ [architecture](/architecture/)
 
 ---
 
@@ -64,7 +64,7 @@ Implementation details and technical records.
 * Grafana and monitoring
 * Debugging and troubleshooting
 
-→ /engineering-notes/
+→ [engineering-notes](/engineering-notes/)
 
 ---
 
@@ -80,6 +80,6 @@ It is defined, validated, monitored, and explained through system design.
 
 More about background and focus:
 
-/about/
+[about](/about/)
 
 ---
