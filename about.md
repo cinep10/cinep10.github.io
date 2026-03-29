@@ -59,9 +59,6 @@ The goal is to make data reliable enough for decision-making.
 
 ---
 
-
----
-
 ## Contact
 
 Open to discussions on data reliability architecture, analytics systems, and data observability.
