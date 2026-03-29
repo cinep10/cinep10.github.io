@@ -45,7 +45,7 @@ This section focuses on how data is generated, validated, and monitored.
   Framework for understanding data trust.
 
 
-→ [Go to Data Reliability (Engineering)](./data-reliability/)
+→ [Go to Data Reliability](./data-reliability/)
 
 ---
 
