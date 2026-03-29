@@ -1,4 +1,4 @@
-# Observability
+# Observability and Monitoring
 
 This section focuses on making data systems visible.
 
