@@ -18,7 +18,7 @@ Data
 
 ## Components
 
-Data Layer
+[Data Layer](/portfolio/data-reliability/data-layer)
 
 Transforms raw logs into structured data.
 
