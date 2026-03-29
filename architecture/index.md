@@ -24,31 +24,31 @@ Transforms raw logs into structured data.
 
 ---
 
-Metric Layer
+[Metric Layer](/portfolio/data-reliability/metric-layer)
 
 Defines measurable indicators based on user behavior and system events.
 
 ---
 
-Validation Layer
+[Validation Layer](/portfolio/data-reliability/validation-layer)
 
 Evaluates whether the measured data is reliable.
 
 ---
 
-Drift Detection
+[Drift Detection](/portfolio/data-reliability/drift-layer)
 
 Identifies changes in data distribution and behavior.
 
 ---
 
-Risk Scoring
+[Risk Scoring](/portfolio/data-reliability/risk-layer)
 
 Aggregates multiple signals into a single interpretable value.
 
 ---
 
-Root Cause Analysis
+[Root Cause Analysis](/portfolio/data-reliability/root-cause-layer)
 
 Explains why the issue occurred.
 
