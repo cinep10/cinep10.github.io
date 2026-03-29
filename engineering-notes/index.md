@@ -27,6 +27,9 @@ from building and operating data systems.
 
 * Grafana dashboard setup
 * Dashboard image rendering and automation
+ 
+- [Grafana Dashboard Image Capture](./observability/grafana-dashboard-image-capture)  
+  Automating dashboard rendering and reporting. 
 
 → [Go to Observability](/engineering-notes/observability/)
 
