@@ -23,7 +23,7 @@ End-to-end systems for data reliability and ML input monitoring.
 * Validation Framework
 * ML Input Monitoring
 
-→ (/portfolio/)
+→ [View Portfolio](/portfolio/)
 
 ---
 
