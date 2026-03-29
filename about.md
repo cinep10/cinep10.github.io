@@ -1,64 +1,64 @@
 # About
 
-This site documents architectural approaches for building **reliable data systems**.
-
-The focus is on improving the reliability of analytics pipelines and ensuring the quality of data used for analytics and machine learning systems.
+I design systems that ensure data reliability in analytics and machine learning environments.
 
 ---
 
-## Background
+## Focus
 
-I work on problems related to **data reliability, analytics pipelines, and system observability**.
-
-My primary interest is understanding how data systems can be designed and monitored to ensure that analytics and machine learning outputs remain trustworthy.
-
----
-
-## Focus Areas
-
-Key areas explored in this site include:
-
-- Data reliability architecture
-- Analytics pipeline validation
-- Metric drift detection
-- Data observability
-- ML input data monitoring
-
-These topics are closely related to the emerging field of **Data Observability**, where the goal is to detect data quality issues before they affect downstream systems.
-
----
-
-## This Site
-
-This site serves two purposes.
-
-**Portfolio**
-
-Architecture-oriented projects exploring approaches for building reliable data systems.
-
-→ [View Portfolio](/portfolio/)
-
-**Engineering Notes**
-
-Operational investigations and technical notes documenting real system issues, debugging processes, and reliability analysis.
-
-→ [View Engineering Notes](/engineering-notes/)
+* Data validation
+* Drift detection
+* Risk-based interpretation
+* Explainable data behavior
 
 ---
 
 ## Perspective
 
-Unlike typical data portfolios that focus mainly on tools or model development, this site explores **architecture and reliability design for data systems**.
+Most systems assume data is correct.
 
-The central idea can be summarized as:
+This work focuses on a different question:
 
-```text
-Reliable Data  
-↓  
-Reliable Analytics  
-↓  
-Reliable Machine Learning
-```
+Can this data be trusted?
+
+---
+
+## What This Blog Represents
+
+This blog is structured into four areas:
+
+Portfolio
+
+Systems that were designed and implemented.
+
+---
+
+Case Studies
+
+Problems that were detected and resolved.
+
+---
+
+Architecture
+
+How the systems are structured and why.
+
+---
+
+Engineering Notes
+
+Technical implementation details and operational insights.
+
+---
+
+## Direction
+
+The goal is not to build more data.
+
+The goal is to make data reliable enough for decision-making.
+
+---
+
 
 ---
 
