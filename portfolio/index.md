@@ -30,7 +30,7 @@ Result
 * Explainable data behavior
 * Dashboard interpretation
 
-/portfolio/data-reliability/data-reliability/
+→ [Data Reliability](/portfolio/data-reliability/data-reliability/)
 
 ---
 
@@ -44,7 +44,7 @@ Monitoring system for managing the reliability of machine learning inputs.
 * ML input risk integration
 * Monitoring and interpretation
 
-/portfolio/ml-reliability/ml-reliability/
+→ [ML Input Monitoring](/portfolio/ml-reliability/ml-reliability/)
 
 ---
 
