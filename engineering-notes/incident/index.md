@@ -1,4 +1,4 @@
-# Incident & Recovery
+# Debugging and Troubleshooting
 
 This section focuses on data issues and failures.
 
@@ -6,9 +6,9 @@ This section focuses on data issues and failures.
 
 ## Scope
 
-- Data incidents
-- Root cause analysis
-- Recovery strategies
+- Data inconsistency issues
+- Event mapping problems
+- Pipeline debugging cases
 
 ---
 
