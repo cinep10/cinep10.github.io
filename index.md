@@ -80,6 +80,6 @@ It is defined, validated, monitored, and explained through system design.
 
 More about background and focus:
 
-→ [about](./about/)
+→ [about](/about.md/)
 
 ---
