@@ -23,7 +23,7 @@ from building and operating data systems.
 
 ---
 
-## Observability
+## Observability and Monitoring
 
 This section focuses on monitoring and visualizing data systems.
 
