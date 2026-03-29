@@ -37,7 +37,7 @@ The following documents define how data is interpreted and controlled.
 
 ---
 
-## Data Reliability (Engineering)
+## Data Reliability
 
 This section focuses on how data is generated, validated, and monitored.
 
