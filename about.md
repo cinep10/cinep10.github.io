@@ -27,25 +27,25 @@ Can this data be trusted?
 
 This blog is structured into four areas:
 
-[Portfolio](/portfolio/)
+### [Portfolio](/portfolio/)
 
 Systems that were designed and implemented.
 
 ---
 
-[Case Studies](/case-studies/)
+### [Case Studies](/case-studies/)
 
 Problems that were detected and resolved.
 
 ---
 
-[Architecture](/architecture/)
+### [Architecture](/architecture/)
 
 How the systems are structured and why.
 
 ---
 
-[Engineering Notes](/engineering-notes/)
+### [Engineering Notes](/engineering-notes/)
 
 Technical implementation details and operational insights.
 
