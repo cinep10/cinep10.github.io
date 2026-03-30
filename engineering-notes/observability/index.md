@@ -60,8 +60,6 @@ Structured debugging methodology.
 
 ---
 
----
-
 ## Related Notes
 
 - [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
