@@ -1,69 +1,87 @@
 # Case Studies
 
-This section documents how data reliability systems
-are applied to real-world problems.
+Case Studies document real-world data issues observed during system operation.
+
+This section focuses on how problems are identified, interpreted, and resolved.
 
 ---
 
-## Approach
+## Purpose
 
-Each case follows a consistent structure:
+Data systems rarely fail in a single, predictable way.
 
-1. Problem
-2. Symptoms
-3. Validation findings
-4. Drift analysis
-5. Risk interpretation
-6. Root cause
-7. Resolution
-8. Insight
+Some issues are caused by:
 
----
+* data inconsistency
+* metric definition mismatch
+* pipeline errors
+* user behavior change
+* structural breakdown
 
-## Cases
-
-### Traffic spike and conversion drop
-
-Understanding how traffic changes affect funnel performance.
+Each case requires a different way of thinking.
 
 ---
 
-### Funnel distortion detection
+## What This Section Shows
 
-Detecting structural inconsistencies in user behavior.
+Each case study describes:
 
----
+* what problem occurred
+* how it was detected
+* how it was interpreted
+* how it was resolved
 
-### Data mapping failure
-
-Identifying issues in event transformation and mapping.
-
-> Related Notes
-
-- [Data Reliability Approach](./data-reliability-approach)
-- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
-- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency) 
-
+The goal is not to apply a fixed framework,
+but to show the reasoning process behind each decision.
 
 ---
 
-### Drift to risk escalation
+## Key Principle
 
-How distribution changes evolve into measurable risk.
+There is no single approach that explains all data problems.
+
+Some cases are:
+
+* definition problems
+* structural problems
+* behavioral changes
+* system-level issues
+
+Understanding the nature of the problem is more important
+than applying a predefined method.
 
 ---
 
-### ML input data instability
+## Example Case
 
-Feature drift and its impact on model reliability.
+* [Verifying Page View Consistency from Web Access Logs](/case-studies/verifying-page-view-consistency-from-web-access-logs)
+
+This case demonstrates that:
+
+metric inconsistency can be caused by differences in definition,
+not by data errors or system failures.
 
 ---
 
-## Perspective
+## How to Read These Cases
 
-The goal is not to describe systems.
+Each case is intentionally written without enforcing a fixed structure.
 
-The goal is to explain how data behavior is detected, interpreted,
-and translated into action.
+Depending on the situation, the analysis may focus on:
+
+* validation signals
+* drift patterns
+* metric interpretation
+* root cause reasoning
+
+The structure follows the problem, not the other way around.
+
+---
+
+## Summary
+
+Case Studies are not about applying a framework.
+
+They are about understanding how data problems are interpreted and solved.
 
 ---
