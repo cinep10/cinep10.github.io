@@ -18,9 +18,9 @@ This project aims to solve these limitations by redefining the goal:
 
 The system is not ML-centric, but **data reliability-centric**.
 
-
+```text
 Metric → Drift → Risk Score → Root Cause → ML → Scenario
-
+```
 
 Key principles:
 
@@ -33,13 +33,13 @@ Key principles:
 
 Instead of anomaly detection, a risk-based model is used:
 
-
+```text
 risk_score =
-validation_score
-
-drift_score
-anomaly_score
-mapping_score
+ validation_score
++ drift_score
++ anomaly_score
++ mapping_score
+```
 
 Advantages:
 
@@ -88,9 +88,9 @@ To simulate real-world failures:
 
 These scenarios validate the full pipeline:
 
-
+```text
 Cause → Metric Change → Drift → Risk → Root Cause → ML
-
+```
 
 ---
 
