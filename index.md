@@ -19,7 +19,7 @@ but on ensuring that data can be trusted and explained.
 
 End-to-end systems for data reliability and ML input monitoring.
 
-* Data Reliability Architecture
+* Data Reliability
 * Validation Framework
 * ML Input Monitoring
 
