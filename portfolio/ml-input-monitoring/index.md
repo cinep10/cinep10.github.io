@@ -24,19 +24,19 @@ Metric → Drift → Risk → Root Cause → ML
 
 ### Concept
 
-- Why Data Reliability Comes Before ML
+- [Why Data Reliability Comes Before ML](/portfolio/ml-input-monitoring/data-reliability-approach)
 
 ### Design
 
-- Explainable Data Behavior: System Design
+- [Explainable Data Behavior: System Design](/portfolio/ml-input-monitoring/analysis-design)
 
 ### Implementation
 
-- Explainable Data Behavior: Implementation
+- [Explainable Data Behavior: Implementation](/portfolio/ml-input-monitoring/implementation)
 
 ### Result
 
-- Explainable Data Behavior: Result Analysis
+- [Explainable Data Behavior: Result Analysis](/portfolio/ml-input-monitoring/result-analysis)
 
 ---
 
