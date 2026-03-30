@@ -27,7 +27,7 @@ Can this data be trusted?
 
 This blog is structured into four areas:
 
-### [Portfolio](/portfolio/)
+> [Portfolio](/portfolio/)
 
 Systems that were designed and implemented.
 
