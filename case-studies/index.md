@@ -87,7 +87,7 @@ Cases where ML input data becomes unreliable.
 
 ## Example Case
 
-- Verifying Page View Consistency from Web Access Logs
+- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs)
 
 This case belongs to:
 
