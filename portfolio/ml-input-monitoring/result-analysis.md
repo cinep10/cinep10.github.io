@@ -50,11 +50,11 @@ Example:
 
 ## 4. System Evaluation
 
-
+```text
 Data Reliability: Complete
 Explainability: Achieved
 ML Performance: Limited
-
+```
 
 ---
 
@@ -70,9 +70,9 @@ The problem is not ML.
 
 ### 6.1 Label Generation
 
-
+```text
 Generate labels based on risk_score
-
+```
 
 ---
 
