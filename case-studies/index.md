@@ -22,31 +22,38 @@ Each case follows a consistent structure:
 
 ## Cases
 
-[Traffic spike and conversion drop](./traffic-spike-conversion)
+### [Traffic spike and conversion drop](./traffic-spike-conversion)
 
 Understanding how traffic changes affect funnel performance.
 
 ---
 
-Funnel distortion detection
+### Funnel distortion detection
 
 Detecting structural inconsistencies in user behavior.
 
 ---
 
-Data mapping failure
+### Data mapping failure
 
 Identifying issues in event transformation and mapping.
 
+> Related Notes
+
+- [Data Reliability Approach](./data-reliability-approach)
+- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs.md)
+- [Web Log Session ID Data Consistency](./web-log-session-id-data-consistency) 
+
+
 ---
 
-Drift to risk escalation
+### Drift to risk escalation
 
 How distribution changes evolve into measurable risk.
 
 ---
 
-ML input data instability
+### ML input data instability
 
 Feature drift and its impact on model reliability.
 
