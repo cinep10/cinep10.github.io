@@ -22,7 +22,7 @@ Each case follows a consistent structure:
 
 ## Cases
 
-### [Traffic spike and conversion drop](./traffic-spike-conversion)
+### Traffic spike and conversion drop
 
 Understanding how traffic changes affect funnel performance.
 
