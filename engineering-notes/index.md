@@ -28,10 +28,8 @@ from building and operating data systems.
 
 ## Observability and Monitoring
 
-This section focuses on monitoring and visualizing data systems.
-
-- [Grafana Dashboard Image Capture](./observability/grafana-dashboard-image-capture)  
-  Automating dashboard rendering and reporting. 
+* Grafana dashboard setup
+* Dashboard image rendering and automation
 
 → [Go to Observability & Monitoring](/engineering-notes/observability/)
 
