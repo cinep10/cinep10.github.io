@@ -1,4 +1,4 @@
-# Observability & Monitoring
+# Observability and Monitoring
 
 This section focuses on how data systems are observed, monitored, and interpreted in real time.
 
@@ -11,58 +11,60 @@ but to understand system behavior through monitoring.
 
 Topics in this section include:
 
-- Dashboard design and configuration
-- Metric visualization
-- Monitoring strategies
-- Data interpretation
+* Dashboard design and configuration
+* Metric visualization
+* Monitoring strategies
+* Data interpretation
 
 ---
 
 ## Key Topics
 
-### Data Consistency Issues
+### Dashboard Design
 
-Understanding and resolving inconsistencies.
+Designing dashboards that reflect system behavior.
 
-* Missing data
-* Duplicate records
-* Session mismatch problems
-
----
-
-### Pipeline Failures
-
-Handling failures in ETL and processing stages.
-
-* Partial data ingestion
-* Job failures and retries
-* Dependency issues
+* Metric selection and grouping
+* Layer-based dashboard structure
+* Signal-based visualization
 
 ---
 
-### Event Mapping Problems
+### Grafana Setup
 
-Diagnosing incorrect transformations.
+Implementing monitoring using Grafana.
 
-* Mapping gaps
-* Incorrect event classification
-* Schema mismatch
+* Dashboard configuration
+* Panel-level visualization
+* Query integration with data sources
 
 ---
 
-### Debugging Approach
+### Image Rendering and Automation
 
-Structured debugging methodology.
+Capturing dashboards as images for reporting.
 
-* Symptom identification
-* Layer-by-layer analysis
-* Root cause isolation
+* Grafana Image Renderer
+* API-based dashboard capture
+* Automated reporting pipelines
+
+---
+
+### Monitoring Strategy
+
+Defining what to monitor and why.
+
+* Validation signals
+* Drift signals
+* Risk trends
+* Funnel metrics
 
 ---
 
 ## Related Notes
 
-- [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
+* Grafana dashboard setup and rendering
+* Monitoring pipeline integration
 
 ---
 
@@ -74,9 +76,9 @@ It is about making system behavior observable and interpretable.
 
 Well-designed monitoring enables:
 
-- early detection of issues
-- faster diagnosis
-- better decision-making
+* early detection of issues
+* faster diagnosis
+* better decision-making
 
 ---
 
@@ -85,3 +87,5 @@ Well-designed monitoring enables:
 Observability bridges data and interpretation.
 
 It turns system signals into actionable insights.
+
+---
