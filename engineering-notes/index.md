@@ -14,7 +14,7 @@ from building and operating data systems.
 
 * ETL pipeline implementation and data transformation
 
-→ [Go to ETL & Data Processing](/engineering-notes/etl-data_processing/)
+
 
 ---
 
