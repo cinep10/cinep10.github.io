@@ -1,23 +1,45 @@
 # Observability & Monitoring
 
-This section focuses on making data systems visible.
+This section focuses on how data systems are observed, monitored, and interpreted in real time.
+
+The goal is not only to visualize metrics,
+but to understand system behavior through monitoring.
 
 ---
 
 ## Scope
 
-- Dashboard
-- Monitoring
-- Alerting
+Topics in this section include:
+
+- Dashboard design and configuration
+- Metric visualization
+- Monitoring strategies
+- Data interpretation
 
 ---
 
-## Notes
+## Related Notes
 
 - [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
 
 ---
 
-## Key Idea
+## Perspective
 
-If you cannot see it, you cannot trust it.
+Monitoring is not just about visualization.
+
+It is about making system behavior observable and interpretable.
+
+Well-designed monitoring enables:
+
+- early detection of issues
+- faster diagnosis
+- better decision-making
+
+---
+
+## Summary
+
+Observability bridges data and interpretation.
+
+It turns system signals into actionable insights.
