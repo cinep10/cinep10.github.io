@@ -41,8 +41,6 @@ from building and operating data systems.
 * Event mapping problems
 * Pipeline debugging cases
 
-- [WSL ext4 Recovery Case Study](./debugging-troubleshooting/wsl-ext4-recovery)
-
 → [Go to Debugging & Troubleshooting](/engineering-notes/debugging-troubleshooting/)
 
 ---
