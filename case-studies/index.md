@@ -46,6 +46,7 @@ Cases caused by inconsistent or unclear metric definitions.
 - interpretation differences  
 
 👉 These cases highlight that metrics are defined, not given.
+→ [Data Definition & Metric Issues]
 
 ---
 
