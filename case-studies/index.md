@@ -1,87 +1,120 @@
+21"}
 # Case Studies
 
-Case Studies document real-world data issues observed during system operation.
+Case Studies document real-world data issues and how they are interpreted and resolved.
 
-This section focuses on how problems are identified, interpreted, and resolved.
+This section is organized by the nature of the problem, not by a fixed methodology.
 
 ---
 
 ## Purpose
 
-Data systems rarely fail in a single, predictable way.
+Data problems do not occur in a single form.
 
-Some issues are caused by:
+They can originate from:
 
-* data inconsistency
-* metric definition mismatch
-* pipeline errors
-* user behavior change
-* structural breakdown
+- data reliability issues  
+- metric definition inconsistencies  
+- pipeline or processing failures  
+- user behavior changes  
+- ML input instability  
 
-Each case requires a different way of thinking.
-
----
-
-## What This Section Shows
-
-Each case study describes:
-
-* what problem occurred
-* how it was detected
-* how it was interpreted
-* how it was resolved
-
-The goal is not to apply a fixed framework,
-but to show the reasoning process behind each decision.
+Each type of problem requires a different approach.
 
 ---
 
-## Key Principle
+## Categories
 
-There is no single approach that explains all data problems.
+### Data Reliability Issues
 
-Some cases are:
+Cases where data quality or integrity is compromised.
 
-* definition problems
-* structural problems
-* behavioral changes
-* system-level issues
+- missing data  
+- mapping gaps  
+- structural inconsistencies  
 
-Understanding the nature of the problem is more important
-than applying a predefined method.
+👉 These cases focus on whether the data itself can be trusted.
+
+---
+
+### Data Definition & Metric Issues
+
+Cases caused by inconsistent or unclear metric definitions.
+
+- page view inconsistency  
+- aggregation mismatch  
+- interpretation differences  
+
+👉 These cases highlight that metrics are defined, not given.
+
+---
+
+### Data Pipeline & Processing Issues
+
+Cases related to data ingestion, ETL, or system processing.
+
+- delayed data  
+- partial load  
+- pipeline failures  
+
+👉 These cases focus on system-level reliability.
+
+---
+
+### Behavioral & Drift Cases
+
+Cases where user behavior or traffic patterns change.
+
+- traffic spike  
+- conversion drop  
+- funnel distortion  
+
+👉 These cases focus on changes in data meaning.
+
+---
+
+### ML Input Reliability Cases
+
+Cases where ML input data becomes unreliable.
+
+- feature drift  
+- input inconsistency  
+- prediction instability  
+
+👉 These cases connect data reliability with ML systems.
 
 ---
 
 ## Example Case
 
-* [Verifying Page View Consistency from Web Access Logs](/case-studies/verifying-page-view-consistency-from-web-access-logs)
+- Verifying Page View Consistency from Web Access Logs
 
-This case demonstrates that:
+This case belongs to:
 
-metric inconsistency can be caused by differences in definition,
-not by data errors or system failures.
+→ Data Definition & Metric Issues
+
+It demonstrates that inconsistencies can arise from definition differences, not data errors.
 
 ---
 
-## How to Read These Cases
+## How to Use This Section
 
-Each case is intentionally written without enforcing a fixed structure.
+Each case follows the problem it tries to explain.
 
-Depending on the situation, the analysis may focus on:
+Some cases emphasize:
 
-* validation signals
-* drift patterns
-* metric interpretation
-* root cause reasoning
+- validation signals  
+- metric interpretation  
+- drift patterns  
+- system behavior  
 
-The structure follows the problem, not the other way around.
+The structure adapts to the problem, not the other way around.
 
 ---
 
 ## Summary
 
-Case Studies are not about applying a framework.
+Case Studies are not about applying a fixed framework.
 
-They are about understanding how data problems are interpreted and solved.
-
----
+They are about understanding different types of data problems  
+and how they are resolved in practice.
