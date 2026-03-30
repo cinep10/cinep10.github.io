@@ -61,6 +61,7 @@ Managing system dependencies.
 
 * Grafana Image Renderer setup
 * Docker-based service deployment
+* [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
 
 ---
 
