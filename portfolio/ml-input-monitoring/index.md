@@ -1,50 +1,45 @@
 # ML Input Monitoring
 
-This section focuses on ensuring machine learning systems receive reliable input data.
-
----
-
 ## Overview
 
-```text
-Metric → Feature Drift → Risk → Monitoring
-```
+This project focuses on monitoring input data behavior using a data reliability-first approach.
+
+Instead of relying solely on ML, the system is designed to:
+
+- detect data issues
+- explain root causes
+- support operational decision-making
+
+---
+
+## Architecture
+
+
+Metric → Drift → Risk → Root Cause → ML
 
 
 ---
 
-## 1. Analysis & Design
+## Articles
 
-- [ML Input Data Reliability Monitoring](./ml-input-data-reliability-monitoring)
-- Feature Drift Definition
-- Risk Integration Design
+### Concept
 
----
+- Why Data Reliability Comes Before ML
 
-## 2. Implementation
+### Design
 
-- Feature Drift Calculation
-- Monitoring Pipeline
-- Risk Integration
+- Explainable Data Behavior: System Design
 
----
+### Implementation
 
-## 3. Results
+- Explainable Data Behavior: Implementation
 
-- Early drift detection
-- Improved model stability
-- Reduced data-related failures
+### Result
+
+- Explainable Data Behavior: Result Analysis
 
 ---
 
-## Notes
+## Related
 
-- [ML Input Data Reliability Monitoring](./ml-input-data-reliability-monitoring)
-
----
-
-## Key Insight
-
-Most ML failures are not model problems.
-
-They are data problems.
+- Data Reliability System
