@@ -1,4 +1,3 @@
-21"}
 # Case Studies
 
 Case Studies document real-world data issues and how they are interpreted and resolved.
