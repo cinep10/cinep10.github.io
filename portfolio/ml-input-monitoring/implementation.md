@@ -4,9 +4,9 @@
 
 The ML pipeline is structured as follows:
 
-
+```text
 Feature Vector → Train → Predict → Importance → Drift
-
+```
 
 ---
 
@@ -14,9 +14,9 @@ Feature Vector → Train → Predict → Importance → Drift
 
 ### 2.1 Feature Generation
 
-
+```text
 metric_value_day → aggregation → ml_feature_vector_day
-
+```
 
 All features are derived from metric data.
 
@@ -54,9 +54,9 @@ Reason:
 
 Initial dataset:
 
-
+```text
 All labels = normal
-
+```
 
 → Single-class problem
 
@@ -66,26 +66,28 @@ All labels = normal
 
 To address this:
 
-
+```text
 If ML is not trainable → use rule-based risk scoring
-
+```
 
 ---
 
 ## 4. Prediction Logic
 
-If supervised learning is possible → use ML
-Otherwise → fallback to rule-based logic
+```text
+1. If supervised learning is possible → use ML
+2. Otherwise → fallback to rule-based logic
+```
 
 ---
 
 ### Fallback Rules
 
-
+```text
 risk_score ≥ 0.7 → alert
 risk_score ≥ 0.4 → warning
 else → normal
-
+```
 
 ---
 
@@ -105,9 +107,9 @@ else → normal
 
 ## 7. Execution Pipeline
 
-
+```text
 run_scenario_test_pipeline.sh
-
+```
 
 Steps:
 
