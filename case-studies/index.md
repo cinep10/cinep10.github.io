@@ -34,6 +34,7 @@ Cases where data quality or integrity is compromised.
 - structural inconsistencies  
 
 👉 These cases focus on whether the data itself can be trusted.
+→ [ML Input Monitoring](/portfolio/ml-input-monitoring/)
 
 ---
 
