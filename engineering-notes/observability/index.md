@@ -18,6 +18,50 @@ Topics in this section include:
 
 ---
 
+## Key Topics
+
+### Data Consistency Issues
+
+Understanding and resolving inconsistencies.
+
+* Missing data
+* Duplicate records
+* Session mismatch problems
+
+---
+
+### Pipeline Failures
+
+Handling failures in ETL and processing stages.
+
+* Partial data ingestion
+* Job failures and retries
+* Dependency issues
+
+---
+
+### Event Mapping Problems
+
+Diagnosing incorrect transformations.
+
+* Mapping gaps
+* Incorrect event classification
+* Schema mismatch
+
+---
+
+### Debugging Approach
+
+Structured debugging methodology.
+
+* Symptom identification
+* Layer-by-layer analysis
+* Root cause isolation
+
+---
+
+---
+
 ## Related Notes
 
 - [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
