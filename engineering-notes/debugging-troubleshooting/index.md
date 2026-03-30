@@ -61,6 +61,7 @@ Structured debugging methodology.
 
 ## Related Notes
 
+- [WSL ext4 Recovery Case Study](./wsl-ext4-recovery)
 * Session ID consistency issues
 * Data validation failures
 
