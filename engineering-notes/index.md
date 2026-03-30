@@ -10,10 +10,9 @@ from building and operating data systems.
 ## ETL and Data Processing
 
 * Web log parsing and session handling
-  /engineering-notes/web-log-session-id-data-consistency/
-
 * ETL pipeline implementation and data transformation
 
+→ [Go to ETL & Data Processing](/engineering-notes/etl-data_processing/)
 
 
 ---
