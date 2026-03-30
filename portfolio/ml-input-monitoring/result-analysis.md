@@ -1,3 +1,34 @@
+# Explainable Data Behavior: Result Analysis
+
+## 1. Test Scenarios
+
+- funnel_break
+- auth_failure
+- mixed_incident
+
+---
+
+## 2. Summary of Results
+
+### Risk Score
+
+- Overall low levels observed
+
+### ML Prediction
+
+- Mostly classified as normal
+- Very low alert probability
+
+---
+
+## 3. Key Findings
+
+### 3.1 ML is not effective yet
+
+Reasons:
+
+- Lack of labeled data
+- Low risk signal strength
 
 ---
 
