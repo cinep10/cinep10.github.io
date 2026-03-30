@@ -65,6 +65,7 @@ Defining what to monitor and why.
 
 * Grafana dashboard setup and rendering
 * Monitoring pipeline integration
+* [Grafana Dashboard Image Capture Automation](./grafana-dashboard-image-capture)
 
 ---
 
