@@ -1,4 +1,4 @@
-# Data Reliability Issues
+# Data Reliability
 
 This category includes cases where data quality is compromised.
 
