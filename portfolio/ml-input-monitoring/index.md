@@ -14,9 +14,9 @@ Instead of relying solely on ML, the system is designed to:
 
 ## Architecture
 
-
+```text
 Metric → Drift → Risk → Root Cause → ML
-
+```
 
 ---
 
