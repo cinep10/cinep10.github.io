@@ -14,7 +14,7 @@ from building and operating data systems.
 
 * ETL pipeline implementation and data transformation
 
-→ [Go to ETL & Data Processing](/engineering-notes/eel-data_processing/)
+→ [Go to ETL & Data Processing](/engineering-notes/etl-data_processing/)
 
 ---
 
@@ -44,7 +44,7 @@ This section focuses on monitoring and visualizing data systems.
 * Event mapping problems
 * Pipeline debugging cases
 
-→ [Go to Debugging & Troubleshooting](/engineering-notes/incident/)
+→ [Go to Debugging & Troubleshooting](/engineering-notes/debugging-troubleshooting/)
 
 ---
 
