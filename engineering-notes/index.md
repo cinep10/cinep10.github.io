@@ -53,7 +53,7 @@ This section focuses on monitoring and visualizing data systems.
 * Docker-based renderer setup
 * Service configuration and networking
 
-→ [Go to Data Platform](/engineering-notes/infrastructure-deployment)
+→ [Go to Infrastructure & Deployment](/engineering-notes/infrastructure-deployment)
 
 ---
 
