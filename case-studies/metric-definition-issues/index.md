@@ -9,8 +9,7 @@ but differences in definition and aggregation logic.
 
 ## Included Cases
 
-- Verifying Page View Consistency from Web Access Logs
-
+- [Verifying Page View Consistency from Web Access Logs](/case-studies/metric-definition-issues/verifying-page-view-consistency-from-web-access-logs)
 ---
 
 ## Key Insight
