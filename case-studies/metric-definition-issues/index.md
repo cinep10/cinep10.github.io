@@ -9,7 +9,10 @@ but differences in definition and aggregation logic.
 
 ## Included Cases
 
+- [How to Validate Batch Output Data: A Data Reliability Approach]
 - [Verifying Page View Consistency from Web Access Logs](/case-studies/metric-definition-issues/verifying-page-view-consistency-from-web-access-logs)
+
+
 ---
 
 ## Key Insight
