@@ -52,15 +52,15 @@ Only after data reliability is secured:
 
 This project follows:
 
-
+```text
 Data Reliability → Risk → Root Cause → ML
-
+```
 
 Not:
 
-
+```text
 ML → everything else
-
+```
 
 ---
 
