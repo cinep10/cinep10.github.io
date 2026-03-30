@@ -49,7 +49,7 @@ Cases caused by inconsistent or unclear metric definitions.
 
 ---
 
-### Data Pipeline & Processing Issues
+### Data Pipeline & Processing Cases
 
 Cases related to data ingestion, ETL, or system processing.
 
