@@ -12,7 +12,7 @@ Typical issues include:
 
 ## Included Cases
 
-- [How to Validate Batch Output Data: A Data Reliability Approach](/case-studies/data-reliability/data-reliability-approach)
+- [How to Validate Batch Output Data: A Data Reliability Approach](/case-studies/data-reliability-issues/data-reliability-approach)
 
 ---
 
