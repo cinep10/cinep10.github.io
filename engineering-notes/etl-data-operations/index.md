@@ -10,16 +10,36 @@ The focus is on how data is extracted, transformed, and loaded reliably under re
 
 ## Key Topics
 
-- ETL pipeline implementation
-- batch processing and scheduling
-- data transformation logic
-- data loading (bulk load, incremental load)
-- performance tuning (load / query / pipeline)
-- handling large-scale data
-- retry and idempotency
-- backfill and reprocessing
-- schema mismatch handling
-- operational failure cases
+### Data Loading and Performance Constraints
+
+Data loading is one of the most critical and fragile parts of ETL.
+
+- large batch sizes
+- limited I/O throughput
+- lock contention in target systems
+- query performance degradation after load
+
+---
+
+### Handling Failures and Reprocessing
+
+ETL systems must be designed to recover from failures without corrupting data.
+
+- retry mechanisms with idempotency
+- checkpoint-based processing
+- partition-based reprocessing
+- backfill strategies for historical data
+
+---
+
+### Maintaining Consistency Across Stages
+
+Data flows through multiple stages:
+
+- schema drift between stages
+- timing gaps between datasets
+- partial updates
+
 
 ---
 
