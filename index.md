@@ -59,10 +59,10 @@ Design principles behind the system.
 
 Implementation details and technical records.
 
-* ETL processing
-* Data loading strategies
-* Grafana and monitoring
-* Debugging and troubleshooting
+* ETL and Data Operations
+* Grafana and Monitoring
+* Debugging and Troubleshooting
+* Infrastructure and Deployment
 
 → [engineering-notes](/engineering-notes/)
 
