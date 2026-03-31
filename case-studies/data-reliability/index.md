@@ -10,6 +10,8 @@ Typical issues include:
 
 ---
 
+## Included Cases
+
 - [How to Validate Batch Output Data: A Data Reliability Approach](/case-studies/metric-definition-issues/data-reliability-approach)
 
 ---
