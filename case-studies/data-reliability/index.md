@@ -10,6 +10,10 @@ Typical issues include:
 
 ---
 
+- [How to Validate Batch Output Data: A Data Reliability Approach](/case-studies/metric-definition-issues/data-reliability-approach)
+
+---
+
 ## Key Insight
 
 Before analyzing data, its reliability must be verified.
