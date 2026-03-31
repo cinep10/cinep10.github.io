@@ -71,7 +71,8 @@ Cases where ML input data becomes unreliable.
 - input inconsistency  
 - prediction instability  
 
-👉 These cases connect data reliability with ML systems.
+👉 These cases connect data reliability with ML systems.   
+→ [ML Input Reliability Cases](/case-studies/ml-input-reliability-cases/)
 
 ---
 
