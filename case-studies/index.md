@@ -24,7 +24,7 @@ Each type of problem requires a different approach.
 
 ## Categories
 
-### Data Reliability
+### Data Reliability Issues
 
 Cases where data quality or integrity is compromised.
 
@@ -33,7 +33,7 @@ Cases where data quality or integrity is compromised.
 - structural inconsistencies  
 
 👉 These cases focus on whether the data itself can be trusted.
-→ [Data Reliability](/case-studies/data-reliability/)
+→ [Data Reliability Issues](/case-studies/data-reliability/)
 
 ---
 
