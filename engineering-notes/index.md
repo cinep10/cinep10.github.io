@@ -7,22 +7,12 @@ from building and operating data systems.
 
 ---
 
-## ETL and Data Processing
+## ETL and Data Operations
 
-* Web log parsing and session handling
 * ETL pipeline implementation and data transformation
+* operational stability in processing pipelines
 
-→ [Go to ETL & Data Processing](/engineering-notes/etl-data_processing/)
-
-
----
-
-## Data Loading and Performance
-
-* Bulk loading strategy (LOAD DATA vs INSERT)
-* File-based ingestion (TSV / CSV)
-
-→ [Go to Data Loading & Performance](/engineering-notes/data-loading-performance/)
+→ [Go to ETL & Data Operations](/engineering-notes/etl-data-operations/)
 
 ---
 
