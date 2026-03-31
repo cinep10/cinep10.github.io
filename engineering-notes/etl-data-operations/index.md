@@ -1,107 +1,55 @@
 # ETL and Data Operations
 
-This section documents how data is processed, transformed, and delivered
-in production environments.
-
-The focus is not only on building pipelines, but on ensuring that data
-flows reliably, consistently, and at scale.
-
----
-
 ## Scope
 
-ETL and data operations include:
+This section covers the implementation and operation of ETL pipelines in production environments.
 
-- extracting data from source systems
-- transforming data into structured formats
-- loading data into storage or analytical systems
-- maintaining performance and stability over time
+The focus is on how data is extracted, transformed, and loaded reliably under real-world constraints such as large volume, failures, and performance limitations.
 
 ---
 
-## Key Concerns
+## Key Topics
 
-### Data Consistency
-
-Data must remain consistent across stages:
-
-- source → staging → warehouse
-- transformation logic must be deterministic
-- schema changes must be controlled
-
----
-
-### Processing Reliability
-
-Pipelines must behave predictably under failure conditions:
-
-- partial failures
-- retries and idempotency
+- ETL pipeline implementation
+- batch processing and scheduling
+- data transformation logic
+- data loading (bulk load, incremental load)
+- performance tuning (load / query / pipeline)
+- handling large-scale data
+- retry and idempotency
 - backfill and reprocessing
+- schema mismatch handling
+- operational failure cases
 
 ---
 
-### Performance
+## Related Notes
 
-Data systems must scale with volume:
-
-- batch size optimization
-- load performance
-- query efficiency
-- resource usage
+- (to be added)
 
 ---
 
-### Operational Stability
+## Perspective
 
-Pipelines are long-running systems:
+ETL systems are not just data pipelines. They are long-running operational systems.
 
-- scheduling reliability
-- dependency management
-- failure isolation
-- monitoring integration
+In practice, most issues are not caused by logic errors, but by:
 
----
-
-## Common Failure Patterns
-
-Typical issues in ETL systems:
-
-- schema mismatch between stages
-- silent data loss during transformation
-- duplication caused by retries
-- inconsistent aggregation logic
+- schema inconsistencies
+- partial failures during processing
+- duplicate data caused by retries
 - performance degradation over time
+- unstable upstream data sources
+
+The main concern is not how to build a pipeline, but how to keep it running correctly and consistently.
 
 ---
 
-## Design Principles
+## Summary
 
-Reliable ETL systems are built with the following principles:
+This section focuses on practical problems in ETL systems:
 
-- deterministic transformations
-- idempotent operations
-- explicit schema management
-- separation of stages (extract / transform / load)
-- observability by default
-
----
-
-## Relationship to Other Categories
-
-- Data Reliability → defines what “correct data” means
-- Metrics and Interpretation → uses processed data for meaning
-- Observability → monitors pipeline behavior
-- Drift → detects changes in output data
-- Risk and Decision → determines impact of failures
-
----
-
-## Notes
-
-This section focuses on practical engineering problems:
-
-- handling large-scale data loads
-- optimizing ETL performance
-- debugging pipeline failures
-- maintaining stability in production systems
+- building stable pipelines
+- handling failures and retries
+- maintaining performance at scale
+- ensuring consistency across processing stages
