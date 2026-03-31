@@ -50,18 +50,6 @@ Cases caused by inconsistent or unclear metric definitions.
 
 ---
 
-### Data Pipeline & Processing Cases
-
-Cases related to data ingestion, ETL, or system processing.
-
-- delayed data  
-- partial load  
-- pipeline failures  
-
-👉 These cases focus on system-level reliability.
-
----
-
 ### Behavioral & Drift Cases
 
 Cases where user behavior or traffic patterns change.
