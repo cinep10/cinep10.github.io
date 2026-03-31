@@ -32,7 +32,7 @@ Cases where data quality or integrity is compromised.
 - mapping gaps  
 - structural inconsistencies  
 
-👉 These cases focus on whether the data itself can be trusted.
+👉 These cases focus on whether the data itself can be trusted.   
 → [Data Reliability Issues](/case-studies/data-reliability-issues/)
 
 ---
