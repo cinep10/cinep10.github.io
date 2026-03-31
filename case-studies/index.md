@@ -45,7 +45,7 @@ Cases caused by inconsistent or unclear metric definitions.
 - aggregation mismatch  
 - interpretation differences  
 
-👉 These cases highlight that metrics are defined, not given.
+👉 These cases highlight that metrics are defined, not given.   
 → [Data Definition & Metric Issues](/case-studies/metric-definition-issues/)
 
 ---
@@ -58,7 +58,8 @@ Cases where user behavior or traffic patterns change.
 - conversion drop  
 - funnel distortion  
 
-👉 These cases focus on changes in data meaning.
+👉 These cases focus on changes in data meaning.   
+→ [Behavioral & Drift Cases](/case-studies/behavioral-drift-cases/)
 
 ---
 
