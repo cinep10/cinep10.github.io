@@ -58,12 +58,14 @@ It answers:
 
 The system is structured as a continuous flow:
 
+```text
 Data
 → Metric
 → Validation
 → Drift
 → Risk
 → Root Cause
+```
 
 ---
 
