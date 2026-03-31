@@ -12,23 +12,9 @@ validated, monitored, and risk-aware signals.
 
 ### Structure
 
-Analysis and Design
-
 * Data Reliability Architecture
-* Validation Framework
-* Drift Detection Design
-
-Implementation
-
-* Data Layer
-* Metric Layer
-* Validation Layer
 * Drift / Risk / Root Cause
-
-Result
-
 * Explainable data behavior
-* Dashboard interpretation
 
 → [Data Reliability](/portfolio/data-reliability/)
 
