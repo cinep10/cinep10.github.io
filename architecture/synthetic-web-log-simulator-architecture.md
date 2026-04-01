@@ -98,7 +98,7 @@ Therefore, the simulator must be **probability-driven**.
 ```mermaid
 flowchart LR
 
-A[Config (YAML)] --> B[Simulator Core]
+A["Config (YAML)"] --> B["Simulator Core"]
 
 subgraph Simulator
 B --> C[Traffic Model]
