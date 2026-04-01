@@ -47,6 +47,7 @@ It answers:
 
 * [Data Layer](/portfolio/data-reliability/data-layer)
 * [Metric Layer](/portfolio/data-reliability/metric-layer)
+* [Semantic Mapping Layer](/portfolio/data-reliability/semantic-mapping-layer)
 * [Validation Layer](/portfolio/data-reliability/validation-layer)
 * [Drift Layer](/portfolio/data-reliability/drift-layer)
 * [Risk Scoring](/architecture/risk-scoring-design)
