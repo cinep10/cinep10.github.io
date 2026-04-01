@@ -44,6 +44,15 @@ from building and operating data systems.
 
 ---
 
+##   Statistical Analysis & Data Drift
+
+* Drift Detection with Z-score
+* Feature Drift Analysis (ML Input)
+
+→ [Go to Statistical Analysis & Data Drift](/engineering-notes/statistical-analysis)
+
+---
+
 ## Perspective
 
 Engineering Notes focus on how systems are implemented and operated in practice.
