@@ -44,7 +44,7 @@ from building and operating data systems.
 
 ---
 
-##   Statistical Analysis & Data Drift
+## Statistical Analysis and Data Drift
 
 * Drift Detection with Z-score
 * Feature Drift Analysis (ML Input)
