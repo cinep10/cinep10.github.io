@@ -62,6 +62,7 @@ Implementation details and technical records.
 * Grafana and Monitoring
 * Debugging and Troubleshooting
 * Infrastructure and Deployment
+* Statistical Analysis and Data Drift
 
 → [engineering-notes](/engineering-notes/)
 
