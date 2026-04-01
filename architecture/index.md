@@ -62,10 +62,10 @@ The system is structured as a continuous flow:
 ```text
 Data
 → Metric
-→ Validation
-→ Drift
-→ Risk
+→ Validation / Drift / Structural Anomaly / Mapping
+→ Risk Scoring
 → Root Cause
+→ ML
 ```
 
 ---
