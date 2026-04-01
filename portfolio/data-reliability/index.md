@@ -30,6 +30,7 @@ Building the system components.
 
 - [Data Layer](./data-layer)
 - [Metric Layer](./metric-layer) 
+- [Semantic Mapping Layer](./semantic-mapping-layer)
 - [Validation Layer](./validation-layer)
 - [Drift Layer](./drift-layer)
 - [Risk Layer](./risk-layer)
