@@ -96,7 +96,7 @@ Used for:
 
 ## Related Notes
 
-### Drift Detection using Z-score (R Implementation)
+### [Drift Detection using Z-score (R Implementation)](/engineering-notes/statistical-analysis/drift-detection-using-z-score)
 
 * Implements Z-score based drift detection
 * Uses historical baseline for comparison
