@@ -1,4 +1,4 @@
-# Semantic / Mapping Layer
+# Semantic Mapping Layer
 
 ## Raw Log를 “행동 의미”로 변환하는 계층
 
@@ -29,7 +29,7 @@ GET /transfer/confirm.do
 
 ## 2. 목적
 
-Semantic / Mapping Layer의 목적은 다음과 같다.
+Semantic Mapping Layer의 목적은 다음과 같다.
 
 > Raw Log를 “의미 있는 행동 이벤트”로 변환하는 것
 
@@ -103,13 +103,11 @@ funnel 분석은 다음 질문에서 시작된다.
 
 > 시작 대비 제출 비율은 얼마인가?
 
-이를 위해서는 반드시:
+이를 위해서는 반드시 다음 구조가 먼저 정의되어야 한다.
 
 ```
 url → event → funnel_stage
 ```
-
-정의가 먼저 존재해야 한다.
 
 ---
 
@@ -136,7 +134,7 @@ mapping 불완전
 → risk_score 증가
 ```
 
-즉 mapping은 단순 보조 정보가 아니라 **Risk 입력값**이다.
+즉 mapping은 단순 보조 정보가 아니라 **Risk 계산의 핵심 입력값**이다.
 
 ---
 
@@ -150,7 +148,7 @@ funnel_distortion + low coverage
 → action: mapping_fix
 ```
 
-즉 action 판단에도 영향을 준다.
+즉 action 판단에도 직접적인 영향을 준다.
 
 ---
 
@@ -179,7 +177,7 @@ coverage 감소는 단순 오류가 아닐 수 있다.
 * 서비스 구조 변경
 * 이벤트 정의 누락
 
-즉 **구조 변화 신호**일 수 있다.
+즉, 이는 **구조 변화의 신호**일 수 있다.
 
 ---
 
@@ -204,7 +202,7 @@ coverage 감소는 단순 오류가 아닐 수 있다.
 
 ### 핵심 의미
 
-unmapped 증가는:
+unmapped 증가는 다음을 의미할 수 있다.
 
 ```
 단순 누락 ❌
@@ -213,7 +211,7 @@ unmapped 증가는:
 
 ---
 
-## 8. 다른 레이어와 연결
+## 8. 다른 레이어와의 연결
 
 ### Validation
 
@@ -252,7 +250,7 @@ unmapped 증가는:
 
 ---
 
-### 원칙
+### 운영 원칙
 
 ```
 매일 수정 ❌
@@ -263,13 +261,13 @@ unmapped 증가는:
 
 ## 10. 자동화 vs 수동
 
-### 자동화 가능
+### 자동화 가능 영역
 
 * coverage 계산
 * unmapped 탐지
 * risk 반영
 
-### 자동화 불가능
+### 자동화 불가능 영역
 
 * 이벤트 의미 정의
 * funnel 단계 설계
@@ -288,17 +286,17 @@ unmapped 증가는:
 
 ## 11. 설계 요약
 
-Semantic / Mapping Layer는:
+Semantic Mapping Layer는:
 
 * Raw Log를 Business Event로 변환하고
-* 그 품질을 Coverage로 관리하며
+* 그 변환 품질을 Coverage로 관리하며
 * Validation, Drift, Risk, Action의 기반을 제공하는 계층이다
 
 ---
 
 ## Summary
 
-Semantic / Mapping Layer is the foundation of data interpretation.
+Semantic Mapping Layer is the foundation of data interpretation.
 
 Without this layer:
 
@@ -310,7 +308,7 @@ Without this layer:
 
 ## One-line Definition
 
-Semantic / Mapping Layer =
+Semantic Mapping Layer =
 raw log를 business event로 번역하고,
 그 번역 품질을 coverage로 관리하는 계층
 
