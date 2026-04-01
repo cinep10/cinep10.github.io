@@ -44,12 +44,11 @@ Problem-solving cases based on real system behavior.
 
 Design principles behind the system.
 
-* Data Layer
-* Metric Layer
-* Validation Layer
-* Drift Detection
-* Risk Scoring
-* Root Cause Analysis
+* Data Reliability Architecture
+* Analytics Pipeline Validation Framework
+* Drift Detection Design
+* Risk Scoring Design
+* Data Decision Framework
 
 → [architecture](/architecture/)
 
