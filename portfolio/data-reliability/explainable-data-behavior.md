@@ -92,7 +92,7 @@ This system connects:
 
 ### 📊 Dashboard Overview
 
-![Dashboard Overview](/assets/images/dashboard_overview.png)
+![Dashboard Overview](/assets/images/DR_dashboard_overview_20230327.png)
 
 ---
 
