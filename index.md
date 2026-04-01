@@ -43,6 +43,7 @@ Problem-solving cases based on real system behavior.
 
 Design principles behind the system.
 
+* Synthetic Web Log Simulator Architecture
 * Data Reliability Architecture
 * Analytics Pipeline Validation Framework
 * Drift Detection Design
