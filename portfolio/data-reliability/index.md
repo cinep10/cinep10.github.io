@@ -22,6 +22,7 @@ Defining how data reliability should be structured.
 - [Analytics Pipeline Validation Framework](/architecture/analytics-pipeline-validation-framework)
 - [Drift Detection Design](/architecture/drift-detection-design)
 - [Risk Scoring Design](/architecture/risk-scoring-design)
+- [Data Decision Framework](/architecture/data-decision-framework)
 
 ---
 
