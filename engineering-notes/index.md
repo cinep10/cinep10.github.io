@@ -33,6 +33,8 @@ Focus areas include:
 * Performance optimization
 * Bulk data loading techniques
 
+→ [Go to Data Processing & Pipeline Engineering](/engineering-notes/data-processing-pipeline/)
+
 ---
 
 ### System Observability & Operations
@@ -47,6 +49,8 @@ Focus areas include:
 * Pipeline observability
 * Data quality monitoring
 
+→ [Go to System Observability & Operations](/engineering-notes/system-observability-operations/)
+
 ---
 
 ### Debugging & Troubleshooting
@@ -60,6 +64,8 @@ Focus areas include:
 * Performance bottlenecks
 * Root cause analysis
 
+→ [Go to Debugging & Troubleshooting](/engineering-notes/debugging-troubleshooting/)
+
 ---
 
 ### Statistical Analysis & Data Drift
@@ -72,6 +78,8 @@ Focus areas include:
 * Distribution comparison
 * Time-series anomaly detection
 * Feature-level analysis
+
+→ [Go to Statistical Analysis & Data Drift](/engineering-notes/statistical-analysis)
 
 ---
 
