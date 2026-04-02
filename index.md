@@ -34,6 +34,7 @@ Problem-solving cases based on real system behavior.
 * Funnel distortion detection
 * Data mapping issues
 * Drift to risk escalation
+* prediction instability
 
 → [case-studies](/case-studies/)
 
