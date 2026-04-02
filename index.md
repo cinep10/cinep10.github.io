@@ -58,11 +58,10 @@ Design principles behind the system.
 
 Implementation details and technical records.
 
-* ETL and Data Operations
-* Grafana and Monitoring
-* Debugging and Troubleshooting
-* Infrastructure and Deployment
-* Statistical Analysis and Data Drift
+* Data Processing & Pipeline Engineering
+* System Observability & Operations
+* Debugging & Troubleshooting
+* Statistical Analysis & Data Drift
 
 → [engineering-notes](/engineering-notes/)
 
