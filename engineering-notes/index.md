@@ -35,15 +35,6 @@ from building and operating data systems.
 
 ---
 
-## Infrastructure and Deployment
-
-* Docker-based renderer setup
-* Service configuration and networking
-
-→ [Go to Infrastructure & Deployment](/engineering-notes/infrastructure-deployment)
-
----
-
 ## Statistical Analysis and Data Drift
 
 * Drift Detection with Z-score
