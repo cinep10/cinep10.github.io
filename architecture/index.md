@@ -22,8 +22,8 @@ It answers:
 
 ### Core Architecture
 
-* [Synthetic Web Log Simulator Architecture](/architecture/synthetic-web-log-simulator-architecture)
 * [Data Reliability Architecture](/architecture/data-reliability-architecture)
+* [Synthetic Web Log Simulator Architecture](/architecture/synthetic-web-log-simulator-architecture)
 * [Analytics Pipeline Validation Framework](/architecture/analytics-pipeline-validation-framework)
 * [Drift Detection Design](/architecture/drift-detection-design)
 * [Risk Scoring Design](/architecture/risk-scoring-design)
