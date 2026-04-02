@@ -88,6 +88,8 @@ Focus areas:
 
 * building monitoring dashboards
 * visualizing metrics
+* [Automating Grafana Dashboard Image Capture (with Image Renderer)](/engineering-notes/system-observability-operations/grafana-dashboard-image-capture)
+
 
 ---
 
