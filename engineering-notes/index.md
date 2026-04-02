@@ -1,73 +1,96 @@
 # Engineering Notes
 
-Engineering Notes focus on implementation details, performance optimization, and operational issues.
+Engineering Notes focus on implementation details, system design decisions, and operational experience.
 
-This section captures practical engineering experience
-from building and operating data systems.
-
----
-
-## ETL and Data Operations
-
-* ETL pipeline implementation and data transformation
-* operational stability in processing pipelines
-
-→ [Go to ETL & Data Operations](/engineering-notes/etl-data-operations/)
+This section documents how data reliability architecture is built, optimized, operated, and analyzed in practice.
 
 ---
 
-## Observability and Monitoring
+## Scope
 
-* Grafana dashboard setup
-* Dashboard image rendering and automation
+This category covers:
 
-→ [Go to Observability & Monitoring](/engineering-notes/observability/)
+* Data processing and pipeline design
+* System observability and operational practices
+* Debugging and troubleshooting
+* Statistical analysis and data drift detection
 
----
-
-## Debugging and Troubleshooting
-
-* Data inconsistency issues
-* Event mapping problems
-* Pipeline debugging cases
-
-→ [Go to Debugging & Troubleshooting](/engineering-notes/debugging-troubleshooting/)
+The emphasis is on **practical engineering experience**, not theoretical discussion.
 
 ---
 
-## Statistical Analysis and Data Drift
+## Categories
 
-* Drift Detection with Z-score
-* Feature Drift Analysis (ML Input)
+### Data Processing & Pipeline Engineering
 
-→ [Go to Statistical Analysis & Data Drift](/engineering-notes/statistical-analysis)
+Covers how data is processed, transformed, and optimized.
+
+Focus areas include:
+
+* ETL design and pipeline structure
+* Data modeling and transformation
+* Batch processing strategies
+* Performance optimization
+* Bulk data loading techniques
+
+---
+
+### System Observability & Operations
+
+Covers how systems are monitored, operated, and maintained.
+
+Focus areas include:
+
+* Monitoring and dashboard design
+* Metrics and alerting
+* System deployment and runtime operations
+* Pipeline observability
+* Data quality monitoring
+
+---
+
+### Debugging & Troubleshooting
+
+Covers real-world issues and how they are resolved.
+
+Focus areas include:
+
+* Data inconsistencies
+* Pipeline failures
+* Performance bottlenecks
+* Root cause analysis
+
+---
+
+### Statistical Analysis & Data Drift
+
+Covers statistical techniques for understanding data behavior.
+
+Focus areas include:
+
+* Drift detection methods
+* Distribution comparison
+* Time-series anomaly detection
+* Feature-level analysis
 
 ---
 
 ## Perspective
 
-Engineering Notes focus on how systems are implemented and operated in practice.
+Engineering Notes complement the Architecture section.
 
-This includes:
-
-* performance trade-offs
-* debugging approaches
-* real-world failure handling
-
----
-
-## Relationship to Architecture
-
-Architecture explains design decisions.
-
-Engineering Notes explain how those decisions are implemented and validated in real systems.
+* Architecture explains **how systems are designed**
+* Engineering Notes explain **how systems actually work in practice**
 
 ---
 
 ## Summary
 
-This section is not about system design.
+Engineering Notes document the practical side of building and operating data reliability systems.
 
-It is about building, debugging, optimizing, and operating data systems.
+This section focuses on:
 
----
+* implementation
+* optimization
+* operation
+* analysis
