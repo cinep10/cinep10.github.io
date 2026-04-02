@@ -84,24 +84,28 @@ It is:
 
 #### Role
 
-Transform raw, unstructured data into structured datasets.
+- generate realistic raw data
+- transform unstructured logs into structured datasets
+- provide consistent input for all downstream layers
 
 ---
 
 #### Core Functions
 
-- Log generation (Simulator)  
-- Parsing  
-- Normalization  
-- Database loading  
+- Synthetic Data Generation  
+- Log Structuring (Parsing & Loading)  
+- Staging Data Construction  
+- Data Standardization 
 
 ---
 
 #### Design Principles
 
+- Simulation-driven Architecture
 - Schema-first design  
 - Deterministic processing  
-- Bulk loading (LOAD DATA)  
+- Separation of Raw and Structured Data
+- Scalable Data Loading  
 
 ---
 
