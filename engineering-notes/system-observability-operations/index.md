@@ -111,6 +111,7 @@ Focus areas:
 
 * container and runtime management
 * production operations
+* [WSL ext4 Recovery Case Study](/engineering-notes/system-observability-operations/wsl-ext4-recovery)
 
 ---
 
