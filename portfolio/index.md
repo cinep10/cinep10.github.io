@@ -12,7 +12,8 @@ validated, monitored, and risk-aware signals.
 
 ### Structure
 
-* Data Reliability Architecture
+* Data generation and structuring
+* Metric / Semantic / Validation
 * Drift / Risk / Root Cause
 * Explainable data behavior
 
