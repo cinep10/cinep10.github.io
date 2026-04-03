@@ -138,7 +138,7 @@ Ensures structural and logical correctness of data.
 
 Related:
 
-* [Drift Detection Design](/architecture/analytics-pipeline-validation-framework)
+* [Analytics Pipeline Validation Framework](/architecture/analytics-pipeline-validation-framework)
 
 ---
 
