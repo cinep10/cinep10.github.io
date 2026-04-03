@@ -70,7 +70,7 @@ risk scoring / ML feature input
 
 ### 5.1 Completeness Check (Null / Missing)
 
-```SQL
+```sql
 CASE 
   WHEN value IS NULL THEN 'NULL_VIOLATION'
   WHEN value = 0 AND metric_type = 'count' THEN 'ZERO_SUSPICIOUS'
@@ -79,57 +79,72 @@ END
 
 Purpose:
 
-detect missing data collection
-detect ETL failures
-detect API failures
+- detect missing data collection
+- detect ETL failures
+- detect API failures
 
 ---
 
 ### 5.2 Validity Check (Expected Range)
+
+```sql
 CASE
   WHEN value < expected_min THEN 'BELOW_RANGE'
   WHEN value > expected_max THEN 'ABOVE_RANGE'
 END
+```
 
 Examples:
 
-conversion_rate: 0 ~ 1
-latency: 0 ~ 5000 ms
+- conversion_rate: 0 ~ 1
+- latency: 0 ~ 5000 ms
 
 ---
 
 ### 5.3 Statistical Anomaly (Z-score)
+
+```text
 z_score = (value - mean) / stddev
+```
+
+```sql
 CASE
   WHEN ABS(z_score) > 3 THEN 'STAT_ANOMALY_HIGH'
 END
+```
 
 Purpose:
 
-detect abnormal fluctuations within valid ranges
-detect spikes and drift-like changes
+- detect abnormal fluctuations within valid ranges
+- detect spikes and drift-like changes
 
 ---
 
 ### 5.4 Rule Violation (Business Logic)
+
+```sql
 CASE
   WHEN purchase_count > add_to_cart THEN 'FUNNEL_BREAK'
 END
+```
 
 Examples:
 
-page_view < session_count
-purchase > add_to_cart
+- page_view < session_count
+- purchase > add_to_cart
 
 ---
 
 ### 5.5 Time-series Continuity Check
+
+```sql
 LAG(value) OVER (PARTITION BY metric ORDER BY dt)
+```
 
 Checks:
 
-sudden drop to zero
-unexpected gaps
+- sudden drop to zero
+- unexpected gaps
 
 ---
 
@@ -137,29 +152,34 @@ unexpected gaps
 
 Example schema:
 
-dt
-profile_id
-metric_name
-value
-validation_type
-validation_status (PASS / FAIL)
-violation_type (NULL / RANGE / RULE / STAT)
-severity (LOW / MEDIUM / HIGH)
-z_score
-expected_min / max
-created_at
-Design 특징
-validation 결과를 이벤트 형태로 저장
-하나의 row에 multiple validation 가능
-downstream aggregation / scoring 가능
+- dt
+- profile_id
+- metric_name
+- value
+- validation_type
+- validation_status (PASS / FAIL)
+- violation_type (NULL / RANGE / RULE / STAT)
+- severity (LOW / MEDIUM / HIGH)
+- z_score
+- expected_min / max
+- created_at
+
+### Design 특징
+- validation 결과를 이벤트 형태로 저장
+- 하나의 row에 multiple validation 가능
+- downstream aggregation / scoring 가능
 
 ---
 
 ## 7. validation_summary_day
-Role
-row-level 결과를 일 단위로 집계
-Risk Layer 입력으로 사용
-Aggregation
+
+### Role
+- row-level 결과를 일 단위로 집계
+- Risk Layer 입력으로 사용
+
+### Aggregation
+
+```sql
 SELECT
   dt,
   profile_id,
@@ -173,59 +193,70 @@ SELECT
   MAX(z_score) AS max_z_score
 FROM validation_result
 GROUP BY dt, profile_id
-Derived Metrics
-fail_ratio
-critical_issue_flag
-dominant_issue_type
+```
+
+### Derived Metrics
+- fail_ratio
+- critical_issue_flag
+- dominant_issue_type
 
 ---
 
 ## 8. Data Quality Signal
 
-Validation Layer의 핵심 출력은 Data Quality Signal
+Validation Layer의 핵심 출력은 **Data Quality Signal**
 
-Signal Definition
-QUALITY_WARNING → fail_ratio > 5%
-QUALITY_ALERT → fail_ratio > 15%
-CRITICAL_BREAK → rule violation 존재
-DATA_MISSING → null 증가
+### Signal Definition
+- QUALITY_WARNING → fail_ratio > 5%
+- QUALITY_ALERT → fail_ratio > 15%
+- CRITICAL_BREAK → rule violation 존재
+- DATA_MISSING → null 증가
+
+```sql
 CASE
   WHEN fail_ratio > 0.15 THEN 'ALERT'
   WHEN fail_ratio > 0.05 THEN 'WARNING'
   ELSE 'NORMAL'
 END
+```
 
 ---
 
 ## 9. Connection to Risk Layer
+
+```text
 validation_summary_day
         ↓
 data_risk_score_day
+```
 
 Usage:
 
-feature input (fail_ratio 등)
-risk penalty factor
-scenario 판단 보조
+- feature input (fail_ratio 등)
+- risk penalty factor
+- scenario 판단 보조
 
 ---
 
 ## 10. Key Design Principles
-Validation ≠ Anomaly Detection
-Validation → incorrect data
-Drift / ML → unusual patterns
-Prevent Baseline Contamination
+
+### Validation ≠ Anomaly Detection
+- Validation → incorrect data
+- Drift / ML → unusual patterns
+
+### Prevent Baseline Contamination
 
 Validation must be:
 
-raw-based
-scenario-independent
-Explainability
+- raw-based
+- scenario-independent
+
+### Explainability
 
 Each validation must include:
 
-violation_type
-threshold / rule
+- violation_type
+- threshold / rule
 
 → Grafana drill-down 가능
 
@@ -235,11 +266,11 @@ threshold / rule
 
 Recommended panels:
 
-daily fail ratio trend
-violation type distribution
-top failing metrics
-z-score distribution
-critical violation timeline
+- daily fail ratio trend
+- violation type distribution
+- top failing metrics
+- z-score distribution
+- critical violation timeline
 
 ---
 
@@ -251,11 +282,11 @@ data exists (completeness)
 data is logically valid (validity / rules)
 data follows expected patterns (statistical behavior)
 
-And converts data quality into a quantifiable risk signal
+And converts data quality into a **quantifiable risk signal**
 
 ---
 
 ## One-line Definition
 
-Validation Layer =
+Validation Layer =   
 the layer that validates data quality and converts it into quantitative signals
