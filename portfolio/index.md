@@ -33,7 +33,7 @@ and that their behavior can be interpreted and monitored.
 * prediction impact analysis
 * explainable model behavior
 
-→ [ML Data Reliability](/portfolio/ml-input-monitoring/)
+→ [ML Data Reliability](/portfolio/ml-data-reliability/)
 
 ---
 
