@@ -24,6 +24,36 @@ This layer connects data quality with model behavior.
 
 ---
 
+## 1. Analysis & Design
+
+Defining how data reliability should be structured.
+
+- [Data Reliability Architecture](/architecture/data-reliability-architecture)
+
+---
+
+## 2. Implementation
+
+Building the system components.
+
+- [Data Reliability Architecture](/architecture/data-reliability-architecture)
+
+---
+
+## 3. Results
+
+Demonstrating system outcomes.
+
+- [Explainable data behavior](./explainable-data-behavior)
+
+---
+
+## Notes
+
+- [Explainable data behavior](./explainable-data-behavior)
+
+---
+
 ## Scope
 
 This category covers:
