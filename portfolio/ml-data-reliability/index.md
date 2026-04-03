@@ -48,7 +48,7 @@ Demonstrating system outcomes.
 
 ---
 
-## Notes
+## Related Notes
 
 - [Explainable data behavior](./explainable-data-behavior)
 
