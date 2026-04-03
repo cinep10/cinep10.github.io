@@ -50,7 +50,7 @@ Demonstrating system outcomes.
 
 ---
 
-## Notes
+## Related Notes
 
 - [Data Reliability Architecture](./data-reliability-architecture)
 - [Analytics Pipeline Validation Framework](./analytics-pipeline-validation-framework)
