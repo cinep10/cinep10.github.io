@@ -70,7 +70,7 @@ risk scoring / ML feature input
 
 ### 5.1 Completeness Check (Null / Missing)
 
-```sql
+```SQL
 CASE 
   WHEN value IS NULL THEN 'NULL_VIOLATION'
   WHEN value = 0 AND metric_type = 'count' THEN 'ZERO_SUSPICIOUS'
