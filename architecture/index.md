@@ -215,6 +215,7 @@ but about continuously observing and interpreting the state of data.
 
 The system is structured as follows:
 
+```text
 Data
 → Metric
 → Validation (correctness)
@@ -222,6 +223,7 @@ Data
 → Risk (impact assessment)
 → Root Cause (explanation)
 → Action (response)
+```
 
 Through this flow, data is transformed from raw values into
 **interpretable system state information**.
