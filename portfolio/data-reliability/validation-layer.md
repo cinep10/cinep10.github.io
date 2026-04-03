@@ -10,9 +10,9 @@ The Validation Layer is a core component of the data reliability architecture.
 
 This layer validates collected data in terms of:
 
-completeness
-validity
-consistency
+- completeness
+- validity
+- consistency
 
 Based on these checks, it generates data quality signals.
 
