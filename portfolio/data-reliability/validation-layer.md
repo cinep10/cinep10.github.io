@@ -35,7 +35,7 @@ before it is used for analysis or modeling.
 
 ## 3. Architecture
 
-```text id="66ibkt"
+```text
 raw / aggregated data
         ↓
 validation_layer_runner_v2
