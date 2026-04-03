@@ -14,7 +14,7 @@ This layer validates collected data in terms of:
 - validity
 - consistency
 
-Based on these checks, it generates data quality signals.
+Based on these checks, it generates **data quality signals.**
 
 Its primary role is to separate and formalize data quality issues before the ML stage,
 thereby improving the interpretability and stability of the overall platform.
@@ -25,8 +25,8 @@ thereby improving the interpretability and stability of the overall platform.
 
 The Validation Layer has two primary objectives:
 
-detect data quality issues
-protect ML input data from garbage-in problems
+- detect data quality issues
+- protect ML input data from garbage-in problems
 
 In other words, this layer determines whether data is in a trustworthy state
 before it is used for analysis or modeling.
@@ -34,6 +34,8 @@ before it is used for analysis or modeling.
 ---
 
 ## 3. Architecture
+
+```text
 raw / aggregated data
         ↓
 validation_layer_runner_v2
@@ -43,30 +45,37 @@ validation_result (row-level)
 validation_summary_day (aggregation)
         ↓
 risk scoring / ML feature input
+```
 
 ---
 
 ## 4. validation_layer_runner_v2
-Role
-execute validation rules at the dataset or metric level
-generate validation results for each record or aggregated value
-support both rule-based and statistical checks
-Input Data
-data_aggregation_day
-metric_statistics_day
-optional baseline reference tables
-Output Data
-validation_result (row-level)
+
+### Role
+- execute validation rules at the dataset or metric level
+- generate validation results for each record or aggregated value
+- support both rule-based and statistical checks
+
+### Input Data
+- data_aggregation_day
+- metric_statistics_day
+- optional baseline reference tables
+
+### Output Data
+- validation_result (row-level)
 
 ---
 
 ## 5. Validation Types
 
 ### 5.1 Completeness Check (Null / Missing)
+
+```sql
 CASE 
   WHEN value IS NULL THEN 'NULL_VIOLATION'
   WHEN value = 0 AND metric_type = 'count' THEN 'ZERO_SUSPICIOUS'
 END
+```
 
 Purpose:
 
