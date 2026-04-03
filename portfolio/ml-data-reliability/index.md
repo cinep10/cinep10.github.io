@@ -57,44 +57,6 @@ Demonstrating system outcomes.
 
 ---
 
-## Scope
-
-This category covers:
-
-* feature-level data validation
-* input data drift detection
-* distribution analysis
-* training vs serving consistency
-* prediction impact and explainability
-
-The focus is not on model development, but on **data reliability for ML systems**.
-
----
-
-## Perspective
-
-This category does not focus on building models.
-
-Instead, it focuses on:
-
-* ensuring reliable model inputs
-* detecting data-driven risks
-* explaining model behavior
-
----
-
-## Summary
-
-ML Data Reliability ensures that machine learning systems operate on stable and trustworthy data.
-
-It bridges:
-
-* data engineering
-* data reliability
-* machine learning systems
-
----
-
 ## One-line Definition
 
 ML Data Reliability =
