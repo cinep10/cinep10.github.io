@@ -18,7 +18,7 @@ Based on these checks, it generates data quality signals.
 Its primary role is to separate and formalize data quality issues before the ML stage,
 thereby improving the interpretability and stability of the overall platform.
 
-⸻
+---
 
 2. Objective
 
@@ -29,7 +29,7 @@ The Validation Layer has two primary objectives:
 In other words, this layer determines whether data is in a trustworthy state
 before it is used for analysis or modeling.
 
-⸻
+---
 
 3. Architecture
 
@@ -44,7 +44,7 @@ validation_summary_day (aggregation)
 risk scoring / ML feature input
 
 
-⸻
+---
 
 4. validation_layer_runner_v2
 
@@ -61,7 +61,7 @@ Input Data
 Output Data
 	•	validation_result (row-level)
 
-⸻
+---
 
 5. Validation Types
 
@@ -77,7 +77,7 @@ Purpose:
 	•	detect ETL failures
 	•	detect API failures
 
-⸻
+---
 
 5.2 Validity Check (Expected Range)
 
@@ -90,7 +90,7 @@ Examples:
 	•	conversion_rate: 0 ~ 1
 	•	latency: 0 ~ 5000 ms
 
-⸻
+---
 
 5.3 Statistical Anomaly (Z-score)
 
@@ -104,7 +104,7 @@ Purpose:
 	•	detect abnormal fluctuations within valid ranges
 	•	detect spikes and drift-like changes
 
-⸻
+---
 
 5.4 Rule Violation (Business Logic)
 
@@ -116,7 +116,7 @@ Examples:
 	•	page_view < session_count
 	•	purchase > add_to_cart
 
-⸻
+---
 
 5.5 Time-series Continuity Check
 
@@ -126,7 +126,7 @@ Checks:
 	•	sudden drop to zero
 	•	unexpected gaps
 
-⸻
+---
 
 6. validation_result (Row-Level)
 
@@ -148,7 +148,7 @@ Design 특징
 	•	하나의 row에 multiple validation 가능
 	•	downstream aggregation / scoring 가능
 
-⸻
+---
 
 7. validation_summary_day
 
@@ -177,7 +177,7 @@ Derived Metrics
 	•	critical_issue_flag
 	•	dominant_issue_type
 
-⸻
+---
 
 8. Data Quality Signal
 
@@ -196,7 +196,7 @@ CASE
 END
 
 
-⸻
+---
 
 9. Connection to Risk Layer
 
@@ -209,7 +209,7 @@ Usage:
 	•	risk penalty factor
 	•	scenario 판단 보조
 
-⸻
+---
 
 10. Key Design Principles
 
@@ -217,7 +217,7 @@ Validation ≠ Anomaly Detection
 	•	Validation → incorrect data
 	•	Drift / ML → unusual patterns
 
-⸻
+---
 
 Prevent Baseline Contamination
 
@@ -225,7 +225,7 @@ Validation must be:
 	•	raw-based
 	•	scenario-independent
 
-⸻
+---
 
 Explainability
 
@@ -235,7 +235,7 @@ Each validation must include:
 
 → Grafana drill-down 가능
 
-⸻
+---
 
 11. Grafana Integration
 
@@ -246,7 +246,7 @@ Recommended panels:
 	•	z-score distribution
 	•	critical violation timeline
 
-⸻
+---
 
 12. Summary
 
@@ -257,11 +257,9 @@ Validation Layer ensures:
 
 And converts data quality into a quantifiable risk signal
 
-⸻
+---
 
 One-line Definition
 
 Validation Layer =
 the layer that validates data quality and converts it into quantitative signals
-
-⸻
