@@ -17,7 +17,7 @@ but on ensuring that data can be trusted and explained.
 
 ### Portfolio
 
-End-to-end systems for data reliability and ml data reliability.
+End-to-end systems for reliable, explainable, and operable in production environments
 
 * Data Reliability
 * ML Data Reliability
