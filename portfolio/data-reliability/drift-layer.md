@@ -1,6 +1,3 @@
-
----
-
 # Drift Layer
 
 A layer for detecting how data behavior deviates from its normal state
@@ -374,7 +371,5 @@ Structural Anomaly detects:
 
 Drift Layer =
 a layer that measures how data values, patterns, and relationships deviate from their normal state
-
----
 
 같은 톤으로 이어드릴게요.
