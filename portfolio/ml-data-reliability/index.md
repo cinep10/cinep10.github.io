@@ -6,20 +6,6 @@ This category extends data reliability concepts into ML systems, bridging data e
 
 ---
 
-## Scope
-
-This category covers:
-
-* feature-level data validation
-* input data drift detection
-* distribution analysis
-* training vs serving consistency
-* prediction impact and explainability
-
-The focus is not on model development, but on **data reliability for ML systems**.
-
----
-
 ## Architecture Position
 
 ML Data Reliability is positioned after the data reliability pipeline.
@@ -35,6 +21,20 @@ data → metric → validation → drift → risk
 ```
 
 This layer connects data quality with model behavior.
+
+---
+
+## Scope
+
+This category covers:
+
+* feature-level data validation
+* input data drift detection
+* distribution analysis
+* training vs serving consistency
+* prediction impact and explainability
+
+The focus is not on model development, but on **data reliability for ML systems**.
 
 ---
 
