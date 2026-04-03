@@ -1,8 +1,4 @@
-
-
-⸻
-
-Validation Layer (Technical Deep Dive)
+# Validation Layer (Technical Deep Dive)
 
 A core layer for ensuring data reliability
 
