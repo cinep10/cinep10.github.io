@@ -81,7 +81,7 @@ The Validation Layer is composed of five major types of checks.
 
 ### 5.1 Completeness Check (Null / Missing)
 
-```sql id="mniejt"
+```sql
 CASE 
   WHEN value IS NULL THEN 'NULL_VIOLATION'
   WHEN value = 0 AND metric_type = 'count' THEN 'ZERO_SUSPICIOUS'
@@ -98,7 +98,7 @@ Purpose:
 
 ### 5.2 Validity Check (Expected Range)
 
-```sql id="ewz42k"
+```sql
 CASE
   WHEN value < expected_min THEN 'BELOW_RANGE'
   WHEN value > expected_max THEN 'ABOVE_RANGE'
@@ -119,11 +119,11 @@ Examples:
 
 ### 5.3 Statistical Anomaly (Z-score)
 
-```text id="m92uvx"
+```text
 z_score = (value - mean) / stddev
 ```
 
-```sql id="ud0ldo"
+```sql
 CASE
   WHEN ABS(z_score) > 3 THEN 'STAT_ANOMALY_HIGH'
 END
@@ -143,7 +143,7 @@ Examples:
 * `page_view < session_count`
 * `purchase > add_to_cart`
 
-```sql id="xmr2t5"
+```sql
 CASE
   WHEN purchase_count > add_to_cart THEN 'FUNNEL_BREAK'
 END
@@ -158,7 +158,7 @@ Purpose:
 
 ### 5.5 Time-series Continuity Check
 
-```sql id="6e5q56"
+```sql
 LAG(value) OVER (PARTITION BY metric ORDER BY dt)
 ```
 
@@ -208,7 +208,7 @@ Checks include:
 
 ### Aggregation Logic
 
-```sql id="qnhr2p"
+```sql
 SELECT
   dt,
   profile_id,
@@ -252,7 +252,7 @@ but a **Data Quality Signal**.
 
 ### Example
 
-```sql id="6xyotc"
+```sql
 CASE
   WHEN fail_ratio > 0.15 THEN 'ALERT'
   WHEN fail_ratio > 0.05 THEN 'WARNING'
@@ -266,7 +266,7 @@ END
 
 Validation results are consumed as follows:
 
-```text id="th834h"
+```text
 validation_summary_day
         ↓
 data_risk_score_day
