@@ -45,11 +45,7 @@ Problem-solving cases based on real system behavior.
 Design principles behind the system.
 
 * Data Reliability Architecture
-* Synthetic Web Log Simulator Architecture
-* Analytics Pipeline Validation Framework
-* Drift Detection Design
-* Risk Scoring Design
-* Data Decision Framework
+* Data Engineering Lifecycle
 
 → [architecture](/architecture/)
 
