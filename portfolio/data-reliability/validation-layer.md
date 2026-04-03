@@ -269,6 +269,3 @@ Validation Layer =
 the layer that validates data quality and converts it into quantitative signals
 
 ⸻
-
-필요하시면 다음으로
-👉 Drift Layer도 같은 모바일 최적화 버전으로 맞춰드릴게요 👍
