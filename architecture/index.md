@@ -136,6 +136,10 @@ Ensures structural and logical correctness of data.
 * relationship validation
 * rule-based anomaly detection
 
+Related:
+
+* [Drift Detection Design](/architecture/analytics-pipeline-validation-framework)
+
 ---
 
 ### 5.2 Drift Detection
