@@ -1,321 +1,380 @@
+
+---
+
 # Drift Layer
 
-## Detecting Changes in Data Meaning
+A layer for detecting how data behavior deviates from its normal state
 
 ---
 
-## 1. Problem
+## 1. Overview
 
-Validation determines whether data is correct.
+If the Validation Layer answers
+**“Is the data correct?”**,
+the Drift Layer answers
+**“Has the data changed from its normal behavior?”**
 
-However, correctness alone is not sufficient.
+The purpose of this layer is to quantitatively measure how much data at a given point in time deviates from its baseline, and determine whether the change is a simple fluctuation or a structural anomaly.
 
-Even valid data can become unreliable when its behavior changes.
+In other words, the Drift Layer answers the following questions:
 
----
+* How much have today’s metrics changed compared to normal?
+* Is this change temporary or structural?
+* Which metric dimensions show concentrated changes?
+* Has not only the value changed, but also the pattern and relationships?
 
-### What Actually Changes
-
-- traffic increases or decreases  
-- user behavior shifts  
-- event patterns evolve  
-- seasonal effects appear  
-
----
-
-### Core Issue
-
-> Data can be structurally correct,  
-> but its meaning can change over time
+This layer goes beyond simple distribution comparison and acts as a dynamic anomaly detection layer that considers both temporal patterns and inter-metric relationships.
 
 ---
 
-## 2. Why Drift Matters
+## 2. Architecture
 
-A system that only validates correctness cannot detect change.
-
----
-
-### Example
-
-- page_view remains stable  
-- conversion rate drops significantly  
-
----
-
-The data is valid, but the underlying behavior has changed.
-
----
-
-### Result
-
-> Decisions are made on outdated assumptions
-
----
-
-## 3. Design Goal
-
-The Drift Layer is designed to:
-
-> Detect and quantify changes in data distribution and structure
-
----
-
-### Objectives
-
-- detect changes (detection)  
-- measure change intensity (severity)  
-- identify structural changes  
-- integrate with Risk  
-
----
-
-## 4. Architecture
-
-```text
-Metric → Drift → Drift Result
+```
+metric_value_day
+    ↓
+metric_drift_analysis_db_v8.R
+    ↓
+metric_drift_result_r
+    ↓
+risk scoring / root cause / dashboard
 ```
 
----
+Structural anomalies are calculated separately:
 
-### Output Tables
+```
+metric_value_day
+    ↓
+time_pattern_anomaly_runner
+    ↓
+metric_time_anomaly_day
 
-- metric_drift_result  
-- ml_feature_drift_result  
-
----
-
-Drift operates on metrics, not raw data.
-
----
-
-## 5. Types of Drift
-
----
-
-### 5.1 Distribution Drift
-
-Changes in value distribution.
-
----
-
-#### Examples
-
-- increase in user_count  
-- decrease in session_count  
-
----
-
-#### Interpretation
-
-The scale of activity has changed.
-
-
----
-
-### 5.2 Structural Drift
-
-Changes in relationships between metrics.
-
----
-
-#### Examples
-
-- page_view stable but submit decreases  
-- login → success conversion drops  
-
----
-
-#### Interpretation
-
-> Funnel structure is distorted
-
----
-
-This is the most critical form of drift.
-
-
----
-
-### 5.3 Time Pattern Drift
-
-Changes in temporal behavior.
-
----
-
-#### Examples
-
-- abnormal traffic spikes at specific hours  
-- deviation from typical daily patterns  
-
----
-
-#### Interpretation
-
-System behavior differs from historical patterns.
-
----
-
-## 6. Detection Methods
-
----
-
-### 6.1 Baseline Comparison
-
-Comparison against historical baseline:
-
-- weekday  
-- hour  
-
----
-
-### 6.2 Z-score
-
-Measures deviation from expected value.
-
----
-
-```text
-z = (current - mean) / std
+metric_value_day
+    ↓
+correlation_anomaly_runner
+    ↓
+metric_correlation_anomaly_day
 ```
 
+The Drift Layer consists of two perspectives:
+
+* Drift Detection: changes in values
+* Structural Anomaly Detection: changes in patterns and relationships
+
 ---
 
-### 6.3 PSI-like Metrics
+## 3. Input Data
 
-Measures distribution difference.
+The primary input is `metric_value_day`.
+
+Examples:
+
+* daily_active_users
+* page_view_count
+* auth_attempt_count
+* auth_success_rate
+* loan_apply_submit_count
+* card_apply_submit_rate
+* mapping_coverage_auth
+* estimated_missing_rate
+
+Drift compares two windows:
+
+**Current Window**
+
+* metric values for the target date
+
+**Baseline Window**
+
+* historical values from previous N days or a reference period
+
+The Drift Layer is essentially a
+**current vs baseline comparison engine**
 
 ---
+
+## 4. metric_drift_analysis_db_v8.R
+
+This is an R-based drift computation engine.
+
+Main roles:
+
+* extract metric time series from the database
+* compute baseline statistics
+* compare current vs baseline
+* store drift results
+
+Baseline statistics include:
+
+* mean
+* standard deviation
+* quantiles
+
+Comparison metrics include:
+
+* z-score
+* ratio change
+* PSI
+* funnel change
+
+Output:
+
+* `metric_drift_result_r`
+
+---
+
+## 5. Drift Computation Methods
+
+### 5.1 Z-score Deviation
+
+```
+z_score = (current_value - baseline_mean) / baseline_std
+```
+
+* |z| < 2 → normal
+* |z| ≥ 2 → warn
+* |z| ≥ 3 → alert
+
+---
+
+### 5.2 Distribution Drift (PSI)
+
+```
+PSI = Σ (actual_i - expected_i) * ln(actual_i / expected_i)
+```
+
+* PSI < 0.10 → stable
+* 0.10 ~ 0.25 → moderate
+* ≥ 0.25 → significant
+
+---
+
+### 5.3 Ratio Drift
+
+```
+ratio_diff = current / baseline_mean
+ratio_diff_pct = (current - baseline_mean) / baseline_mean
+```
 
 Used for:
 
-- feature distribution comparison  
-- population shift detection  
+* conversion rates
+* success ratios
+* coverage metrics
 
 ---
 
-## 7. Design Principles
+### 5.4 Funnel Change
+
+Example:
+
+```
+start → process → submit
+```
+
+Checks:
+
+* step-wise volume changes
+* conversion rate deviation
+* funnel distortion
+
+This captures behavioral flow changes, not just volume changes.
 
 ---
 
-### 7.1 Drift Requires a Baseline
+## 6. metric_drift_result_r
 
-Drift cannot exist without a reference.
+Key fields:
 
----
+* profile_id
+* dt
+* metric_name
+* baseline_mean
+* baseline_std
+* current_value
+* z_score
+* drift_score
+* drift_status (normal / warn / alert)
+* severity
 
-### 7.2 Patterns Matter More Than Values
+Most commonly used:
 
-Single values are less meaningful than changes over time.
-
----
-
-### 7.3 Structure Over Individual Metrics
-
-The system focuses on relationships, not isolated values.
-
----
-
-### Key Insight
-
-> Drift represents a change in data meaning
+* drift_score
+* drift_status
 
 ---
 
-## 8. Relationship with Validation and Risk
+## 7. Drift Decision Logic
+
+```
+current_value
+    ↓
+baseline calculation
+    ↓
+z_score
+    ↓
+ratio / psi / funnel
+    ↓
+drift_score
+    ↓
+status classification
+```
+
+Example:
+
+```python
+if abs(z_score) >= 3 or psi >= 0.25:
+    drift_status = "alert"
+elif abs(z_score) >= 2 or psi >= 0.10:
+    drift_status = "warn"
+else:
+    drift_status = "normal"
+```
+
+Thresholds should vary depending on metric type:
+
+* conversion metrics → more sensitive
+* traffic metrics → less sensitive
+* campaign-driven metrics → exceptions or annotations
 
 ---
 
-### Core Flow
+## 8. Structural Anomaly Detection
 
-```text
-Validation → Drift → Risk
+Drift measures value change.
+Structural Anomaly measures pattern and relationship change.
+
+It detects:
+
+* time-series pattern shifts
+* metric relationship breakdown
+* funnel dependency issues
+
+---
+
+### 8.1 Time Pattern Anomaly
+
+```
+rolling_avg_7d = mean(value[t-7:t-1])
+rolling_std_7d = std(value[t-7:t-1])
+zscore_7d = (value[t] - rolling_avg_7d) / rolling_std_7d
+```
+
+Detects:
+
+* sudden spikes
+* sudden drops
+* trend breaks
+
+---
+
+### 8.2 Correlation Anomaly
+
+```
+baseline_ratio = mean(left_metric / right_metric)
+observed_ratio = left_metric_today / right_metric_today
+ratio_diff_pct = (observed - baseline) / baseline
+```
+
+Detects:
+
+* funnel break
+* dependency break
+* relationship distortion
+
+---
+
+## 9. Drift vs Structural
+
+* Drift → value change
+* Structural → relationship / pattern change
+
+Example:
+
+* start is stable
+* submit slightly drops
+
+Drift may miss it,
+but conversion ratio reveals a real issue.
+
+---
+
+## 10. Connection to Risk Layer
+
+Used as inputs:
+
+* drift_alert_count
+* drift_warn_count
+* avg_drift_score
+
+Structural signals:
+
+```
+time anomaly + correlation anomaly → structural risk
 ```
 
 ---
 
-### Interpretation
+## 11. Connection to Root Cause
 
-- Validation → Is the data correct?  
-- Drift → Has the data changed?  
-- Risk → Does the change matter?  
+Example:
 
----
+* submit metric drift
+* start vs submit correlation break
 
-### Important Distinction
+→ interpreted as funnel break
 
-- Validation detects structural issues  
-- Drift detects environmental or behavioral change  
+This improves:
 
----
-
-Both are required for reliable interpretation.
+* root cause analysis
+* action prioritization
+* explainability
 
 ---
 
-## 9. Role in Real Systems
+## 12. Grafana Integration
+
+Drift:
+
+* drift alert trend
+* top drifting metrics
+* drift timeline
+
+Time anomaly:
+
+* anomaly counts
+* rolling vs observed trends
+
+Correlation anomaly:
+
+* broken metric pairs
+* funnel ratio deviation
 
 ---
 
-### Observed Pattern
+## 13. Summary
 
-- validation warnings occur continuously  
-- drift alerts spike during specific events  
+The Drift Layer measures how much current metrics deviate from baseline behavior.
 
----
+Core functions:
 
-### Interpretation
+* z-score
+* PSI
+* ratio change
+* funnel analysis
 
-> External changes amplify existing structural weaknesses
+Structural Anomaly detects:
 
----
-
-### Typical Drift Signals
-
-- traffic spikes  
-- funnel conversion drop  
-- correlation breakdown  
+* time pattern changes
+* metric relationship breakdown
+* structural behavior changes
 
 ---
 
-## 10. Key Insights
+## One-line Definition
+
+Drift Layer =
+a layer that measures how data values, patterns, and relationships deviate from their normal state
 
 ---
 
-### Drift is inevitable
-
-All real-world data changes over time.
-
----
-
-### Drift is context-dependent
-
-The same change can be normal or abnormal depending on baseline.
-
----
-
-### Drift without validation is dangerous
-
-Incorrect data makes drift analysis meaningless.
-
----
-
-### Drift is the first signal of behavioral change
-
-It often precedes visible failures.
-
----
-
-## 11. Conclusion
-
-Drift Layer is not just about detecting anomalies.
-
-It is about:
-
-> Understanding how data behavior evolves over time
-
----
-
-## One-line Summary
-
-Drift = A change in the meaning of data over time
+같은 톤으로 이어드릴게요.
