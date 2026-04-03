@@ -20,7 +20,7 @@ but on ensuring that data can be trusted and explained.
 End-to-end systems for data reliability and ML input monitoring.
 
 * Data Reliability
-* ML Input Monitoring
+* ML Data Reliability
 
 → [portfolio](/portfolio/)
 
