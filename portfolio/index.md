@@ -30,9 +30,10 @@ and that their behavior can be interpreted and monitored.
 
 * Feature drift detection
 * ML input risk integration
-* Monitoring and interpretation
+* prediction impact analysis
+* explainable model behavior
 
-→ [ML Input Monitoring](/portfolio/ml-input-monitoring/)
+→ [ML Data Reliability](/portfolio/ml-input-monitoring/)
 
 ---
 
