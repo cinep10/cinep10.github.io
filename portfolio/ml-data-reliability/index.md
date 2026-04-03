@@ -28,7 +28,8 @@ This layer connects data quality with model behavior.
 
 Defining how data reliability should be structured.
 
-- [Data Reliability Architecture](/architecture/data-reliability-architecture)
+- [Why Data Reliability Comes Before ML](./data-reliability-approach)
+- [Explainable Data Behavior: System Design](./analysis-design)
 
 ---
 
@@ -36,7 +37,7 @@ Defining how data reliability should be structured.
 
 Building the system components.
 
-- [Data Reliability Architecture](/architecture/data-reliability-architecture)
+- [Explainable Data Behavior: Implementation](./implementation)
 
 ---
 
@@ -44,7 +45,7 @@ Building the system components.
 
 Demonstrating system outcomes.
 
-- [Explainable data behavior](./explainable-data-behavior)
+- [Explainable Data Behavior: Result Analysis](./result-analysis)
 
 ---
 
