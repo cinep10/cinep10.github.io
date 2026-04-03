@@ -1,6 +1,6 @@
 # Validation Layer (Technical Deep Dive)
 
-## A core layer for ensuring data reliability
+A core layer for ensuring data reliability
 
 ---
 
@@ -10,11 +10,11 @@ The Validation Layer is a core component of the data reliability architecture.
 
 This layer validates collected data in terms of:
 
-- completeness
-- validity
-- consistency
+* completeness
+* validity
+* consistency
 
-Based on these checks, it generates **data quality signals.**
+Based on these checks, it generates **data quality signals**.
 
 Its primary role is to separate and formalize data quality issues before the ML stage,
 thereby improving the interpretability and stability of the overall platform.
@@ -25,8 +25,8 @@ thereby improving the interpretability and stability of the overall platform.
 
 The Validation Layer has two primary objectives:
 
-- detect data quality issues
-- protect ML input data from garbage-in problems
+* detect data quality issues
+* protect ML input data from garbage-in problems
 
 In other words, this layer determines whether data is in a trustworthy state
 before it is used for analysis or modeling.
@@ -35,7 +35,7 @@ before it is used for analysis or modeling.
 
 ## 3. Architecture
 
-```text
+```text id="66ibkt"
 raw / aggregated data
         ↓
 validation_layer_runner_v2
@@ -52,25 +52,36 @@ risk scoring / ML feature input
 ## 4. validation_layer_runner_v2
 
 ### Role
-- execute validation rules at the dataset or metric level
-- generate validation results for each record or aggregated value
-- support both rule-based and statistical checks
+
+* execute validation rules at the dataset or metric level
+* generate validation results for each record or aggregated value
+* support both rule-based and statistical checks
+
+---
 
 ### Input Data
-- data_aggregation_day
-- metric_statistics_day
-- optional baseline reference tables
+
+* `data_aggregation_day`
+* `metric_statistics_day`
+* optional baseline reference tables
+
+---
 
 ### Output Data
-- validation_result (row-level)
+
+* `validation_result` (row-level)
 
 ---
 
 ## 5. Validation Types
 
+The Validation Layer is composed of five major types of checks.
+
+---
+
 ### 5.1 Completeness Check (Null / Missing)
 
-```sql
+```sql id="mniejt"
 CASE 
   WHEN value IS NULL THEN 'NULL_VIOLATION'
   WHEN value = 0 AND metric_type = 'count' THEN 'ZERO_SUSPICIOUS'
@@ -79,35 +90,40 @@ END
 
 Purpose:
 
-- detect missing data collection
-- detect ETL failures
-- detect API failures
+* detect missing data collection
+* detect ETL failures
+* detect API failures
 
 ---
 
 ### 5.2 Validity Check (Expected Range)
 
-```sql
+```sql id="ewz42k"
 CASE
   WHEN value < expected_min THEN 'BELOW_RANGE'
   WHEN value > expected_max THEN 'ABOVE_RANGE'
 END
 ```
 
+Criteria:
+
+* predefined business rules
+* or dynamic ranges based on baseline statistics
+
 Examples:
 
-- conversion_rate: 0 ~ 1
-- latency: 0 ~ 5000 ms
+* `conversion_rate`: 0 ~ 1
+* `latency`: 0 ~ 5000 ms
 
 ---
 
 ### 5.3 Statistical Anomaly (Z-score)
 
-```text
+```text id="m92uvx"
 z_score = (value - mean) / stddev
 ```
 
-```sql
+```sql id="ud0ldo"
 CASE
   WHEN ABS(z_score) > 3 THEN 'STAT_ANOMALY_HIGH'
 END
@@ -115,71 +131,84 @@ END
 
 Purpose:
 
-- detect abnormal fluctuations within valid ranges
-- detect spikes and drift-like changes
+* detect abnormal fluctuations within otherwise valid ranges
+* detect spikes and drift-like changes
 
 ---
 
 ### 5.4 Rule Violation (Business Logic)
 
-```sql
+Examples:
+
+* `page_view < session_count`
+* `purchase > add_to_cart`
+
+```sql id="xmr2t5"
 CASE
   WHEN purchase_count > add_to_cart THEN 'FUNNEL_BREAK'
 END
 ```
 
-Examples:
+Purpose:
 
-- page_view < session_count
-- purchase > add_to_cart
+* detect violations of service logic
+* detect data pipeline errors
 
 ---
 
 ### 5.5 Time-series Continuity Check
 
-```sql
+```sql id="6e5q56"
 LAG(value) OVER (PARTITION BY metric ORDER BY dt)
 ```
 
-Checks:
+Checks include:
 
-- sudden drop to zero
-- unexpected gaps
+* sudden drop to zero
+* unexpected gaps in time-series continuity
 
 ---
 
 ## 6. validation_result (Row-Level)
 
-Example schema:
+### Example Schema
 
-- dt
-- profile_id
-- metric_name
-- value
-- validation_type
-- validation_status (PASS / FAIL)
-- violation_type (NULL / RANGE / RULE / STAT)
-- severity (LOW / MEDIUM / HIGH)
-- z_score
-- expected_min / max
-- created_at
-
-### Design 특징
-- all validation results are stored as normalized events
-- multiple validation rules can be applied to the same row
-- results can later be aggregated and scored in downstream layers
+| Column             | Description                |
+| ------------------ | -------------------------- |
+| dt                 | date                       |
+| profile_id         | domain / profile           |
+| metric_name        | metric name                |
+| value              | observed value             |
+| validation_type    | type of validation         |
+| validation_status  | PASS / FAIL                |
+| violation_type     | NULL / RANGE / RULE / STAT |
+| severity           | LOW / MEDIUM / HIGH        |
+| z_score            | statistical score          |
+| expected_min / max | expected bounds            |
+| created_at         | creation timestamp         |
 
 ---
 
-## 7. validation_summary_day
+### Design Characteristics
+
+* all validation results are stored as normalized events
+* multiple validation rules can be applied to the same row
+* results can later be aggregated and scored in downstream layers
+
+---
+
+## 7. validation_summary_day (Aggregation Layer)
 
 ### Role
-- aggregate row-level validation results by day
-- provide summarized input to the Risk Layer
 
-### Aggregation
+* aggregate row-level validation results by day
+* provide summarized input to the Risk Layer
 
-```sql
+---
+
+### Aggregation Logic
+
+```sql id="qnhr2p"
 SELECT
   dt,
   profile_id,
@@ -195,25 +224,35 @@ FROM validation_result
 GROUP BY dt, profile_id
 ```
 
+---
+
 ### Derived Metrics
-- fail_ratio
-- critical_issue_flag
-- dominant_issue_type
+
+* `fail_ratio = fail_count / total_checks`
+* `critical_issue_flag`
+* `dominant_issue_type`
 
 ---
 
 ## 8. Data Quality Signal
 
 The key output of the Validation Layer is not simply a fail count,
-but a **Data Quality Signal.**
+but a **Data Quality Signal**.
 
-### Signal Definition
-- QUALITY_WARNING → fail_ratio > 5%
-- QUALITY_ALERT → fail_ratio > 15%
-- CRITICAL_BREAK → critical rule violation exists
-- DATA_MISSING → null-related issues increase sharply
+### Signal Definitions
 
-```sql
+| Signal          | Condition                            |
+| --------------- | ------------------------------------ |
+| QUALITY_WARNING | fail_ratio > 5%                      |
+| QUALITY_ALERT   | fail_ratio > 15%                     |
+| CRITICAL_BREAK  | critical rule violation exists       |
+| DATA_MISSING    | null-related issues increase sharply |
+
+---
+
+### Example
+
+```sql id="6xyotc"
 CASE
   WHEN fail_ratio > 0.15 THEN 'ALERT'
   WHEN fail_ratio > 0.05 THEN 'WARNING'
@@ -223,71 +262,81 @@ END
 
 ---
 
-## 9. Connection to Risk Layer
+## 9. Connection to the Risk Layer
 
-```text
+Validation results are consumed as follows:
+
+```text id="th834h"
 validation_summary_day
         ↓
 data_risk_score_day
 ```
 
-Usage:
+Usage includes:
 
-- feature input (such as fail_ratio)
-- risk penalty factor
-- This enables drill-down analysis in Grafana.
+* feature input (such as `fail_ratio`)
+* direct penalty factors
+* supporting signals for scenario interpretation
 
 ---
 
 ## 10. Key Design Principles
 
-### Validation ≠ Anomaly Detection
-- Validation → incorrect data
-- Drift / ML → unusual patterns
+### 10.1 Validation is not Anomaly Detection
 
-### Prevent Baseline Contamination
+* Validation = incorrect or invalid data
+* Drift / ML = unusual patterns in otherwise valid data
 
-Validation must be:
+These must be clearly separated.
 
-- raw-based
-- scenario-independent
+---
 
-### Explainability
+### 10.2 Preventing Baseline Contamination
 
-Each validation must include:
+Validation should always remain:
 
-- violation_type
-- threshold / rule
+* based on raw or canonical input
+* independent of scenario assumptions
 
-→ This enables drill-down analysis in Grafana
+---
+
+### 10.3 Explainability
+
+Every validation result must include:
+
+* the reason (`violation_type`)
+* the rule or threshold used (`expected range` or `business rule`)
+
+This enables drill-down analysis in Grafana.
 
 ---
 
 ## 11. Grafana Integration
 
-Recommended panels:
+Recommended dashboard panels:
 
-- daily fail ratio trend
-- violation type distribution
-- top failing metrics
-- z-score distribution
-- critical violation timeline
+* daily fail ratio trend
+* violation type distribution
+* top failing metrics
+* z-score distribution
+* critical violation timeline
 
 ---
 
 ## 12. Summary
 
-Validation Layer ensures:
+The Validation Layer ensures that:
 
-data exists (completeness)
-data is logically valid (validity / rules)
-data follows expected patterns (statistical behavior)
+* data exists when it should (completeness)
+* data makes logical sense (validity / rule consistency)
+* data behaves within expected statistical boundaries
 
-And converts data quality into a **quantifiable risk signal**
+Based on this, it transforms data quality into
+an independent and quantifiable risk signal.
 
 ---
 
 ## One-line Definition
 
-Validation Layer =   
+Validation Layer =
 the layer that validates data quality and converts it into quantitative signals
