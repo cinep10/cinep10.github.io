@@ -23,7 +23,8 @@ validated, monitored, and risk-aware signals.
 
 ## ML Data Reliability
 
-ML systems operate on reliable and consistent input data, and that their behavior can be interpreted and monitored.
+ML systems operate on reliable and consistent input data,
+and that their behavior can be interpreted and monitored.
 
 ### Structure
 
