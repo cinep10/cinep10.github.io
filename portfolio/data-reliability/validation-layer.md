@@ -2,7 +2,7 @@
 
 A core layer for ensuring data reliability
 
-⸻
+---
 
 1. Overview
 
