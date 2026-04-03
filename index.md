@@ -17,7 +17,7 @@ but on ensuring that data can be trusted and explained.
 
 ### Portfolio
 
-End-to-end systems for data reliability and ML input monitoring.
+End-to-end systems for data reliability and ML Data Reliability.
 
 * Data Reliability
 * ML Data Reliability
