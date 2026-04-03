@@ -165,17 +165,17 @@ Example schema:
 - created_at
 
 ### Design 특징
-- validation 결과를 이벤트 형태로 저장
-- 하나의 row에 multiple validation 가능
-- downstream aggregation / scoring 가능
+- all validation results are stored as normalized events
+- multiple validation rules can be applied to the same row
+- results can later be aggregated and scored in downstream layers
 
 ---
 
 ## 7. validation_summary_day
 
 ### Role
-- row-level 결과를 일 단위로 집계
-- Risk Layer 입력으로 사용
+- aggregate row-level validation results by day
+- provide summarized input to the Risk Layer
 
 ### Aggregation
 
@@ -204,13 +204,14 @@ GROUP BY dt, profile_id
 
 ## 8. Data Quality Signal
 
-Validation Layer의 핵심 출력은 **Data Quality Signal**
+The key output of the Validation Layer is not simply a fail count,
+but a **Data Quality Signal.**
 
 ### Signal Definition
 - QUALITY_WARNING → fail_ratio > 5%
 - QUALITY_ALERT → fail_ratio > 15%
-- CRITICAL_BREAK → rule violation 존재
-- DATA_MISSING → null 증가
+- CRITICAL_BREAK → critical rule violation exists
+- DATA_MISSING → null-related issues increase sharply
 
 ```sql
 CASE
@@ -232,9 +233,9 @@ data_risk_score_day
 
 Usage:
 
-- feature input (fail_ratio 등)
+- feature input (such as fail_ratio)
 - risk penalty factor
-- scenario 판단 보조
+- This enables drill-down analysis in Grafana.
 
 ---
 
@@ -258,7 +259,7 @@ Each validation must include:
 - violation_type
 - threshold / rule
 
-→ Grafana drill-down 가능
+→ This enables drill-down analysis in Grafana
 
 ---
 
