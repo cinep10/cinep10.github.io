@@ -5,7 +5,9 @@ but from the perspective of the **data engineering lifecycle and data reliabilit
 
 Data flows through the following stages:
 
+```text
 Data Generation → Storage → Ingestion → Transformation → Analysis → Machine Learning
+```
 
 The goal of this architecture is not simply to build a data pipeline,
 but to design a system that makes data **reliable and explainable**.
