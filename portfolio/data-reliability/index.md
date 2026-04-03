@@ -17,7 +17,7 @@ Data → Metric → Validation → Drift → Risk
 
 Defining how data reliability should be structured.
 
-- [Data Reliability Architecture](/architecture/data-reliability-architecture)
+- [Data Reliability Architecture](./data-reliability-architecture)
 - [Synthetic Web Log Simulator Architecture](/architecture/synthetic-web-log-simulator-architecture)
 - [Analytics Pipeline Validation Framework](/architecture/analytics-pipeline-validation-framework)
 - [Drift Detection Design](/architecture/drift-detection-design)
