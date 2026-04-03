@@ -21,9 +21,9 @@ validated, monitored, and risk-aware signals.
 
 ---
 
-## ML Input Monitoring
+## ML Data Reliability
 
-Monitoring system for managing the reliability of machine learning inputs.
+ML systems operate on reliable and consistent input data, and that their behavior can be interpreted and monitored.
 
 ### Structure
 
