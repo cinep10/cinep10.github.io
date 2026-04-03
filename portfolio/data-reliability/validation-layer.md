@@ -1,457 +1,281 @@
-# Validation Layer
+좋습니다 👍
+모바일에서 복붙 편하게 하려면:
+	•	writing block 제거
+	•	불필요한 구분선 최소화
+	•	코드블록은 유지 (GitHub 호환)
+	•	줄 간격 너무 빽빽하지 않게 정리
 
-## Ensuring That Measured Data Can Be Trusted
+아래는 **모바일 복붙 최적화 버전 (GitHub 바로 사용 가능)**입니다.
 
----
+⸻
 
-## 1. Problem
+Validation Layer (Technical Deep Dive)
 
-Even if metrics are well-defined,  
-they are not always reliable.
+A core layer for ensuring data reliability
 
----
+⸻
 
-### What Happens in Real Systems
+1. Overview
 
-- missing logs → certain metrics become zero  
-- mapping errors → submit > click  
-- identity issues → abnormal user_count spikes  
-- session errors → distorted session metrics  
-- delayed or partial data ingestion  
+The Validation Layer is a core component of the data reliability architecture.
 
----
+This layer validates collected data in terms of:
+	•	completeness
+	•	validity
+	•	consistency
 
-### Key Insight
+Based on these checks, it generates data quality signals.
 
-> Metrics are always subject to error
+Its primary role is to separate and formalize data quality issues before the ML stage,
+thereby improving the interpretability and stability of the overall platform.
 
----
+⸻
 
-### Result
+2. Objective
 
-> Data may appear valid, but be structurally incorrect
+The Validation Layer has two primary objectives:
+	•	detect data quality issues
+	•	protect ML input data from garbage-in problems
 
-This leads to:
+In other words, this layer determines whether data is in a trustworthy state
+before it is used for analysis or modeling.
 
-- incorrect analysis  
-- misleading conclusions  
-- unreliable decisions  
+⸻
 
----
+3. Architecture
 
-## 2. Design Goal
+raw / aggregated data
+        ↓
+validation_layer_runner_v2
+        ↓
+validation_result (row-level)
+        ↓
+validation_summary_day (aggregation)
+        ↓
+risk scoring / ML feature input
 
-The Validation Layer is designed to:
 
-> Quantitatively determine whether metrics are trustworthy
+⸻
 
----
+4. validation_layer_runner_v2
 
-### Objectives
+Role
+	•	execute validation rules at the dataset or metric level
+	•	generate validation results for each record or aggregated value
+	•	support both rule-based and statistical checks
 
-- validate metric reliability  
-- detect structural inconsistencies  
-- continuously measure data quality  
-- generate signals for Risk Layer  
+Input Data
+	•	data_aggregation_day
+	•	metric_statistics_day
+	•	optional baseline reference tables
 
----
+Output Data
+	•	validation_result (row-level)
 
-## 3. Architecture
+⸻
 
-```text
-metric_value_hh / metric_value_day
-↓
-validation rules
-↓
-validation_result
-↓
-aggregation
-↓
+5. Validation Types
+
+5.1 Completeness Check (Null / Missing)
+
+CASE 
+  WHEN value IS NULL THEN 'NULL_VIOLATION'
+  WHEN value = 0 AND metric_type = 'count' THEN 'ZERO_SUSPICIOUS'
+END
+
+Purpose:
+	•	detect missing data collection
+	•	detect ETL failures
+	•	detect API failures
+
+⸻
+
+5.2 Validity Check (Expected Range)
+
+CASE
+  WHEN value < expected_min THEN 'BELOW_RANGE'
+  WHEN value > expected_max THEN 'ABOVE_RANGE'
+END
+
+Examples:
+	•	conversion_rate: 0 ~ 1
+	•	latency: 0 ~ 5000 ms
+
+⸻
+
+5.3 Statistical Anomaly (Z-score)
+
+z_score = (value - mean) / stddev
+
+CASE
+  WHEN ABS(z_score) > 3 THEN 'STAT_ANOMALY_HIGH'
+END
+
+Purpose:
+	•	detect abnormal fluctuations within valid ranges
+	•	detect spikes and drift-like changes
+
+⸻
+
+5.4 Rule Violation (Business Logic)
+
+CASE
+  WHEN purchase_count > add_to_cart THEN 'FUNNEL_BREAK'
+END
+
+Examples:
+	•	page_view < session_count
+	•	purchase > add_to_cart
+
+⸻
+
+5.5 Time-series Continuity Check
+
+LAG(value) OVER (PARTITION BY metric ORDER BY dt)
+
+Checks:
+	•	sudden drop to zero
+	•	unexpected gaps
+
+⸻
+
+6. validation_result (Row-Level)
+
+Example schema:
+	•	dt
+	•	profile_id
+	•	metric_name
+	•	value
+	•	validation_type
+	•	validation_status (PASS / FAIL)
+	•	violation_type (NULL / RANGE / RULE / STAT)
+	•	severity (LOW / MEDIUM / HIGH)
+	•	z_score
+	•	expected_min / max
+	•	created_at
+
+Design 특징
+	•	validation 결과를 이벤트 형태로 저장
+	•	하나의 row에 multiple validation 가능
+	•	downstream aggregation / scoring 가능
+
+⸻
+
+7. validation_summary_day
+
+Role
+	•	row-level 결과를 일 단위로 집계
+	•	Risk Layer 입력으로 사용
+
+Aggregation
+
+SELECT
+  dt,
+  profile_id,
+  COUNT(*) AS total_checks,
+  SUM(CASE WHEN validation_status = 'FAIL' THEN 1 ELSE 0 END) AS fail_count,
+  SUM(CASE WHEN violation_type = 'NULL' THEN 1 ELSE 0 END) AS null_issues,
+  SUM(CASE WHEN violation_type = 'RANGE' THEN 1 ELSE 0 END) AS range_issues,
+  SUM(CASE WHEN violation_type = 'RULE' THEN 1 ELSE 0 END) AS rule_issues,
+  SUM(CASE WHEN violation_type = 'STAT' THEN 1 ELSE 0 END) AS stat_issues,
+  AVG(z_score) AS avg_z_score,
+  MAX(z_score) AS max_z_score
+FROM validation_result
+GROUP BY dt, profile_id
+
+Derived Metrics
+	•	fail_ratio
+	•	critical_issue_flag
+	•	dominant_issue_type
+
+⸻
+
+8. Data Quality Signal
+
+Validation Layer의 핵심 출력은 Data Quality Signal
+
+Signal Definition
+	•	QUALITY_WARNING → fail_ratio > 5%
+	•	QUALITY_ALERT → fail_ratio > 15%
+	•	CRITICAL_BREAK → rule violation 존재
+	•	DATA_MISSING → null 증가
+
+CASE
+  WHEN fail_ratio > 0.15 THEN 'ALERT'
+  WHEN fail_ratio > 0.05 THEN 'WARNING'
+  ELSE 'NORMAL'
+END
+
+
+⸻
+
+9. Connection to Risk Layer
+
 validation_summary_day
-```
+        ↓
+data_risk_score_day
 
----
+Usage:
+	•	feature input (fail_ratio 등)
+	•	risk penalty factor
+	•	scenario 판단 보조
 
-## 4. Input
+⸻
 
-The Validation Layer operates exclusively on metrics:
+10. Key Design Principles
 
-```text
-metric_value_hh
-metric_value_day
-```
+Validation ≠ Anomaly Detection
+	•	Validation → incorrect data
+	•	Drift / ML → unusual patterns
 
----
+⸻
 
-### Design Principle
+Prevent Baseline Contamination
 
-> Validation does not inspect raw data  
-> It validates interpreted data (metrics)
+Validation must be:
+	•	raw-based
+	•	scenario-independent
 
----
+⸻
 
-### Reason
+Explainability
 
-- raw validation belongs to ETL  
-- validation focuses on semantic correctness  
+Each validation must include:
+	•	violation_type
+	•	threshold / rule
 
----
+→ Grafana drill-down 가능
 
-## 5. Validation Design
+⸻
 
-Validation is structured into four categories.
+11. Grafana Integration
 
----
+Recommended panels:
+	•	daily fail ratio trend
+	•	violation type distribution
+	•	top failing metrics
+	•	z-score distribution
+	•	critical violation timeline
 
-### 5.1 Completeness Validation
+⸻
 
----
+12. Summary
 
-#### Purpose
+Validation Layer ensures:
+	•	data exists (completeness)
+	•	data is logically valid (validity / rules)
+	•	data follows expected patterns (statistical behavior)
 
-Does the data exist?
+And converts data quality into a quantifiable risk signal
 
----
+⸻
 
-#### Examples
+One-line Definition
 
-- page_view = 0  
-- sudden drop in user_count  
+Validation Layer =
+the layer that validates data quality and converts it into quantitative signals
 
----
+⸻
 
-#### Logic
-
-```text
-IF metric_value = 0
-THEN validation_status = 'warn'
-```
-
----
-
-#### Interpretation
-
-Indicates ingestion or parsing issues.
-
----
-
-### 5.2 Structural Validation
-
----
-
-#### Purpose
-
-Are relationships between metrics valid?
-
----
-
-#### Rules
-
-- session_count ≥ user_count  
-- click_count ≤ page_view  
-- submit_count ≤ click_count  
-
----
-
-#### Logic
-
-```text
-IF submit_count > click_count
-THEN validation_status = 'fail'
-```
-
----
-
-#### Key Insight
-
-> This validates behavior structure, not just values
-
----
-
-#### Interpretation
-
-Detects funnel distortion.
-
----
-
-### 5.3 Mapping Validation
-
----
-
-#### Purpose
-
-Are metrics correctly derived from raw data?
-
----
-
-#### Examples
-
-- missing page_type  
-- incorrect event mapping  
-- critical metrics = 0  
-
----
-
-#### Logic
-
-```text
-IF login_success_count = 0
-THEN validation_status = 'warn'
-```
-
----
-
-#### Interpretation
-
-Detects ETL / parsing / mapping issues.
-
----
-
-### 5.4 Ratio / Range Validation
-
----
-
-#### Purpose
-
-Are values within valid ranges?
-
----
-
-#### Examples
-
-- conversion_rate > 1  
-- auth_success_rate > 1  
-- negative latency  
-
----
-
-#### Logic
-
-```text
-IF conversion_rate > 1
-THEN validation_status = 'fail'
-```
-
----
-
-## 6. Output Design
-
----
-
-### 6.1 validation_result
-
-Stores individual validation outcomes.
-
----
-
-#### Key Fields
-
-- dt  
-- metric_name  
-- validation_type  
-- validation_status (normal / warn / fail)  
-- metric_value  
-- threshold  
-- message  
-
----
-
-### Design Insight
-
-> Validation results are stored as structured data, not logs
-
----
-
-### 6.2 validation_summary_day
-
-Aggregated daily validation results.
-
----
-
-#### Key Fields
-
-- validation_fail_count  
-- validation_warn_count  
-- total_validation_count  
-
----
-
-#### Meaning
-
-> A quantitative measure of daily data quality
-
----
-
-## 7. Design Principles
-
----
-
-### 7.1 From Rules to Signals
-
----
-
-Traditional approach:
-
-```text
-if error → log
-```
-
----
-
-This system:
-
-```text
-validation → signal → aggregation → risk
-```
-
----
-
-### Key Insight
-
-Validation outputs are inputs to Risk.
-
----
-
-### 7.2 Quantification
-
----
-
-Instead of:
-
-- “there is a problem”
-
-We measure:
-
-- how many problems exist  
-
----
-
-### 7.3 Persistence
-
----
-
-Validation is continuous:
-
-- executed daily  
-- supports trend analysis  
-
----
-
-### 7.4 Explainability
-
----
-
-Each validation must clearly explain:
-
-- why it failed  
-- why it triggered a warning  
-
----
-
-## 8. Relationship with Other Layers
-
----
-
-### Core Flow
-
-```text
-Metric → Validation → Drift → Risk
-```
-
----
-
-### Interpretation
-
-- Metric → what is measured  
-- Validation → is it correct  
-- Drift → has it changed  
-
----
-
-### Critical Insight
-
-> Drift analysis is meaningless if validation fails
-
----
-
-### Conceptual Model
-
-- Validation = baseline integrity  
-- Drift = change detection  
-
----
-
-## 9. Observations in Real Systems
-
----
-
-### Typical Pattern
-
-- validation warnings occur continuously  
-- drift alerts spike during specific events  
-
----
-
-### Interpretation
-
-> Structural weaknesses amplified by external changes
-
----
-
-### Common Issues Detected
-
-- incomplete mapping  
-- weak funnel definition  
-- inconsistent event structure  
-
----
-
-## 10. Key Insights
-
----
-
-### Validation always fails
-
-Perfect data does not exist.
-
----
-
-### Validation precedes Drift
-
-It defines the baseline.
-
----
-
-### Validation checks structure
-
-It validates relationships, not just values.
-
----
-
-### Validation drives Risk
-
-In many systems, it contributes the majority of risk signals.
-
----
-
-## 11. Conclusion
-
-Validation Layer is not an error detection system.
-
-It is:
-
-> A system that determines whether data can be trusted
-
----
-
-## One-line Summary
-
-Validation = Making measured data trustworthy
-
----
-
-## Portfolio Statement
-
-Validation was designed not as a simple rule check,  
-but as a continuously measurable reliability signal  
-that integrates directly into the Risk Layer.
+필요하시면 다음으로
+👉 Drift Layer도 같은 모바일 최적화 버전으로 맞춰드릴게요 👍
