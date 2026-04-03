@@ -50,7 +50,10 @@ Demonstrating system outcomes.
 
 ## Related Notes
 
-- [Explainable data behavior](./explainable-data-behavior)
+* Feature Drift Detection
+* Prediction Drift
+* Training vs Serving Consistency
+* Explainable AI
 
 ---
 
@@ -77,15 +80,6 @@ Instead, it focuses on:
 * ensuring reliable model inputs
 * detecting data-driven risks
 * explaining model behavior
-
----
-
-## Related Topics
-
-* Feature Drift Detection
-* Prediction Drift
-* Training vs Serving Consistency
-* Explainable AI
 
 ---
 
