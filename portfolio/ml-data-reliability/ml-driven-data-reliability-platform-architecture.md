@@ -82,71 +82,70 @@ All layers are designed to tolerate failure.
 [DATA LAYER]
 Raw Log → ETL → stg_webserver_log_hit
 
-    ↓
+        ↓
 
 [METRIC LAYER]
 metric_value_day
 
-    ↓
+        ↓
 
 [SEMANTIC LAYER]
 event_mapping → mapping_coverage_day
 
-    ↓
+        ↓
 
 [VALIDATION LAYER]
 validation_result → validation_summary_day
 
-    ↓
+        ↓
 
 [DRIFT LAYER]
 metric_drift_result_r
 
-    ↓
+        ↓
 
 [STRUCTURAL ANOMALY]
 time anomaly / correlation anomaly
 
-    ↓
+        ↓
 
 [RISK SCORING]
 data_risk_score_day
 
-    ↓
+        ↓
 
 [ROOT CAUSE]
 root_cause_result
 
-    ↓
+        ↓
 
-
-⸻
+--------------------------------------
 
 [ML FEATURE LAYER]
 ml_feature_vector_day
 
-    ↓
+        ↓
 
 [ML MODEL]
 ml_risk_model
 
-    ↓
+        ↓
 
 [ML PREDICTION]
 ml_prediction_result
 
-    ↓
+        ↓
 
-
-⸻
+--------------------------------------
 
 [AI INTERPRETATION]
 incident summary / action recommendation
 
-    ↓
+        ↓
 
 [OBSERVABILITY]
 Dashboard (Grafana)
+
 ```
 
 ---
