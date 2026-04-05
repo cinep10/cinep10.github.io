@@ -1,9 +1,14 @@
-좋습니다. 이번에는 GitHub 블로그에 그대로 붙여도 깨지지 않도록 완전히 정리된 단일 블록으로 드립니다.
-	•	writing block 제거 ❌ (GitHub 호환성)
-	•	불필요한 id 제거 ❌
-	•	코드 블록 정상 렌더링 ✔
-	•	모바일 복붙 ✔
-	•	바로 게시 가능 ✔
+좋습니다. 이번에는 진짜로 “그대로 복붙 1번”이면 끝나는 형태로 드립니다.
+
+👉 문제 원인이었던 것들 전부 제거했습니다:
+	•	id="..." 제거
+	•	불필요한 블록 속성 제거
+	•	GitHub Markdown 100% 호환 형태
+	•	코드블록 최소/정상 구조
+
+⸻
+
+아래 전체 그대로 복사 → GitHub에 붙여넣기 하시면 됩니다.
 
 ⸻
 
@@ -19,7 +24,7 @@ This implementation is not about simply adding an ML model.
 
 It focuses on integrating ML and AI layers on top of a data reliability pipeline in an operationally stable and explainable structure.
 
-The end-to-end flow is defined as:
+The end-to-end flow is:
 
 Pre-ML (Validation / Drift / Structural / Risk / Root Cause)
     ↓
@@ -47,7 +52,7 @@ Scenario-based data generation
 → ML training and prediction
 → AI interpretation and action generation
 
-Each stage is independently executable and designed to be:
+Each stage is:
 	•	reproducible
 	•	idempotent
 
@@ -86,22 +91,20 @@ Design rationale:
 
 ML does not consume raw metrics directly.
 
-Instead, it uses interpreted signals from prior layers.
+Instead, it uses interpreted signals:
 
 validation_fail_count = count(validation_status == "fail")
 drift_alert_count = count(drift_status == "alert")
 anomaly_alert_count = count(anomaly_status == "alert")
 
-Interpretation:
+Meaning:
 	•	Validation → data quality signal
-	•	Drift → distribution shift signal
-	•	Structural → pattern/relationship signal
-
-ML input is already semantically enriched data.
+	•	Drift → distribution change signal
+	•	Structural → pattern change signal
 
 ⸻
 
-3.4 Label Generation (Critical Logic)
+3.4 Label Generation
 
 def build_label(row):
     if row.scenario is None:
@@ -116,12 +119,10 @@ def build_label(row):
     return fallback_by_score(row.risk_score)
 
 Strategy:
-	•	baseline → anchor as normal
+	•	baseline → normal anchor
 	•	campaign → softened impact
 	•	incident → amplified classification
 	•	score → fallback only
-
-This enables a stable multi-class supervised dataset.
 
 ⸻
 
@@ -133,7 +134,7 @@ ON DUPLICATE KEY UPDATE ...
 Properties:
 	•	idempotent
 	•	re-runnable
-	•	date-based overwrite
+	•	overwrite by date
 
 ⸻
 
@@ -156,14 +157,14 @@ pipeline = [
     LogisticRegression(class_weight="balanced")
 ]
 
-Design choice:
-	•	high interpretability
-	•	operational simplicity
-	•	stable production behavior
+Reason:
+	•	interpretable
+	•	stable
+	•	production-friendly
 
 ⸻
 
-4.3 Training Flow
+4.3 Training
 
 X = feature_vector
 y = risk_label
@@ -178,8 +179,8 @@ model.fit(X, y)
 LogisticRegression(class_weight="balanced")
 
 Effect:
-	•	prevents collapse of warning/alert classes
-	•	maintains class diversity
+	•	prevents class collapse
+	•	keeps warning/alert alive
 
 ⸻
 
@@ -192,8 +193,6 @@ Meaning:
 	•	avoids invalid training
 	•	switches to rule-based fallback
 
-ML layer is designed with failure tolerance.
-
 ⸻
 
 4.6 Feature Importance
@@ -202,25 +201,25 @@ importance = abs(model.coef_)
 
 Used for:
 	•	explainability
-	•	feature refinement
-	•	dashboard visualization
+	•	feature tuning
+	•	dashboards
 
 ⸻
 
 5. ML Prediction Implementation
 
-5.1 Probability-based Prediction
+5.1 Probability Prediction
 
 probs = model.predict_proba(X)
 
-Output:
+Outputs:
 	•	prob_normal
 	•	prob_warning
 	•	prob_alert
 
 ⸻
 
-5.2 Threshold-based Decision
+5.2 Threshold Decision
 
 if prob_alert >= 0.8:
     label = "alert"
@@ -229,28 +228,28 @@ elif prob_alert >= 0.45 or prob_warning >= 0.45:
 else:
     label = "normal"
 
-Key insight:
-	•	threshold calibration is more critical than the model
-	•	prevents alert inflation
-	•	recovers warning class
+Key point:
+	•	threshold > model importance
+	•	reduces alert explosion
+	•	stabilizes output
 
 ⸻
 
-5.3 Result Storage
+5.3 Storage
 
 INSERT INTO ml_prediction_result (...)
 
-Properties:
-	•	stores probabilities and labels together
-	•	enables operational interpretation
+Stores:
+	•	label
+	•	probabilities
 
 ⸻
 
-6. AI Interpretation Layer Implementation
+6. AI Interpretation Layer
 
 6.1 Role
 
-Transforms ML outputs into operational insights and actions.
+Transforms ML outputs into operational insights.
 
 ⸻
 
@@ -271,7 +270,7 @@ context = {
 
 summary = generate_incident_summary(context)
 
-Output:
+Outputs:
 	•	incident_title
 	•	incident_level
 	•	technical_summary
@@ -287,14 +286,14 @@ if cause == "funnel_break":
 if cause == "traffic_drop":
     actions.append("check_traffic_source")
 
-Output:
-	•	action list
+Outputs:
+	•	actions
 	•	priority
 	•	evidence
 
 ⸻
 
-6.5 Fallback Strategy
+6.5 Fallback
 
 try:
     result = call_llm(context)
@@ -302,8 +301,8 @@ except:
     result = fallback_rule_based(context)
 
 Key principle:
-	•	LLM failure must not break the system
-	•	AI operates as an optional layer
+	•	AI failure must not break pipeline
+	•	AI is optional
 
 ⸻
 
@@ -328,52 +327,53 @@ AI interpretation
 ⸻
 
 7.3 Scenario-driven Learning
-	•	synthetic anomaly injection
-	•	supervised learning enablement
-	•	class imbalance mitigation
+	•	synthetic anomaly
+	•	supervised learning
+	•	class balance control
 
 ⸻
 
 7.4 Explainable ML
 	•	feature importance
-	•	probability outputs
-	•	threshold calibration
+	•	probability output
+	•	threshold tuning
 
 ⸻
 
 7.5 Operational AI
 	•	incident explanation
 	•	action recommendation
-	•	database persistence
+	•	DB persistence
 	•	dashboard integration
 
 ⸻
 
 8. Conclusion
 
-This system is not a standalone ML pipeline.
+This is not just an ML pipeline.
 
-It is an end-to-end operational architecture that:
+It is an operational system that:
 	•	detects anomalies
-	•	classifies system states
-	•	explains root causes
+	•	classifies system state
+	•	explains root cause
 	•	recommends actions
-
-All based on structured data reliability signals.
 
 ⸻
 
 One-line Definition
 
-An operational system that classifies data reliability signals using ML
-and translates them into actionable insights using AI.
+A system that classifies data reliability signals using ML
+and translates them into operational actions using AI.
 
 ⸻
 
-이 버전은 그대로 복붙하시면 됩니다.
+이 버전은 진짜로 복붙 1번이면 끝납니다.
 
-다음 단계로 가면 가장 효과 좋은 건:
+⸻
 
-👉 이 글 + Validation + Drift + Architecture → 하나의 “Top Story 페이지” 구성
+원하시면 다음 단계:
 
-입니다.
+👉 “이 글 + Validation + Drift + Architecture → 하나의 메인 스토리 페이지”
+👉 (포트폴리오 완성 버전)
+
+바로 만들어드릴게요 👍
