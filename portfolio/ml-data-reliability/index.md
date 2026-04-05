@@ -28,7 +28,7 @@ This layer connects data quality with model behavior.
 
 Defining how data reliability should be structured.
 
-- [Why Data Reliability Comes Before ML](./ml-driven-data-reliability-platform-architecture)
+- [ML-driven Data Reliability Platform Architecture](./ml-driven-data-reliability-platform-architecture)
 
 ---
 
