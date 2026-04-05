@@ -477,22 +477,3 @@ into a single architecture.
 ## One-line Definition
 
 A data reliability platform that detects anomalies, explains root causes, classifies system state using ML, and translates results into actionable decisions through AI.
-
-
-⸻
-
-🔥 진짜 중요한 포인트
-
-이 버전은:
-	•	✔ Jekyll / GitHub Pages 바로 사용 가능
-	•	✔ 줄바꿈 / 코드블럭 깨짐 없음
-	•	✔ 모바일 복붙 안정
-
-⸻
-
-원하면 다음 단계로:
-
-👉 이 글을 Case Study 연결 구조
-👉 또는 컨설팅 상품 페이지로 변환
-
-까지 이어서 만들어드릴게요 👍
