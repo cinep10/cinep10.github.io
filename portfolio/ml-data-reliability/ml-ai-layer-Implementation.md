@@ -1,49 +1,33 @@
-좋습니다. 이번에는 진짜로 “그대로 복붙 1번”이면 끝나는 형태로 드립니다.
-
-👉 문제 원인이었던 것들 전부 제거했습니다:
-	•	id="..." 제거
-	•	불필요한 블록 속성 제거
-	•	GitHub Markdown 100% 호환 형태
-	•	코드블록 최소/정상 구조
-
-⸻
-
-아래 전체 그대로 복사 → GitHub에 붙여넣기 하시면 됩니다.
-
-⸻
-
-ML → AI Layer Implementation (Deep Dive)
+# ML → AI Layer Implementation (Deep Dive)
 
 Operational implementation of ML classification and AI interpretation on top of a data reliability pipeline
 
-⸻
+---
 
-1. Overview
+## 1. Overview
 
 This implementation is not about simply adding an ML model.
 
-It focuses on integrating ML and AI layers on top of a data reliability pipeline in an operationally stable and explainable structure.
+It focuses on integrating ML and AI layers on top of a data reliability pipeline in an **operationally stable and explainable structure**.
 
-The end-to-end flow is:
+The end-to-end flow is defined as:
 
 Pre-ML (Validation / Drift / Structural / Risk / Root Cause)
-    ↓
-ML Feature Layer
-    ↓
-ML Model / Prediction
-    ↓
-AI Interpretation Layer
+→ ML Feature Layer
+→ ML Model / Prediction
+→ AI Interpretation Layer
 
 Key principle:
-	•	ML performs state classification
-	•	AI performs interpretation and action generation
+
+* ML performs **state classification**
+* AI performs **interpretation and action generation**
 
 AI is not a decision-maker.
-It is an interpretation and operational layer.
+It is an **interpretation and operational layer**.
 
-⸻
+---
 
-2. Execution Flow
+## 2. Execution Flow
 
 The pipeline is executed in sequential stages:
 
@@ -52,24 +36,23 @@ Scenario-based data generation
 → ML training and prediction
 → AI interpretation and action generation
 
-Each stage is:
-	•	reproducible
-	•	idempotent
+Each stage is independently executable and designed to be **reproducible and idempotent**.
 
-⸻
+---
 
-3. ML Feature Layer Implementation
+## 3. ML Feature Layer Implementation
 
-3.1 Role
+### 3.1 Role
 
-Aggregates signals from Pre-ML layers into a single ML-ready feature vector.
+Aggregates signals from Pre-ML layers into a **single ML-ready feature vector**.
 
-⸻
+---
 
-3.2 Aggregation Strategy
+### 3.2 Aggregation Strategy
 
-Instead of multi-table joins, the system uses aggregation-first merging.
+Instead of multi-table joins, the system uses **aggregation-first merging**.
 
+```python
 def build_feature_row(dt):
     base = get_metric_values(dt)
     validation = get_validation_summary(dt)
@@ -79,33 +62,41 @@ def build_feature_row(dt):
     scenario = get_scenario_info(dt)
 
     return merge(base, validation, drift, anomaly, risk, scenario)
+```
 
 Design rationale:
-	•	avoid join explosion
-	•	preserve layer independence
-	•	ensure null-safe aggregation
 
-⸻
+* Avoid join explosion
+* Preserve layer independence
+* Ensure null-safe aggregation
 
-3.3 Feature Engineering
+---
+
+### 3.3 Feature Engineering
 
 ML does not consume raw metrics directly.
 
-Instead, it uses interpreted signals:
+Instead, it uses **interpreted signals** from prior layers.
 
+```python
 validation_fail_count = count(validation_status == "fail")
 drift_alert_count = count(drift_status == "alert")
 anomaly_alert_count = count(anomaly_status == "alert")
+```
 
-Meaning:
-	•	Validation → data quality signal
-	•	Drift → distribution change signal
-	•	Structural → pattern change signal
+Interpretation:
 
-⸻
+* Validation → data quality signal
+* Drift → distribution shift signal
+* Structural → pattern/relationship signal
 
-3.4 Label Generation
+ML input is already **semantically enriched data**.
 
+---
+
+### 3.4 Label Generation (Critical Logic)
+
+```python
 def build_label(row):
     if row.scenario is None:
         return "normal"
@@ -117,144 +108,177 @@ def build_label(row):
         return classify_by_intensity(row.risk_score)
 
     return fallback_by_score(row.risk_score)
+```
 
 Strategy:
-	•	baseline → normal anchor
-	•	campaign → softened impact
-	•	incident → amplified classification
-	•	score → fallback only
 
-⸻
+* Baseline → anchor as normal
+* Campaign → softened impact
+* Incident → amplified classification
+* Score → fallback only
 
-3.5 Storage
+This enables a **stable multi-class supervised dataset**.
 
+---
+
+### 3.5 Storage
+
+```sql
 INSERT INTO ml_feature_vector_day (...)
 ON DUPLICATE KEY UPDATE ...
+```
 
 Properties:
-	•	idempotent
-	•	re-runnable
-	•	overwrite by date
 
-⸻
+* Idempotent
+* Re-runnable
+* Date-based overwrite
 
-4. ML Model Implementation
+---
 
-4.1 Role
+## 4. ML Model Implementation
+
+### 4.1 Role
 
 Classifies system state:
-	•	normal
-	•	warning
-	•	alert
 
-⸻
+* normal
+* warning
+* alert
 
-4.2 Model Architecture
+---
 
+### 4.2 Model Architecture
+
+```python
 pipeline = [
     Imputer(strategy="median"),
     Scaler(),
     LogisticRegression(class_weight="balanced")
 ]
+```
 
-Reason:
-	•	interpretable
-	•	stable
-	•	production-friendly
+Design choice:
 
-⸻
+* High interpretability
+* Operational simplicity
+* Stable behavior in production
 
-4.3 Training
+---
 
+### 4.3 Training Flow
+
+```python
 X = feature_vector
 y = risk_label
 
 model.fit(X, y)
+```
 
+---
 
-⸻
+### 4.4 Class Imbalance Handling
 
-4.4 Class Imbalance Handling
-
+```python
 LogisticRegression(class_weight="balanced")
+```
 
 Effect:
-	•	prevents class collapse
-	•	keeps warning/alert alive
 
-⸻
+* Prevent collapse of warning/alert classes
+* Maintain class diversity
 
-4.5 Failure-safe Training
+---
 
+### 4.5 Failure-safe Training
+
+```python
 if len(unique(y)) < 2:
     return fallback_model()
+```
 
 Meaning:
-	•	avoids invalid training
-	•	switches to rule-based fallback
 
-⸻
+* Avoid invalid training
+* Switch to rule-based fallback
 
-4.6 Feature Importance
+ML layer is designed with **failure tolerance**.
 
+---
+
+### 4.6 Feature Importance
+
+```python
 importance = abs(model.coef_)
+```
 
 Used for:
-	•	explainability
-	•	feature tuning
-	•	dashboards
 
-⸻
+* Explainability
+* Feature refinement
+* Dashboard visualization
 
-5. ML Prediction Implementation
+---
 
-5.1 Probability Prediction
+## 5. ML Prediction Implementation
 
+### 5.1 Probability-based Prediction
+
+```python
 probs = model.predict_proba(X)
+```
 
-Outputs:
-	•	prob_normal
-	•	prob_warning
-	•	prob_alert
+Output:
 
-⸻
+* prob_normal
+* prob_warning
+* prob_alert
 
-5.2 Threshold Decision
+---
 
+### 5.2 Threshold-based Decision
+
+```python
 if prob_alert >= 0.8:
     label = "alert"
 elif prob_alert >= 0.45 or prob_warning >= 0.45:
     label = "warning"
 else:
     label = "normal"
+```
 
-Key point:
-	•	threshold > model importance
-	•	reduces alert explosion
-	•	stabilizes output
+Key insight:
 
-⸻
+* Threshold calibration is more critical than the model itself
+* Prevent alert inflation
+* Recover warning class
 
-5.3 Storage
+---
 
+### 5.3 Result Storage
+
+```sql
 INSERT INTO ml_prediction_result (...)
+```
 
-Stores:
-	•	label
-	•	probabilities
+Properties:
 
-⸻
+* Stores both probabilities and labels
+* Enables operational interpretation
 
-6. AI Interpretation Layer
+---
 
-6.1 Role
+## 6. AI Interpretation Layer Implementation
 
-Transforms ML outputs into operational insights.
+### 6.1 Role
 
-⸻
+Transforms ML outputs into **operational insights and actions**.
 
-6.2 Context Aggregation
+---
 
+### 6.2 Context Aggregation
+
+```python
 context = {
     "risk": load_risk(),
     "prediction": load_prediction(),
@@ -262,118 +286,118 @@ context = {
     "anomaly": load_anomaly(),
     "root_cause": load_root_cause()
 }
+```
 
+---
 
-⸻
+### 6.3 Incident Reasoning
 
-6.3 Incident Reasoning
-
+```python
 summary = generate_incident_summary(context)
+```
 
-Outputs:
-	•	incident_title
-	•	incident_level
-	•	technical_summary
-	•	business_impact
+Output:
 
-⸻
+* incident_title
+* incident_level
+* technical_summary
+* business_impact
 
-6.4 Action Recommendation
+---
 
+### 6.4 Action Recommendation
+
+```python
 if cause == "funnel_break":
     actions.append("check_conversion_pipeline")
 
 if cause == "traffic_drop":
     actions.append("check_traffic_source")
+```
 
-Outputs:
-	•	actions
-	•	priority
-	•	evidence
+Output:
 
-⸻
+* action list
+* priority
+* evidence
 
-6.5 Fallback
+---
 
+### 6.5 Fallback Strategy
+
+```python
 try:
     result = call_llm(context)
 except:
     result = fallback_rule_based(context)
+```
 
 Key principle:
-	•	AI failure must not break pipeline
-	•	AI is optional
 
-⸻
+* LLM failure must not break the system
+* AI operates as an optional enhancement layer
 
-7. Core Engineering Principles
+---
 
-7.1 Layered Architecture
+## 7. Core Engineering Principles
+
+### 7.1 Layered Architecture
 
 Rule-based signals
-    ↓
-ML classification
-    ↓
-AI interpretation
+→ ML classification
+→ AI interpretation
 
+---
 
-⸻
+### 7.2 Failure-safe Design
 
-7.2 Failure-safe Design
-	•	ML fallback
-	•	AI fallback
-	•	external dependency isolation
+* ML fallback
+* AI fallback
+* External dependency isolation
 
-⸻
+---
 
-7.3 Scenario-driven Learning
-	•	synthetic anomaly
-	•	supervised learning
-	•	class balance control
+### 7.3 Scenario-driven Learning
 
-⸻
+* Synthetic anomaly injection
+* Supervised learning enablement
+* Class imbalance mitigation
 
-7.4 Explainable ML
-	•	feature importance
-	•	probability output
-	•	threshold tuning
+---
 
-⸻
+### 7.4 Explainable ML
 
-7.5 Operational AI
-	•	incident explanation
-	•	action recommendation
-	•	DB persistence
-	•	dashboard integration
+* Feature importance
+* Probability outputs
+* Threshold calibration
 
-⸻
+---
 
-8. Conclusion
+### 7.5 Operational AI
 
-This is not just an ML pipeline.
+* Incident explanation
+* Action recommendation
+* Persistent storage
+* Dashboard integration
 
-It is an operational system that:
-	•	detects anomalies
-	•	classifies system state
-	•	explains root cause
-	•	recommends actions
+---
 
-⸻
+## 8. Conclusion
 
-One-line Definition
+This system is not a standalone ML pipeline.
 
-A system that classifies data reliability signals using ML
-and translates them into operational actions using AI.
+It is an end-to-end operational architecture that:
 
-⸻
+* Detects anomalies
+* Classifies system states
+* Explains root causes
+* Recommends actions
 
-이 버전은 진짜로 복붙 1번이면 끝납니다.
+All based on structured data reliability signals.
 
-⸻
+---
 
-원하시면 다음 단계:
+## One-line Definition
 
-👉 “이 글 + Validation + Drift + Architecture → 하나의 메인 스토리 페이지”
-👉 (포트폴리오 완성 버전)
-
-바로 만들어드릴게요 👍
+An operational system that classifies data reliability signals using ML
+and translates them into actionable insights using AI.
