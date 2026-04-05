@@ -1,14 +1,3 @@
-좋습니다 👍
-이번엔 진짜 “그대로 GitHub 블로그에 복붙” 가능한 형태로 드립니다.
-	•	불필요한 id 제거
-	•	마크다운 깨짐 없음
-	•	모바일 복붙 OK
-	•	코드블럭도 안전하게 정리
-
-⸻
-
-✅ 최종 복붙용 (GitHub Markdown)
-
 # ML-driven Data Reliability Platform Architecture
 
 An end-to-end system for data quality validation, anomaly detection, root cause analysis, and AI-driven operational decision support
