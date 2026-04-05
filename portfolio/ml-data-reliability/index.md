@@ -36,7 +36,7 @@ Defining how data reliability should be structured.
 
 Building the system components.
 
-- [Explainable Data Behavior: Implementation](./implementation)
+- [ML → AI Layer Implementation (Deep Dive)](./ml-ai-layer-Implementation)
 
 ---
 
