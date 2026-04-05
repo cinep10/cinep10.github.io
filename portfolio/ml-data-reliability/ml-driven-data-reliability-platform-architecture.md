@@ -78,6 +78,7 @@ All layers are designed to tolerate failure.
 
 ## 3. System Architecture
 
+```text
 [DATA LAYER]
 Raw Log → ETL → stg_webserver_log_hit
 
@@ -146,6 +147,7 @@ incident summary / action recommendation
 
 [OBSERVABILITY]
 Dashboard (Grafana)
+```
 
 ---
 
