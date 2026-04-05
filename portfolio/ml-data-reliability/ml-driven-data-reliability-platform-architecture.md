@@ -18,7 +18,9 @@ It is designed as an end-to-end data reliability platform that:
 
 The system evolves from a rule-based validation pipeline into a layered architecture:
 
+```text
 Data → Validation → Drift → Structural → Risk → Root Cause → ML → AI
+```
 
 ---
 
@@ -168,7 +170,11 @@ Key functions:
 
 Output:
 
+```text
 validation_summary_day
+→ fail_ratio
+→ issue breakdown
+```
 
 ---
 
@@ -187,7 +193,11 @@ Key methods:
 
 Output:
 
+```text
 metric_drift_result_r
+→ drift_score
+→ drift_status
+```
 
 ---
 
@@ -223,7 +233,11 @@ Inputs:
 
 Output:
 
+```text
 data_risk_score_day
+→ risk_score
+→ risk_status
+```
 
 ---
 
@@ -262,7 +276,9 @@ Transform pre-ML signals into a structured feature vector for learning.
 
 ### Feature Composition
 
+```text
 metric + quality + drift + anomaly + risk + scenario
+```
 
 ---
 
@@ -285,7 +301,9 @@ Labels are generated using scenario-aware logic:
 
 Final classes:
 
+```text
 normal / warning / alert
+```
 
 ---
 
@@ -321,10 +339,12 @@ Logistic Regression
 
 ### Output
 
+```text
 ml_prediction_result
 
 - predicted_label
 - probability distribution
+```
 
 ---
 
@@ -375,8 +395,10 @@ AI interprets these results.
 
 ### Outputs
 
-- ai_incident_summary_day
-- ai_recommended_action_day
+```text
+ ai_incident_summary_day
+ ai_recommended_action_day
+```
 
 ---
 
