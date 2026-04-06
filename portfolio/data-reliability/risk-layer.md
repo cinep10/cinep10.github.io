@@ -1,358 +1,432 @@
-# Risk Layer
 
-## From Data Signals to Business Impact
+# Risk Score Layer Implementation (Technical Deep Dive)
 
----
-
-## 1. Problem
-
-Modern data systems can detect multiple issues:
-
-- validation failures  
-- distribution changes (drift)  
-- feature instability  
-
-However, detection alone is not sufficient.
+The core aggregation layer that generates operational risk in the Data Reliability Pipeline
 
 ---
 
-### Limitation
+## 1. Overview
 
-When multiple signals occur:
+The Risk Score Layer is the central aggregation layer in the pre-ML pipeline.
 
-- it is unclear which issue is critical  
-- prioritization becomes difficult  
-- operational decisions depend on manual judgment  
+It integrates multiple upstream signals:
 
----
+- validation results  
+- drift signals  
+- structural anomaly signals  
+- mapping coverage signals  
 
-### Core Issue
+Based on these inputs, it quantifies:
 
-> Data systems detect problems,  
-> but cannot determine their impact
+**“How risky the current data/service state is at a given point in time.”**
 
----
+From an implementation perspective, this layer performs the following:
 
-## 2. Why Risk Matters
+1. Standardizes heterogeneous signals  
+2. Aggregates them into a single score using weighted logic  
+3. Transforms metric-level signals into day-level risk  
+4. Stores results for downstream systems (ML, AI, dashboards)  
 
-Validation answers:
-
-- Is the data correct?
-
-Drift answers:
-
-- Has the data changed?
-
----
-
-But neither answers:
-
-> Does this change matter?
-
----
-
-### Example
-
-- validation warnings present  
-- drift detected  
-
----
-
-Without integration:
-
-- no prioritization  
-- no clear action  
-
----
-
-### Result
-
-> Systems produce signals, but not decisions
-
----
-
-## 3. Design Goal
-
-The Risk Layer is designed to:
-
-> Convert data signals into a unified representation of impact
-
----
-
-### Objectives
-
-- integrate multiple signals  
-- quantify impact  
-- enable prioritization  
-- support decision-making  
-
----
-
-## 4. Architecture
-
-```text
-Validation + Drift + Feature Signals → Risk Score
-```
-
----
-
-### Input
-
-- validation_summary_day  
-- metric_drift_result  
-- ml_feature_drift_result  
-
----
-
-### Output
-
-```text
-data_risk_score_day
-```
-
----
-
-Risk operates as an aggregation layer.
-
----
-
-## 5. Risk Model
-
----
-
-### Core Structure
-
-```text
-Risk Score =
-  Validation Contribution
-  + Drift Contribution
-  + Feature Contribution
-```
-
----
-
-Each component represents a different dimension of reliability.
-
----
-
-### 5.1 Validation Contribution
-
-Represents structural correctness.
-
-- validation_fail_count  
-- validation_warn_count  
-
----
-
-### 5.2 Drift Contribution
-
-Represents behavioral change.
-
-- drift_alert_count  
-- drift_severity  
-
----
-
-### 5.3 Feature Contribution
-
-Represents ML input stability.
-
-- feature_alert_count  
-- feature_drift_score  
-
-
----
-
-## 6. Design Principles
-
----
-
-### 6.1 Signal-based Aggregation
-
-All inputs are treated as signals.
-
----
-
-Example:
-
-- validation_fail → high impact  
-- drift_warn → medium impact  
-
----
-
-Risk is computed from aggregated signals.
-
----
-
-### 6.2 Weighted Model
-
-Not all signals are equal.
-
----
-
-Typical priority:
-
-- Validation > Drift > Feature  
-
----
-
-Because:
-
-- structural issues invalidate all downstream data  
-
----
-
-### 6.3 Severity-aware Scoring
-
-Different levels contribute differently:
-
-- WARN  
-- FAIL  
-
----
-
-Example:
-
-- FAIL contributes more than WARN  
-- multiple WARNs can accumulate  
-
----
-
-### 6.4 Explainability
-
-Risk must be decomposable.
-
----
-
-### Example
-
-```text
-Risk = 85
-
-Validation: 50 (row drop)
-Drift: 25 (traffic spike)
-Feature: 10 (conversion instability)
-```
-
----
-
-Each component must be traceable.
-
----
-
-### 6.5 Time-based Analysis
-
-Risk must be interpreted over time.
-
----
-
-### Example Patterns
-
-- stable → increasing → critical  
-- spike → recovery  
-
----
-
-Trend analysis enables early detection.
-
----
-
-## 7. Relationship with Other Layers
-
----
-
-### Full Flow
-
-```text
-Validation → Drift → Risk → Root Cause → Decision
-```
-
----
-
-### Interpretation
-
-- Validation → correctness  
-- Drift → change  
-- Risk → impact  
-- Root Cause → explanation  
-- Decision → action  
-
----
-
-### Key Role
-
-> Risk is the bridge between detection and decision
-
----
-
-## 8. Role in Real Systems
-
----
-
-### Observed Pattern
-
-- validation warnings are persistent  
-- drift alerts occur during events  
-- risk increases when both overlap  
-
----
-
-### Interpretation
-
-> Risk emerges from the interaction of structure and change
-
----
-
-### Typical High-Risk Scenarios
-
-- validation failure + drift spike  
-- funnel distortion + traffic surge  
-- feature instability under load  
-
----
-
-## 9. Key Insights
-
----
-
-### Detection is not prioritization
-
-Multiple issues require a unified view.
-
----
-
-### Risk is not a simple sum
-
-It reflects:
-
-- structure  
-- change  
-- input stability  
-
----
-
-### Risk enables decision-making
-
-Without risk, signals remain analytical.
-
----
-
-### Risk is a business abstraction
-
-It translates technical signals into operational impact.
-
----
-
-## 10. Conclusion
-
-Risk Layer is not just a scoring system.
+This is not a simple scoring function.
 
 It is:
 
-> A mechanism that converts data conditions into actionable impact
+**The core aggregation engine that transforms raw reliability signals into operational risk.**
 
 ---
 
-## One-line Summary
+## 2. Position in the Pipeline
 
-Risk = A quantified representation of data reliability and its impact
+The Risk Score Layer sits between signal generation and decision layers.
+Validation / Drift / Structural / Mapping
+↓
+Risk Score Layer
+↓
+Root Cause / Action / ML / AI / Dashboard
+
+
+It acts as a bridge between:
+
+- signal-level analysis (pre-ML)
+- decision-level systems (ML / AI / operations)
+
+---
+
+## 3. Input Data Sources
+
+The Risk Score Layer consumes multiple tables.
+
+### Validation
+
+- validation_result  
+- validation_summary_day  
+
+Used to detect data correctness issues.
+
+---
+
+### Drift
+
+- metric_drift_result_r  
+
+Contains distribution shift and metric-level drift signals.
+
+---
+
+### Structural Anomaly
+
+- metric_time_anomaly_day  
+- metric_correlation_anomaly_day  
+
+Captures time-based anomalies and inter-metric relationship breaks.
+
+---
+
+### Mapping Coverage
+
+- mapping_coverage_day  
+
+Measures how interpretable the data is (semantic completeness).
+
+---
+
+### Scenario (Optional)
+
+- scenario_experiment_run  
+
+Used for simulation, validation, and labeling.
+
+---
+
+## 4. Execution Model
+
+The Risk Score is computed at the **day level**.
+
+Each execution is scoped by:
+
+- profile_id  
+- dt (date)
+
+The computation follows a two-stage structure:
+
+### Stage 1: Metric-Level Signal Extraction
+
+Each metric is evaluated for:
+
+- validation issues  
+- drift severity  
+- anomaly presence  
+
+---
+
+### Stage 2: Day-Level Aggregation
+
+Metric-level signals are aggregated into:
+
+- final_risk_score  
+- risk_grade  
+- supporting attributes  
+
+This design ensures:
+
+- scalability  
+- explainability  
+- compatibility with downstream systems  
+
+---
+
+## 5. Core Computation Flow
+
+The implementation follows a deterministic pipeline:
+load inputs
+↓
+compute validation score
+↓
+compute drift score
+↓
+compute time anomaly score
+↓
+compute correlation anomaly score
+↓
+compute mapping score
+↓
+weighted aggregation
+↓
+final risk score
+↓
+risk grade assignment
+↓
+persist results
+
+
+---
+
+## 6. Component Score Design
+
+Each signal is converted into a normalized component score.
+
+---
+
+### 6.1 Validation Score
+
+Represents data correctness issues.
+validation_score =
+normalize(fail_count, warn_count)
+
+
+Captures:
+
+- null / missing  
+- rule violations  
+- range violations  
+
+---
+
+### 6.2 Drift Score
+
+Represents deviation from baseline behavior.
+drift_score =
+normalize(max_drift, alert_count, warn_count)
+
+
+Captures:
+
+- z-score deviation  
+- distribution shift  
+- funnel changes  
+
+---
+
+### 6.3 Time Anomaly Score
+
+Captures temporal instability.
+time_score =
+normalize(alert_count, warn_count, max_zscore)
+
+
+Detects:
+
+- sudden spikes/drops  
+- pattern breaks  
+- rolling window anomalies  
+
+---
+
+### 6.4 Correlation Anomaly Score
+
+Captures structural breaks between metrics.
+corr_score =
+normalize(alert_count, warn_count, ratio_diff)
+
+
+Detects:
+
+- funnel distortion  
+- dependency break  
+- conversion anomalies  
+
+---
+
+### 6.5 Mapping Score
+
+Represents semantic reliability.
+mapping_score = 1 - mapping_coverage
+
+
+Captures:
+
+- unmapped events  
+- loss of interpretability  
+
+---
+
+## 7. Final Risk Score
+
+All component scores are combined using weighted aggregation.
+final_risk_score =
+w1 * validation_score +
+w2 * drift_score +
+w3 * time_score +
+w4 * corr_score +
+w5 * mapping_score
+
+
+### Design Principle
+
+The score integrates three dimensions:
+
+- Data correctness (validation)  
+- Behavioral change (drift, anomaly)  
+- Semantic reliability (mapping)  
+
+---
+
+## 8. Risk Grade Assignment
+
+The final score is mapped to operational states:
+if score ≥ 0.70 → alert
+elif score ≥ 0.30 → warning
+else → normal
+
+
+These grades are used by:
+
+- ML classification  
+- AI interpretation  
+- dashboards  
+- operational workflows  
+
+---
+
+## 9. Output Table
+
+Results are stored in:
+
+- data_risk_score_day_v3  
+
+Key fields:
+
+- profile_id  
+- dt  
+- final_risk_score  
+- risk_grade  
+- component scores  
+- metadata  
+
+The system uses **idempotent upsert logic**, enabling:
+
+- backfill  
+- reprocessing  
+- scenario testing  
+
+---
+
+## 10. Downstream Integration
+
+The Risk Score is a central input for multiple layers.
+
+### Root Cause Layer
+
+- decomposes the score into explainable causes  
+
+---
+
+### Action Layer
+
+- converts causes into operational actions  
+
+---
+
+### ML Layer
+
+- uses risk score as a core feature  
+
+---
+
+### AI Layer
+
+- uses risk score as a reasoning anchor  
+
+---
+
+### Observability (Grafana)
+
+- visualizes risk trends  
+- supports real-time monitoring  
+
+---
+
+## 11. Design Strengths
+
+### Signal Integration
+
+Combines multiple independent signals into a unified metric.
+
+---
+
+### Explainability
+
+Maintains traceability from:
+
+- score → component → signal  
+
+---
+
+### Reusability
+
+The score is reused across:
+
+- ML  
+- AI  
+- dashboards  
+- operations  
+
+---
+
+### Operational Readiness
+
+- deterministic logic  
+- idempotent execution  
+- scalable aggregation  
+
+---
+
+## 12. Limitations
+
+### Static Weights
+
+Weights are fixed and not domain-adaptive.
+
+---
+
+### Domain Dependency
+
+Currently tuned for web-log scenarios.
+
+---
+
+### Limited Contribution Granularity
+
+Component-level visibility exists, but metric-level contribution can be further refined.
+
+---
+
+## 13. Future Directions
+
+### Adaptive Weighting
+
+- ML-based weight optimization  
+
+---
+
+### Domain Extension (Finance)
+
+- transaction-based risk  
+- state consistency  
+- financial funnel integrity  
+
+---
+
+### Contribution Expansion
+
+- per-metric contribution tracking  
+- causal graph integration  
+
+---
+
+## 14. Summary
+
+The Risk Score Layer is not just a scoring function.
+
+It is:
+
+- the aggregation core of the pre-ML pipeline  
+- the bridge between signals and decisions  
+- the foundation for ML and AI layers  
+
+---
+
+## One-line Definition
+
+Risk Score Layer =  
+A system that aggregates reliability signals into an operational risk metric
