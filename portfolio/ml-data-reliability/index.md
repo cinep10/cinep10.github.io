@@ -35,7 +35,7 @@ Signal → Classification → Interpretation → Action
 
 The ML Layer classifies the current system state based on data reliability signals.
 
-- [/portfolio/ml-data-reliability/ml-layer](/portfolio/ml-data-reliability/ml-layer)
+- [ML-driven Data Reliability Platform Architecture](/portfolio/ml-data-reliability/ml-driven-data-reliability-platform-architecture)
 
 ### Responsibilities
 
@@ -61,7 +61,7 @@ It classifies the system state based on already interpreted signals.
 The AI Layer interprets ML outputs and reliability signals  
 and transforms them into operational insights and actions.
 
-- [/portfolio/ml-data-reliability/ai-layer](/portfolio/ml-data-reliability/ai-layer)
+- [ML → AI Layer Implementation (Deep Dive)](/portfolio/ml-data-reliability/ml-ai-layer-Implementation)
 
 ### Responsibilities
 
