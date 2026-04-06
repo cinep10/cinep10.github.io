@@ -222,14 +222,14 @@ It combines signal strength, importance, and confidence.
 This is the final table for storing date-level root cause results.
 
 Representative fields include:
-	•	profile_id
-	•	dt
-	•	cause_rank
-	•	cause_type
-	•	cause_code
-	•	related_metric
-	•	confidence
-	•	contribution_score
+- profile_id
+- dt
+- cause_rank
+- cause_type
+- cause_code
+- related_metric
+- confidence
+- contribution_score
 
 Multiple rows can exist for a single date, and cause_rank = 1 represents the most important root cause.
 
@@ -249,15 +249,15 @@ This table shows which issue mattered most, in ranked form.
 This table stores relationships between signals and causes.
 
 Examples:
-	•	drift_alert → funnel_distortion
-	•	mapping_drop → mapping_issue
-	•	validation_fail → pipeline_issue
+- drift_alert → funnel_distortion
+- mapping_drop → mapping_issue
+- validation_fail → pipeline_issue
 
 This matters because it allows the system to explain Root Cause as a signal chain rather than as an isolated point.
 
 In practice:
-	•	data_risk_root_cause_day = final cause summary
-	•	risk_signal_link_day = structure behind the cause
+- data_risk_root_cause_day = final cause summary
+- risk_signal_link_day = structure behind the cause
 
 ---
 
@@ -270,9 +270,9 @@ Many systems stop after storing a risk score.
 This project does not.
 
 Instead, it transforms risk into an explainable structure with three levels:
-	•	the final score
-	•	the causes behind that score
-	•	the signal links behind those causes
+- the final score
+- the causes behind that score
+- the signal links behind those causes
 
 This is one of the strongest differentiators in the current system.
 
@@ -285,9 +285,9 @@ Without this layer, AI summaries degrade significantly.
 A raw risk score alone is not enough for high-quality explanations.
 
 AI needs root causes and signal links to generate:
-	•	incident titles
-	•	technical summaries
-	•	recommended actions
+- incident titles
+- technical summaries
+- recommended actions
 
 In that sense, the Root Cause Layer also acts as an explainability preprocessor for AI.
 
@@ -296,10 +296,10 @@ In that sense, the Root Cause Layer also acts as an explainability preprocessor 
 ### 5.3 Operator-friendly Translation
 
 Operators understand:
-	•	“submit_capture_rate collapsed, causing funnel_distortion”
+- “submit_capture_rate collapsed, causing funnel_distortion”
 
 much better than:
-	•	“risk score = 0.77”
+- “risk score = 0.77”
 
 This layer turns numbers into operational language.
 
@@ -310,9 +310,9 @@ This layer turns numbers into operational language.
 ### 6.1 Input Data
 
 action_engine_runner_v2.py typically consumes:
-	•	data_risk_root_cause_day
-	•	risk_signal_link_day
-	•	data_risk_score_day_v3
+- data_risk_root_cause_day
+- risk_signal_link_day
+- data_risk_score_day_v3
 
 It does not generate actions from risk score alone.
 It reads both causes and signal relationships together.
@@ -331,9 +331,9 @@ It is essentially a rule-based operational translator.
 
 ### 6.3 Internal Processing Flow
 
-```text
 The flow is:
 
+```text
 receive profile_id, dt
     ↓
 load root cause results for the date
@@ -360,15 +360,15 @@ If Root Cause is the explanation layer, then Action Engine is the execution laye
 This mapping is one of the most important implementation points.
 
 Representative mappings include:
-	•	mapping_issue → mapping_fix
-	•	funnel_distortion → funnel_fix
-	•	traffic_mix_shift → traffic_event
-	•	pipeline_issue → pipeline_issue
-	•	metric_drift → anomaly_investigate
+- mapping_issue → mapping_fix
+- funnel_distortion → funnel_fix
+- traffic_mix_shift → traffic_event
+- pipeline_issue → pipeline_issue
+- metric_drift → anomaly_investigate
 
 In other words:
-	•	cause_type = explanation-oriented classification
-	•	action_type = operation-oriented classification
+- cause_type = explanation-oriented classification
+- action_type = operation-oriented classification
 
 ---
 
@@ -379,15 +379,17 @@ Action types alone are too abstract.
 The engine attaches the related metric to make the action concrete.
 
 Examples:
-	•	Check loan_view_count
-	•	Check otp_request_count
-	•	Check daily_active_users
-	•	Check submit_capture_rate
-	•	Check mapping_coverage_loan
+- Check loan_view_count
+- Check otp_request_count
+- Check daily_active_users
+- Check submit_capture_rate
+- Check mapping_coverage_loan
 
 Conceptually:
 
+```text
 action_title = "Check " + related_metric
+```
 
 This is simple, but highly effective in dashboards and operational workflows.
 
@@ -396,14 +398,14 @@ This is simple, but highly effective in dashboards and operational workflows.
 ### 6.6 Priority Assignment
 
 Priority is usually assigned based on:
-	•	risk grade
-	•	cause rank
-	•	cause type criticality
+- risk grade
+- cause rank
+- cause type criticality
 
 Examples:
-	•	cause_rank = 1 → higher priority
-	•	pipeline_issue → higher priority
-	•	simple traffic_event → medium priority
+- cause_rank = 1 → higher priority
+- pipeline_issue → higher priority
+- simple traffic_event → medium priority
 
 The current structure is not yet a full SLA system, but it is already extensible toward high / medium / low operational prioritization.
 
@@ -419,19 +421,19 @@ It provides cause-specific inspection guidance.
 Examples:
 
 mapping_issue
-	•	verify event mapping rules
-	•	inspect whether unmapped URLs increased
+- verify event mapping rules
+- inspect whether unmapped URLs increased
 
 funnel_distortion
-	•	check submit_capture_rate
-	•	inspect the apply → submit flow
+- check submit_capture_rate
+- inspect the apply → submit flow
 
 traffic_mix_shift
-	•	inspect traffic source / campaign
-	•	verify sudden spike/drop patterns
+- inspect traffic source / campaign
+- verify sudden spike/drop patterns
 
 pipeline_issue
-	•	inspect parser / loader / upstream schema
+- inspect parser / loader / upstream schema
 
 In practice, recommended_fix is a compact form of an operational runbook.
 
@@ -440,13 +442,13 @@ In practice, recommended_fix is a compact form of an operational runbook.
 ### 6.8 data_reliability_action_day
 
 Representative fields:
-	•	profile_id
-	•	dt
-	•	metric_nm
-	•	root_cause
-	•	action_type
-	•	priority
-	•	recommended_fix
+- profile_id
+- dt
+- metric_nm
+- root_cause
+- action_type
+- priority
+- recommended_fix
 
 This table functions as an operational action catalog, even without AI.
 
@@ -467,14 +469,14 @@ action generation
 ```
 
 This means:
-	•	high risk score
-	•	leads to root cause generation
-	•	which leads to action generation
+- high risk score
+- leads to root cause generation
+- which leads to action generation
 
 Because of this structure, the project is not just:
-	•	a score-based system
-	•	an anomaly system
-	•	an ML system
+- a score-based system
+- an anomaly system
+- an ML system
 
 It becomes an explainable, operational data reliability system.
 
@@ -486,22 +488,28 @@ It becomes an explainable, operational data reliability system.
 
 It does not stop at storing scores.
 
+---
+
 ### 8.2 It turns causes into actions
 
 It does not stop at explanation.
 
+---
+
 ### 8.3 It connects directly to AI and dashboards
 
 AI summaries and action recommendations are based on this layer.
+
+---
 
 ### 8.4 It is highly extensible to financial domains
 
 This layer becomes even stronger when extended to deposits / loans.
 
 Examples of future cause types:
-	•	approval_issue
-	•	execution_missing
-	•	balance_inconsistency
+- approval_issue
+- execution_missing
+- balance_inconsistency
 
 ---
 
@@ -511,19 +519,23 @@ Examples of future cause types:
 
 The current taxonomy is centered on funnel / mapping / traffic / pipeline patterns.
 
+---
+
 ### 9.2 Priority rules can be more sophisticated
 
 Business criticality and SLA-aware prioritization can be improved.
+
+---
 
 ### 9.3 Owner hints are still weak
 
 It would be stronger if actions could automatically point to likely owners.
 
 Examples:
-	•	data-platform
-	•	product
-	•	marketing
-	•	backend
+- data-platform
+- product
+- marketing
+- backend
 
 ---
 
@@ -532,19 +544,26 @@ Examples:
 ### 10.1 Expand into an explicit Decision Framework Layer
 
 A separate decision_framework_runner could explicitly define:
-	•	decision state
-	•	action_required_flag
+- decision state
+- action_required_flag
+
+---
+
 
 ### 10.2 Add finance-oriented root causes
 
 Examples:
-	•	approval_drop
-	•	execution_missing
-	•	balance_mismatch
+- approval_drop
+- execution_missing
+- balance_mismatch
+
+---
 
 ### 10.3 Improve action templates
 
 recommended_fix can evolve into a richer operational runbook structure.
+
+---
 
 ### 10.4 Tighter integration with AI
 
