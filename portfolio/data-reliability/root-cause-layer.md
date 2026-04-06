@@ -55,8 +55,8 @@ ML / AI / Dashboard
 ```
 
 In execution order, the flow is typically:   
-**1.**	Risk Score calculation completed
-**2.**	Root Cause runner executed
+**1.**	Risk Score calculation completed   
+**2.**	Root Cause runner executed   
 **3.**	Action Engine executed
 
 This means:
