@@ -1,4 +1,4 @@
-# Risk Score Design(v4)
+# Risk Score Design (v4)
 
 A Unified Risk Scoring Framework for Data Reliability
 
