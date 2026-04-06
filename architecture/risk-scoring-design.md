@@ -1,233 +1,417 @@
-# Risk Scoring Design
+# Risk Score Design
 
-## Converting Data Issues into Actionable Signals
-
----
-
-## 1. Problem
-
-Validation and Drift detect issues.
-
-However, they do not answer:
-
-> How critical is this problem?
+A Unified Risk Scoring Framework for Data Reliability
 
 ---
 
-### Real-world Situation
+## 1. Overview
 
-- many validation warnings → important?  
-- drift alerts → meaningful impact?  
+Risk Score in this system is not a simple anomaly metric.
 
----
+It is a unified layer that integrates outputs from Validation, Drift, Structural Anomaly, and Mapping into a single operational risk indicator.
 
-### Result
+Each upstream layer answers a different question:
 
-> Issues exist, but prioritization is unclear
+* Validation → Is the data correct?
+* Drift → How much has it changed from baseline?
+* Structural → Has the relationship structure broken?
+* Mapping → Is the data interpretable?
 
----
+Risk Score consolidates these signals into a single answer:
 
-## 2. Design Goal
-
-The Risk Layer is designed to:
-
-> Aggregate data issues into a single, interpretable score
+**“How risky is the system state right now?”**
 
 ---
 
-### Objectives
+## 2. Design Evolution (v4)
 
-- unify multiple signals  
-- apply weighted importance  
-- ensure explainability  
-- support trend analysis  
+### 2.1 From Anomaly Detection to Risk Integration
+
+Previous versions:
+
+* Validation failures
+* Drift signals
+
+v4 introduces:
+
+* Validation
+* Drift
+* Time anomaly
+* Correlation anomaly
+* Mapping coverage
+
+This shifts the design from:
+
+**isolated anomaly detection → integrated risk modeling**
+
+---
+
+### 2.2 From Metric-level to Day-level Decision
+
+Previous:
+
+* Metric-level analysis
+
+v4:
+
+* Metric aggregation → day-level risk
+
+The system is designed for operational questions:
+
+**“Is today safe or not?”**
+
+---
+
+### 2.3 Explainability-Centric Design
+
+Risk Score is not just a number.
+
+It is directly connected to:
+
+* Root Cause Layer
+* Action Engine
+* ML Feature Layer
+
+This makes Risk Score the central axis of system interpretability.
 
 ---
 
 ## 3. Architecture
 
 ```text
-Validation + Drift + ML Feature
-↓
-Signal Generation
-↓
-Weighted Aggregation
-↓
-Risk Score
-```
-
----
-
-## 4. Core Design 1: Signal-based Structure
-
----
-
-Each issue is converted into a signal.
-
----
-
-### Examples
-
-- validation_fail_count  
-- validation_warn_count  
-- drift_alert_count  
-- drift_warn_count  
-- ml_feature_alert_count  
-
----
-
-### Purpose
-
-Standardize different problems into a common format.
-
----
-
-## 5. Core Design 2: Contribution Decomposition
-
----
-
-Risk is not a single number.
-
----
-
-```text
-Risk =
-  Validation Contribution
-  + Drift Contribution
-  + ML Feature Contribution
-```
-
----
-
-### Benefit
-
-Explains why risk increased.
-
----
-
-## 6. Core Design 3: Weighted Aggregation
-
----
-
-Not all signals are equal.
-
----
-
-### Examples
-
-- validation_fail > validation_warn  
-- drift_alert > drift_warn  
-
----
-
-### Concept
-
-```text
-Risk = Σ (signal × weight)
-```
-
----
-
-## 7. Core Design 4: Explainability
-
----
-
-Risk must be decomposable.
-
----
-
-### Example
-
-```text
-Risk = 87
-
-Drift: 60%
-Validation: 35%
-ML Feature: 5%
-```
-
----
-
-### Meaning
-
-Not just a score, but an explanation.
-
----
-
-## 8. Core Design 5: Time-based Risk
-
----
-
-Risk must be interpreted over time.
-
----
-
-### Usage
-
-- spike → event-driven anomaly  
-- steady increase → structural issue  
-
----
-
-## 9. Output Structure
-
----
-
-### Table
-
-```text
+validation_result
+metric_drift_result
+metric_time_anomaly_day
+metric_correlation_anomaly_day
+mapping_coverage_day
+        ↓
+risk_score_day_v4_runner
+        ↓
 data_risk_score_day_v3
 ```
 
 ---
 
-### Key Fields
+## 4. Risk Components
 
-- dt  
-- risk_score  
-- risk_status  
-- validation_fail_count  
-- drift_alert_count  
-- ml_feature_alert_count  
-- total_signal_count  
+Risk Score v4 is composed of five core signals.
 
 ---
 
-## 10. Key Design Summary
+### 4.1 Validation Score
+
+Measures data quality issues.
+
+Inputs:
+
+* null / missing values
+* range violations
+* rule violations
+
+Pseudo logic:
+
+```text
+validation_score = weighted_sum(fail_count / total_count)
+```
+
+Characteristics:
+
+* Fundamental signal
+* May generate false positives
 
 ---
 
-### Risk is a summary of problems
+### 4.2 Drift Score
 
-Multiple issues are compressed into one value.
+Measures deviation from baseline behavior.
 
----
+Signals:
 
-### Explainability is essential
+* z-score
+* PSI
+* distribution shift
+* funnel change
 
-Scores without context are meaningless.
+```text
+drift_score = normalize(z_score, psi, funnel_change)
+```
 
----
+Characteristics:
 
-### Trend matters more than snapshot
-
-Patterns over time define real risk.
-
----
-
-### Risk precedes ML
-
-Without risk, ML results are not interpretable.
+* Captures change, not necessarily errors
+* Requires interpretation (normal vs abnormal change)
 
 ---
 
-## One-line Summary
+### 4.3 Time Pattern Anomaly
 
-Risk Scoring = Converting data issues into decision-ready values
+Detects temporal deviations.
+
+Examples:
+
+* sudden spikes or drops
+* pattern breakdown
+* unexpected time behavior
+
+```text
+time_anomaly_score = deviation_from_time_pattern
+```
+
+Characteristics:
+
+* Critical for detecting bursts, fraud-like behavior, campaign effects
+* Complementary to drift
 
 ---
 
-## Portfolio Statement
+### 4.4 Correlation Anomaly
 
-Validation and Drift signals were unified into an explainable risk scoring system,  
-enabling prioritization and decision-making based on data reliability.
+Detects breakdown in metric relationships.
+
+Examples:
+
+* view ↑ but purchase ↓
+* apply ↑ but submit ↓
+
+```text
+corr_anomaly_score = correlation_break_score
+```
+
+Characteristics:
+
+* Core signal for funnel integrity
+* Strong indicator of structural issues
+
+---
+
+### 4.5 Mapping Coverage Score
+
+Measures interpretability of data.
+
+Examples:
+
+* increase in unmapped events
+* classification failures
+
+```text
+mapping_score = 1 - mapping_coverage_ratio
+```
+
+Characteristics:
+
+* Reflects semantic data quality
+* Directly impacts ML and AI downstream
+
+---
+
+## 5. Final Risk Score Calculation
+
+Risk Score is computed as a weighted combination:
+
+```text
+final_risk_score =
+    w1 * validation_score +
+    w2 * drift_score +
+    w3 * time_anomaly_score +
+    w4 * corr_anomaly_score +
+    w5 * mapping_score
+```
+
+Design intention:
+
+* Validation → data correctness
+* Drift → behavioral change
+* Structural → relationship integrity
+* Mapping → interpretability
+
+This results in:
+
+**Data + Structure + Meaning integration**
+
+---
+
+## 6. Risk Grade
+
+Risk Score is translated into operational states:
+
+```text
+if score >= 0.7:
+    grade = "alert"
+elif score >= 0.3:
+    grade = "warning"
+else:
+    grade = "normal"
+```
+
+---
+
+## 7. Scenario Validation
+
+### 7.1 Baseline
+
+* score ≈ 0.01 ~ 0.02
+* grade = normal
+
+Indicates stable system behavior.
+
+---
+
+### 7.2 Funnel Break
+
+* score ≥ 0.7
+* grade = alert
+
+Driven by:
+
+* correlation anomaly
+* drift increase
+
+---
+
+### 7.3 Interpretation
+
+* Validation alone cannot detect this
+* Drift + Structural signals are essential
+
+This validates the design approach.
+
+---
+
+## 8. Integration with Root Cause and Action
+
+Risk Score feeds downstream systems:
+
+```text
+risk_score
+    ↓
+root_cause_result
+    ↓
+data_reliability_action_day
+```
+
+This enables:
+
+* identification of problematic metrics
+* explanation of causes
+* actionable next steps
+
+---
+
+## 9. Integration with ML
+
+Risk Score is a core feature for ML.
+
+```text
+ml_feature_vector_day:
+    - final_risk_score
+    - risk_grade
+    - drift_score
+    - anomaly_score
+```
+
+ML acts as:
+
+**a risk state classifier**
+
+---
+
+## 10. Integration with AI
+
+AI operates on top of Risk Score.
+
+Inputs:
+
+* risk_score
+* ML prediction
+* root cause
+
+Outputs:
+
+* incident summary
+* action recommendation
+
+Thus:
+
+**Risk Score is the anchor of AI reasoning**
+
+---
+
+## 11. Limitations
+
+### 11.1 Static Weights
+
+* Currently fixed
+* Requires adaptive weighting
+
+---
+
+### 11.2 Domain Dependency
+
+* Designed for web logs
+* Needs redesign for financial domains
+
+---
+
+### 11.3 Structural Sensitivity
+
+* Some scenarios underrepresented
+* Needs tuning
+
+---
+
+## 12. Future Directions
+
+### 12.1 Domain Expansion (Finance)
+
+* amount-based risk
+* state consistency (balance, approval)
+* stronger funnel validation
+
+---
+
+### 12.2 Weight Optimization
+
+```text
+weight = learned_weight (ML-driven)
+```
+
+---
+
+### 12.3 Explainability Enhancement
+
+* metric contribution scoring
+* causal graph modeling
+
+---
+
+## 13. Summary
+
+Risk Score v4 is not an anomaly metric.
+
+It is a unified operational risk indicator that integrates:
+
+* data quality
+* behavioral change
+* structural integrity
+* semantic interpretability
+
+It serves as:
+
+* input to ML
+* reasoning base for AI
+* decision signal for operators
+
+---
+
+## One-line Definition
+
+Risk Score =
+A unified metric that transforms data quality, change, structure, and meaning into operational risk
+
+---
+
+## Final Insight
+
+The core of this system is not ML.
+
+It is the Risk Score.
