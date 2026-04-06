@@ -207,7 +207,7 @@ ML and AI are built on top of the data reliability pipeline.
 
 See:
 
-- [/portfolio/ml-data-reliability](/portfolio/ml-data-reliability)
+- [ML Data Reliability](/portfolio/ml-data-reliability)
 
 ---
 
