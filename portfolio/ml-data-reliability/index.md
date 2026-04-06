@@ -7,9 +7,11 @@ They operate as upper layers that consume signals generated from the Data Reliab
 
 The overall structure is as follows:
 
+```text
 Data Reliability  
 → ML (State Classification)  
 → AI (Interpretation & Action)
+```
 
 ---
 
@@ -23,7 +25,9 @@ The role of this system is clear:
 
 This system completes the following flow:
 
+```text
 Signal → Classification → Interpretation → Action
+```
 
 ---
 
