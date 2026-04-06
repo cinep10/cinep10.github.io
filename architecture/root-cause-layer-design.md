@@ -37,6 +37,8 @@ These layers form the critical bridge between:
 ## 2. Position in the Architecture
 
 Root Cause and Action layers are positioned after the Risk Score layer.
+
+```text
 Validation / Drift / Structural / Mapping
 ↓
 Risk Score
@@ -46,7 +48,7 @@ Root Cause / Contribution Layer
 Action Engine Layer
 ↓
 ML / AI / Dashboard
-
+```
 
 This structure can be summarized as:
 
