@@ -206,7 +206,7 @@ At this stage, data quality directly affects model performance.
 
 Related:
 
-* [Analytics Pipeline Validation Framework](/architecture/ml-driven-data-reliability-platform-architecture)
+* [ML-driven Data Reliability Platform Architecture](/architecture/ml-driven-data-reliability-platform-architecture)
 
 
 ---
