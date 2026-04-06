@@ -204,6 +204,11 @@ The data reliability architecture extends into ML systems.
 
 At this stage, data quality directly affects model performance.
 
+Related:
+
+* [Analytics Pipeline Validation Framework](/architecture/ml-driven-data-reliability-platform-architecture)
+
+
 ---
 
 ## Data Reliability Perspective
