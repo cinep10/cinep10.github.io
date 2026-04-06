@@ -54,10 +54,10 @@ action engine
 ML / AI / Dashboard
 ```
 
-In execution order, the flow is typically:
-	**1.**	Risk Score calculation completed
-	**2.**	Root Cause runner executed
-	**3.**	Action Engine executed
+In execution order, the flow is typically:   
+**1.**	Risk Score calculation completed
+**2.**	Root Cause runner executed
+**3.**	Action Engine executed
 
 This means:
 	- The Root Cause Layer is a post-risk interpretation layer
