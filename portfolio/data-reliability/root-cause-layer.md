@@ -200,15 +200,17 @@ It quantifies how much each cause contributed to the final risk.
 
 Conceptually:
 
+```text
 contribution_score =
     signal_strength
     × severity_weight
     × confidence_weight
+```
 
 Examples:
-	•	higher drift score → larger contribution
-	•	more validation failures → larger contribution
-	•	correlation anomaly on a key funnel metric → additional weighting
+- higher drift score → larger contribution
+- more validation failures → larger contribution
+- correlation anomaly on a key funnel metric → additional weighting
 
 This is not simple counting.
 It combines signal strength, importance, and confidence.
