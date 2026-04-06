@@ -39,6 +39,7 @@ This is the layer that turns the system from a detection pipeline into an explai
 
 In the actual pipeline, the Root Cause / Action Layer runs after the Risk Score layer.
 
+```text
 validation
 drift
 time anomaly
@@ -51,6 +52,7 @@ root cause
 action engine
     ↓
 ML / AI / Dashboard
+```
 
 In execution order, the flow is typically:
 	1.	Risk Score calculation completed
