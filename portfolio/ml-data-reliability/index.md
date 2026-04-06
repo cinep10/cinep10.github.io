@@ -1,63 +1,110 @@
 # ML Data Reliability
 
-ML Data Reliability focuses on ensuring that machine learning systems operate on reliable, consistent, and interpretable data.
+This portfolio presents the ML and AI extension layers built on top of a Data Reliability system.
 
-This category extends data reliability concepts into ML systems, bridging data engineering and model behavior.
+In this architecture, ML and AI are not standalone models.  
+They operate as upper layers that consume signals generated from the Data Reliability Pipeline.
 
----
+The overall structure is as follows:
 
-## Architecture Position
-
-ML Data Reliability is positioned after the data reliability pipeline.
-
-```text
-data → metric → validation → drift → risk
-                                ↓
-                        ML feature layer
-                                ↓
-                        model prediction
-                                ↓
-                        explainability
-```
-
-This layer connects data quality with model behavior.
+Data Reliability  
+→ ML (State Classification)  
+→ AI (Interpretation & Action)
 
 ---
 
-## 1. Analysis & Design
+## System Role
 
-Defining how data reliability should be structured.
+The role of this system is clear:
 
-- [ML-driven Data Reliability Platform Architecture](./ml-driven-data-reliability-platform-architecture)
+- Transform complex data signals into a single state
+- Interpret that state in a human-readable form
+- Connect the result to actionable operations
 
----
+This system completes the following flow:
 
-## 2. Implementation
-
-Building the system components.
-
-- [ML → AI Layer Implementation (Deep Dive)](./ml-ai-layer-Implementation)
+Signal → Classification → Interpretation → Action
 
 ---
 
-## 3. Results
+## 1. ML Layer
 
-Demonstrating system outcomes.
+The ML Layer classifies the current system state based on data reliability signals.
 
-- [Explainable Data Behavior: Result Analysis](./result-analysis)
+- [/portfolio/ml-data-reliability/ml-layer](/portfolio/ml-data-reliability/ml-layer)
+
+### Responsibilities
+
+- Classify system state: normal / warning / alert
+- Provide probability-based predictions
+- Enable automated risk state evaluation
+
+### Characteristics
+
+- Uses reliability signals instead of raw data
+- Designed for explainability
+- Threshold-based operational classification
+
+### Key Concept
+
+ML does not perform anomaly detection directly.  
+It classifies the system state based on already interpreted signals.
 
 ---
 
-## Related Notes
+## 2. AI Layer
 
-* Feature Drift Detection
-* Prediction Drift
-* Training vs Serving Consistency
-* Explainable AI
+The AI Layer interprets ML outputs and reliability signals  
+and transforms them into operational insights and actions.
+
+- [/portfolio/ml-data-reliability/ai-layer](/portfolio/ml-data-reliability/ai-layer)
+
+### Responsibilities
+
+- Generate incident summaries
+- Provide technical explanations
+- Recommend operational actions
+
+### Characteristics
+
+- Integrates ML predictions, root cause, and risk signals
+- Produces natural language explanations
+- Generates actionable recommendations
+
+### Key Concept
+
+AI is not a decision-making layer.  
+It is an interpretation and operational translation layer.
+
+---
+
+## Relationship with Data Reliability
+
+This system is not an independent ML project.
+
+It is tightly coupled with the Data Reliability pipeline:
+
+- Data Reliability → generates signals  
+- ML → classifies state  
+- AI → interprets and recommends actions  
+
+ML and AI act as **extension layers** of Data Reliability.
+
+---
+
+## System Characteristics
+
+This system is defined by:
+
+- Reliability-driven feature engineering
+- Explainable classification structure
+- Probability-based decision logic
+- Failure-safe AI design (fallback support)
+- Operationally oriented architecture
 
 ---
 
 ## One-line Definition
 
-ML Data Reliability =
-ensuring that machine learning systems operate on reliable, consistent, and explainable data
+ML Data Reliability =  
+A system that classifies and interprets data reliability signals into operational actions
