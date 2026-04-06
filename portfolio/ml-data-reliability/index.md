@@ -7,11 +7,10 @@ They operate as upper layers that consume signals generated from the Data Reliab
 
 The overall structure is as follows:
 
-```text
 Data Reliability  
 → ML (State Classification)  
-→ AI (Interpretation & Action)
-```
+→ AI (Interpretation & Action)  
+→ Observability (Monitoring & Decision Support)
 
 ---
 
@@ -22,12 +21,11 @@ The role of this system is clear:
 - Transform complex data signals into a single state
 - Interpret that state in a human-readable form
 - Connect the result to actionable operations
+- Provide visibility for monitoring and decision-making
 
 This system completes the following flow:
 
-```text
-Signal → Classification → Interpretation → Action
-```
+Signal → Classification → Interpretation → Action → Observability
 
 ---
 
@@ -84,18 +82,38 @@ It is an interpretation and operational translation layer.
 
 ## 3. Observability (Grafana)
 
-Provides real-time visibility into system behavior.
+The Observability layer provides real-time visibility into ML/AI outputs  
+and overall system behavior.
 
-- [Explainable Data Behavior](/portfolio/data-reliability/explainable-data-behavior)
+- [ML → AI Layer Implementation (Deep Dive)](/portfolio/ml-data-reliability/ml-ai-layer-Implementation)
 
-The system integrates with Grafana dashboards to monitor:
+### Responsibilities
 
-- Root cause and action summaries
-- Daily Incident Report
+- Monitor ML prediction distribution (normal / warning / alert)
+- Track probability trends (prob_alert, prob_warning, prob_normal)
+- Visualize risk score and anomaly signals
+- Display root cause and recommended actions
+- Support operational decision-making
 
-This enables:
+### Key Dashboards
 
-- Explainable Data Behavior
+- ML prediction trend over time
+- Alert / Warning distribution
+- Risk score vs prediction alignment
+- Top contributing signals and root causes
+- Action recommendation monitoring
+
+### Role in the System
+
+Observability ensures that:
+
+- ML predictions are interpretable in real time
+- AI outputs are auditable and actionable
+- Operators can quickly identify and respond to issues
+
+In short:
+
+Observability turns outputs into **operational awareness**.
 
 ---
 
@@ -108,6 +126,7 @@ It is tightly coupled with the Data Reliability pipeline:
 - Data Reliability → generates signals  
 - ML → classifies state  
 - AI → interprets and recommends actions  
+- Observability → visualizes and operationalizes results  
 
 ML and AI act as **extension layers** of Data Reliability.
 
@@ -121,6 +140,7 @@ This system is defined by:
 - Explainable classification structure
 - Probability-based decision logic
 - Failure-safe AI design (fallback support)
+- Integrated observability (Grafana)
 - Operationally oriented architecture
 
 ---
@@ -128,4 +148,4 @@ This system is defined by:
 ## One-line Definition
 
 ML Data Reliability =  
-A system that classifies and interprets data reliability signals into operational actions
+A system that classifies, interprets, and visualizes data reliability signals into operational actions
