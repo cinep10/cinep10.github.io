@@ -140,6 +140,8 @@ This design ensures:
 ## 5. Core Computation Flow
 
 The implementation follows a deterministic pipeline:
+
+```text
 load inputs
 ↓
 compute validation score
@@ -159,7 +161,7 @@ final risk score
 risk grade assignment
 ↓
 persist results
-
+```
 
 ---
 
@@ -172,9 +174,11 @@ Each signal is converted into a normalized component score.
 ### 6.1 Validation Score
 
 Represents data correctness issues.
+
+```text
 validation_score =
 normalize(fail_count, warn_count)
-
+```
 
 Captures:
 
@@ -187,9 +191,11 @@ Captures:
 ### 6.2 Drift Score
 
 Represents deviation from baseline behavior.
+
+```text
 drift_score =
 normalize(max_drift, alert_count, warn_count)
-
+```
 
 Captures:
 
@@ -202,9 +208,11 @@ Captures:
 ### 6.3 Time Anomaly Score
 
 Captures temporal instability.
+
+```text
 time_score =
 normalize(alert_count, warn_count, max_zscore)
-
+```
 
 Detects:
 
@@ -217,9 +225,11 @@ Detects:
 ### 6.4 Correlation Anomaly Score
 
 Captures structural breaks between metrics.
+
+```text
 corr_score =
 normalize(alert_count, warn_count, ratio_diff)
-
+```
 
 Detects:
 
@@ -232,8 +242,10 @@ Detects:
 ### 6.5 Mapping Score
 
 Represents semantic reliability.
-mapping_score = 1 - mapping_coverage
 
+```text
+mapping_score = 1 - mapping_coverage
+```
 
 Captures:
 
@@ -245,13 +257,15 @@ Captures:
 ## 7. Final Risk Score
 
 All component scores are combined using weighted aggregation.
+
+```text
 final_risk_score =
 w1 * validation_score +
 w2 * drift_score +
 w3 * time_score +
 w4 * corr_score +
 w5 * mapping_score
-
+```
 
 ### Design Principle
 
@@ -266,10 +280,12 @@ The score integrates three dimensions:
 ## 8. Risk Grade Assignment
 
 The final score is mapped to operational states:
+
+```text
 if score ≥ 0.70 → alert
 elif score ≥ 0.30 → warning
 else → normal
-
+```
 
 These grades are used by:
 
