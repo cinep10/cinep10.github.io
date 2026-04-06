@@ -29,6 +29,7 @@ risk_signal_link_day
 action_engine_runner
     ↓
 data_reliability_action_day
+```
 
 This is the layer that turns the system from a detection pipeline into an explainable, operational data reliability system.
 
