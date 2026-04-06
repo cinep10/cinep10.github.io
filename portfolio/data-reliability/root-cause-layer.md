@@ -60,8 +60,8 @@ In execution order, the flow is typically:
 **3.**	Action Engine executed
 
 This means:
-	- The Root Cause Layer is a post-risk interpretation layer
-	- The Action Engine is an operational translation layer that consumes root cause outputs
+- The Root Cause Layer is a post-risk interpretation layer
+- The Action Engine is an operational translation layer that consumes root cause outputs
 
 ---
 
