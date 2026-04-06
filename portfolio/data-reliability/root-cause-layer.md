@@ -97,12 +97,12 @@ root_cause_and_contribution_runner does not rely on a single table.
 It assumes multi-signal interpretation across the pre-ML pipeline.
 
 Representative inputs include:
-	•	data_risk_score_day_v3
-	•	validation_result or validation_summary_day
-	•	metric_drift_result_r
-	•	metric_time_anomaly_day
-	•	metric_correlation_anomaly_day
-	•	mapping_coverage_day
+- data_risk_score_day_v3
+- validation_result or validation_summary_day
+- metric_drift_result_r
+- metric_time_anomaly_day
+- metric_correlation_anomaly_day
+- mapping_coverage_day
 
 To explain the risk for a specific date, the runner re-reads the major signals generated for that same date.
 
