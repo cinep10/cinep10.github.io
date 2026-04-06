@@ -12,9 +12,9 @@ It is the core interpretation layer that transforms pre-ML signals into a form t
 
 From an implementation perspective, this layer has three responsibilities:
 
-1. Decompose a high Risk Score back into its contributing signals  
-2. Organize those signals into human-readable cause types  
-3. Convert each cause into an actionable operational task  
+- Decompose a high Risk Score back into its contributing signals  
+- Organize those signals into human-readable cause types  
+- Convert each cause into an actionable operational task  
 
 Structurally, the flow is as follows:
 
@@ -55,13 +55,13 @@ ML / AI / Dashboard
 ```
 
 In execution order, the flow is typically:
-	1.	Risk Score calculation completed
-	2.	Root Cause runner executed
-	3.	Action Engine executed
+	**1.**	Risk Score calculation completed
+	**2.**	Root Cause runner executed
+	**3.**	Action Engine executed
 
 This means:
-	•	The Root Cause Layer is a post-risk interpretation layer
-	•	The Action Engine is an operational translation layer that consumes root cause outputs
+	- The Root Cause Layer is a post-risk interpretation layer
+	- The Action Engine is an operational translation layer that consumes root cause outputs
 
 ---
 
@@ -70,19 +70,21 @@ This means:
 The key implementation files in the current project are:
 
 Root Cause Layer
-	•	pipelines/root_cause_and_contribution_runner.py
+	- pipelines/root_cause_and_contribution_runner.py
 
 Action Layer
-	•	pipelines/action_engine_runner_v2.py
+	- pipelines/action_engine_runner_v2.py
 
 Main Output Tables
-	•	data_risk_root_cause_day
-	•	risk_signal_link_day
-	•	data_reliability_action_day
+	- data_risk_root_cause_day
+	- risk_signal_link_day
+	- data_reliability_action_day
 
 In other words, the implementation pattern is:
 
+```text
 runner → persistence → downstream consumption
+```
 
 ---
 
