@@ -70,15 +70,15 @@ This means:
 The key implementation files in the current project are:
 
 Root Cause Layer
-	- pipelines/root_cause_and_contribution_runner.py
+- pipelines/root_cause_and_contribution_runner.py
 
 Action Layer
-	- pipelines/action_engine_runner_v2.py
+- pipelines/action_engine_runner_v2.py
 
 Main Output Tables
-	- data_risk_root_cause_day
-	- risk_signal_link_day
-	- data_reliability_action_day
+- data_risk_root_cause_day
+- risk_signal_link_day
+- data_reliability_action_day
 
 In other words, the implementation pattern is:
 
