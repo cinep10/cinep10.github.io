@@ -38,12 +38,14 @@ It is:
 ## 2. Position in the Pipeline
 
 The Risk Score Layer sits between signal generation and decision layers.
+
+```text
 Validation / Drift / Structural / Mapping
 ↓
 Risk Score Layer
 ↓
 Root Cause / Action / ML / AI / Dashboard
-
+```
 
 It acts as a bridge between:
 
