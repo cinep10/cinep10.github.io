@@ -115,10 +115,10 @@ The core idea of this runner can be summarized in one sentence:
 It decomposes the final risk score back into signal-level causes.
 
 If the Risk Score is already an aggregated result, then Root Cause breaks that result down into components such as:
-	•	increased validation failures
-	•	high-drift metrics
-	•	correlation anomalies
-	•	mapping coverage degradation
+- increased validation failures
+- high-drift metrics
+- correlation anomalies
+- mapping coverage degradation
 
 Each of these becomes a cause candidate, and the runner scores and ranks them.
 
