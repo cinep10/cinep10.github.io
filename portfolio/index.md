@@ -11,10 +11,11 @@ Instead, it represents a unified system that transforms data into **reliable, ex
 
 The entire system is structured as follows:
 
+```text
 Data → Signal → Risk → Cause → Action → Observability
 ↓
 ML / AI Extension
-
+```
 
 The system is composed of two main layers:
 
@@ -43,6 +44,7 @@ This layer focuses on:
 
 ### Core Pipeline
 
+```text
 Raw Data
 → Metric
 → Semantic Mapping
@@ -51,7 +53,7 @@ Raw Data
 → Risk Score
 → Root Cause & Action
 → Observability
-
+```
 
 ---
 
@@ -85,11 +87,12 @@ This layer focuses on:
 
 ### Extension Flow
 
+```text
 Reliability Signals
 → ML Classification
 → AI Interpretation
 → Observability
-
+```
 
 ---
 
