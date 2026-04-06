@@ -168,20 +168,24 @@ The runner does not store raw signals as-is.
 Instead, it translates them into operator-oriented cause types.
 
 Common cause types in the current project include:
-	•	funnel_distortion
-	•	traffic_mix_shift
-	•	metric_drift
-	•	mapping_issue
-	•	pipeline_issue
+- funnel_distortion
+- traffic_mix_shift
+- metric_drift
+- mapping_issue
+- pipeline_issue
 
 Examples:
-	•	correlation anomaly in the submit/apply relationship
+- correlation anomaly in the submit/apply relationship
+
 → funnel_distortion
-	•	sharp drop in daily_active_users with drift alert
+- sharp drop in daily_active_users with drift alert
+  
 → traffic_mix_shift
-	•	mapping coverage degradation
+- mapping coverage degradation
+  
 → mapping_issue
-	•	multiple validation failures
+- multiple validation failures
+
 → pipeline_issue
 
 This is a key transformation:
