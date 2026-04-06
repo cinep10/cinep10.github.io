@@ -89,7 +89,7 @@ It is an interpretation and operational translation layer.
 The Observability layer provides real-time visibility into ML/AI outputs  
 and overall system behavior.
 
-- [ML → AI Layer Implementation (Deep Dive)](/portfolio/ml-data-reliability/ml-ai-layer-Implementation)
+- [Explainable Data Behavior: Result Analysis](/portfolio/ml-data-reliability/result-analysis)
 
 ### Responsibilities
 
