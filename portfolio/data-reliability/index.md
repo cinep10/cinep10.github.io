@@ -5,7 +5,9 @@ This portfolio presents a **production-oriented Data Reliability System** built 
 The goal is not limited to anomaly detection or data validation.  
 Instead, the system is designed to transform data signals into **operational decisions** through a structured pipeline:
 
+```text
 Data → Signal → Risk → Cause → Action
+```
 
 ---
 
@@ -13,6 +15,7 @@ Data → Signal → Risk → Cause → Action
 
 The system follows an end-to-end data reliability pipeline:
 
+```text
 Raw Data
 → Metric
 → Semantic Mapping
@@ -21,7 +24,7 @@ Raw Data
 → Risk Score
 → Root Cause & Action
 → Observability
-
+```
 
 Each layer is independently implemented, yet tightly connected to form a **decision-ready system**.
 
