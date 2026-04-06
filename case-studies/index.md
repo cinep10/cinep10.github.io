@@ -45,7 +45,7 @@ Cases caused by inconsistent or unclear metric definitions.
 - aggregation mismatch  
 - interpretation differences  
 
-👉 These cases highlight that metrics are defined, not given.   
+> These cases highlight that metrics are defined, not given.   
 → [Data Definition & Metric Issues](/case-studies/metric-definition-issues/)
 
 ---
