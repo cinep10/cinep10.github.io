@@ -28,7 +28,7 @@ The system is composed of two main layers:
 
 The foundation of the system.
 
-- [/portfolio/data-reliability](/portfolio/data-reliability)
+→ [Data Reliability](/portfolio/data-reliability/)
 
 This layer focuses on:
 
@@ -74,7 +74,7 @@ This creates a fully explainable and operational data system.
 
 Built on top of the Data Reliability system.
 
-- [/portfolio/ml-data-reliability](/portfolio/ml-data-reliability)
+→ [ML Data Reliability](/portfolio/ml-data-reliability/)
 
 This layer focuses on:
 
