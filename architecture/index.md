@@ -192,6 +192,10 @@ This stage moves beyond detection to explanation and response.
 
 This connects detection → diagnosis → action.
 
+Related:
+
+* [Root Cause / Action Layer](/architecture/root-cause-layer-design)
+
 ---
 
 ## 7. Machine Learning Extension
