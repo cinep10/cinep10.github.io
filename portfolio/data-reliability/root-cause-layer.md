@@ -175,17 +175,16 @@ Common cause types in the current project include:
 - pipeline_issue
 
 Examples:
-- correlation anomaly in the submit/apply relationship
-
+- correlation anomaly in the submit/apply relationship   
 → funnel_distortion
-- sharp drop in daily_active_users with drift alert
-  
-→ traffic_mix_shift
-- mapping coverage degradation
-  
-→ mapping_issue
-- multiple validation failures
 
+- sharp drop in daily_active_users with drift alert     
+→ traffic_mix_shift
+
+- mapping coverage degradation     
+→ mapping_issue
+
+- multiple validation failures   
 → pipeline_issue
 
 This is a key transformation:
