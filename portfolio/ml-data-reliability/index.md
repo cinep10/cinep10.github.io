@@ -82,6 +82,23 @@ It is an interpretation and operational translation layer.
 
 ---
 
+## 3. Observability (Grafana)
+
+Provides real-time visibility into system behavior.
+
+- [Explainable Data Behavior](/portfolio/data-reliability/explainable-data-behavior)
+
+The system integrates with Grafana dashboards to monitor:
+
+- Root cause and action summaries
+- Daily Incident Report
+
+This enables:
+
+- Explainable Data Behavior
+
+---
+
 ## Relationship with Data Reliability
 
 This system is not an independent ML project.
