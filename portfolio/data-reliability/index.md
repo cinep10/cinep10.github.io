@@ -34,8 +34,8 @@ Each layer is independently implemented, yet tightly connected to form a **decis
 
 Transforms raw data into structured, analyzable metrics.
 
-- [/portfolio/data-reliability/data-layer](/portfolio/data-reliability/data-layer)
-- [/portfolio/data-reliability/metric-layer](/portfolio/data-reliability/metric-layer)
+- [Data Layer: From Raw Logs to Reliable Data](/portfolio/data-reliability/data-layer)
+- [Metric Layer](/portfolio/data-reliability/metric-layer)
 
 Key responsibilities:
 
@@ -49,7 +49,7 @@ Key responsibilities:
 
 Converts raw data into meaningful business events.
 
-- [/portfolio/data-reliability/semantic-mapping-layer](/portfolio/data-reliability/semantic-mapping-layer)
+- [Semantic Mapping Layer](/portfolio/data-reliability/semantic-mapping-layer)
 
 Key responsibilities:
 
@@ -63,7 +63,7 @@ Key responsibilities:
 
 Verifies the correctness of the data itself.
 
-- [/portfolio/data-reliability/validation-layer](/portfolio/data-reliability/validation-layer)
+- [Validation Layer (Technical Deep Dive)](/portfolio/data-reliability/validation-layer)
 
 This layer answers:
 
@@ -81,7 +81,7 @@ Validation determines whether **the data is wrong**.
 
 Detects whether data behavior has changed compared to baseline.
 
-- [/portfolio/data-reliability/drift-layer](/portfolio/data-reliability/drift-layer)
+- [Drift Layer](/portfolio/data-reliability/drift-layer)
 
 Key functions:
 
@@ -99,7 +99,7 @@ This layer determines whether **the data behaves differently**.
 
 Aggregates multiple signals into a single operational metric.
 
-- [/portfolio/data-reliability/risk-layer](/portfolio/data-reliability/risk-layer)
+- [Risk Layer](/portfolio/data-reliability/risk-layer)
 
 Key functions:
 
@@ -119,7 +119,7 @@ This layer answers:
 
 Transforms risk signals into explainable causes and operational actions.
 
-- [/portfolio/data-reliability/root-cause-layer](/portfolio/data-reliability/root-cause-layer)
+- [Root Cause Layer](/portfolio/data-reliability/root-cause-layer)
 
 This layer combines two critical functions:
 
@@ -179,6 +179,8 @@ This layer transforms:
 ## 7. Observability (Grafana)
 
 Provides real-time visibility into system behavior.
+
+- [Explainable Data Behavior](/portfolio/data-reliability/explainable-data-behavior)
 
 The system integrates with Grafana dashboards to monitor:
 
