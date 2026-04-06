@@ -33,9 +33,9 @@ data_reliability_action_day
 
 This is the layer that turns the system from a detection pipeline into an explainable, operational data reliability system.
 
-⸻
+---
 
-2. Execution Flow
+## 2. Execution Flow
 
 In the actual pipeline, the Root Cause / Action Layer runs after the Risk Score layer.
 
@@ -61,9 +61,9 @@ This means:
 	•	The Root Cause Layer is a post-risk interpretation layer
 	•	The Action Engine is an operational translation layer that consumes root cause outputs
 
-⸻
+---
 
-3. Related Implementation Files
+## 3. Related Implementation Files
 
 The key implementation files in the current project are:
 
@@ -82,11 +82,11 @@ In other words, the implementation pattern is:
 
 runner → persistence → downstream consumption
 
-⸻
+---
 
-4. Root Cause Layer Implementation
+## 4. Root Cause Layer Implementation
 
-4.1 Input Data
+### 4.1 Input Data
 
 root_cause_and_contribution_runner does not rely on a single table.
 
@@ -102,9 +102,9 @@ Representative inputs include:
 
 To explain the risk for a specific date, the runner re-reads the major signals generated for that same date.
 
-⸻
+---
 
-4.2 Core Implementation Idea
+### 4.2 Core Implementation Idea
 
 The core idea of this runner can be summarized in one sentence:
 
@@ -121,12 +121,13 @@ Each of these becomes a cause candidate, and the runner scores and ranks them.
 This is not a simple alert generator.
 It is a mechanism for reconstructing the structure behind the risk.
 
-⸻
+---
 
-4.3 Internal Processing Flow
+### 4.3 Internal Processing Flow
 
 The internal flow can be understood as follows:
 
+```text
 receive input parameters (profile_id, dt)
     ↓
 load risk_score_day
@@ -150,12 +151,13 @@ rank causes
 store data_risk_root_cause_day
     ↓
 store risk_signal_link_day
+```
 
 The key point is that the score is transformed back into an explainable structure.
 
-⸻
+---
 
-4.4 Cause Candidate Generation
+### 4.4 Cause Candidate Generation
 
 The runner does not store raw signals as-is.
 
@@ -182,9 +184,9 @@ This is a key transformation:
 
 raw anomaly → operational cause type
 
-⸻
+---
 
-4.5 Contribution Score Calculation
+### 4.5 Contribution Score Calculation
 
 Root Cause is not just a list of labels.
 It quantifies how much each cause contributed to the final risk.
@@ -204,9 +206,9 @@ Examples:
 This is not simple counting.
 It combines signal strength, importance, and confidence.
 
-⸻
+---
 
-4.6 data_risk_root_cause_day
+### 4.6 data_risk_root_cause_day
 
 This is the final table for storing date-level root cause results.
 
@@ -231,9 +233,9 @@ A conceptual example:
 
 This table shows which issue mattered most, in ranked form.
 
-⸻
+---
 
-4.7 risk_signal_link_day
+### 4.7 risk_signal_link_day
 
 This table stores relationships between signals and causes.
 
@@ -248,11 +250,11 @@ In practice:
 	•	data_risk_root_cause_day = final cause summary
 	•	risk_signal_link_day = structure behind the cause
 
-⸻
+---
 
-5. Technical Meaning of the Root Cause Layer
+## 5. Technical Meaning of the Root Cause Layer
 
-5.1 Intermediate Structure for Explainability
+### 5.1 Intermediate Structure for Explainability
 
 Many systems stop after storing a risk score.
 
@@ -265,9 +267,9 @@ Instead, it transforms risk into an explainable structure with three levels:
 
 This is one of the strongest differentiators in the current system.
 
-⸻
+---
 
-5.2 Role as AI Input Structure
+### 5.2 Role as AI Input Structure
 
 Without this layer, AI summaries degrade significantly.
 
@@ -280,9 +282,9 @@ AI needs root causes and signal links to generate:
 
 In that sense, the Root Cause Layer also acts as an explainability preprocessor for AI.
 
-⸻
+---
 
-5.3 Operator-friendly Translation
+### 5.3 Operator-friendly Translation
 
 Operators understand:
 	•	“submit_capture_rate collapsed, causing funnel_distortion”
@@ -292,11 +294,11 @@ much better than:
 
 This layer turns numbers into operational language.
 
-⸻
+---
 
-6. Action Engine Layer Implementation
+## 6. Action Engine Layer Implementation
 
-6.1 Input Data
+### 6.1 Input Data
 
 action_engine_runner_v2.py typically consumes:
 	•	data_risk_root_cause_day
@@ -306,9 +308,9 @@ action_engine_runner_v2.py typically consumes:
 It does not generate actions from risk score alone.
 It reads both causes and signal relationships together.
 
-⸻
+---
 
-6.2 Core Implementation Idea
+### 6.2 Core Implementation Idea
 
 The core idea of the Action Engine is:
 
@@ -316,10 +318,11 @@ Map cause types into action types, then specialize action titles and recommended
 
 It is essentially a rule-based operational translator.
 
-⸻
+---
 
-6.3 Internal Processing Flow
+### 6.3 Internal Processing Flow
 
+```text
 The flow is:
 
 receive profile_id, dt
@@ -337,12 +340,13 @@ determine priority
 generate recommended_fix
     ↓
 store data_reliability_action_day
+```
 
 If Root Cause is the explanation layer, then Action Engine is the execution layer.
 
-⸻
+---
 
-6.4 Cause Type → Action Type Mapping
+### 6.4 Cause Type → Action Type Mapping
 
 This mapping is one of the most important implementation points.
 
@@ -357,9 +361,9 @@ In other words:
 	•	cause_type = explanation-oriented classification
 	•	action_type = operation-oriented classification
 
-⸻
+---
 
-6.5 Action Title Generation
+### 6.5 Action Title Generation
 
 Action types alone are too abstract.
 
@@ -378,9 +382,9 @@ action_title = "Check " + related_metric
 
 This is simple, but highly effective in dashboards and operational workflows.
 
-⸻
+---
 
-6.6 Priority Assignment
+### 6.6 Priority Assignment
 
 Priority is usually assigned based on:
 	•	risk grade
@@ -394,9 +398,9 @@ Examples:
 
 The current structure is not yet a full SLA system, but it is already extensible toward high / medium / low operational prioritization.
 
-⸻
+---
 
-6.7 Recommended Fix Generation
+### 6.7 Recommended Fix Generation
 
 recommended_fix is another important implementation point.
 
@@ -422,9 +426,9 @@ pipeline_issue
 
 In practice, recommended_fix is a compact form of an operational runbook.
 
-⸻
+---
 
-6.8 data_reliability_action_day
+### 6.8 data_reliability_action_day
 
 Representative fields:
 	•	profile_id
@@ -439,17 +443,19 @@ This table functions as an operational action catalog, even without AI.
 
 It can be consumed directly in dashboards.
 
-⸻
+---
 
-7. How Root Cause and Action Work Together
+## 7. How Root Cause and Action Work Together
 
 These two layers are tightly connected.
 
+```text
 risk_score
     ↓
 root cause decomposition
     ↓
 action generation
+```
 
 This means:
 	•	high risk score
@@ -463,23 +469,23 @@ Because of this structure, the project is not just:
 
 It becomes an explainable, operational data reliability system.
 
-⸻
+---
 
-8. Strengths of the Current Implementation
+## 8. Strengths of the Current Implementation
 
-8.1 It turns risk into explainable causes
+### 8.1 It turns risk into explainable causes
 
 It does not stop at storing scores.
 
-8.2 It turns causes into actions
+### 8.2 It turns causes into actions
 
 It does not stop at explanation.
 
-8.3 It connects directly to AI and dashboards
+### 8.3 It connects directly to AI and dashboards
 
 AI summaries and action recommendations are based on this layer.
 
-8.4 It is highly extensible to financial domains
+### 8.4 It is highly extensible to financial domains
 
 This layer becomes even stronger when extended to deposits / loans.
 
@@ -488,19 +494,19 @@ Examples of future cause types:
 	•	execution_missing
 	•	balance_inconsistency
 
-⸻
+---
 
-9. Current Limitations
+## 9. Current Limitations
 
-9.1 Cause taxonomy is still web-log oriented
+### 9.1 Cause taxonomy is still web-log oriented
 
 The current taxonomy is centered on funnel / mapping / traffic / pipeline patterns.
 
-9.2 Priority rules can be more sophisticated
+### 9.2 Priority rules can be more sophisticated
 
 Business criticality and SLA-aware prioritization can be improved.
 
-9.3 Owner hints are still weak
+### 9.3 Owner hints are still weak
 
 It would be stronger if actions could automatically point to likely owners.
 
@@ -510,34 +516,34 @@ Examples:
 	•	marketing
 	•	backend
 
-⸻
+---
 
-10. Future Directions
+## 10. Future Directions
 
-10.1 Expand into an explicit Decision Framework Layer
+### 10.1 Expand into an explicit Decision Framework Layer
 
 A separate decision_framework_runner could explicitly define:
 	•	decision state
 	•	action_required_flag
 
-10.2 Add finance-oriented root causes
+### 10.2 Add finance-oriented root causes
 
 Examples:
 	•	approval_drop
 	•	execution_missing
 	•	balance_mismatch
 
-10.3 Improve action templates
+### 10.3 Improve action templates
 
 recommended_fix can evolve into a richer operational runbook structure.
 
-10.4 Tighter integration with AI
+### 10.4 Tighter integration with AI
 
 AI could use cause rank and action priority more directly.
 
-⸻
+---
 
-11. Summary
+## 11. Summary
 
 From an implementation perspective, the Root Cause / Action Layer is:
 
@@ -549,9 +555,9 @@ It becomes a system with:
 
 Explainable Data Behavior + Operational Action Recommendation
 
-⸻
+---
 
-One-line Definition
+## One-line Definition
 
 Root Cause / Action Layer =
 An implementation layer that decomposes risk signals into explainable causes and translates them into operational actions
