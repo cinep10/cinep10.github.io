@@ -32,7 +32,7 @@ Cases where data quality or integrity is compromised.
 - mapping gaps  
 - structural inconsistencies  
 
-👉 These cases focus on whether the data itself can be trusted.   
+> These cases focus on whether the data itself can be trusted.   
 → [Data Reliability Issues](/case-studies/data-reliability-issues/)
 
 ---
@@ -58,7 +58,7 @@ Cases where user behavior or traffic patterns change.
 - conversion drop  
 - funnel distortion  
 
-👉 These cases focus on changes in data meaning.   
+> These cases focus on changes in data meaning.   
 → [Behavioral & Drift Cases](/case-studies/behavioral-drift-cases/)
 
 ---
@@ -71,7 +71,7 @@ Cases where ML input data becomes unreliable.
 - input inconsistency  
 - prediction instability  
 
-👉 These cases connect data reliability with ML systems.   
+> These cases connect data reliability with ML systems.   
 → [ML Input Reliability Cases](/case-studies/ml-input-reliability-cases/)
 
 ---
