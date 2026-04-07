@@ -30,6 +30,8 @@ This means the system is no longer a standalone anomaly detector. It operates as
 
 **Data Reliability Control - Operating Review v6**
 
+![Dashboard Overview](/assets/images/pre-ml_dashboard_overview_20230407.png)
+
 This is the primary operational dashboard.
 It presents the actual reliability state of the system before ML or AI interpretation.
 
@@ -365,6 +367,8 @@ They function as embedded operational documentation for dashboard users.
 
 **ML Backfill Monitoring - Prediction and Scenario Review v2**
 
+![Dashboard Overview](/assets/images/ml_dashboard_overview_20230407.png)
+
 This dashboard shows how the ML layer interprets the outputs of the Pre-ML pipeline.
 
 ---
@@ -545,6 +549,8 @@ That is sufficient for an operational warning system.
 ### Dashboard
 
 **AI Incident Review for MariaDB v2**
+
+![Dashboard Overview](/assets/images/ai_dashboard_overview_20230407.png)
 
 This dashboard translates the outputs of Pre-ML and ML into operator-facing language and actions.
 
