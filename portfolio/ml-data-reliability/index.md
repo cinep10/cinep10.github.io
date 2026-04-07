@@ -89,7 +89,7 @@ It is an interpretation and operational translation layer.
 The Observability layer provides real-time visibility into ML/AI outputs  
 and overall system behavior.
 
-- [Explainable Data Behavior: Result Analysis](/portfolio/ml-data-reliability/result-analysis)
+- [Interpreting the Pre-ML → ML → AI Pipeline Through Grafana Dashboards](/portfolio/ml-data-reliability/result-analysis)
 
 ### Responsibilities
 
