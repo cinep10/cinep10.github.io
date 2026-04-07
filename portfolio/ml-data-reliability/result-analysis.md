@@ -1,5 +1,3 @@
-Below is a GitHub-ready version you can paste directly into your portfolio blog.
-
 # Web Log-Based Data Reliability Platform Results
 
 ## Interpreting the Pre-ML → ML → AI Pipeline Through Grafana Dashboards
