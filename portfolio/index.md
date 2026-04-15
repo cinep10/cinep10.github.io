@@ -58,7 +58,7 @@ A layer that exposes system state and operational decisions through dashboards.
 - Root cause visibility  
 - Dashboard  
 
-→ [View Observability]
+→ [View Observability](/portfolio/ml-data-reliability/)
 
 ---
 
