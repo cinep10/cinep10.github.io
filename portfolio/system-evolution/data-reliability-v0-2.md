@@ -12,6 +12,7 @@ v0.2 builds a structured pipeline for learning, prediction, and interpretation.
 
 ## System Flow
 
+```text
 Source / Scenario  
 → Stream Ingestion  
 → Pre-ML Signal  
@@ -20,6 +21,7 @@ Source / Scenario
 → Feature  
 → ML  
 → AI  
+```
 
 ---
 
