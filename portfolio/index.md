@@ -46,7 +46,7 @@ An extension layer that classifies system states and generates explanations base
 - Incident summary  
 - Action recommendation  
 
-→ [View ML / AI]
+→ [View ML / AI](/portfolio/ml-data-reliability/)
 
 ---
 
@@ -58,7 +58,7 @@ A layer that exposes system state and operational decisions through dashboards.
 - Root cause visibility  
 - Dashboard  
 
-→ [View Observability](/portfolio/ml-data-reliability/)
+→ [View Observability]
 
 ---
 
