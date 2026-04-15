@@ -1,176 +1,75 @@
 # Portfolio
 
-This portfolio presents a **Data Reliability System** designed and implemented as an operational architecture.
+This portfolio presents a system that detects data reliability issues in data pipelines,
+translates them into risk, and connects them to root cause analysis and operational actions.
 
-It is not a collection of isolated projects.  
-Instead, it represents a unified system that transforms data into **reliable, explainable, and actionable decisions**.
+The focus is not on individual models or isolated analyses,
+but on designing and implementing a system where data reliability becomes operational.
 
 ---
 
 ## System Overview
 
-The entire system is structured as follows:
-
-```text
-Data → Signal → Risk → Cause → Action → Observability
-↓
-ML / AI Extension
-```
-
-The system is composed of two main layers:
-
-- Core Data Reliability System  
-- ML / AI Extension Layer  
+Data  
+→ Metric  
+→ Semantic Mapping  
+→ Validation  
+→ Drift / Structural Anomaly  
+→ Risk  
+→ Root Cause & Action  
+→ ML / AI  
+→ Observability  
 
 ---
 
-## 1. Data Reliability System
+## Core Systems
 
-The foundation of the system.
+### Data Reliability
+A system that detects data reliability issues and connects them to risk and root cause analysis.
 
-→ [Data Reliability](/portfolio/data-reliability/)
+- Validation  
+- Drift / Structural Anomaly  
+- Risk Score  
+- Root Cause  
+- Action  
 
-This layer focuses on:
-
-- Data validation and correctness
-- Behavioral change detection (drift)
-- Structural anomaly detection
-- Risk aggregation
-- Root cause analysis
-- Action generation
-- Observability (Grafana)
+→ [View Data Reliability]
 
 ---
 
-### Core Pipeline
+### ML / AI Extension
+An extension layer that classifies system states and generates explanations based on reliability signals.
 
-```text
-Raw Data
-→ Metric
-→ Semantic Mapping
-→ Validation
-→ Drift / Structural Anomaly
-→ Risk Score
-→ Root Cause & Action
-→ Observability
-```
+- Risk-based classification  
+- Incident summary  
+- Action recommendation  
+
+→ [View ML / AI]
 
 ---
 
-### Key Concept
+### Observability
+A layer that exposes system state and operational decisions through dashboards.
 
-The goal of this layer is to transform:
+- Risk monitoring  
+- Signal tracking  
+- Root cause visibility  
+- Dashboard  
 
-- Data → Signals  
-- Signals → Risk  
-- Risk → Cause  
-- Cause → Action  
-
-This creates a fully explainable and operational data system.
-
----
-
-## 2. ML / AI Extension
-
-Built on top of the Data Reliability system.
-
-→ [ML Data Reliability](/portfolio/ml-data-reliability/)
-
-This layer focuses on:
-
-- Automated state classification (ML)
-- Incident interpretation (AI)
-- Action recommendation (AI)
-- Operational visibility (Observability)
+→ [View Observability]
 
 ---
 
-### Extension Flow
+## System Evolution
 
-```text
-Reliability Signals
-→ ML Classification
-→ AI Interpretation
-→ Observability
-```
+This system evolved from rule-based anomaly detection
+into a structured architecture combining streaming signals, ML predictions, and explainability.
+
+→ [View System Evolution]
 
 ---
 
-### Key Concept
+## One-line Summary
 
-ML and AI do not replace the Data Reliability system.
-
-They extend it by:
-
-- simplifying complex signals
-- improving interpretability
-- enabling faster operational response
-
----
-
-## System Philosophy
-
-This portfolio is built on the following principles:
-
-### 1. Explainability First
-
-- Every result must be traceable
-- Risk must be decomposed into causes
-- Actions must be justified
-
----
-
-### 2. Operational Design
-
-- The system is designed for real-world usage
-- Outputs are directly usable by operators
-- Monitoring and action are integrated
-
----
-
-### 3. Layered Architecture
-
-- Rule-based signals (Validation / Drift / Anomaly)
-- Aggregated risk (Risk Score)
-- Interpretation (Root Cause)
-- Execution (Action)
-- Extension (ML / AI)
-
----
-
-### 4. Failure-Safe System
-
-- ML fallback support
-- AI fallback support
-- Independent layer execution
-
----
-
-## System Characteristics
-
-- End-to-end pipeline from data to action
-- Explainable decision structure
-- Combined rule-based and statistical approach
-- ML/AI extensibility
-- Integrated observability (Grafana)
-- Production-oriented design
-
----
-
-## What This Portfolio Represents
-
-This is not just a data project.
-
-It is a system that:
-
-- detects data issues  
-- understands their causes  
-- explains them clearly  
-- and connects them to real operational actions  
-
----
-
-## One-line Definition
-
-Data Reliability System =  
-A system that transforms data signals into explainable and actionable decisions
+A data reliability system that goes beyond anomaly detection,
+connecting risk, explanation, and operational decision-making.
