@@ -67,7 +67,7 @@ A layer that exposes system state and operational decisions through dashboards.
 This system evolved from rule-based anomaly detection
 into a structured architecture combining streaming signals, ML predictions, and explainability.
 
-→ [View System Evolution]
+→ [View System Evolution](/portfolio/system-evolution/)
 
 ---
 
