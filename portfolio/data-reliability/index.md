@@ -1,244 +1,133 @@
 # Data Reliability
 
-This portfolio presents a **production-oriented Data Reliability System** built from an engineering perspective.
+This section presents a system for detecting and interpreting
+data reliability issues within a data pipeline.
 
-The goal is not limited to anomaly detection or data validation.  
-Instead, the system is designed to transform data signals into **operational decisions** through a structured pipeline:
+In this project, data reliability is not treated as simple data quality validation.
+Instead, it is defined as a structured approach that translates data conditions into risk,
+and connects them to root cause analysis and operational actions.
+
+---
+
+## System Perspective
+
+Data reliability is not a set of isolated checks,
+but a continuous pipeline composed of multiple layers.
 
 ```text
-Data → Signal → Risk → Cause → Action
+Raw Data  
+→ Metric  
+→ Semantic Mapping  
+→ Validation  
+→ Drift / Structural Anomaly  
+→ Risk  
+→ Root Cause & Action  
 ```
+
+This page provides a high-level overview of the system
+and links to detailed implementations for each layer.
 
 ---
 
 ## Pipeline Overview
 
-The system follows an end-to-end data reliability pipeline:
+### Raw Data Layer
+The entry point of the system, where data is generated or collected.
 
-```text
-Raw Data
-→ Metric
-→ Semantic Mapping
-→ Validation
-→ Drift / Structural Anomaly
-→ Risk Score
-→ Root Cause & Action
-→ Observability
-```
+- Web log simulation or source ingestion  
+- Event-level data structure  
+- Input for both batch and streaming pipelines  
 
-Each layer is independently implemented, yet tightly connected to form a **decision-ready system**.
+→ [View Raw Data Layer]
 
 ---
 
-## 1. Data → Metric Layer
+### Metric Layer
+Transforms raw data into measurable and aggregated metrics.
 
-Transforms raw data into structured, analyzable metrics.
+- Event aggregation  
+- Time-based metric construction  
 
-- [Data Layer: From Raw Logs to Reliable Data](/portfolio/data-reliability/data-layer)
-- [Metric Layer](/portfolio/data-reliability/metric-layer)
-
-Key responsibilities:
-
-- Data ingestion and normalization
-- Time-series metric construction
-- Domain-specific metric definition (traffic, auth, funnel, etc.)
+→ [View Metric Layer]
 
 ---
 
-## 2. Semantic Mapping Layer
+### Semantic Mapping Layer
+Maps raw events into meaningful business-level representations.
 
-Converts raw data into meaningful business events.
+- Event normalization  
+- Funnel and stage mapping  
 
-- [Semantic Mapping Layer](/portfolio/data-reliability/semantic-mapping-layer)
-
-Key responsibilities:
-
-- Mapping raw events/URLs into semantic events
-- Defining funnel stages (view → apply → submit)
-- Ensuring interpretability of data
+→ [View Semantic Mapping]
 
 ---
 
-## 3. Validation Layer
+### Validation Layer
+Verifies that data meets expected rules and constraints.
 
-Verifies the correctness of the data itself.
+- Null and missing checks  
+- Rule validation  
+- Range validation  
 
-- [Validation Layer (Technical Deep Dive)](/portfolio/data-reliability/validation-layer)
-
-This layer answers:
-
-- Is the data present? (missing / null)
-- Is the value valid? (range / rule)
-- Is it logically consistent? (funnel / constraint)
-
-In short:
-
-Validation determines whether **the data is wrong**.
+→ [View Validation]
 
 ---
 
-## 4. Drift / Structural Anomaly Layer
+### Drift / Structural Anomaly Layer
+Detects changes and structural deviations in data behavior.
 
-Detects whether data behavior has changed compared to baseline.
+- Distribution shift  
+- Pattern change  
+- Relationship anomaly  
 
-- [Drift Layer](/portfolio/data-reliability/drift-layer)
-
-Key functions:
-
-- Drift detection (distribution change, z-score, PSI)
-- Time-series anomaly detection (pattern deviation)
-- Correlation anomaly detection (relationship break)
-
-In short:
-
-This layer determines whether **the data behaves differently**.
+→ [View Drift / Structural Anomaly]
 
 ---
 
-## 5. Risk Score Layer
+### Risk Layer
+Aggregates multiple signals into a unified risk representation.
 
-Aggregates multiple signals into a single operational metric.
+- Signal integration  
+- Risk scoring  
 
-- [Risk Layer](/portfolio/data-reliability/risk-layer)
-
-Key functions:
-
-- Integrates validation, drift, anomaly, and mapping signals
-- Produces a day-level risk score
-- Assigns risk grade (normal / warning / alert)
-
-In short:
-
-This layer answers:
-
-**"How risky is today's data state?"**
+→ [View Risk Score]
 
 ---
 
-## 6. Root Cause & Action Layer
+### Root Cause & Action Layer
+Explains why risk occurs and defines appropriate actions.
 
-Transforms risk signals into explainable causes and operational actions.
+- Signal contribution analysis  
+- Cause identification  
+- Action mapping  
 
-- [Root Cause Layer](/portfolio/data-reliability/root-cause-layer)
-
-This layer combines two critical functions:
-
-### Root Cause Analysis
-
-- Decomposes risk into contributing signals
-- Maps signals into structured cause types
-- Links causes to specific metrics
-- Ranks causes based on contribution
-
-Examples of cause types:
-
-- funnel_distortion
-- traffic_mix_shift
-- mapping_issue
-- pipeline_issue
-- metric_drift
-
-This answers:
-
-**"Why did the risk increase?"**
+→ [View Root Cause & Action]
 
 ---
 
-### Action Generation
+## Design Principles
 
-- Maps cause types into action types
-- Generates metric-specific action items
-- Assigns priority based on risk and contribution
-- Produces operational recommendations
+The system is designed based on the following principles:
 
-Examples:
-
-- Check submit_capture_rate
-- Check daily_active_users
-- Verify mapping coverage
-- Inspect upstream pipeline
-
-This answers:
-
-**"What should be done?"**
+- Data reliability is a combination of multiple signals  
+- Data state should be expressed as risk  
+- Detection and explanation must be connected  
+- Results should lead to operational actions  
 
 ---
 
-### Layer Significance
+## Scope
 
-- Risk Score → defines problem magnitude
-- Root Cause → explains the reason
-- Action → defines response
+This section focuses on the core data reliability pipeline.
 
-This layer transforms:
+The following are treated as separate layers:
 
-**signals → decisions → actions**
-
----
-
-## 7. Observability (Grafana)
-
-Provides real-time visibility into system behavior.
-
-- [Explainable Data Behavior](/portfolio/data-reliability/explainable-data-behavior)
-
-The system integrates with Grafana dashboards to monitor:
-
-- Validation fail/warn trends
-- Drift and anomaly alerts
-- Risk score trends
-- Top failing metrics
-- Root cause and action summaries
-
-This enables:
-
-- Fast detection
-- Quick diagnosis
-- Immediate action
+- ML / AI extensions  
+- Observability and operational dashboards  
 
 ---
 
-## ML / AI Extension
+## One-line Summary
 
-ML and AI are built on top of the data reliability pipeline.
-
-- ML: risk classification (normal / warning / alert)
-- AI: incident reasoning and action recommendation
-
-See:
-
-- [ML Data Reliability](/portfolio/ml-data-reliability)
-
----
-
-## System Characteristics
-
-This system is defined by:
-
-- End-to-end pipeline from data to action
-- Explainability-first design
-- Combination of rule-based and statistical methods
-- Operationally deployable architecture
-- ML/AI extensibility
-
----
-
-## Key Concept
-
-Data Reliability is not just validation.
-
-It is a system that connects:
-
-- Data quality verification
-- Behavioral change detection
-- Structural anomaly analysis
-- Risk aggregation
-- Root cause explanation
-- Action recommendation
-
----
-
-## One-line Definition
-
-Data Reliability =  
-A system that transforms data signals into operational decisions
+Data reliability is a structured system that translates data conditions into risk,
+and connects them to root cause analysis and action.
