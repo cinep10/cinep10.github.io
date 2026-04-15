@@ -34,7 +34,7 @@ Establishes the foundational structure of the data reliability pipeline.
 - Root Cause  
 - Action  
 
-→ [View v0.1 Details]
+→ [View v0.1 Details](/portfolio/system-evolution/data-reliability-v0-1)
 
 ---
 
@@ -50,7 +50,7 @@ connected to ML prediction and AI explanation.
 - ML prediction  
 - AI summary  
 
-→ [View v0.2 Details]
+→ [View v0.2 Details](/portfolio/system-evolution/data-reliability-v0-2)
 
 ---
 
