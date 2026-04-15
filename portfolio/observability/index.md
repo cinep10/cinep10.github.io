@@ -63,7 +63,7 @@ Tracks model outputs and prediction behavior.
 - Risk prediction  
 - Model consistency  
 
-→ [View ML Dashboard]
+→ [View ML Dashboard](/portfolio/observability/result-analysis)
 
 ---
 
