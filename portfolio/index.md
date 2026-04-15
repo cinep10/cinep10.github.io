@@ -10,6 +10,7 @@ but on designing and implementing a system where data reliability becomes operat
 
 ## System Overview
 
+```text
 Data  
 → Metric  
 → Semantic Mapping  
@@ -19,6 +20,7 @@ Data
 → Root Cause & Action  
 → ML / AI  
 → Observability  
+```
 
 ---
 
