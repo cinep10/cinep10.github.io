@@ -51,7 +51,7 @@ Focuses on core reliability signals before ML is applied.
 - Drift and structural anomaly  
 - Risk score  
 
-→ [View Pre-ML Dashboard]
+→ [View Pre-ML Dashboard](/portfolio/observability/explainable-data-behavior)
 
 ---
 
