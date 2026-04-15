@@ -35,7 +35,7 @@ A system that detects data reliability issues and connects them to risk and root
 - Root Cause  
 - Action  
 
-→ [View Data Reliability]
+→ [View Data Reliability](/portfolio/data-reliability/)
 
 ---
 
