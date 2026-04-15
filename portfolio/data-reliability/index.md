@@ -38,7 +38,7 @@ The entry point of the system, where data is generated or collected.
 - Event-level data structure  
 - Input for both batch and streaming pipelines  
 
-→ [View Raw Data Layer]
+→ [View Raw Data Layer](/portfolio/data-reliability/data-layer)
 
 ---
 
@@ -48,7 +48,7 @@ Transforms raw data into measurable and aggregated metrics.
 - Event aggregation  
 - Time-based metric construction  
 
-→ [View Metric Layer]
+→ [View Metric Layer](/portfolio/data-reliability/metric-layer)
 
 ---
 
@@ -58,7 +58,7 @@ Maps raw events into meaningful business-level representations.
 - Event normalization  
 - Funnel and stage mapping  
 
-→ [View Semantic Mapping]
+→ [View Semantic Mapping](/portfolio/data-reliability/semantic-mapping-layer)
 
 ---
 
@@ -69,7 +69,7 @@ Verifies that data meets expected rules and constraints.
 - Rule validation  
 - Range validation  
 
-→ [View Validation]
+→ [View Validation](/portfolio/data-reliability/validation-layer)
 
 ---
 
@@ -80,7 +80,7 @@ Detects changes and structural deviations in data behavior.
 - Pattern change  
 - Relationship anomaly  
 
-→ [View Drift / Structural Anomaly]
+→ [View Drift / Structural Anomaly](/portfolio/data-reliability/drift-layer)
 
 ---
 
@@ -90,7 +90,7 @@ Aggregates multiple signals into a unified risk representation.
 - Signal integration  
 - Risk scoring  
 
-→ [View Risk Score]
+→ [View Risk Score](/portfolio/data-reliability/risk-layer)
 
 ---
 
@@ -101,7 +101,7 @@ Explains why risk occurs and defines appropriate actions.
 - Cause identification  
 - Action mapping  
 
-→ [View Root Cause & Action]
+→ [View Root Cause & Action](/portfolio/data-reliability/root-cause-layer)
 
 ---
 
