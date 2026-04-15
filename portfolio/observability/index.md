@@ -29,6 +29,7 @@ into an operational interface.
 
 Observability sits at the final stage of the pipeline:
 
+```text
 Data  
 → Metric  
 → Validation / Drift / Anomaly  
@@ -36,6 +37,7 @@ Data
 → Root Cause / Action  
 → ML / AI  
 → Observability  
+```
 
 It acts as the interface between system outputs and human operators.
 
