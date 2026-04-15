@@ -12,6 +12,7 @@ but to explain why data deviates and why it becomes risky.
 
 ## System Flow
 
+```text
 Raw Data  
 → Validation  
 → Drift / Structural Anomaly  
@@ -20,6 +21,7 @@ Raw Data
 → Action  
 → ML  
 → AI  
+```
 
 ---
 
