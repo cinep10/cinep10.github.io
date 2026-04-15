@@ -21,6 +21,7 @@ End-to-end systems for reliable, explainable, and operable in production environ
 
 * Data Reliability
 * ML Data Reliability
+* Observability
 
 → [portfolio](/portfolio/)
 
