@@ -1,104 +1,67 @@
 # Engineering Notes
 
-Engineering Notes focus on implementation details, system design decisions, and operational experience.
+This section documents the implementation details of the Data Reliability system.
 
-This section documents how data reliability architecture is built, optimized, operated, and analyzed in practice.
+While the Architecture section focuses on design concepts,
+Engineering Notes covers how the system is actually built and operated.
+
+In other words, this section answers:
+
+“How is the system implemented?”
 
 ---
 
 ## Scope
 
-This category covers:
+This section includes:
 
-* Data processing and pipeline design
-* System observability and operational practices
-* Debugging and troubleshooting
-* Statistical analysis and data drift detection
-
-The emphasis is on **practical engineering experience**, not theoretical discussion.
+- Data ingestion and processing structure
+- Batch and stream data flows
+- Reliability signal generation
+- ML/AI data pipeline design
+- Performance and operational considerations
 
 ---
 
 ## Categories
 
-### Data Processing & Pipeline Engineering
+### Data Pipeline
+Covers how data enters the system and flows through ingestion layers,
+including both batch and streaming paths.
 
-Covers how data is processed, transformed, and optimized.
-
-Focus areas include:
-
-* ETL design and pipeline structure
-* Data modeling and transformation
-* Batch processing strategies
-* Performance optimization
-* Bulk data loading techniques
-
-→ [Go to Data Processing & Pipeline Engineering](/engineering-notes/data-processing-pipeline/)
+→ [View Data Pipeline](/engineering-notes/data-pipeline/)
 
 ---
 
-### System Observability & Operations
+### Data Modeling
+Describes schema design, aggregation strategy, and how data is structured for analysis.
 
-Covers how systems are monitored, operated, and maintained.
-
-Focus areas include:
-
-* Monitoring and dashboard design
-* Metrics and alerting
-* System deployment and runtime operations
-* Pipeline observability
-* Data quality monitoring
-
-→ [Go to System Observability & Operations](/engineering-notes/system-observability-operations/)
+→ [View Data Modeling](/engineering-notes/data-modeling/)
 
 ---
 
-### Debugging & Troubleshooting
+### Reliability Signals
+Explains how validation, drift, and anomaly signals are generated and processed.
 
-Covers real-world issues and how they are resolved.
-
-Focus areas include:
-
-* Data inconsistencies
-* Pipeline failures
-* Performance bottlenecks
-* Root cause analysis
-
-→ [Go to Debugging & Troubleshooting](/engineering-notes/debugging-troubleshooting/)
+→ [View Reliability Signals](/engineering-notes/reliability-signals/)
 
 ---
 
-### Statistical Analysis & Data Drift
+### ML & AI Engineering
+Covers feature construction, model training, prediction pipelines,
+and AI-based explanation layers.
 
-Covers statistical techniques for understanding data behavior.
-
-Focus areas include:
-
-* Drift detection methods
-* Distribution comparison
-* Time-series anomaly detection
-* Feature-level analysis
-
-→ [Go to Statistical Analysis & Data Drift](/engineering-notes/statistical-analysis)
+→ [View ML & AI Engineering](/engineering-notes/ml-ai-engineering/)
 
 ---
 
-## Perspective
+### Performance & Operations
+Focuses on execution performance, latency, and operational constraints.
 
-Engineering Notes complement the Architecture section.
-
-* Architecture explains **how systems are designed**
-* Engineering Notes explain **how systems actually work in practice**
+→ [View Performance & Operations](/engineering-notes/performance-operations/)
 
 ---
 
-## Summary
+## One-line Summary
 
-Engineering Notes document the practical side of building and operating data reliability systems.
-
-This section focuses on:
-
-* implementation
-* optimization
-* operation
-* analysis
+This section documents how the Data Reliability system is implemented and operated.
