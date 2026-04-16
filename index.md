@@ -29,7 +29,7 @@ End-to-end systems for reliable, explainable, and operable in production environ
 
 ### Case Studies
 
-Problem-solving cases based on real system behavior.
+Problem-solving cases based on scenario-based data anomaly cases
 
 * Traffic spike and conversion drop
 * Funnel distortion detection
