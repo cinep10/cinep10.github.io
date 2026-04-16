@@ -38,9 +38,13 @@ depend on the correctness and consistency of this layer.
 ## Related Notes
 
 - [ ] Source Log Ingestion Design  
+→ [Data Pipeline — Lineage, Contract, and Stream/Batch Integration Issues](/engineering-notes/data-pipeline/data-pipeline-lineage-and-contract-issues-v02)   
+
+<!-- TODO: add data pipeline notes
 - [ ] Batch Processing Pipeline  
 - [ ] Kafka Stream Ingestion Flow  
 - [ ] Staging Table Strategy  
+-->
 
 ---
 
