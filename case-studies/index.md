@@ -1,111 +1,69 @@
 # Case Studies
 
-Case Studies document real-world data issues and how they are interpreted and resolved.
+This section presents how data reliability issues are defined,
+interpreted as risk, and connected to root cause analysis and actions.
 
-This section is organized by the nature of the problem, not by a fixed methodology.
+In this project, a case study is not a record of incidents,
+but a structured way to understand and interpret data risk.
 
 ---
 
-## Purpose
+## Scope
 
-Data problems do not occur in a single form.
+This section covers:
 
-They can originate from:
-
-- data reliability issues  
-- metric definition inconsistencies  
-- pipeline or processing failures  
-- user behavior changes  
-- ML input instability  
-
-Each type of problem requires a different approach.
+- Scenario-based data anomaly cases  
+- Reliability signal changes and risk interpretation  
+- Root cause analysis  
+- System result interpretation and action direction  
 
 ---
 
 ## Categories
 
-### Data Reliability Issues
+### Scenario-based Cases
 
-Cases where data quality or integrity is compromised.
+Covers data anomaly cases generated through simulation.
 
-- missing data  
-- mapping gaps  
-- structural inconsistencies  
+Typical scenarios include:
 
-> These cases focus on whether the data itself can be trusted.   
-→ [Data Reliability Issues](/case-studies/data-reliability-issues/)
+- Duplicate increase  
+- Latency increase  
+- Ordering anomalies  
+- Drift detection  
 
----
+These cases are intentionally constructed through the system
+to demonstrate how data risk emerges and propagates.
 
-### Data Definition & Metric Issues
-
-Cases caused by inconsistent or unclear metric definitions.
-
-- page view inconsistency  
-- aggregation mismatch  
-- interpretation differences  
-
-> These cases highlight that metrics are defined, not given.   
-→ [Data Definition & Metric Issues](/case-studies/metric-definition-issues/)
+👉 [View Scenario-based Cases]
 
 ---
 
-### Behavioral & Drift Cases
+### Real-world Cases (Optional)
 
-Cases where user behavior or traffic patterns change.
+Covers data consistency issues observed in real-world systems.
 
-- traffic spike  
-- conversion drop  
-- funnel distortion  
+Typical examples include:
 
-> These cases focus on changes in data meaning.   
-→ [Behavioral & Drift Cases](/case-studies/behavioral-drift-cases/)
+- Data missing  
+- Log inconsistencies  
+- Processing delays  
 
----
+This category is optional and used when real-world cases are available.
 
-### ML Input Reliability Cases
-
-Cases where ML input data becomes unreliable.
-
-- feature drift  
-- input inconsistency  
-- prediction instability  
-
-> These cases connect data reliability with ML systems.   
-→ [ML Input Reliability Cases](/case-studies/ml-input-reliability-cases/)
+👉 [View Real-world Cases]
 
 ---
 
-## Example Case
+## Role in System
 
-- [Verifying Page View Consistency from Web Access Logs](./verifying-page-view-consistency-from-web-access-logs)
+Case Studies do not explain system components.
 
-This case belongs to:
-
-→ Data Definition & Metric Issues
-
-It demonstrates that inconsistencies can arise from definition differences, not data errors.
+Instead, they show how to interpret data risk
+and apply the system’s outputs in real scenarios.
 
 ---
 
-## How to Use This Section
+## One-line Summary
 
-Each case follows the problem it tries to explain.
-
-Some cases emphasize:
-
-- validation signals  
-- metric interpretation  
-- drift patterns  
-- system behavior  
-
-The structure adapts to the problem, not the other way around.
-
----
-
-## Summary
-
-Case Studies are not about applying a fixed framework.
-
-They are about understanding different types of data problems  
-and how they are resolved in practice.
+A section that demonstrates how to interpret and analyze data reliability issues through cases.
