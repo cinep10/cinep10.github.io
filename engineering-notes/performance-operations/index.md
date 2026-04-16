@@ -35,6 +35,8 @@ Therefore, performance must be considered as part of data reliability.
 
 ## Related Notes
 
+→ [Automating Grafana Dashboard Image Capture (with Image Renderer)](/engineering-notes/performance-operations/grafana-dashboard-image-capture)
+→ [WSL ext4 Recovery Case Study](/engineering-notes/performance-operations/wsl-ext4-recovery)
 - [ ] Latency Analysis  
 - [ ] Throughput Optimization  
 - [ ] Pipeline Execution Strategy  
