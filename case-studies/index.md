@@ -35,7 +35,7 @@ Typical scenarios include:
 These cases are intentionally constructed through the system
 to demonstrate how data risk emerges and propagates.
 
-👉 [View Scenario-based Cases]
+→ [View Scenario-based Cases](/case-studies/scenario-based-cases/)
 
 ---
 
@@ -51,7 +51,7 @@ Typical examples include:
 
 This category is optional and used when real-world cases are available.
 
-👉 [View Real-world Cases]
+→ [View Real-world Cases](/case-studies/real-world-cases/)
 
 ---
 
