@@ -1,6 +1,3 @@
-## 📄 Final Markdown
-
-```markdown
 # Data Pipeline — Lineage, Contract, and Stream/Batch Integration Issues (v0.2)
 
 ## Overview
