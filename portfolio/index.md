@@ -26,6 +26,9 @@ Data
 → Observability  
 ```
 
+Each layer in this system is implemented as a separate component,
+with detailed structures and processing logic described in Engineering Notes.
+
 ---
 
 ## Core Systems
