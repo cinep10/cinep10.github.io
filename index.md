@@ -56,10 +56,11 @@ Design principles behind the system.
 
 Implementation details and technical records.
 
-* Data Processing & Pipeline Engineering
-* System Observability & Operations
-* Debugging & Troubleshooting
-* Statistical Analysis & Data Drift
+* Data Pipeline
+* Data Modeling
+* Reliability Signals
+* ML & AI Engineering
+* Performance & Operations
 
 → [engineering-notes](/engineering-notes/)
 
