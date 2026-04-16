@@ -69,6 +69,18 @@ A layer that exposes system state and operational decisions through dashboards.
 
 ---
 
+### Implementation Layers
+
+The following sections describe how each layer in the system is implemented.
+
+- Data Pipeline → View
+- Data Modeling → View
+- Reliability Signals → View
+- ML & AI Engineering → View
+- Performance & Operations → View
+
+---
+
 ## System Evolution
 
 This system evolved from rule-based anomaly detection
