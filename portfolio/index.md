@@ -6,6 +6,10 @@ translates them into risk, and connects them to root cause analysis and operatio
 The focus is not on individual models or isolated analyses,
 but on designing and implementing a system where data reliability becomes operational.
 
+Implementation details and technical design choices are documented in Engineering Notes.
+
+→ [View Engineering Notes](/engineering-notes/)
+
 ---
 
 ## System Overview
