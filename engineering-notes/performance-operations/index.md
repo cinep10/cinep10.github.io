@@ -35,6 +35,7 @@ Therefore, performance must be considered as part of data reliability.
 
 ## Related Notes
 
+- Operational Constraints  
 → [Automating Grafana Dashboard Image Capture (with Image Renderer)](/engineering-notes/performance-operations/grafana-dashboard-image-capture)   
 → [WSL ext4 Recovery Case Study](/engineering-notes/performance-operations/wsl-ext4-recovery)   
 
@@ -42,7 +43,6 @@ Therefore, performance must be considered as part of data reliability.
 - [ ] Latency Analysis  
 - [ ] Throughput Optimization  
 - [ ] Pipeline Execution Strategy  
-- [ ] Operational Constraints  
 -->
 
 ---
