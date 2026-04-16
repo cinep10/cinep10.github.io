@@ -43,10 +43,16 @@ It complements scenario-based cases by providing practical context.
 
 ## Related Notes
 
+- Log Inconsistency Case  
+→ [How to Validate Batch Output Data: A Data Reliability Approach](/case-studies/real-world-cases/data-reliability-approach)   
+→ [Verifying Page View Consistency from Web Access Logs](/case-studies/real-world-cases/verifying-page-view-consistency-from-web-access-logs)   
+→ [Web Log Analytics Data Consistency Issue](/case-studies/real-world-cases/web-log-session-id-data-consistency)   
+
+<!-- TODO: add real-world-cases notes
 - [ ] Data Missing Case  
-- [ ] Log Inconsistency Case  
 - [ ] Processing Delay Issue  
-- [ ] Data Consistency Problem  
+- [ ] Data Consistency Problem
+-->
 
 ---
 
