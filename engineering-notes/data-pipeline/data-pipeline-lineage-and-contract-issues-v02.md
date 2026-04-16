@@ -224,7 +224,7 @@ injection strategy, and contract design.
 
 v0.2 introduced stream processing, but inconsistencies in lineage,
 contract, and runtime paths led to pipeline integrity issues.
-```
+
 
 ---
 
