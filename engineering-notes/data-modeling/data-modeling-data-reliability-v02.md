@@ -1,19 +1,3 @@
-좋습니다. 요청하신 기준에 맞춰:
-
-* 영어
-* 기술 블로그 톤
-* Engineering Notes 수준 유지
-* 깨지지 않는 Markdown
-* 블로그 철학(설명보다 구조/판단 중심)
-
-으로 **완전히 다듬은 최종 게시용 버전** 드립니다.
-(불필요한 장식 제거, 흐름 정리, 가독성 개선)
-
----
-
-# ✅ 블로그 업로드용 최종본 (영문)
-
-```markdown
 # Data Modeling — Data Reliability Platform v0.2 (Engineering Notes)
 
 ## Overview
