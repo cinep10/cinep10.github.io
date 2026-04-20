@@ -35,10 +35,14 @@ while AI translates those predictions into human-readable explanations.
 
 ## Related Notes
 
+→ [Data Reliability Platform — ML / AI Engineering v0.2](/engineering-notes/ml-ai-engineering/data-reliability-ml-ai-engineering-v0-2)   
+
+<!-- TODO: add ml-ai-engineering notes
 - [ ] Feature Engineering Strategy  
 - [ ] Classification Model Design  
 - [ ] Risk Regression Model  
 - [ ] AI Explanation Pipeline  
+-->
 
 ---
 
