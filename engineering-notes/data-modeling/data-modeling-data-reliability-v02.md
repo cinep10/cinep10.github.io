@@ -353,4 +353,3 @@ data reliability issues and translate them into actionable insights.
 
 This model does not define tables —  
 it defines how data risk is interpreted across the system.
-```
