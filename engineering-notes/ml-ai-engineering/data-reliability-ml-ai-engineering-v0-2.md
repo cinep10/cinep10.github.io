@@ -391,10 +391,8 @@ The most critical aspects are not the models themselves, but:
 ### ML Structure
 
 ```
-
 Signal → Truth → Feature → Prediction
-
-```id="ml-core"
+```
 
 - classification: type of anomaly  
 - regression: severity  
@@ -404,11 +402,9 @@ Signal → Truth → Feature → Prediction
 ### AI Structure
 
 ```
-
 Signal + Truth + Prediction
 → Context → Summary → Action
-
-```id="ai-core"
+```
 
 ---
 
