@@ -40,7 +40,7 @@ by how data is structured.
 - Aggregation Strategy  
 → [Data Modeling — Data Reliability Platform v0.2](/engineering-notes/data-modeling/data-modeling-data-reliability-v02)   
 
-<!-- TODO: add data pipeline notes
+<!-- TODO: add data modeling notes
 - [ ] Metric Table Design  
 - [ ] Feature View Design  
 - [ ] Schema Evolution  
