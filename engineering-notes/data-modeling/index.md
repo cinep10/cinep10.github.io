@@ -37,7 +37,7 @@ by how data is structured.
 
 ## Related Notes
 
-- [ ] Aggregation Strategy  
+- Aggregation Strategy  
 → [Data Modeling — Data Reliability Platform v0.2](/engineering-notes/data-modeling/data-modeling-data-reliability-v02)   
 
 <!-- TODO: add data pipeline notes
