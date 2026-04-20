@@ -256,13 +256,11 @@ It acts as a **structured interpretation layer**.
 ### 10.2 Architecture
 
 ```
-
 Signal + Truth + Prediction
 → Context
 → Summary
 → Action
-
-```id="ai-flow"
+```
 
 ---
 
