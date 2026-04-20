@@ -36,10 +36,14 @@ root cause analysis, and ML features.
 
 ## Related Notes
 
+→ [Data Reliability Platform — Reliability Signal Layer (v0.2)](/engineering-notes/reliability-signals/reliability-signal-layer-v0-2)
+
+<!-- TODO: add data reliability-signals notes
 - [ ] Completeness Detection  
 - [ ] Duplicate Detection  
 - [ ] Drift Analysis  
 - [ ] Structural Anomaly Detection  
+-->
 
 ---
 
