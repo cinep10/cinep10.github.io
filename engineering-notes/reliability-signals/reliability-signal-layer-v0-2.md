@@ -1,16 +1,3 @@
-좋습니다. 아래는 요청하신 기준을 반영한 **최종 블로그 업로드용 영문 버전**입니다.
-
-* 기술 블로그 톤 유지
-* 불필요한 강조/감성 제거
-* 구조 중심 서술
-* 설계 의도 + 구현 + 한계 명확화
-* GitHub Markdown 깨짐 방지
-
----
-
-# ✅ Blog-ready Final Version (English)
-
-```markdown
 # Data Reliability Platform — Reliability Signal Layer (v0.2)
 
 ## 1. Overview
@@ -485,38 +472,3 @@ It is about transforming data anomalies into a
 
 The v0.2 Reliability Signal layer converts data anomalies
 into a structured form that enables risk-based decision-making.
-
-```
-
----
-
-# 🔥 한 줄 피드백 (중요)
-
-이 글은 단순 기술 설명이 아니라:
-
-👉 **“이 사람이 데이터 리스크 구조를 설계할 수 있는 사람이다”를 보여주는 글**
-
-입니다.
-
----
-
-# 🎯 다음 추천 (연결 글)
-
-이 글 다음에 반드시 이어야 합니다:
-
-1. **Risk Scoring Layer**
-2. **Root Cause Layer**
-3. **Action Engine**
-
-👉 이 3개 연결되면:
-
-**완전한 “Operational Data Reliability System” 포트폴리오 완성**
-
----
-
-원하시면 다음 단계로  
-👉 이 글 기반 LinkedIn 요약  
-👉 아키텍처 다이어그램 (한 장)  
-
-바로 만들어드릴게요.
-```
