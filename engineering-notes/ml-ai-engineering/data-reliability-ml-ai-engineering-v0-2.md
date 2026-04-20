@@ -50,10 +50,8 @@ ML / AI does not operate directly on raw data.
 It follows a structured pipeline:
 
 ```
-
 Raw → Signal → Truth → Feature → ML → Prediction → AI → Action
-
-```id="mlai-flow"
+```
 
 This ensures:
 
