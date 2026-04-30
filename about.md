@@ -1,73 +1,53 @@
 # About
 
-I design systems that ensure data reliability in analytics and machine learning environments.
+This blog is a technical portfolio created to analyze and document data reliability issues in data pipelines from a structural perspective.
+
+I work with log-based data systems, focusing on problems such as missing data, duplication, latency, and inconsistency.  
+These issues are not treated as simple errors, but as risks that need to be interpreted and explained.
+
+Based on this perspective, the following structure has been designed and implemented:
+
+- Validation  
+- Drift / Structural Anomaly  
+- Risk Scoring  
+- Root Cause Analysis  
+- Action Mapping  
+- ML / AI for classification and explanation  
+
+This blog does not focus on individual techniques or models.  
+Instead, it aims to explain why data becomes unreliable and how those issues impact downstream systems and decisions.
 
 ---
 
-## Focus
+## Blog Structure
 
-* Data validation
-* Drift detection
-* Risk-based interpretation
-* Explainable data behavior
+This portfolio is organized as a system rather than a collection of posts:
 
----
+- Architecture  
+  System design and conceptual structure  
 
-## Perspective
+- Portfolio  
+  Implementation and system-level outputs  
 
-Most systems assume data is correct.
+- Engineering Notes  
+  Pipeline, data modeling, and ML/AI engineering details  
 
-This work focuses on a different question:
-
-Can this data be trusted?
-
----
-
-## What This Blog Represents
-
-This blog is structured into four areas:
-
-> [Portfolio](/portfolio/)
-
-Systems that were designed and implemented.
+- Case Studies  
+  Scenario-based and real-world data reliability analysis  
 
 ---
 
-> [Case Studies](/case-studies/)
+## Overview
 
-Problems that were detected and resolved.
+A simplified overview of the problem space and approach is available here:
 
----
-
-> [Architecture](/architecture/)
-
-How the systems are structured and why.
-
----
-
-> [Engineering Notes](/engineering-notes/)
-
-Technical implementation details and operational insights.
-
----
-
-## Direction
-
-The goal is not to build more data.
-
-The goal is to make data reliable enough for decision-making.
+→ https://cinep10.notion.site/Data-Reliability-Risk-Architecture-3518d50d5ad18064bff0c342b1da949a
 
 ---
 
 ## Contact
 
-Open to discussions on data reliability architecture, analytics systems, and data observability.
+- GitHub: https://cinep10.github.io  
+- LinkedIn: (LinkedIn URL)
 
-LinkedIn  
-https://linkedin.com/in/dwkim-0179083b1
-
-GitHub  
-https://github.com/cinep10
-
-Email  
-cinep10 [at] gmail.com
+This page is intended for personal portfolio and documentation purposes.
