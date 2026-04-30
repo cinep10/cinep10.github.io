@@ -48,6 +48,7 @@ A simplified overview of the problem space and approach is available here:
 ## Contact
 
 - GitHub: https://cinep10.github.io  
-- LinkedIn: (LinkedIn URL)
+- LinkedIn: [(LinkedIn URL)](https://linkedin.com/in/dwkim-0179083b1)
+- Email : cinep10 [at] gmail.com
 
 This page is intended for personal portfolio and documentation purposes.
