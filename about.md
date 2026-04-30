@@ -23,16 +23,16 @@ Instead, it aims to explain why data becomes unreliable and how those issues imp
 
 This portfolio is organized as a system rather than a collection of posts:
 
-- Architecture  
+- [Architecture](/architecture/)   
   System design and conceptual structure  
 
-- Portfolio  
+- [Portfolio](/portfolio/)   
   Implementation and system-level outputs  
 
-- Engineering Notes  
+- [Engineering Notes](/engineering-notes/)   
   Pipeline, data modeling, and ML/AI engineering details  
 
-- Case Studies  
+- [Case Studies](/case-studies/)   
   Scenario-based and real-world data reliability analysis  
 
 ---
