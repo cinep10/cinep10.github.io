@@ -41,14 +41,14 @@ This portfolio is organized as a system rather than a collection of posts:
 
 A simplified overview of the problem space and approach is available here:
 
-→ https://cinep10.notion.site/Data-Reliability-Risk-Architecture-3518d50d5ad18064bff0c342b1da949a
+→ [https://cinep10.notion.site/Data-Reliability-Risk-Architecture-3518d50d5ad18064bff0c342b1da949a](https://cinep10.notion.site/Data-Reliability-Risk-Architecture-3518d50d5ad18064bff0c342b1da949a)
 
 ---
 
 ## Contact
 
 - GitHub: https://cinep10.github.io  
-- LinkedIn: [(https://linkedin.com/in/dwkim-0179083b1)](https://linkedin.com/in/dwkim-0179083b1)
+- LinkedIn: [https://linkedin.com/in/dwkim-0179083b1](https://linkedin.com/in/dwkim-0179083b1)
 - Email : cinep10 [at] gmail.com
 
 This page is intended for personal portfolio and documentation purposes.
