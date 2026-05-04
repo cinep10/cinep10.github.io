@@ -95,32 +95,7 @@ Therefore, the simulator must be **probability-driven**.
 
 ### Overall Structure
 
-```mermaid
-flowchart LR
-
-A["Config (YAML)"] --> B["Simulator Core"]
-
-subgraph S["Simulator"]
-  B --> C["Traffic Model"]
-  B --> D["Identity Model"]
-  B --> E["Session Generator"]
-  B --> F["Event Generator"]
-  B --> G["Exogenous Layer"]
-end
-
-G --> B
-
-C --> H["Session"]
-D --> H
-E --> I["Event Stream"]
-F --> I
-
-I --> J["Apache Log + KV"]
-
-J --> K["Parser / Loader"]
-K --> L["stg_webserver_log_hit"]
-```
-
+![Synthetic Web Log Simulator Architecture](/assets/images/synthetic-web-log-simulator-architecture.svg)
 ---
 
 ### Description
