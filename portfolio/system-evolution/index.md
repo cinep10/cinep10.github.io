@@ -62,7 +62,7 @@ across stream, batch, and source layers.
 - Unified risk  
 - Cross-layer root cause  
 
-→ [View v0.3 Details]
+→ [View v0.3 Details](/portfolio/system-evolution/data-reliability-v0-3)
 
 ---
 
