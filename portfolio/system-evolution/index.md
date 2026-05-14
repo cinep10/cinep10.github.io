@@ -73,7 +73,7 @@ Connects data reliability to operational and business decision-making.
 - Business risk interpretation  
 - Enhanced explainability  
 
-→ [View v0.4 Details]
+→ [View v0.4 Details](/portfolio/system-evolution/data-reliability-v0-4)
 
 ---
 
