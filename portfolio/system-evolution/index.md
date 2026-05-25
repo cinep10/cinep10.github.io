@@ -287,7 +287,7 @@ Business Transaction Reliability
 
 instead of only pipeline reliability.
 
-→ [View v0.5 Details]
+→ [View v0.5 Details](/portfolio/system-evolution/data-reliability-v0-5)
 
 ---
 
