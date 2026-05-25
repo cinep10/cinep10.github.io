@@ -16,11 +16,11 @@ into a reliability architecture capable of interpreting:
 
 ```text
 Measurement
-→ Semantic Distortion
+→ Reliability Analytics
+→ Semantic Interpretation
 → Unified Risk
-→ Root Cause
 → Operational Action
-→ ML / AI Reliability
+→ ML / AI Governance
 ```
 
 The focus of this evolution is not only detecting abnormal data,
