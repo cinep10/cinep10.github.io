@@ -47,7 +47,7 @@ for measuring operational inconsistency across multiple domains.
 
 # Overall Structure
 
-![Data Generation Architecture](/assets/images/data-generation-architecture.png)
+![Data Generation Architecture](/assets/images/data-generation-architecture.svg)
 
 ---
 
