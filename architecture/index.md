@@ -109,7 +109,7 @@ The objective is:
 realistic operational data distortion generation
 ```
 
-→ [View Data Generation](/architecture/data-generation/)
+→ [View Data Generation](/architecture/data-generation)
 
 ---
 
