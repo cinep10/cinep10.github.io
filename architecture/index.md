@@ -80,7 +80,7 @@ Behavior / Transaction / State
 are parallel derivations
 ```
 
-→ [View Customer Journey](/architecture/customer-journey.md)
+→ [View Customer Journey](./architecture/customer-journey)
 
 ---
 
