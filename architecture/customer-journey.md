@@ -6,13 +6,13 @@ In v0.5, Customer Journey does not simply mean a clickstream or a sequence of us
 
 Within the current architecture, Customer Journey acts as an:
 
-```text id="j4z0p1"
+```text
 Operational Truth Model
 ```
 
 that simultaneously generates:
 
-```text id="d8r1f2"
+```text
 Behavior
 Transaction
 State
@@ -22,13 +22,13 @@ The architecture therefore goes beyond simple weblog analytics.
 
 Instead, it is designed as a:
 
-```text id="a7n3k9"
+```text
 Cross-Domain Operational Reliability Architecture
 ```
 
 for measuring inconsistency and distortion across:
 
-```text id="r2k9q4"
+```text
 Behavior ↔ Transaction ↔ State
 ```
 
@@ -38,7 +38,7 @@ Behavior ↔ Transaction ↔ State
 
 The core structure of v0.5 is:
 
-```text id="v9q4w7"
+```text
 Customer Journey
 ├─ Behavior Log
 ├─ Transaction Log
@@ -47,13 +47,13 @@ Customer Journey
 
 An important design principle is:
 
-```text id="f3m8u1"
+```text
 Behavior Logs do not directly trigger Transaction Logs
 ```
 
 Instead, the actual structure is:
 
-```text id="y1t5g8"
+```text
 Customer Journey Model
 → Behavior Projection
 → Transaction Projection
@@ -62,7 +62,7 @@ Customer Journey Model
 
 This means all three logs are:
 
-```text id="q6b2n5"
+```text
 different operational observation surfaces
 generated from the same journey
 ```
@@ -73,7 +73,7 @@ generated from the same journey
 
 Traditional systems are often modeled as:
 
-```text id="w4s7c2"
+```text
 Behavior Event
 → Transaction
 → State Change
@@ -81,7 +81,7 @@ Behavior Event
 
 However, real operational environments frequently produce inconsistencies such as:
 
-```text id="m7x2k1"
+```text
 Behavior exists
 BUT Transaction is missing
 
@@ -94,7 +94,7 @@ BUT Behavior does not exist
 
 Meaning:
 
-```text id="h8r4d6"
+```text
 Behavior / Transaction / State
 ```
 
@@ -103,7 +103,7 @@ and they are not always perfectly aligned.
 
 v0.5 is specifically designed to measure and interpret this:
 
-```text id="z3v8j5"
+```text
 Cross-domain inconsistency
 ```
 
@@ -115,7 +115,7 @@ Customer Journey is modeled as a stage-based operational flow.
 
 Example:
 
-```text id="p1q7x9"
+```text
 visit
 → browse
 → search
@@ -143,7 +143,7 @@ Multiple identities are generated within the journey.
 
 Representative examples:
 
-```text id="t6n3w8"
+```text
 journey_id
 pcid
 sid
@@ -159,19 +159,19 @@ transaction_id
 
 These identities function as lineage keys connecting:
 
-```text id="g5v1q4"
+```text
 Behavior ↔ Transaction ↔ State
 ```
 
 An important design principle in v0.5 is:
 
-```text id="u2k7m9"
+```text
 Identity realism
 ```
 
 For example:
 
-```text id="l4q8s2"
+```text
 browse stage:
 anonymous possible
 
@@ -181,7 +181,7 @@ authenticated possible
 
 This reflects realistic:
 
-```text id="c7m2d5"
+```text
 partial identity consistency
 ```
 
@@ -195,7 +195,7 @@ Behavior Logs record user web/app interactions.
 
 Examples:
 
-```text id="s5t8n4"
+```text
 page_view
 search
 product_view
@@ -206,13 +206,13 @@ payment_click
 
 v0.5 preserves a:
 
-```text id="r9m3x7"
+```text
 W3C-compatible weblog structure
 ```
 
 The primary objective of Behavior Logs is:
 
-```text id="y8k4v2"
+```text
 measuring behavioral observation reliability
 ```
 
@@ -232,7 +232,7 @@ Transaction Logs record business events.
 
 Examples:
 
-```text id="n4c8w1"
+```text
 cart_created
 payment_requested
 payment_approved
@@ -242,20 +242,20 @@ refund_requested
 
 The structure is closer to:
 
-```text id="q2m7v6"
+```text
 JSONL-based business event architecture
 ```
 
 The core objective is:
 
-```text id="h6t1x3"
+```text
 verifying whether user behavior
 actually resulted in transactions
 ```
 
 Representative measurements:
 
-```text id="p8j4m7"
+```text
 behavior_transaction_match_rate
 behavior_only_count
 transaction_only_count
@@ -269,7 +269,7 @@ State Transition Logs record post-transaction workflow and operational state tra
 
 Examples:
 
-```text id="v1x7k5"
+```text
 order_state: created → delivered
 payment_state: requested → approved
 delivery_state: assigned → delivered
@@ -278,20 +278,20 @@ refund_state: requested → completed
 
 This layer represents:
 
-```text id="m5q9t2"
+```text
 Workflow / Operational State Truth
 ```
 
 The primary objective is:
 
-```text id="f4w8j6"
+```text
 verifying whether operational state transitions
 continued correctly after transactions
 ```
 
 Representative measurements:
 
-```text id="x3n7r1"
+```text
 transaction_state_match_rate
 state_transition_gap_count
 state_delay_ms
@@ -303,7 +303,7 @@ state_delay_ms
 
 The most important design philosophy of v0.5 is:
 
-```text id="j8v2m4"
+```text
 Behavior alone is not sufficient.
 Transaction alone is not sufficient.
 Operational Risk only becomes visible
@@ -312,7 +312,7 @@ when State is connected as well.
 
 Meaning:
 
-```text id="z7m1k9"
+```text
 Behavior
 +
 Transaction
@@ -322,7 +322,7 @@ State
 
 must be interpreted together in order to answer questions such as:
 
-```text id="r5x8c1"
+```text
 Did the customer click payment?
 Was the payment actually approved?
 Was the order state correctly created?
@@ -338,7 +338,7 @@ In v0.5, Customer Journey is not simply a clickstream model.
 
 More precisely, it is:
 
-```text id="u6q3m8"
+```text
 an Operational Truth Model
 that simultaneously generates
 Behavior / Transaction / State
@@ -346,7 +346,7 @@ Behavior / Transaction / State
 
 and also serves as the:
 
-```text id="y4n7v2"
+```text
 lineage root of cross-domain reconciliation
 ```
 
