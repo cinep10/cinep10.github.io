@@ -47,30 +47,7 @@ for measuring operational inconsistency across multiple domains.
 
 # Overall Structure
 
-```mermaid
-flowchart LR
-
-A[Scenario Registry]
---> B[Calendar / Timeline]
-
-B --> C[Customer Journey Generation]
-
-C --> D[Identity Allocation]
-
-D --> E[Behavior Generation]
-D --> F[Transaction Generation]
-D --> G[State Generation]
-
-E --> H[Source-level Injection]
-F --> H
-G --> H
-
-H --> I[Runtime Persistence]
-
-I --> J[Behavior Raw Layer]
-I --> K[Transaction Raw Layer]
-I --> L[State Raw Layer]
-```
+![Data Generation Architecture](/assets/images/data-generation-architecture.png)
 
 ---
 
