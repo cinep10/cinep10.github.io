@@ -6,7 +6,7 @@ The architecture is not designed as a simple ETL pipeline or anomaly detector.
 
 Instead, it focuses on measuring inconsistency and distortion across:
 
-```text id="z0g9qx"
+```text
 Behavior
 ↔ Transaction
 ↔ State
@@ -14,7 +14,7 @@ Behavior
 
 and connecting:
 
-```text id="shj4x7"
+```text
 Measurement
 → Reliability Analytics
 → Semantic Interpretation
@@ -25,13 +25,13 @@ Measurement
 
 into a:
 
-```text id="a1qgpf"
+```text
 Cross-Domain Measurement-to-Decision Reliability Architecture
 ```
 
 The core question is:
 
-```text id="oc6d7o"
+```text
 When does operational data become unreliable,
 and how does that distortion affect KPI interpretation
 and operational decision-making?
@@ -41,7 +41,7 @@ and operational decision-making?
 
 # Overall Architecture Flow
 
-```text id="7ghjmm"
+```text
 Customer Journey
 → Data Generation
 → Ingestion
@@ -59,13 +59,13 @@ Customer Journey
 The architecture begins not from isolated events,
 but from:
 
-```text id="hjjlwm"
+```text
 realistic user behavioral flows
 ```
 
 Core structure:
 
-```text id="v5jlwm"
+```text
 Customer Journey
 ├─ Behavior Log
 ├─ Transaction Log
@@ -74,7 +74,7 @@ Customer Journey
 
 Important principle:
 
-```text id="u8jlwm"
+```text
 Journey is the source
 Behavior / Transaction / State
 are parallel derivations
@@ -105,7 +105,7 @@ Examples:
 
 The objective is:
 
-```text id="g0jlwm"
+```text
 realistic operational data distortion generation
 ```
 
@@ -120,7 +120,7 @@ the raw/stage pipeline layers.
 
 Core ingestion flow:
 
-```text id="x2jlwm"
+```text
 raw_snapshot_manifest
 → stg_webserver_log_hit
 → stg_wc_log_hit
@@ -131,7 +131,7 @@ Transaction and state logs are stored in separate raw layers.
 
 Key objectives:
 
-```text id="m4jlwm"
+```text
 preserve source lineage
 +
 maintain source-first propagation
@@ -148,7 +148,7 @@ canonical business structures.
 
 Core structure:
 
-```text id="r7jlwm"
+```text
 event_log_raw
 → canonical_behavior_events
 
@@ -161,14 +161,14 @@ state_log_raw
 
 Cross-domain mappings are then created across:
 
-```text id="p5jlwm"
+```text
 Behavior ↔ Transaction
 Transaction ↔ State
 ```
 
 Important principle:
 
-```text id="k9jlwm"
+```text
 canonical = business normalization
 canonical ≠ risk scoring
 ```
@@ -191,20 +191,20 @@ Representative measurements:
 
 Core philosophy:
 
-```text id="q3jlwm"
+```text
 Measurement ≠ Risk
 ```
 
 Meaning:
 
-```text id="y6jlwm"
+```text
 Measurement = observation
 Risk = semantic interpretation
 ```
 
 The architecture prioritizes:
 
-```text id="n1jlwm"
+```text
 DIRECT_MEASUREMENT-based reliability analysis
 ```
 
@@ -220,7 +220,7 @@ This is the primary differentiating layer of v0.5.
 
 Current authoritative chain:
 
-```text id="f8jlwm"
+```text
 Measurement
 → Reliability Analytics
 → Semantic Interpretation
@@ -230,7 +230,7 @@ Measurement
 
 The key objective is to connect:
 
-```text id="e2jlwm"
+```text
 technical anomalies
 → operational meaning distortion
 → operational decision risk
@@ -246,7 +246,7 @@ ML is not treated as the final decision-maker.
 
 Current philosophy:
 
-```text id="d4jlwm"
+```text
 ML = supplemental prediction only
 ```
 
@@ -254,13 +254,13 @@ AI is also not designed as a free-generation layer.
 
 Instead:
 
-```text id="b7jlwm"
+```text
 AI = evidence-constrained explanation
 ```
 
 Core principle:
 
-```text id="c1jlwm"
+```text
 AI generates truth = X
 AI explains governed evidence = O
 ```
@@ -279,13 +279,13 @@ through operational observability.
 The objective is not simply dashboard monitoring,
 but:
 
-```text id="w5jlwm"
+```text
 Reliability Decision Observability
 ```
 
 The focus is:
 
-```text id="t8jlwm"
+```text
 Why was the KPI distorted?
 Why did operational decision-making become risky?
 ```
@@ -298,7 +298,7 @@ Why did operational decision-making become risky?
 
 The current direction of v0.5 is:
 
-```text id="s9jlwm"
+```text
 Behavior Signal
 +
 Transaction Signal
@@ -311,13 +311,13 @@ State Signal
 
 The architecture therefore evolves beyond anomaly detection into:
 
-```text id="l3jlwm"
+```text
 Operational Reliability Decision Architecture
 ```
 
 that explains:
 
-```text id="h6jlwm"
+```text
 how operational data distortion
 contaminates KPI interpretation
 and operational decision-making
