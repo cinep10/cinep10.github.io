@@ -1,96 +1,167 @@
-# Portfolio
+Portfolio
 
-This portfolio presents a system that detects data reliability issues in data pipelines,
-translates them into risk, and connects them to root cause analysis and operational actions.
+Overview
 
-The focus is not on individual models or isolated analyses,
-but on designing and implementing a system where data reliability becomes operational.
+This portfolio is not focused on building
+a generic data platform,
+ML model,
+or AI application.
 
-Implementation details and technical design choices are documented in Engineering Notes.
+Instead, it focuses on a single operational question:
 
-→ [View Engineering Notes](/engineering-notes/)
+When does operational data become unreliable,
+and how does that distortion affect
+KPI interpretation and operational decision-making?
 
----
+The architecture originally started from:
 
-## System Overview
+web log anomaly detection
 
-```text
-Data  
-→ Metric  
-→ Semantic Mapping  
-→ Validation  
-→ Drift / Structural Anomaly  
-→ Risk  
-→ Root Cause & Action  
-→ ML / AI  
-→ Observability  
-```
+but gradually evolved into a broader:
 
-Each layer in this system is implemented as a separate component,
-with detailed structures and processing logic described in Engineering Notes.
+Operational Reliability Decision Architecture
 
----
+The current structure measures inconsistency across:
 
-## Core Systems
+Behavior
+↔ Transaction
+↔ State
 
-### Data Reliability
-A system that detects data reliability issues and connects them to risk and root cause analysis.
+and connects:
 
-- Validation  
-- Drift / Structural Anomaly  
-- Risk Score  
-- Root Cause  
-- Action  
+Measurement
+→ Reliability Analytics
+→ Semantic Interpretation
+→ Unified Risk
+→ Operational Action
+→ ML / AI Governance
 
-→ [View Data Reliability](/portfolio/data-reliability/)
+into a unified operational reliability framework.
 
----
+⸻
 
-### ML / AI Extension
-An extension layer that classifies system states and generates explanations based on reliability signals.
+Portfolio Structure
 
-- Risk-based classification  
-- Incident summary  
-- Action recommendation  
+Architecture
 
-→ [View ML / AI](/portfolio/ml-data-reliability/)
+The Architecture section describes
+the overall Operational Reliability structure.
 
----
+Core topics include:
 
-### Observability
-A layer that exposes system state and operational decisions through dashboards.
+* Customer Journey
+* Data Generation
+* Ingestion
+* Transformation
+* Analysis
+* Decision / Action
+* ML / AI Governance
+* Observability
 
-- Risk monitoring  
-- Signal tracking  
-- Root cause visibility  
-- Dashboard  
+→ View Architecture￼
 
-→ [View Observability](/portfolio/observability/)
+⸻
 
----
+System Evolution
 
-### Implementation Layers
+System Evolution explains
+how the architecture evolved from v0.1 to v0.5.
 
-The following sections describe how each layer in the system is implemented.
+v0.1
+→ Reliability Foundation
+v0.2
+→ Stream Signal / ML / AI
+v0.3
+→ Unified Reliability
+v0.4
+→ Measurement-to-Decision Reliability
+v0.5
+→ Behavior + Transaction + State Reliability
 
-- Data Pipeline → View
-- Data Modeling → View
-- Reliability Signals → View
-- ML & AI Engineering → View
-- Performance & Operations → View
+→ View System Evolution￼
 
----
+⸻
 
-## System Evolution
+Case Studies
 
-This system evolved from rule-based anomaly detection
-into a structured architecture combining streaming signals, ML predictions, and explainability.
+Case Studies explain
+how operational distortion propagates through real systems.
 
-→ [View System Evolution](/portfolio/system-evolution/)
+Core structure:
 
----
+Source Anomaly
+→ Measurement Distortion
+→ Semantic Risk
+→ Operational Impact
 
-## One-line Summary
+Representative topics include:
 
-A data reliability system that goes beyond anomaly detection,
-connecting risk, explanation, and operational decision-making.
+* missing events
+* conversion distortion
+* transaction inconsistency
+* state transition gaps
+* delivery delay
+* behavioral drift
+
+→ View Case Studies￼
+
+⸻
+
+Core Philosophy
+
+The most important principle of this portfolio is:
+
+Measurement ≠ Risk
+
+Meaning:
+
+Measurement = observation
+Risk = semantic interpretation
+
+The architecture therefore prioritizes:
+
+Measurement
+→ Interpretation
+→ Decision
+
+rather than simple threshold-based anomaly detection.
+
+⸻
+
+Current Direction
+
+The current direction focuses on:
+
+Behavior-driven
+Operational Reliability Architecture
+
+The goal is not simply detecting anomalies,
+but explaining:
+
+how operational data distortion
+propagates into
+business KPIs,
+operational states,
+and decision-making
+
+⸻
+
+Final Direction
+
+The architecture is evolving toward:
+
+Behavior
++
+Transaction
++
+State
+→ Reliability
+→ Operational Risk
+→ Operational Decision
+
+In other words,
+the portfolio is moving beyond simple data quality measurement into:
+
+Operational Reliability
+and
+Decision Reliability Architecture
