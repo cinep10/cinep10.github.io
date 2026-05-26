@@ -71,7 +71,7 @@ generated from the same journey
 
 # High-level Architecture
 
-![Data Generation Architecture](/assets/images/data-generation.png)
+![Data Generation Architecture](/assets/images/high-level-architecture.png)
 
 ---
 
