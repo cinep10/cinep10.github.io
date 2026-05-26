@@ -69,6 +69,12 @@ generated from the same journey
 
 ---
 
+# High-level Architecture
+
+![Data Generation Architecture](/assets/images/data-generation.png)
+
+---
+
 # Why Customer Journey Matters
 
 Traditional systems are often modeled as:
