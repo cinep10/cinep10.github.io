@@ -46,9 +46,7 @@ for measuring operational inconsistency across multiple domains.
 ---
 
 # Overall Structure
-
 ![Data Generation Architecture](/assets/images/data-generation-architecture.png)
-
 ---
 
 # Evolution from Web Log Simulator
