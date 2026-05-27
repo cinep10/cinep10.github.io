@@ -1,67 +1,124 @@
 # Data Transformation Architecture
 
-The current transformation layer is not designed as a simple ETL transformation pipeline.
+The current Transformation Layer is not a simple ETL normalization layer.
 
-Instead, the architecture focuses on:
-
-```text
-Behavior Evidence Transformation
-+
-Commerce Reconciliation Transformation
-+
-Operational Runtime Evidence Integration
-```
-
-The purpose of transformation is not merely reshaping data.
-
-Its purpose is to:
+The architecture has two primary goals:
 
 ```text
-materialize operational reliability meaning
-into a structure that can propagate through
-measurement, analysis, risk, and action layers
+1. Transform behavioral data into Batch / Stream / Runtime Evidence
+2. Transform Behavior ↔ Transaction ↔ State flows into measurable consistency structures
 ```
+
+In other words, the Transformation Layer does not merely normalize data.
+
+Instead, it materializes:
+
+```text
+Operational Evidence Structure
++
+Cross-domain Consistency Structure
+```
+
+for downstream Reliability Measurement and Analytics.
+
+An important architectural principle is:
+
+```text
+Transformation
+≠
+Measurement
+```
+
+Transformation creates structures that can later be measured.
+
+Actual reconciliation analysis, distortion analysis,
+and risk interpretation are performed in the Measurement / Analytics Layer.
 
 ---
 
 # Transformation Architecture Overview
 
-![Transformation Architecture](/assets/images/transformation-architecture.png)
+```mermaid
+flowchart TB
+
+subgraph RAW["Cross-domain Raw Layer"]
+  A["Behavior Raw<br/>event_log_raw"]
+  B["Transaction Raw<br/>transaction_log_raw"]
+  C["State Raw<br/>state_log_raw"]
+end
+
+subgraph BE["Behavior Evidence Transformation"]
+  A --> D["Generic Behavior Canonical<br/>canonical_events"]
+
+  D --> E["Batch Evidence Transformation<br/>stg_event_batch"]
+  D --> F["Stream Evidence Transformation<br/>stg_event_stream"]
+  D --> G["Batch Runtime Transformation<br/>batch_input_day"]
+  D --> H["Stream Replay Transformation<br/>stream_replay_event"]
+end
+
+subgraph CE["Cross-domain Reconciliation Transformation"]
+  D --> I["Commerce Behavior Canonical<br/>canonical_behavior_events"]
+
+  B --> J["Transaction Canonical<br/>canonical_transaction_events"]
+  C --> K["State Canonical<br/>canonical_state_events"]
+
+  I --> L["Behavior ↔ Transaction Mapping<br/>behavior_transaction_mapping"]
+  J --> L
+
+  J --> M["Transaction ↔ State Mapping<br/>transaction_state_mapping"]
+  K --> M
+end
+
+subgraph NEXT["Measurement / Analytics Input"]
+  E --> N["Batch Measurement"]
+  F --> O["Stream Measurement"]
+  G --> P["Operational Measurement"]
+  H --> Q["Realism / Replay Evidence"]
+
+  L --> R["Reconciliation Measurement"]
+  M --> R
+end
+```
 
 ---
 
-# Overall Transformation Flow
+# Overall Transformation Structure
 
-The transformation architecture is composed of two major layers.
+The current Transformation Architecture consists of two major layers:
 
 ```text
-Layer A
-=
-v0.4 Behavior Evidence Transformation
-
-Layer B
-=
-v0.5 Commerce Reconciliation Transformation
+Behavior Evidence Transformation
++
+Cross-domain Reconciliation Transformation
 ```
 
-These layers are ultimately integrated through:
+The first layer transforms behavioral data itself into operational evidence structures.
+
+The second layer transforms:
 
 ```text
-reliability_analysis_result_day_v05
+Behavior
+↔ Transaction
+↔ State
+```
+
+into reconciliation-ready consistency structures.
+
+Importantly, this layer still does not calculate risk scores.
+
+```text
+Transformation = structure generation
+Measurement = consistency observation
+Analytics = reliability interpretation
 ```
 
 ---
 
-# v0.4 Behavior Evidence Transformation
+# Behavior Evidence Transformation
 
-The primary role of the v0.4 layer is:
+Behavior Evidence Transformation converts behavioral data into operational evidence structures.
 
-```text
-runtime evidence generation
-based on behavioral data
-```
-
-Core flow:
+The core flow is:
 
 ```text
 event_log_raw
@@ -72,156 +129,216 @@ event_log_raw
 → stream_replay_event
 ```
 
----
+`event_log_raw` is the raw behavioral event layer.
 
-# canonical_events
-
-`canonical_events` acts as the:
-
-```text
-Generic Behavior Canonical
-```
-
-layer.
-
-It standardizes behavioral events such as:
+Representative events include:
 
 ```text
 page_view
 click
 submit
 conversion
-campaign
-visitor
-session
+campaign event
 ```
 
-into a unified event schema.
+The purpose of this layer is to preserve raw operational behavior evidence.
 
-Important:
+At this stage:
+
+```text
+sessionization
+distribution analysis
+reconciliation
+risk scoring
+```
+
+are not yet performed.
+
+---
+
+# Generic Behavior Canonical
+
+`canonical_events` acts as the Generic Behavior Canonical Layer.
+
+Its primary role is:
+
+```text
+Raw Behavior Event
+→ Standardized Operational Event
+```
+
+Representative normalization includes:
+
+```text
+visitor normalization
+session normalization
+event normalization
+pageview normalization
+conversion normalization
+campaign normalization
+```
+
+An important principle is:
 
 ```text
 canonical_events
 ≠
-final risk authority
+risk authority
 ```
 
-Instead, it serves as:
+Instead:
 
 ```text
-behavior operational evidence base
+canonical_events
+=
+generic behavior evidence base
 ```
 
 ---
 
-# stg_event_batch
+# Batch Evidence Transformation
 
-`stg_event_batch` is the staging layer for batch measurement.
+Batch Evidence Transformation converts behavioral data into batch-operational evidence structures.
 
-Primary purposes:
+The actual implementation flow is:
 
 ```text
-distribution analysis
-batch completeness
-traffic distortion
-campaign variation
-conversion trend
+canonical_events
+→ stg_event_batch
 ```
 
-Meaning:
+The goal of this layer is to support:
+
+```text
+traffic distribution analysis
+campaign distribution analysis
+conversion analysis
+journey-stage aggregation
+visitor/session aggregation
+```
+
+In other words:
 
 ```text
 Behavior Canonical
-→ Batch Evidence Transformation
+→ Batch Operational Evidence
+```
+
+This layer later becomes input for batch analyzers such as:
+
+```text
+analyzer_b_v5_v04.py
+```
+
+which generate batch-level measurement evidence.
+
+---
+
+# Stream Evidence Transformation
+
+Stream Evidence Transformation converts behavioral streams into stream-operational evidence structures.
+
+The implementation flow is:
+
+```text
+canonical_events
+→ stg_event_stream
+```
+
+Additionally, replay-compatible stream reconstruction is supported through:
+
+```text
+canonical_events
+→ stream_replay_event
+```
+
+The goal of this layer is to support:
+
+```text
+stream completeness validation
+duplicate detection
+late-event validation
+ordering validation
+producer/consumer parity validation
+```
+
+In other words:
+
+```text
+Behavior Stream
+→ Stream Operational Evidence
 ```
 
 ---
 
-# stg_event_stream
+# Runtime Evidence Transformation
 
-`stg_event_stream` is the staging layer for stream measurement.
+Runtime Evidence Transformation converts pipeline execution states into operational runtime evidence.
 
-Primary purposes:
+Representative implementation structures include:
 
 ```text
-stream replay
-late event
-duplicate event
-ordering issue
-stream completeness
+batch_input_day
+stream_replay_event
 ```
 
-Important:
+The purpose of this layer is to materialize:
 
 ```text
-stg_event_stream
-≠
-authoritative risk layer
+batch execution readiness
+pipeline availability
+stream replay validation
+runtime operational evidence
 ```
 
-Its actual role is:
+In other words:
 
 ```text
-Operational Stream Evidence Transformation
-```
-
----
-
-# batch_input_day
-
-`batch_input_day` materializes batch execution inputs.
-
-Primary purposes:
-
-```text
-batch availability
-batch completeness
-batch execution evidence
-```
-
-Meaning:
-
-```text
-Batch Operational Readiness Transformation
+Pipeline Runtime
+→ Operational Runtime Evidence
 ```
 
 ---
 
-# stream_replay_event
+# Cross-domain Reconciliation Transformation
 
-`stream_replay_event` materializes replay-compatible stream events.
+Cross-domain Reconciliation Transformation is the core of the current v0.5 architecture.
 
-Primary purposes:
+This layer connects:
 
 ```text
-stream simulation without Kafka
-operational replay
-consumer/producer parity validation
+Behavior
+↔ Transaction
+↔ State
 ```
 
-This enables:
+into reconciliation-ready structures.
+
+The core flow is:
 
 ```text
-Replay-Compatible Operational Stream Architecture
+canonical_behavior_events
+canonical_transaction_events
+canonical_state_events
+→ behavior_transaction_mapping
+→ transaction_state_mapping
+```
+
+Its purpose is not simple normalization.
+
+Instead, it materializes:
+
+```text
+Cross-domain Operational Consistency Structure
 ```
 
 ---
 
-# v0.5 Commerce Transformation
+# Commerce Behavior Canonical
 
-The actual authoritative commerce layer exists in the v0.5 transformation architecture.
+`canonical_behavior_events` acts as a reconciliation-aware commerce behavior canonical layer.
 
----
-
-# Behavior Transformation
-
-```text
-event_log_raw
-→ canonical_events
-→ canonical_behavior_events
-```
-
-Current distinction:
+The key distinction is:
 
 ```text
 canonical_events
@@ -233,17 +350,7 @@ canonical_behavior_events
 commerce reconciliation behavior canonical
 ```
 
-`canonical_behavior_events` is:
-
-```text
-journey-aware
-transaction-aware
-reconciliation-aware
-```
-
-behavior canonicalization.
-
-Representative identities:
+Representative identities include:
 
 ```text
 journey_id
@@ -257,28 +364,20 @@ delivery_id
 coupon_id
 ```
 
-Meaning:
+This layer transforms:
 
 ```text
-Behavior Reconciliation Transformation
+Behavior Flow
+→ Reconciliation-aware Behavior Evidence
 ```
 
 ---
 
-# Transaction Transformation
+# Transaction Canonical Transformation
 
-```text
-transaction_log_raw
-→ canonical_transaction_events
-```
+`canonical_transaction_events` standardizes business transaction flows.
 
-Primary role:
-
-```text
-Business Transaction Canonical Transformation
-```
-
-Representative canonical events:
+Representative events include:
 
 ```text
 order_created
@@ -289,28 +388,20 @@ refund_requested
 cancel_requested
 ```
 
-Meaning:
+This layer transforms:
 
 ```text
-Business Event Truth Materialization
+Transaction Flow
+→ Business Transaction Canonical
 ```
 
 ---
 
-# State Transformation
+# State Canonical Transformation
 
-```text
-state_log_raw
-→ canonical_state_events
-```
+`canonical_state_events` standardizes workflow state transitions.
 
-Primary role:
-
-```text
-State Machine Canonical Transformation
-```
-
-Representative states:
+Representative states include:
 
 ```text
 order_state
@@ -319,110 +410,149 @@ delivery_state
 refund_state
 ```
 
-Meaning:
+This layer transforms:
 
 ```text
-Operational Workflow Truth Transformation
+Operational Workflow
+→ State Canonical Evidence
 ```
 
 ---
 
-# Reconciliation Transformation
+# Behavior ↔ Transaction Mapping
 
-The core innovation of the transformation architecture is:
+This layer materializes consistency structures between behavior and transaction flows.
+
+Representative implementation table:
 
 ```text
-Behavior ↔ Transaction ↔ State
+behavior_transaction_mapping
 ```
 
-reconciliation.
-
-Overall flow:
+The key questions are:
 
 ```text
+Did behavior lead to transactions?
+Do transactions have behavioral provenance?
+```
+
+However, no reconciliation scores are calculated yet.
+
+The purpose of this layer is structure generation for later measurement.
+
+```text
+Behavior Flow
++
+Transaction Flow
+→ Behavior-Transaction Consistency Structure
+```
+
+---
+
+# Transaction ↔ State Mapping
+
+This layer materializes consistency structures between transaction and state-transition flows.
+
+Representative implementation table:
+
+```text
+transaction_state_mapping
+```
+
+The key questions are:
+
+```text
+Did transactions properly propagate into workflow states?
+Do workflow states have valid transaction provenance?
+```
+
+Again, no semantic risk or reconciliation scores are calculated yet.
+
+The purpose is:
+
+```text
+Transaction Flow
++
+State Transition Flow
+→ Transaction-State Consistency Structure
+```
+
+---
+
+# Transformation Boundary
+
+The Transformation Layer performs:
+
+```text
+Raw → Canonical normalization
+Batch / Stream / Runtime evidence generation
+Behavior / Transaction / State linkage generation
+Consistency structure materialization
+```
+
+However, it does NOT perform:
+
+```text
+reconciliation_gap_score calculation
+distortion_score calculation
+semantic interpretation
+overall_risk_score calculation
+recommended_action generation
+```
+
+The Transformation Layer therefore ends at:
+
+```text
+stg_event_batch
+stg_event_stream
+batch_input_day
+stream_replay_event
 canonical_behavior_events
 canonical_transaction_events
 canonical_state_events
-→ behavior_transaction_mapping
-→ transaction_state_mapping
-→ v05_reconciliation_measurement_day
+behavior_transaction_mapping
+transaction_state_mapping
 ```
 
-This is not merely event normalization.
-
-It is:
-
-```text
-Cross-domain Operational Consistency Materialization
-```
+Everything beyond this point belongs to the Measurement / Analytics Layer.
 
 ---
 
-# Runtime Evidence Integration
+# Architecture Principles
 
-One of the most important architectural connections is:
+## Transformation ≠ Simple ETL Normalization
 
-```text
-v0.4 evidence
-→ v05_runtime_evidence_day
-→ reliability_analysis_result_day_v05
-```
+## Transformation = Operational Evidence Materialization
 
-Meaning:
+## Separate Behavior Evidence from Reconciliation Structure
 
-```text
-v0.4 output
-≠
-final authority
-```
+## Separate Generic Behavior Canonical from Commerce Behavior Canonical
 
-Instead, it acts as:
-
-```text
-runtime operational evidence interface
-```
-
-`reliability_analysis_result_day_v05` receives:
-
-```text
-1. v0.5 reconciliation measurement
-2. v0.4 runtime evidence
-```
-
-simultaneously.
-
-This enables interpretation of:
-
-```text
-Cross-domain business consistency
-+
-Operational runtime evidence
-```
-
-within a unified reliability analysis structure.
+## Separate Transformation from Measurement
 
 ---
 
-# Final Architecture Definition
+# Final Definition
 
-The current transformation layer is not a conventional ETL transformation pipeline.
+The current Transformation Architecture is not a conventional ETL transformation layer.
 
 More precisely, it is a:
 
 ```text
 Behavior Evidence Transformation
 +
-Commerce Reconciliation Transformation
-+
-Operational Runtime Evidence Integration
+Behavior ↔ Transaction ↔ State Reconciliation Transformation
 ```
 
 architecture.
 
-Ultimately, the system has evolved into a:
+And more specifically:
 
 ```text
-Cross-domain
-Measurement-to-Decision
-Operational Reliability Transformation Architecture
+It materializes behavioral flows,
+transaction flows,
+and state-transition flows
+into measurable operational evidence structures
+and cross-domain consistency structures
+for Operational Reliability analysis.
 ```
