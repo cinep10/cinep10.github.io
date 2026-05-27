@@ -1,146 +1,368 @@
 # Data Ingestion Architecture
 
-The current ingestion layer is not designed as a simple ETL ingestion pipeline.
+The current ingestion layer is not designed as a simple behavioral log ingestion pipeline.
 
-Instead, the architecture focuses on preserving:
+Instead, the architecture focuses on collecting:
 
-```text
+```text id="m1t6vr"
+Behavior Log
+↔ Transaction Log
+↔ State Log
+```
+
+as:
+
+```text id="ph2w9d"
+Cross-domain Operational Evidence
+derived from a single Customer Journey
+```
+
+The ingestion layer is therefore not a conventional ETL ingestion structure.
+
+Instead, it guarantees:
+
+```text id="j8q2lt"
 Source Provenance
 +
 Scenario Identity Propagation
 +
-Behavior Event Lineage Preservation
+Cross-domain Lineage Preservation
++
+Replay Reproducibility
 ```
 
-through an:
+within a:
 
-```text
+```text id="w0e7bf"
 Operational Reliability Collection Architecture
 ```
 
-The core objective is not simply loading logs into a database.
-
-It is to make the following traceable:
-
-```text
-Which source file
-was generated from which scenario/run,
-and through what lineage
-it became a behavior event raw record
-```
+framework. 
 
 ---
 
 # Collection Architecture Overview
 
-![Collection Architecture](/assets/images/collection-architecture.png)
+```mermaid id="n3g7fd"
+flowchart TB
+
+subgraph Source["Customer Journey Source"]
+
+A["Customer Journey"]
+
+A --> B["Behavior Log"]
+A --> C["Transaction Log"]
+A --> D["State Log"]
+
+end
+
+subgraph Collection["Collection Layer"]
+
+B --> E["Behavior Collection"]
+C --> F["Transaction Collection"]
+D --> G["State Collection"]
+
+end
+
+subgraph Operational["Operational Collection"]
+
+E --> H["Behavior Event Collection"]
+F --> I["Transaction Event Collection"]
+G --> J["State Transition Collection"]
+
+end
+
+subgraph Canonical["Canonical Layer"]
+
+H --> K["Behavior Canonical"]
+I --> L["Transaction Canonical"]
+J --> M["State Canonical"]
+
+end
+
+subgraph Provenance["Cross-domain Provenance"]
+
+E
+F
+G
+H
+I
+J
+
+end
+```
 
 ---
 
-# Overall Flow
+# Overall Architecture
 
-The current collection architecture follows this flow:
+The core structure of the current collection architecture is:
 
-```text
-Source Log File
-→ raw_snapshot_manifest
-→ stg_webserver_log_hit
-→ stg_wc_log_hit
-→ event_log_raw
-→ canonical_events
-→ canonical_behavior_events
+```text id="x8z0qd"
+Customer Journey
+→ Behavior Collection
+→ Transaction Collection
+→ State Collection
+→ Canonical Operational Evidence
 ```
 
-This structure is not simply file parsing.
+The architecture is therefore not limited to:
 
-It exists to preserve:
+```text id="u5m4nr"
+behavioral log ingestion only
+```
 
-```text
-File Provenance
+Instead, the system jointly collects:
+
+```text id="p4y6th"
+behavioral flow
 +
-Source Identity
+transaction flow
 +
-Behavior Event Lineage
+state transition flow
 ```
 
-through the entire ingestion process.
+within a:
+
+```text id="k7c3oe"
+Cross-domain Operational Collection Architecture
+```
+
+framework.
 
 ---
 
-# raw_snapshot_manifest
+# Customer Journey-driven Collection
 
-`raw_snapshot_manifest` is not a row-level log table.
+The starting point of the collection architecture is:
 
-It is a file-level provenance layer that manages:
-
-```text
-which source files were collected
+```text id="g2d9wk"
+Customer Journey
 ```
 
-Its primary responsibilities include:
+Meaning:
 
-* source file discovery
-* file lineage registration
-* source_gen_run_id linkage
-* replay/reprocessing reproducibility
-
-Core meaning:
-
-```text
-raw_snapshot_manifest
-=
-File Provenance Layer
+```text id="q0s8ve"
+Behavior Log
+→ Transaction Log
+→ State Log
 ```
 
-It is the starting point of the entire downstream lineage chain.
+are not independently generated streams.
+
+Instead, they are:
+
+```text id="m7p2rf"
+parallel derivatives
+from a single customer journey
+```
+
+Example:
+
+```text id="b9v4ye"
+restaurant_view
+→ menu_click
+→ add_cart
+→ payment
+→ order_created
+→ rider_assigned
+→ delivered
+```
+
+Within this journey:
+
+```text id="d3k6oq"
+behavior logs
+transaction logs
+state logs
+```
+
+are generated simultaneously.
+
+The architecture therefore becomes:
+
+```text id="y6j1cx"
+Journey-aware Collection
+```
 
 ---
 
-# stg_webserver_log_hit
+# Behavior Collection
 
-`stg_webserver_log_hit` is the staging layer that materializes W3C source logs into structured rows.
+Behavior Collection handles behavioral log ingestion.
 
-Primary responsibilities:
+Representative sources:
 
-* W3C parsing
-* source row materialization
-* scenario identity propagation
-* line-level provenance preservation
-
-Source log:
-
-```text
-IP - - [timestamp] "GET /..." ...
+```text id="r1f7tn"
+W3C access log
+web event log
+behavior event stream
 ```
 
-↓
+Representative events:
 
-Structured staging row:
-
-```text
-ip
-ts
-method
-uri
-http_status
-cookie
-user_agent
+```text id="o2w4zi"
+page_view
+product_view
+click
+add_cart
+checkout
+payment_attempt
 ```
 
-Additional lineage metadata:
+Its primary role is:
 
-```text
+```text id="e8q9vd"
+preserving behavioral flow provenance
+```
+
+Meaning:
+
+```text id="v7m0ur"
+Which visitor/session/journey
+generated which behavior?
+```
+
+Representative identities:
+
+```text id="p6k5aw"
+pcid
+sid
+uid
+journey_id
+```
+
+---
+
+# Transaction Collection
+
+Transaction Collection ingests business transaction events.
+
+Representative sources:
+
+```text id="u3h8zs"
+commerce transaction events
+payment events
+order events
+refund events
+coupon events
+```
+
+Representative events:
+
+```text id="m2e4kx"
+order_created
+payment_requested
+payment_success
+coupon_applied
+refund_requested
+cancel_requested
+```
+
+Its primary role is:
+
+```text id="t9n6cf"
+preserving transaction evidence
+connected to behavioral flow
+```
+
+Meaning:
+
+```text id="d0x7pe"
+Which business transaction
+was generated after which behavior?
+```
+
+Representative identities:
+
+```text id="n5j2vo"
+order_id
+payment_id
+transaction_id
+coupon_id
+journey_id
+```
+
+---
+
+# State Collection
+
+State Collection ingests operational workflow state transitions.
+
+Representative sources:
+
+```text id="a4c7rq"
+delivery state
+payment state
+refund state
+order workflow state
+```
+
+Representative events:
+
+```text id="v8h0km"
+order_confirmed
+delivery_assigned
+delivered
+refund_completed
+payment_confirmed
+```
+
+Its primary role is:
+
+```text id="f3q6yl"
+preserving operational workflow state
+after transactions occur
+```
+
+Meaning:
+
+```text id="u1k5ew"
+Did transactions correctly propagate
+into operational workflow states?
+```
+
+Representative identities:
+
+```text id="j7v2mn"
+delivery_id
+refund_id
+payment_id
+order_id
+journey_id
+```
+
+---
+
+# Provenance Preservation
+
+One of the core principles of the current collection architecture is:
+
+```text id="r0x6yc"
+all logs are collected
+with provenance preservation
+```
+
+Meaning the system preserves:
+
+```text id="y9t2fs"
+which source/run/scenario
+generated which operational evidence
+```
+
+Representative lineage identifiers:
+
+```text id="l8w5vo"
+source_gen_run_id
 scenario_id
 scenario_name
 source_generation_scenario
-source_gen_run_id
+journey_id
 ```
 
-is preserved together.
+One important architectural principle is:
 
-One of the most important architectural principles is:
-
-```text
+```text id="k4u9eq"
 requested scenario
 ≠
 source generation scenario
@@ -148,176 +370,104 @@ source generation scenario
 
 Example:
 
-```text
+```text id="h6d3px"
 scenario_name = source_identity_drift
 source_generation_scenario = baseline
 ```
 
 Meaning:
 
-```text
+```text id="m5v0ra"
 baseline journey preservation
 +
 runtime anomaly injection
 ```
 
-Therefore the collection layer is not simply ingestion.
+The architecture therefore becomes:
 
-It is:
-
-```text
+```text id="t2c8qj"
 Scenario-aware Collection
 ```
 
+
+
 ---
 
-# stg_wc_log_hit
+# Cross-domain Lineage
 
-`stg_wc_log_hit` is a collector-compatible operational staging layer.
+The current collection architecture preserves lineage across:
 
-It transforms:
-
-```text
-raw source collection
-→ collector-compatible operational collection
+```text id="n1y7ld"
+Behavior
+↔ Transaction
+↔ State
 ```
 
-Primary responsibilities:
+This enables downstream reconciliation analysis of:
 
-* visitor/session normalization
-* cookie metadata extraction
-* identity stitching preparation
-* behavior event preparation
+```text id="e9s4pk"
+behavior without transaction
+transaction without behavior
+state without transaction
+```
 
-Key operational identities include:
+Representative linkage identities:
 
-```text
-pcid
-sid
-uid
+```text id="f8u6tz"
 journey_id
-cart_id
 order_id
 payment_id
 delivery_id
+coupon_id
+refund_id
 ```
 
-At this stage, raw access logs evolve into:
+The architecture therefore becomes:
 
-```text
-Operational Behavior Collection
+```text id="g0w3rm"
+Cross-domain Operational Lineage Collection
 ```
 
 ---
 
-# event_log_raw
+# Replay Reproducibility
 
-`event_log_raw` is the layer that transforms:
-
-```text
-web hit
-→ behavior event raw
-```
-
-Primary responsibilities:
-
-* event-level raw normalization
-* behavior event lineage preservation
-* provenance preservation before canonical transformation
+Replay and reproducibility are fundamental architectural goals.
 
 Meaning:
 
-```text
-event_log_raw
-=
-Event-level Provenance Layer
-```
-
-The architecture intentionally separates:
-
-```text
-collector parsing issues
-```
-
-from:
-
-```text
-canonical transformation issues
-```
-
-Therefore the following structure is preserved:
-
-```text
-stg_wc_log_hit
-→ event_log_raw
-→ canonical_events
-```
-
-This enables:
-
-* replay
-* debugging
-* provenance tracing
-* parsing validation
-
-across the ingestion pipeline.
-
----
-
-# source_gen_run_id
-
-One of the most important lineage keys in the architecture is:
-
-```text
-source_gen_run_id
-```
-
-Its purpose is to identify:
-
-```text
-which source generation execution
-produced this row
-```
-
-This becomes critical because the architecture supports:
-
-* multi-scenario smoke tests
-* replay
-* pilot runs
-* long-term backfill
-
-Meaning:
-
-```text
+```text id="q4z1nh"
 same date
 same scenario
 ```
 
 may be executed repeatedly.
 
-Therefore:
+Therefore lineage authority cannot rely only on:
 
-```text
-scenario_name only
+```text id="u2f9mj"
+scenario_name
 ```
 
-cannot be treated as the primary lineage authority.
+Instead, the primary lineage authority is:
 
-Instead:
-
-```text
+```text id="w7c5ev"
 source_gen_run_id
-=
-primary lineage authority
 ```
 
-is the core design principle.
+
+
+This enables:
+
+```text id="o5m8kd"
+Replay-compatible Operational Collection
+```
 
 ---
 
 # Architecture Principles
 
-The current ingestion architecture is built on the following principles.
+The core principles of the current collection architecture are:
 
 ---
 
@@ -325,47 +475,55 @@ The current ingestion architecture is built on the following principles.
 
 ---
 
-## Collection = Provenance Preservation
+## Collection = Operational Provenance Preservation
 
 ---
 
-## Preserve Scenario Identity Propagation
+## Behavior ↔ Transaction ↔ State Lineage Preservation
 
 ---
 
-## Preserve Source-level Anomaly Provenance
+## Scenario Identity Propagation Preservation
 
 ---
 
-## Preserve Behavior Event Lineage
+## Replay Reproducibility Preservation
 
 ---
 
-# Final Definition
+# Final Architecture Definition
 
-The current ingestion layer is not a conventional ingestion pipeline.
+The current ingestion layer is not a simple ingestion architecture.
 
 More precisely, it is a:
 
-```text
-Scenario-aware
-Operational Behavior Collection Architecture
+```text id="c1v6zp"
+Behavior
+↔ Transaction
+↔ State
 ```
 
-that preserves:
+based:
 
-```text
+```text id="x4q7uw"
+Scenario-aware
+Cross-domain Operational Collection Architecture
+```
+
+And more specifically, it guarantees:
+
+```text id="y3r9ko"
 Source Provenance
 +
-Identity Propagation
+Cross-domain Lineage
 +
-Behavior Event Lineage
+Scenario Identity Propagation
 +
 Replay Reproducibility
 ```
 
-as an:
+as the:
 
-```text
+```text id="m8n2fa"
 Operational Reliability Collection Foundation
 ```
