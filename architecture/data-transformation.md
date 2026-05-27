@@ -4,7 +4,7 @@ The current transformation layer is not designed as a simple ETL transformation 
 
 Instead, the architecture focuses on:
 
-```text id="9n9vxl"
+```text
 Behavior Evidence Transformation
 +
 Commerce Reconciliation Transformation
@@ -16,7 +16,7 @@ The purpose of transformation is not merely reshaping data.
 
 Its purpose is to:
 
-```text id="r0k2d0"
+```text
 materialize operational reliability meaning
 into a structure that can propagate through
 measurement, analysis, risk, and action layers
@@ -34,7 +34,7 @@ measurement, analysis, risk, and action layers
 
 The transformation architecture is composed of two major layers.
 
-```text id="e1q4xw"
+```text
 Layer A
 =
 v0.4 Behavior Evidence Transformation
@@ -56,14 +56,14 @@ reliability_analysis_result_day_v05
 
 The primary role of the v0.4 layer is:
 
-```text id="m2c8zs"
+```text
 runtime evidence generation
 based on behavioral data
 ```
 
 Core flow:
 
-```text id="k0l5xu"
+```text
 event_log_raw
 → canonical_events
 → stg_event_batch
@@ -78,7 +78,7 @@ event_log_raw
 
 `canonical_events` acts as the:
 
-```text id="v5j2re"
+```text
 Generic Behavior Canonical
 ```
 
@@ -86,7 +86,7 @@ layer.
 
 It standardizes behavioral events such as:
 
-```text id="w4m0ly"
+```text
 page_view
 click
 submit
@@ -100,7 +100,7 @@ into a unified event schema.
 
 Important:
 
-```text id="u2h9ne"
+```text
 canonical_events
 ≠
 final risk authority
@@ -120,7 +120,7 @@ behavior operational evidence base
 
 Primary purposes:
 
-```text id="q1p6jr"
+```text
 distribution analysis
 batch completeness
 traffic distortion
@@ -130,7 +130,7 @@ conversion trend
 
 Meaning:
 
-```text id="v0g7ds"
+```text
 Behavior Canonical
 → Batch Evidence Transformation
 ```
@@ -143,7 +143,7 @@ Behavior Canonical
 
 Primary purposes:
 
-```text id="o3n5hl"
+```text
 stream replay
 late event
 duplicate event
@@ -153,7 +153,7 @@ stream completeness
 
 Important:
 
-```text id="n5m8az"
+```text
 stg_event_stream
 ≠
 authoritative risk layer
@@ -161,7 +161,7 @@ authoritative risk layer
 
 Its actual role is:
 
-```text id="t7w2ye"
+```text
 Operational Stream Evidence Transformation
 ```
 
@@ -173,7 +173,7 @@ Operational Stream Evidence Transformation
 
 Primary purposes:
 
-```text id="h8s4vf"
+```text
 batch availability
 batch completeness
 batch execution evidence
@@ -181,7 +181,7 @@ batch execution evidence
 
 Meaning:
 
-```text id="a3x7pk"
+```text
 Batch Operational Readiness Transformation
 ```
 
@@ -193,7 +193,7 @@ Batch Operational Readiness Transformation
 
 Primary purposes:
 
-```text id="m6v1te"
+```text
 stream simulation without Kafka
 operational replay
 consumer/producer parity validation
@@ -201,7 +201,7 @@ consumer/producer parity validation
 
 This enables:
 
-```text id="w9n3fs"
+```text
 Replay-Compatible Operational Stream Architecture
 ```
 
@@ -215,7 +215,7 @@ The actual authoritative commerce layer exists in the v0.5 transformation archit
 
 # Behavior Transformation
 
-```text id="z4r1vu"
+```text
 event_log_raw
 → canonical_events
 → canonical_behavior_events
@@ -223,7 +223,7 @@ event_log_raw
 
 Current distinction:
 
-```text id="p7h5ol"
+```text
 canonical_events
 =
 generic behavior canonical
@@ -235,7 +235,7 @@ commerce reconciliation behavior canonical
 
 `canonical_behavior_events` is:
 
-```text id="f6q8de"
+```text
 journey-aware
 transaction-aware
 reconciliation-aware
@@ -245,7 +245,7 @@ behavior canonicalization.
 
 Representative identities:
 
-```text id="y2w7rb"
+```text
 journey_id
 pcid
 sid
@@ -259,7 +259,7 @@ coupon_id
 
 Meaning:
 
-```text id="u8j6kc"
+```text
 Behavior Reconciliation Transformation
 ```
 
@@ -267,20 +267,20 @@ Behavior Reconciliation Transformation
 
 # Transaction Transformation
 
-```text id="k5n2xr"
+```text
 transaction_log_raw
 → canonical_transaction_events
 ```
 
 Primary role:
 
-```text id="v4p1te"
+```text
 Business Transaction Canonical Transformation
 ```
 
 Representative canonical events:
 
-```text id="q7z9wd"
+```text
 order_created
 payment_requested
 payment_success
@@ -291,7 +291,7 @@ cancel_requested
 
 Meaning:
 
-```text id="n6c3lp"
+```text
 Business Event Truth Materialization
 ```
 
@@ -299,20 +299,20 @@ Business Event Truth Materialization
 
 # State Transformation
 
-```text id="m3r8oq"
+```text
 state_log_raw
 → canonical_state_events
 ```
 
 Primary role:
 
-```text id="x9h1vu"
+```text
 State Machine Canonical Transformation
 ```
 
 Representative states:
 
-```text id="b8z2nk"
+```text
 order_state
 payment_state
 delivery_state
@@ -321,7 +321,7 @@ refund_state
 
 Meaning:
 
-```text id="g0v5wx"
+```text
 Operational Workflow Truth Transformation
 ```
 
@@ -331,7 +331,7 @@ Operational Workflow Truth Transformation
 
 The core innovation of the transformation architecture is:
 
-```text id="r2y4tm"
+```text
 Behavior ↔ Transaction ↔ State
 ```
 
@@ -339,7 +339,7 @@ reconciliation.
 
 Overall flow:
 
-```text id="q1m9zr"
+```text
 canonical_behavior_events
 canonical_transaction_events
 canonical_state_events
@@ -352,7 +352,7 @@ This is not merely event normalization.
 
 It is:
 
-```text id="n4w8jh"
+```text
 Cross-domain Operational Consistency Materialization
 ```
 
@@ -362,7 +362,7 @@ Cross-domain Operational Consistency Materialization
 
 One of the most important architectural connections is:
 
-```text id="v5d3qo"
+```text
 v0.4 evidence
 → v05_runtime_evidence_day
 → reliability_analysis_result_day_v05
@@ -370,7 +370,7 @@ v0.4 evidence
 
 Meaning:
 
-```text id="z8q7tr"
+```text
 v0.4 output
 ≠
 final authority
@@ -378,13 +378,13 @@ final authority
 
 Instead, it acts as:
 
-```text id="x4m2va"
+```text
 runtime operational evidence interface
 ```
 
 `reliability_analysis_result_day_v05` receives:
 
-```text id="w1h6ek"
+```text
 1. v0.5 reconciliation measurement
 2. v0.4 runtime evidence
 ```
@@ -393,7 +393,7 @@ simultaneously.
 
 This enables interpretation of:
 
-```text id="m8z3ql"
+```text
 Cross-domain business consistency
 +
 Operational runtime evidence
@@ -409,7 +409,7 @@ The current transformation layer is not a conventional ETL transformation pipeli
 
 More precisely, it is a:
 
-```text id="n7v5kp"
+```text
 Behavior Evidence Transformation
 +
 Commerce Reconciliation Transformation
@@ -421,7 +421,7 @@ architecture.
 
 Ultimately, the system has evolved into a:
 
-```text id="p9x4fd"
+```text
 Cross-domain
 Measurement-to-Decision
 Operational Reliability Transformation Architecture
