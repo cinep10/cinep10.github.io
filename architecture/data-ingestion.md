@@ -4,7 +4,7 @@ The current ingestion layer is not designed as a simple behavioral log ingestion
 
 Instead, the architecture focuses on collecting:
 
-```text id="m1t6vr"
+```text
 Behavior Log
 ↔ Transaction Log
 ↔ State Log
@@ -12,7 +12,7 @@ Behavior Log
 
 as:
 
-```text id="ph2w9d"
+```text
 Cross-domain Operational Evidence
 derived from a single Customer Journey
 ```
@@ -21,7 +21,7 @@ The ingestion layer is therefore not a conventional ETL ingestion structure.
 
 Instead, it guarantees:
 
-```text id="j8q2lt"
+```text
 Source Provenance
 +
 Scenario Identity Propagation
@@ -31,19 +31,19 @@ Cross-domain Lineage Preservation
 Replay Reproducibility
 ```
 
-within a:
+within an:
 
-```text id="w0e7bf"
+```text
 Operational Reliability Collection Architecture
 ```
 
-framework. 
+framework.
 
 ---
 
 # Collection Architecture Overview
 
-```mermaid id="n3g7fd"
+```mermaid
 flowchart TB
 
 subgraph Source["Customer Journey Source"]
@@ -98,7 +98,7 @@ end
 
 The core structure of the current collection architecture is:
 
-```text id="x8z0qd"
+```text
 Customer Journey
 → Behavior Collection
 → Transaction Collection
@@ -108,13 +108,13 @@ Customer Journey
 
 The architecture is therefore not limited to:
 
-```text id="u5m4nr"
+```text
 behavioral log ingestion only
 ```
 
 Instead, the system jointly collects:
 
-```text id="p4y6th"
+```text
 behavioral flow
 +
 transaction flow
@@ -124,7 +124,7 @@ state transition flow
 
 within a:
 
-```text id="k7c3oe"
+```text
 Cross-domain Operational Collection Architecture
 ```
 
@@ -136,13 +136,13 @@ framework.
 
 The starting point of the collection architecture is:
 
-```text id="g2d9wk"
+```text
 Customer Journey
 ```
 
 Meaning:
 
-```text id="q0s8ve"
+```text
 Behavior Log
 → Transaction Log
 → State Log
@@ -152,14 +152,14 @@ are not independently generated streams.
 
 Instead, they are:
 
-```text id="m7p2rf"
+```text
 parallel derivatives
 from a single customer journey
 ```
 
 Example:
 
-```text id="b9v4ye"
+```text
 restaurant_view
 → menu_click
 → add_cart
@@ -171,7 +171,7 @@ restaurant_view
 
 Within this journey:
 
-```text id="d3k6oq"
+```text
 behavior logs
 transaction logs
 state logs
@@ -181,7 +181,7 @@ are generated simultaneously.
 
 The architecture therefore becomes:
 
-```text id="y6j1cx"
+```text
 Journey-aware Collection
 ```
 
@@ -193,7 +193,7 @@ Behavior Collection handles behavioral log ingestion.
 
 Representative sources:
 
-```text id="r1f7tn"
+```text
 W3C access log
 web event log
 behavior event stream
@@ -201,7 +201,7 @@ behavior event stream
 
 Representative events:
 
-```text id="o2w4zi"
+```text
 page_view
 product_view
 click
@@ -212,20 +212,20 @@ payment_attempt
 
 Its primary role is:
 
-```text id="e8q9vd"
+```text
 preserving behavioral flow provenance
 ```
 
 Meaning:
 
-```text id="v7m0ur"
+```text
 Which visitor/session/journey
 generated which behavior?
 ```
 
 Representative identities:
 
-```text id="p6k5aw"
+```text
 pcid
 sid
 uid
@@ -240,7 +240,7 @@ Transaction Collection ingests business transaction events.
 
 Representative sources:
 
-```text id="u3h8zs"
+```text
 commerce transaction events
 payment events
 order events
@@ -250,7 +250,7 @@ coupon events
 
 Representative events:
 
-```text id="m2e4kx"
+```text
 order_created
 payment_requested
 payment_success
@@ -261,21 +261,21 @@ cancel_requested
 
 Its primary role is:
 
-```text id="t9n6cf"
+```text
 preserving transaction evidence
 connected to behavioral flow
 ```
 
 Meaning:
 
-```text id="d0x7pe"
+```text
 Which business transaction
 was generated after which behavior?
 ```
 
 Representative identities:
 
-```text id="n5j2vo"
+```text
 order_id
 payment_id
 transaction_id
@@ -291,7 +291,7 @@ State Collection ingests operational workflow state transitions.
 
 Representative sources:
 
-```text id="a4c7rq"
+```text
 delivery state
 payment state
 refund state
@@ -300,7 +300,7 @@ order workflow state
 
 Representative events:
 
-```text id="v8h0km"
+```text
 order_confirmed
 delivery_assigned
 delivered
@@ -310,21 +310,21 @@ payment_confirmed
 
 Its primary role is:
 
-```text id="f3q6yl"
+```text
 preserving operational workflow state
 after transactions occur
 ```
 
 Meaning:
 
-```text id="u1k5ew"
+```text
 Did transactions correctly propagate
 into operational workflow states?
 ```
 
 Representative identities:
 
-```text id="j7v2mn"
+```text
 delivery_id
 refund_id
 payment_id
@@ -338,21 +338,21 @@ journey_id
 
 One of the core principles of the current collection architecture is:
 
-```text id="r0x6yc"
+```text
 all logs are collected
 with provenance preservation
 ```
 
 Meaning the system preserves:
 
-```text id="y9t2fs"
+```text
 which source/run/scenario
 generated which operational evidence
 ```
 
 Representative lineage identifiers:
 
-```text id="l8w5vo"
+```text
 source_gen_run_id
 scenario_id
 scenario_name
@@ -362,7 +362,7 @@ journey_id
 
 One important architectural principle is:
 
-```text id="k4u9eq"
+```text
 requested scenario
 ≠
 source generation scenario
@@ -370,14 +370,14 @@ source generation scenario
 
 Example:
 
-```text id="h6d3px"
+```text
 scenario_name = source_identity_drift
 source_generation_scenario = baseline
 ```
 
 Meaning:
 
-```text id="m5v0ra"
+```text
 baseline journey preservation
 +
 runtime anomaly injection
@@ -385,11 +385,9 @@ runtime anomaly injection
 
 The architecture therefore becomes:
 
-```text id="t2c8qj"
+```text
 Scenario-aware Collection
 ```
-
-
 
 ---
 
@@ -397,7 +395,7 @@ Scenario-aware Collection
 
 The current collection architecture preserves lineage across:
 
-```text id="n1y7ld"
+```text
 Behavior
 ↔ Transaction
 ↔ State
@@ -405,7 +403,7 @@ Behavior
 
 This enables downstream reconciliation analysis of:
 
-```text id="e9s4pk"
+```text
 behavior without transaction
 transaction without behavior
 state without transaction
@@ -413,7 +411,7 @@ state without transaction
 
 Representative linkage identities:
 
-```text id="f8u6tz"
+```text
 journey_id
 order_id
 payment_id
@@ -424,7 +422,7 @@ refund_id
 
 The architecture therefore becomes:
 
-```text id="g0w3rm"
+```text
 Cross-domain Operational Lineage Collection
 ```
 
@@ -436,7 +434,7 @@ Replay and reproducibility are fundamental architectural goals.
 
 Meaning:
 
-```text id="q4z1nh"
+```text
 same date
 same scenario
 ```
@@ -445,21 +443,19 @@ may be executed repeatedly.
 
 Therefore lineage authority cannot rely only on:
 
-```text id="u2f9mj"
+```text
 scenario_name
 ```
 
 Instead, the primary lineage authority is:
 
-```text id="w7c5ev"
+```text
 source_gen_run_id
 ```
 
-
-
 This enables:
 
-```text id="o5m8kd"
+```text
 Replay-compatible Operational Collection
 ```
 
@@ -497,7 +493,7 @@ The current ingestion layer is not a simple ingestion architecture.
 
 More precisely, it is a:
 
-```text id="c1v6zp"
+```text
 Behavior
 ↔ Transaction
 ↔ State
@@ -505,14 +501,14 @@ Behavior
 
 based:
 
-```text id="x4q7uw"
+```text
 Scenario-aware
 Cross-domain Operational Collection Architecture
 ```
 
 And more specifically, it guarantees:
 
-```text id="y3r9ko"
+```text
 Source Provenance
 +
 Cross-domain Lineage
@@ -524,6 +520,6 @@ Replay Reproducibility
 
 as the:
 
-```text id="m8n2fa"
+```text
 Operational Reliability Collection Foundation
 ```
