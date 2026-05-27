@@ -38,47 +38,7 @@ and risk interpretation are performed in the Measurement / Analytics Layer.
 
 # Transformation Architecture Overview
 
-```mermaid
-flowchart TB
-
-subgraph RAW["Cross-domain Raw Layer"]
-  A["Behavior Raw<br/>event_log_raw"]
-  B["Transaction Raw<br/>transaction_log_raw"]
-  C["State Raw<br/>state_log_raw"]
-end
-
-subgraph BE["Behavior Evidence Transformation"]
-  A --> D["Generic Behavior Canonical<br/>canonical_events"]
-
-  D --> E["Batch Evidence Transformation<br/>stg_event_batch"]
-  D --> F["Stream Evidence Transformation<br/>stg_event_stream"]
-  D --> G["Batch Runtime Transformation<br/>batch_input_day"]
-  D --> H["Stream Replay Transformation<br/>stream_replay_event"]
-end
-
-subgraph CE["Cross-domain Reconciliation Transformation"]
-  D --> I["Commerce Behavior Canonical<br/>canonical_behavior_events"]
-
-  B --> J["Transaction Canonical<br/>canonical_transaction_events"]
-  C --> K["State Canonical<br/>canonical_state_events"]
-
-  I --> L["Behavior ↔ Transaction Mapping<br/>behavior_transaction_mapping"]
-  J --> L
-
-  J --> M["Transaction ↔ State Mapping<br/>transaction_state_mapping"]
-  K --> M
-end
-
-subgraph NEXT["Measurement / Analytics Input"]
-  E --> N["Batch Measurement"]
-  F --> O["Stream Measurement"]
-  G --> P["Operational Measurement"]
-  H --> Q["Realism / Replay Evidence"]
-
-  L --> R["Reconciliation Measurement"]
-  M --> R
-end
-```
+![Transformation Architecture](/assets/images/transformation-architecture.png)
 
 ---
 
