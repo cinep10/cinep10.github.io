@@ -143,27 +143,22 @@ maintain source-first propagation
 
 # 4. Transformation
 
-Raw data is transformed into
-canonical business structures.
-
-Core structure:
+The transformation architecture is composed of two major layers.
 
 ```text
-event_log_raw
-→ canonical_behavior_events
+Layer A
+=
+v0.4 Behavior Evidence Transformation
 
-transaction_log_raw
-→ canonical_transaction_events
-
-state_log_raw
-→ canonical_state_events
+Layer B
+=
+v0.5 Commerce Reconciliation Transformation
 ```
 
-Cross-domain mappings are then created across:
+These layers are ultimately integrated through:
 
 ```text
-Behavior ↔ Transaction
-Transaction ↔ State
+reliability_analysis_result_day_v05
 ```
 
 Important principle:
