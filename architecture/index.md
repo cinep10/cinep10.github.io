@@ -173,7 +173,7 @@ canonical = business normalization
 canonical ≠ risk scoring
 ```
 
-→ [View Transformation](/architecture/transformation/)
+→ [View Data Transformation](/architecture/data-transformation)
 
 ---
 
