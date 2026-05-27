@@ -33,31 +33,7 @@ it became a behavior event raw record
 
 # Collection Architecture Overview
 
-```mermaid
-flowchart LR
-
-A["Source Log File"] --> B["raw_snapshot_manifest"]
-
-B --> C["stg_webserver_log_hit"]
-C --> D["stg_wc_log_hit"]
-D --> E["event_log_raw"]
-
-E --> F["canonical_events"]
-F --> G["canonical_behavior_events"]
-
-subgraph Provenance
-B
-C
-D
-E
-end
-
-subgraph Identity_Propagation
-C
-D
-E
-end
-```
+![Data Generation Architecture](/assets/images/high-level-architecture.png)
 
 ---
 
