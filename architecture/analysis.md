@@ -33,56 +33,7 @@ v0.4 measures the instability of behavioral data itself as operational evidence,
 
 # Measurement / Analytics Architecture Overview
 
-```mermaid
-flowchart TB
-
-A["canonical_events"] --> B["stg_event_batch"]
-A --> C["stg_event_stream"]
-A --> D["batch_input_day"]
-A --> E["stream_replay_event"]
-A --> F["measurement_realism_day"]
-
-subgraph BE["Behavior Evidence Measurement"]
-
-B --> B1["analyzer_b_v5_v04.py"]
-B1 --> B2["batch_behavior_measurement_day"]
-B2 --> B3["batch_behavior_distribution_day"]
-B3 --> B4["Batch Analytics"]
-
-C --> C1["stream_reliability_summary_day"]
-
-D --> D1["measurement_operational_day"]
-
-E --> C1
-
-F --> F1["realism evidence"]
-
-end
-
-B4 --> G["v05_runtime_evidence_day"]
-C1 --> G
-D1 --> G
-F1 --> G
-
-H["canonical_behavior_events"] --> I["behavior_transaction_mapping"]
-J["canonical_transaction_events"] --> I
-
-J --> K["transaction_state_mapping"]
-L["canonical_state_events"] --> K
-
-subgraph RM["Reconciliation Measurement"]
-
-I --> M["Behavior ↔ Transaction Measurement"]
-K --> N["Transaction ↔ State Measurement"]
-
-M --> O["v05_reconciliation_measurement_day"]
-N --> O
-
-end
-
-G --> P["reliability_analysis_result_day_v05"]
-O --> P
-```
+![Analysis](/assets/images/measurement-analytics-architecture.png)
 
 ---
 
