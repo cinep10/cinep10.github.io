@@ -43,54 +43,7 @@ framework.
 
 # Collection Architecture Overview
 
-```mermaid
-flowchart TB
-
-subgraph Source["Customer Journey Source"]
-
-A["Customer Journey"]
-
-A --> B["Behavior Log"]
-A --> C["Transaction Log"]
-A --> D["State Log"]
-
-end
-
-subgraph Collection["Collection Layer"]
-
-B --> E["Behavior Collection"]
-C --> F["Transaction Collection"]
-D --> G["State Collection"]
-
-end
-
-subgraph Operational["Operational Collection"]
-
-E --> H["Behavior Event Collection"]
-F --> I["Transaction Event Collection"]
-G --> J["State Transition Collection"]
-
-end
-
-subgraph Canonical["Canonical Layer"]
-
-H --> K["Behavior Canonical"]
-I --> L["Transaction Canonical"]
-J --> M["State Canonical"]
-
-end
-
-subgraph Provenance["Cross-domain Provenance"]
-
-E
-F
-G
-H
-I
-J
-
-end
-```
+![Collection Architecture](/assets/images/collection-architecture.png)
 
 ---
 
