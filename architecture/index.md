@@ -231,7 +231,7 @@ technical anomalies
 → operational decision risk
 ```
 
-→ View Decision / Action
+→ [View Decision/Action](/architecture/decision-action)
 
 ---
 
