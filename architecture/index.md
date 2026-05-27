@@ -260,7 +260,7 @@ AI generates truth = X
 AI explains governed evidence = O
 ```
 
-→ View ML / AI Governance
+→ [View ML / AI Governance](/architecture/ml-ai-reliability-architecture)
 
 ---
 
