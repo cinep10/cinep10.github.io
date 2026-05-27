@@ -38,24 +38,7 @@ Cross-domain Measurement-to-Decision Reliability Architecture
 
 # Architecture Overview
 
-```mermaid
-flowchart LR
-
-A["Customer Journey"]
---> B["Data Generation"]
-
-B --> C["Ingestion"]
-
-C --> D["Transformation"]
-
-D --> E["Measurement & Analytics"]
-
-E --> F["Decision / Action"]
-
-F --> G["ML / AI Reliability"]
-
-G --> H["Operational Observability"]
-```
+![Architecture Overview](/assets/images/architecture-overview.png)
 
 ---
 
@@ -155,7 +138,7 @@ The core objective is:
 Reproducible operational ingestion architecture
 ```
 
-→ [View Ingestion Architecture](/architecture/ingestion)
+→ [View Ingestion Architecture](/architecture/data-ingestion)
 
 ---
 
@@ -193,7 +176,7 @@ risk scoring
 This layer standardizes business meaning,
 but does not determine operational risk.
 
-→ [View Transformation Architecture](/architecture/transformation)
+→ [View Transformation Architecture](/architecture/data-transformation)
 
 ---
 
@@ -247,7 +230,7 @@ This layer interprets:
 Cross-domain Operational Reliability
 ```
 
-→ [View Measurement & Analytics Architecture](/architecture/measurement-analytics)
+→ [View Measurement & Analytics Architecture](/architecture/analysis)
 
 ---
 
@@ -344,7 +327,7 @@ This means:
 AI itself is also subject to reliability validation
 ```
 
-→ [View ML / AI Reliability Architecture](/architecture/ml-ai-reliability)
+→ [View ML / AI Reliability Architecture](/architecture/ml-ai-reliability-architecture)
 
 ---
 
