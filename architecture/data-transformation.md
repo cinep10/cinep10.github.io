@@ -26,54 +26,7 @@ measurement, analysis, risk, and action layers
 
 # Transformation Architecture Overview
 
-```mermaid id="d8y8x4"
-flowchart TB
-
-A["event_log_raw"] --> B["canonical_events"]
-
-subgraph V04["v0.4 Behavior Evidence Layer"]
-B --> C["stg_event_batch"]
-B --> D["stg_event_stream"]
-B --> E["batch_input_day"]
-B --> F["stream_replay_event"]
-
-C --> G["measurement_batch_day"]
-D --> H["measurement_stream_day"]
-E --> I["measurement_operational_day"]
-F --> J["measurement_realism_day"]
-
-G --> K["v05_runtime_evidence_day"]
-H --> K
-I --> K
-J --> K
-end
-
-subgraph V05["v0.5 Commerce Authoritative Layer"]
-B --> L["canonical_behavior_events"]
-
-M["transaction_log_raw"]
---> N["canonical_transaction_events"]
-
-O["state_log_raw"]
---> P["canonical_state_events"]
-
-L --> Q["behavior_transaction_mapping"]
-N --> Q
-
-N --> R["transaction_state_mapping"]
-P --> R
-
-Q --> S["v05_reconciliation_measurement_day"]
-R --> S
-end
-
-K --> T["reliability_analysis_result_day_v05"]
-S --> T
-
-T --> U["semantic_interpretation_day_v05"]
-U --> V["unified_reliability_score_day_v05"]
-V --> W["action_recommendation_day_v05"]
-```
+![Transformation Architecture](/assets/images/transformation-architecture.png)
 
 ---
 
