@@ -46,7 +46,7 @@ v0.5 Commerce Reconciliation Transformation
 
 These layers are ultimately integrated through:
 
-```text id="z6h7qa"
+```text
 reliability_analysis_result_day_v05
 ```
 
@@ -108,7 +108,7 @@ final risk authority
 
 Instead, it serves as:
 
-```text id="x7r5wt"
+```text
 behavior operational evidence base
 ```
 
