@@ -205,7 +205,7 @@ DIRECT_MEASUREMENT-based reliability analysis
 
 over scenario-name heuristics.
 
-→ View Analysis
+→ [View Analysis](/architecture/analysis)
 
 ---
 
