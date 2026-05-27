@@ -1,10 +1,8 @@
 # Architecture
 
-This section describes the overall data reliability architecture of the current v0.5 portfolio.
+The current architecture is not a simple data pipeline or anomaly detection system.
 
-The architecture is not designed as a simple ETL pipeline or anomaly detector.
-
-Instead, it focuses on measuring inconsistency and distortion across:
+The core objective is to use:
 
 ```text
 Behavior
@@ -12,308 +10,412 @@ Behavior
 ↔ State
 ```
 
-and connecting:
+based operational data to explain:
+
+```text
+When does data become unreliable?
+Why are KPI and operational decisions distorted?
+What operational risks emerge?
+What actions should be taken?
+```
+
+The architecture is fundamentally a:
 
 ```text
 Measurement
 → Reliability Analytics
-→ Semantic Interpretation
-→ Unified Risk
-→ Operational Action
-→ ML / AI Governance
-```
-
-into a:
-
-```text
-Cross-Domain Measurement-to-Decision Reliability Architecture
-```
-
-The core question is:
-
-```text
-When does operational data become unreliable,
-and how does that distortion affect KPI interpretation
-and operational decision-making?
-```
-
----
-
-# Overall Architecture Flow
-
-```text
-Customer Journey
-→ Data Generation
-→ Ingestion
-→ Transformation
-→ Analysis
-→ Decision / Action
-→ ML / AI Governance
-→ Observability
-```
-
----
-
-# 1. Customer Journey
-
-The architecture begins not from isolated events,
-but from:
-
-```text
-realistic user behavioral flows
-```
-
-Core structure:
-
-```text
-Customer Journey
-├─ Behavior Log
-├─ Transaction Log
-└─ State Transition Log
-```
-
-Important principle:
-
-```text
-Journey is the source
-Behavior / Transaction / State
-are parallel derivations
-```
-
-→ [View Customer Journey](/architecture/customer-journey)
-
----
-
-# 2. Data Generation
-
-Operational logs are generated from the customer journey layer.
-
-Generated sources include:
-
-* Behavior Log
-* Transaction Log
-* State Transition Log
-
-The architecture also supports source-level anomaly injection.
-
-Examples:
-
-* source_partial_missing
-* source_identity_drift
-* source_schema_drift
-* transaction_missing_anomaly
-
-The objective is:
-
-```text
-realistic operational data distortion generation
-```
-
-→ [View Data Generation](/architecture/data-generation)
-
----
-
-# 3. Ingestion
-
-Generated source logs are ingested into
-the raw/stage pipeline layers.
-
-Core ingestion flow:
-
-```text
-raw_snapshot_manifest
-→ stg_webserver_log_hit
-→ stg_wc_log_hit
-→ event_log_raw
-```
-
-Transaction and state logs are stored in separate raw layers.
-
-Key objectives:
-
-```text
-preserve source lineage
-+
-maintain source-first propagation
-```
-
-→ [View Data Ingestion](/architecture/data-ingestion)
-
----
-
-# 4. Transformation
-
-The transformation architecture is composed of two major layers.
-
-```text
-Layer A
-=
-v0.4 Behavior Evidence Transformation
-
-Layer B
-=
-v0.5 Commerce Reconciliation Transformation
-```
-
-These layers are ultimately integrated through:
-
-```text
-reliability_analysis_result_day_v05
-```
-
-Important principle:
-
-```text
-canonical = business normalization
-canonical ≠ risk scoring
-```
-
-→ [View Data Transformation](/architecture/data-transformation)
-
----
-
-# 5. Analysis
-
-This is the core reliability analysis layer of v0.5.
-
-Representative measurements:
-
-* behavior_transaction_match_rate
-* transaction_state_match_rate
-* payment_order_gap
-* duplicate_order_count
-* delivery_delay
-
-Core philosophy:
-
-```text
-Measurement ≠ Risk
-```
-
-Meaning:
-
-```text
-Measurement = observation
-Risk = semantic interpretation
-```
-
-The architecture prioritizes:
-
-```text
-DIRECT_MEASUREMENT-based reliability analysis
-```
-
-over scenario-name heuristics.
-
-→ [View Analysis](/architecture/analysis)
-
----
-
-# 6. Decision / Action
-
-This is the primary differentiating layer of v0.5.
-
-Current authoritative chain:
-
-```text
-Measurement
-→ Reliability Analytics
-→ Semantic Interpretation
 → Unified Risk
 → Operational Action
 ```
 
-The key objective is to connect:
+driven:
 
 ```text
-technical anomalies
-→ operational meaning distortion
-→ operational decision risk
+Cross-domain Measurement-to-Decision Reliability Architecture
 ```
-
-→ [View Decision/Action](/architecture/decision-action)
 
 ---
 
-# 7. ML / AI Governance
+# Architecture Overview
 
-ML is not treated as the final decision-maker.
+```mermaid
+flowchart LR
 
-Current philosophy:
+A["Customer Journey"]
+--> B["Data Generation"]
 
-```text
-ML = supplemental prediction only
+B --> C["Ingestion"]
+
+C --> D["Transformation"]
+
+D --> E["Measurement & Analytics"]
+
+E --> F["Decision / Action"]
+
+F --> G["ML / AI Reliability"]
+
+G --> H["Operational Observability"]
 ```
 
-AI is also not designed as a free-generation layer.
+---
 
-Instead:
+# Customer Journey
+
+All data begins from real operational flows.
+
+The architecture uses:
 
 ```text
-AI = evidence-constrained explanation
+Journey as the source
+Behavior / Transaction / State as parallel derivatives
+```
+
+This means the system does not follow a:
+
+```text
+Behavior → Transaction trigger
+```
+
+structure.
+
+Instead, it follows:
+
+```text
+Customer Journey
+→ Behavior
+→ Transaction
+→ State
+```
+
+as parallel operational outputs.
+
+Representative domains:
+
+```text
+Commerce
+Platform
+Delivery
+Operational Transaction
+```
+
+→ [View Customer Journey Architecture](/architecture/customer-journey)
+
+---
+
+# Data Generation
+
+The Data Generation Layer creates realistic operational datasets.
+
+Representative generated data:
+
+```text
+Behavior Log
+Transaction Log
+State Transition Log
+```
+
+Representative anomalies:
+
+```text
+partial missing
+schema drift
+identity drift
+duplicate event
+transaction-state mismatch
+```
+
+This layer reproduces:
+
+```text
+How operational data actually breaks
+```
+
+→ [View Data Generation Architecture](/architecture/data-generation)
+
+---
+
+# Ingestion
+
+The Ingestion Layer loads generated data into the reliability pipeline.
+
+Representative flow:
+
+```text
+Raw Snapshot
+→ Staging
+→ Collector
+→ Event Raw
+```
+
+Behavior / Transaction / State logs are independently collected while remaining connected within the same operational flow.
+
+The core objective is:
+
+```text
+Reproducible operational ingestion architecture
+```
+
+→ [View Ingestion Architecture](/architecture/ingestion)
+
+---
+
+# Transformation
+
+The Transformation Layer converts operational logs into analyzable canonical structures.
+
+Representative flow:
+
+```text
+Behavior Canonicalization
+Transaction Canonicalization
+State Canonicalization
+```
+
+followed by:
+
+```text
+Behavior ↔ Transaction Mapping
+Transaction ↔ State Mapping
 ```
 
 Core principle:
 
 ```text
-AI generates truth = X
-AI explains governed evidence = O
+canonical
+=
+business normalization
+
+canonical
+≠
+risk scoring
 ```
 
-→ [View ML / AI Governance](/architecture/ml-ai-reliability-architecture)
+This layer standardizes business meaning,
+but does not determine operational risk.
+
+→ [View Transformation Architecture](/architecture/transformation)
 
 ---
 
-# 8. Observability
+# Measurement & Analytics
 
-Finally, measurement results,
-semantic risks,
-and operational actions are exposed
-through operational observability.
+The Measurement & Analytics Layer is the core of the architecture.
 
-The objective is not simply dashboard monitoring,
-but:
+The most important principle is:
 
 ```text
-Reliability Decision Observability
+Measurement
+≠
+Risk
 ```
 
-The focus is:
+Meaning:
 
 ```text
-Why was the KPI distorted?
-Why did operational decision-making become risky?
+What was observed?
 ```
 
-→ View Observability
+must remain separate from:
+
+```text
+Why is it risky?
+```
+
+Representative measurements:
+
+```text
+Behavior ↔ Transaction match
+Transaction ↔ State consistency
+Runtime evidence
+Batch / Stream evidence
+Customer impact
+```
+
+Representative analytics:
+
+```text
+Reconciliation Analytics
+Propagation Analytics
+Distortion Analytics
+Amplification Analytics
+Customer Impact Analytics
+```
+
+This layer interprets:
+
+```text
+Cross-domain Operational Reliability
+```
+
+→ [View Measurement & Analytics Architecture](/architecture/measurement-analytics)
 
 ---
 
-# Final Direction
+# Decision / Action
 
-The current direction of v0.5 is:
+The Decision / Action Layer transforms operational meaning into final operational risk and response.
+
+Representative flow:
 
 ```text
-Behavior Signal
-+
-Transaction Signal
-+
-State Signal
-→ Reliability
-→ Operational Risk
-→ Operational Decision
+Reliability Analytics
+→ Unified Risk
+→ Operational Action
 ```
 
-The architecture therefore evolves beyond anomaly detection into:
+Representative risks:
 
 ```text
-Operational Reliability Decision Architecture
+Consistency Risk
+Distortion Risk
+Transaction Loss Risk
+Runtime Reliability Risk
+Customer Impact Risk
 ```
 
-that explains:
+Representative actions:
 
 ```text
-how operational data distortion
-contaminates KPI interpretation
-and operational decision-making
+Reconciliation Audit
+Pipeline Validation
+Replay / Recovery
+Operational Monitoring
+```
+
+Core principles:
+
+```text
+No False Escalation
+No False Action
+```
+
+Baseline operational noise must not immediately escalate into operational incidents.
+
+→ [View Decision / Action Architecture](/architecture/decision-action)
+
+---
+
+# ML / AI Reliability
+
+ML/AI is not the authoritative decision engine.
+
+Core philosophy:
+
+```text
+ML
+=
+Reliability Calibration
+
+LLM
+=
+Evidence-bound Explanation
+```
+
+Meaning:
+
+```text
+ML does not determine final risk
+LLM does not perform unrestricted reasoning
+```
+
+The ML/AI layer performs:
+
+```text
+Calibration
+Explanation
+Validation
+Governance
+```
+
+Representative functions:
+
+```text
+Threshold Calibration
+Distribution Calibration
+Incident Explanation
+Action Reasoning
+AI Reliability Validation
+Hallucination Prevention
+```
+
+This means:
+
+```text
+AI itself is also subject to reliability validation
+```
+
+→ [View ML / AI Reliability Architecture](/architecture/ml-ai-reliability)
+
+---
+
+# Operational Observability
+
+The architecture is not limited to data analysis.
+
+It also includes:
+
+```text
+Operational Reliability Observability
+```
+
+Representative observability areas:
+
+```text
+Batch Runtime
+Stream Runtime
+Serving Latency
+Replay Consistency
+Query Stability
+Operational Evidence
+```
+
+The architecture observes not only:
+
+```text
+Does the data exist?
+```
+
+but also:
+
+```text
+Is the operational environment itself reliable?
+```
+
+→ [View Operational Observability Architecture](/architecture/operational-observability)
+
+---
+
+# Architecture Philosophy
+
+The core philosophy of the overall architecture is:
+
+```text
+Measurement
+→ Reliability Analytics
+→ Unified Risk
+→ Operational Action
+```
+
+combined with:
+
+```text
+Behavior
+↔ Transaction
+↔ State
+```
+
+based operational data interpretation.
+
+The ultimate goal is to explain:
+
+```text
+When does operational data become unreliable?
+```
+
+The architecture is fundamentally a:
+
+```text
+Cross-domain
+Measurement-driven
+Operational Reliability Architecture
 ```
