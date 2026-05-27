@@ -205,7 +205,7 @@ DIRECT_MEASUREMENT-based reliability analysis
 
 over scenario-name heuristics.
 
-→ [View Analysis](/architecture/analysis/)
+→ View Analysis
 
 ---
 
@@ -231,7 +231,7 @@ technical anomalies
 → operational decision risk
 ```
 
-→ [View Decision / Action](/architecture/decision-action/)
+→ View Decision / Action
 
 ---
 
@@ -260,7 +260,7 @@ AI generates truth = X
 AI explains governed evidence = O
 ```
 
-→ [View ML / AI Governance](/architecture/ml-ai-governance/)
+→ View ML / AI Governance
 
 ---
 
@@ -285,7 +285,7 @@ Why was the KPI distorted?
 Why did operational decision-making become risky?
 ```
 
-→ [View Observability](/architecture/observability/)
+→ View Observability
 
 ---
 
