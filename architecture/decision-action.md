@@ -36,62 +36,7 @@ What operational action is required?
 
 # Decision / Action Architecture Overview
 
-```mermaid
-flowchart TB
-
-subgraph INPUT["Cross-domain Measurement"]
-
-A["Behavior Measurement"]
-B["Transaction Measurement"]
-C["State Measurement"]
-D["Runtime Evidence Measurement"]
-
-end
-
-subgraph ANALYTICS["Reliability Analytics"]
-
-E["Reconciliation Analytics"]
-F["Propagation Analytics"]
-G["Distortion Analytics"]
-H["Customer Impact Analytics"]
-
-end
-
-subgraph RISK["Unified Risk"]
-
-I["Semantic Risk Integration"]
-J["Unified Reliability Score"]
-K["Final Risk Level"]
-
-end
-
-subgraph ACTION["Operational Action"]
-
-L["Reconciliation Action"]
-M["Pipeline Validation Action"]
-N["Replay / Recovery Action"]
-O["Operational Monitoring Action"]
-
-end
-
-A --> E
-B --> E
-C --> E
-D --> E
-
-E --> I
-F --> I
-G --> I
-H --> I
-
-I --> J
-J --> K
-
-K --> L
-K --> M
-K --> N
-K --> O
-```
+![Decision / Action](/assets/images/decision-action-architecture.png)
 
 ---
 
