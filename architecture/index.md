@@ -137,7 +137,7 @@ preserve source lineage
 maintain source-first propagation
 ```
 
-→ [View Ingestion](/architecture/ingestion/)
+→ [View Data Ingestion](/architecture/data-ingestion)
 
 ---
 
