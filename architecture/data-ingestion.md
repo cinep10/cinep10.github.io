@@ -33,7 +33,7 @@ it became a behavior event raw record
 
 # Collection Architecture Overview
 
-![Data Generation Architecture](/assets/images/high-level-architecture.png)
+![Collection Architecture](/assets/images/collection-architecture.png)
 
 ---
 
