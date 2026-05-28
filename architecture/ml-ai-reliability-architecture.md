@@ -1,138 +1,356 @@
-# ML / AI Reliability Architecture
+# ML / AI Reliability Governance Architecture
 
-The current v0.5 ML/AI structure is not a conventional “AI-driven prediction system.”
+The current v0.5 ML/AI structure is not a conventional AI-based prediction system.
 
-The core philosophy is:
-
-```text
-ML
-=
-Reliability Calibration Layer
-
-AI / LLM
-=
-Evidence-bound Explanation & Validation Layer
-```
-
-This means:
+The core objective is to govern:
 
 ```text
-ML does not determine final operational risk
-LLM does not perform unrestricted reasoning
+Behavior
+↔ Transaction
+↔ State
 ```
+
+based reliability decisions through:
+
+```text
+Calibration
+Interpretation
+Validation
+Governance
+```
+
+In other words, the current ML/AI layer is not:
+
+```text
+Prediction-first AI
+```
+
+but rather:
+
+```text
+Operational Reliability Governance Layer
+```
+
+---
+
+# Architecture Overview
+
+```mermaid
+flowchart TB
+
+subgraph CORE["Authoritative Reliability Core"]
+
+A["Measurement"]
+B["Reliability Analytics"]
+C["Semantic Interpretation"]
+D["Unified Risk"]
+E["Operational Action"]
+
+A --> B
+B --> C
+C --> D
+D --> E
+
+end
+
+subgraph RUNTIME["Runtime Evidence Layer"]
+
+R1["Batch Evidence"]
+R2["Stream Evidence"]
+R3["Operational Evidence"]
+R4["Realism Evidence"]
+
+end
+
+subgraph ML["ML Calibration"]
+
+M1["Feature Snapshot"]
+M2["Threshold Calibration"]
+M3["Distribution Calibration"]
+M4["Baseline-relative Calibration"]
+M5["Expected vs Observed Calibration"]
+
+end
+
+subgraph AI["AI / LLM Governance"]
+
+L1["Evidence-bound Context"]
+L2["Incident Explanation"]
+L3["Operational Narrative"]
+L4["Action Reasoning"]
+
+end
+
+subgraph VALIDATION["AI Reliability Validation"]
+
+V1["Evidence Validation"]
+V2["Hallucination Validation"]
+V3["Action Alignment Validation"]
+V4["AI Reliability Score"]
+
+end
+
+R1 --> B
+R2 --> B
+R3 --> B
+R4 --> B
+
+E --> M1
+D --> M1
+C --> M1
+
+E --> L1
+D --> L1
+C --> L1
+B --> L1
+
+L1 --> L2
+L1 --> L3
+L1 --> L4
+
+L2 --> V1
+L3 --> V2
+L4 --> V3
+
+V1 --> V4
+V2 --> V4
+V3 --> V4
+```
+
+---
+
+# Operational Reliability Core
 
 The authoritative core of the architecture remains:
 
 ```text
 Measurement
 → Reliability Analytics
+→ Semantic Interpretation
 → Unified Risk
 → Operational Action
 ```
 
-ML/AI operates only after this stage for:
+The key principle is:
 
 ```text
-Calibration
-Explanation
-Validation
-Governance
+ML/AI does not determine final operational risk
 ```
 
-The most important principle is:
+Representative authoritative domains:
 
 ```text
-ML/AI is also governed inside the Reliability Architecture
-```
-
----
-
-# ML / AI Architecture Overview
-
-![ML / AI Architecture](/assets/images/ml-ai-architecture.png)
-
----
-
-# Overall Structure
-
-The current ML/AI Architecture consists of two major layers:
-
-```text
-1. ML Reliability Calibration Architecture
-2. AI / LLM Reliability Architecture
-```
-
-An important principle is:
-
-```text
-ML/AI
-≠
-Authoritative Decision Engine
-```
-
-The authoritative decision flow remains:
-
-```text
-Measurement
-Analytics
-Risk
-Action
-```
-
-while ML/AI performs:
-
-```text
-Calibration
-Interpretation
-Validation
+Behavior ↔ Transaction reconciliation
+Transaction ↔ State consistency
+Runtime operational evidence
+Cross-domain reliability analytics
+Operational action recommendation
 ```
 
 ---
 
-# ML Reliability Calibration Architecture
+# Runtime Evidence Integration
 
-The purpose of the current ML layer is not:
+One of the most important additions in the final v0.5 implementation is the Runtime Evidence integration layer.
+
+The architecture now directly connects:
 
 ```text
-Prediction-first ML
+v0.4 Evidence Layer
+→ v0.5 Commerce Reliability Analytics
 ```
 
-Instead, the core purpose is:
+through integrated runtime evidence structures.
+
+Integrated evidence categories:
 
 ```text
-Reliability Calibration
+Batch Evidence
+Stream Evidence
+Operational Evidence
+Realism Evidence
 ```
 
-The ML layer analyzes:
+Representative runtime signals:
 
 ```text
-Is the current risk/action distribution reasonable?
-Is baseline falsely escalated?
-Is semantic concentration occurring?
+runtime_evidence_score
+batch_evidence_score
+stream_evidence_score
+operational_evidence_score
+realism_evidence_score
+dominant_runtime_signal
+```
+
+The architecture now evaluates not only:
+
+```text
+Does the data exist?
+```
+
+but also:
+
+```text
+Is the operational environment itself reliable?
 ```
 
 ---
 
-# ML Architecture Flow
+# ML Calibration Architecture
 
-The current ML flow is:
+The current ML layer is not designed as a pure prediction engine.
 
-```text
-Measurement
-→ Analytics
-→ Risk
-→ Action
-→ Feature Snapshot
-→ Calibration
-```
-
-Importantly:
+Instead, it functions as a:
 
 ```text
-ML does not consume raw logs directly
+Reliability Calibration Layer
 ```
 
-The ML layer consumes:
+Its purpose is to analyze:
+
+```text
+Is the risk/action distribution stable?
+Are false escalations occurring?
+Is semantic concentration emerging?
+```
+
+---
+
+# Threshold Calibration
+
+Primary purpose:
+
+```text
+False Escalation Suppression
+```
+
+Example:
+
+```text
+High runtime evidence alone
+must not trigger high-risk escalation
+```
+
+This creates a:
+
+```text
+measurement-driven calibration structure
+```
+
+---
+
+# Distribution Calibration
+
+Primary purpose:
+
+```text
+semantic concentration stabilization
+risk distribution stabilization
+low/no-action convergence detection
+```
+
+Example:
+
+```text
+Coupon Attribution Distortion over-convergence detection
+```
+
+---
+
+# Baseline-relative Calibration
+
+Core philosophy:
+
+```text
+absolute anomaly
+<
+baseline-relative anomaly
+```
+
+Meaning:
+
+```text
+Deviation from baseline
+is more important than the absolute value itself
+```
+
+---
+
+# Expected vs Observed Calibration
+
+One of the most important additions in the final implementation.
+
+The architecture now compares:
+
+```text
+expected semantic/action
+vs
+observed semantic/action
+```
+
+Primary purpose:
+
+```text
+semantic specialization tuning
+```
+
+The calibration layer is therefore not a:
+
+```text
+hard failure detection system
+```
+
+but rather a:
+
+```text
+review-oriented stabilization framework
+```
+
+---
+
+# Baseline False Escalation Guard
+
+A critical operational stabilization mechanism.
+
+When the system detects:
+
+```text
+baseline
++
+stable runtime variation
+```
+
+the architecture applies:
+
+```text
+semantic escalation suppression
+action suppression
+```
+
+Meaning:
+
+```text
+baseline-like variation
+→ maintain no-action state
+```
+
+---
+
+# AI / LLM Governance Architecture
+
+The AI layer is not a:
+
+```text
+free-form reasoning AI
+```
+
+Instead, it functions as an:
+
+```text
+Evidence-bound Reliability Governance Layer
+```
+
+The AI layer is only allowed to interpret:
 
 ```text
 measurement
@@ -140,692 +358,167 @@ analytics
 semantic
 risk
 action
-```
-
-outputs from the reliability pipeline.
-
-This is one of the key architectural differentiators.
-
----
-
-# ML Feature Snapshot
-
-Representative structure:
-
-```text
-Feature Snapshot
-```
-
-Representative feature categories:
-
-```text
-Reconciliation Feature
-Analytics Feature
-Risk Feature
-Action Feature
-Runtime Evidence Feature
-```
-
-The feature snapshot preserves:
-
-```text
-Behavior ↔ Transaction ↔ State
-```
-
-reliability results as structured operational features.
-
-The important principle is:
-
-```text
-ML does not directly interpret raw events
-```
-
-It only consumes outputs already processed through the Reliability Pipeline.
-
----
-
-# Why Simple ML Algorithms Were Chosen
-
-The reason complex ML models were intentionally deprioritized is clear.
-
-The core philosophy is:
-
-```text
-Black-box Accuracy
-<
-Reliability Explainability
-```
-
-The most important requirement is:
-
-```text
-Operational risk must be explainable
-```
-
-Therefore, the architecture prioritizes:
-
-```text
-Threshold Calibration
-Distribution Analysis
-Baseline-relative Scoring
-Semantic Consistency Review
-```
-
-instead of:
-
-```text
-XGBoost
-Deep Learning
-Transformer Forecasting
-```
-
----
-
-# Threshold Calibration
-
-This is currently the most important ML function.
-
-Purpose:
-
-```text
-Prevent False Escalation
-```
-
-Example:
-
-```text
-high runtime evidence alone
-must not trigger semantic escalation
-```
-
-This is fundamentally:
-
-```text
-measurement-driven threshold calibration
-```
-
----
-
-# Distribution Calibration
-
-Purpose:
-
-```text
-Stabilize semantic/risk/action distribution
-```
-
-Representative analysis:
-
-```text
-risk concentration
-semantic over-convergence
-low/no-action over-convergence
-```
-
-This is effectively:
-
-```text
-distribution anomaly detection
-```
-
----
-
-# Baseline-relative Calibration
-
-The core philosophy is:
-
-```text
-Relative change from baseline
->
-Absolute value
-```
-
-The system focuses on:
-
-```text
-How far did the current state deviate from the normal baseline?
-```
-
-This is fundamentally:
-
-```text
-baseline-relative anomaly scoring
-```
-
----
-
-# Risk Weight Calibration
-
-Current risk interpretation is composed of multiple components:
-
-```text
-reconciliation_gap
-distortion
-runtime evidence
-customer impact
-transaction loss
-```
-
-ML calibration also performs:
-
-```text
-weight tuning
-```
-
-Its role is to determine:
-
-```text
-Which signals are overly dominating final risk interpretation?
-```
-
----
-
-# Why Heavy Prediction Models Were Not Prioritized
-
-In the current architecture:
-
-```text
-Prediction Accuracy
-```
-
-is less important than:
-
-```text
-Operational Reliability Interpretability
-```
-
-For example:
-
-```text
-Deep Learning predicts high risk
-```
-
-but:
-
-```text
-cannot explain why
-```
-
-then the result becomes difficult to trust operationally.
-
-Therefore the architecture prioritizes:
-
-```text
-Explainable calibration-centered ML
-```
-
----
-
-# Future ML Expansion
-
-Possible future extensions include:
-
----
-
-## Isolation Forest
-
-Purpose:
-
-```text
-runtime evidence outlier detection
-distribution anomaly detection
-```
-
----
-
-## Autoencoder
-
-Purpose:
-
-```text
-Behavior ↔ Transaction ↔ State
-normal pattern reconstruction
-```
-
----
-
-## Gradient Boosting
-
-Purpose:
-
-```text
-future escalation probability prediction
-```
-
----
-
-## Temporal Forecasting
-
-Purpose:
-
-```text
-runtime evidence trend forecasting
-transaction-state delay forecasting
-```
-
----
-
-# AI / LLM Reliability Architecture
-
-The core philosophy of the AI Layer is:
-
-```text
-LLM
-≠
-Authoritative Risk Engine
-```
-
-The LLM acts as:
-
-```text
-Evidence-bound Reliability Explanation Engine
-```
-
-The AI layer only explains:
-
-```text
-measurement
-analytics
-risk
-action
-```
-
-results already produced by the reliability engine.
-
----
-
-# Why LLM Cannot Be the Authoritative Core
-
-LLMs structurally have several limitations.
-
----
-
-## Non-deterministic Output
-
-The same input may produce:
-
-```text
-different outputs
-```
-
-This introduces:
-
-```text
-lack of reproducibility
-```
-
----
-
-## Hallucination Risk
-
-LLMs may generate:
-
-```text
-non-existent operational explanations
-```
-
-Example:
-
-```text
-explaining a payment outage
-when no outage evidence exists
-```
-
----
-
-## Unsupported Causal Reasoning
-
-LLMs may produce:
-
-```text
-unsupported causal assumptions
-```
-
-without measurement evidence.
-
----
-
-## Wrong Operational Recommendation
-
-LLMs may recommend:
-
-```text
-urgent escalation
-```
-
-even during normal baseline conditions.
-
----
-
-# Why Evidence-bound AI Was Chosen
-
-The key principle is:
-
-```text
-Free-form LLM reasoning is restricted
-```
-
-Therefore LLM inputs are constrained to:
-
-```text
-measurement
-analytics
-risk
-action
 runtime evidence
 ```
 
-This creates an:
+Core principles:
 
 ```text
-Evidence-bound Context
-```
-
-architecture.
-
----
-
-# AI Architecture Flow
-
-The current AI flow is:
-
-```text
-Measurement
-→ Analytics
-→ Risk
-→ Action
-→ AI Context
-→ AI Explanation
-→ AI Validation
-→ AI Reliability Score
-```
-
-Importantly:
-
-```text
-LLM does not directly read raw logs
+LLM does not directly interpret raw logs
+LLM does not overwrite final risk/action decisions
 ```
 
 ---
 
-# AI Function Categories
+# AI Functional Roles
 
-The AI Layer performs four major functions.
-
----
-
-## Incident Explanation
-
-Purpose:
+The AI layer performs only the following functions:
 
 ```text
-Explain why the system is risky
+Incident Explanation
+Operational Narrative
+Evidence Summarization
+Action Reasoning
 ```
 
-Example:
+Its primary purpose is to explain:
 
 ```text
-Behavior-Transaction reconciliation gap increased
-because transaction_state_match_rate decreased.
+Why is the system risky?
+Why was a specific operational action recommended?
 ```
 
 ---
 
-## Operational Narrative
-
-Purpose:
-
-```text
-Generate operator-readable incident narratives
-```
-
-Example:
-
-```text
-Potential transaction-state consistency degradation detected.
-```
-
----
-
-## Evidence Summarization
-
-Purpose:
-
-```text
-Summarize measurement / semantic / risk evidence
-```
-
----
-
-## Action Reasoning
-
-Purpose:
-
-```text
-Explain why a specific operational action was recommended
-```
-
----
-
-# AI Reliability Validation Architecture
+# AI Reliability Validation
 
 One of the most important architectural principles is:
 
 ```text
-AI output is also subject to reliability validation
+LLM outputs are also subject to validation
+```
+
+Validation categories include:
+
+```text
+Missing Evidence Validation
+Unsupported Explanation Validation
+Hallucinated Reconciliation Validation
+Wrong Operational Recommendation Validation
 ```
 
 Meaning:
 
 ```text
-LLM output
-≠
-truth
-```
-
----
-
-# Validation Categories
-
-The current AI Validation layer consists of:
-
----
-
-## Missing Evidence Validation
-
-Purpose:
-
-```text
-Prevent explanations without evidence
-```
-
----
-
-## Unsupported Explanation Validation
-
-Purpose:
-
-```text
-Prevent explanations unrelated to measurements
-```
-
----
-
-## Hallucinated Reconciliation Validation
-
-Purpose:
-
-```text
-Prevent fabricated reconciliation interpretations
-```
-
----
-
-## Wrong Recommendation Validation
-
-Purpose:
-
-```text
-Prevent operational recommendations inconsistent with risk/action evidence
-```
-
----
-
-# AI Reliability Score
-
-Validation results are integrated into:
-
-```text
-AI Reliability Score
-```
-
-Representative levels:
-
-```text
-pass
-review
-fail
+AI explanations must remain inside authoritative evidence boundaries
 ```
 
 ---
 
 # PASS_WITH_REVIEW Policy
 
-An important operational policy is:
+A critical operational governance policy.
+
+Core principle:
 
 ```text
-AI FAIL
+AI validation FAIL
 ≠
-Pipeline FAIL
+pipeline FAIL
 ```
 
 Meaning:
+
+```text
+AI explanation review required
+```
+
+must remain separate from:
+
+```text
+core reliability failure
+```
+
+Current policy:
 
 ```text
 AI validation FAIL
 +
-AI reliability level = review
+AI reliability score = review
 → PASS_WITH_REVIEW
 ```
 
-This means:
+This preserves the authoritative reliability engine while requiring human review only for AI explanations.
+
+---
+
+# Replay Reliability Governance
+
+The current ML/AI structure is no longer a simple online prediction architecture.
+
+It already includes:
 
 ```text
-The core reliability engine remains authoritative,
-while AI explanations require human review.
+7-day smoke
+14-scenario smoke
+30-day pilot
+6-month replay
+```
+
+based replay stabilization governance.
+
+The architecture has therefore evolved into:
+
+```text
+Operational Replay Reliability Governance
 ```
 
 ---
 
-# Architecture Responsibility Separation
+# Future ML / AI Expansion
 
-One of the most important architectural principles is:
+Potential future expansion areas include:
 
 ```text
-Clear Separation of Responsibility
+trained model prediction runner
+derived ML feature layer
+ML output verification
+feature importance analysis
+AI override guard
+LLM execution governance
+evidence coverage score
 ```
 
-Meaning:
-
----
-
-## Measurement defines authoritative truth
-
----
-
-## Analytics generates risk signals
-
----
-
-## Risk determines final operational severity
-
----
-
-## Action determines operational response
-
----
-
-## ML performs calibration
-
----
-
-## AI performs explanation
-
----
-
-## AI Validation prevents hallucination
-
----
-
-Therefore:
+However, the core principles remain unchanged:
 
 ```text
-ML
+ML prediction
 ≠
-Final Decision
+Authoritative Risk
 
-LLM
+LLM explanation
 ≠
-Risk Authority
-```
-
----
-
-# Technical Philosophy
-
-The technical philosophy of v0.5 is:
-
-```text
-SQL
-=
-Measurement / Persistence
-
-R
-=
-Reliability Analytics / Calibration
-
-Python
-=
-Orchestration / Validation / Action
-
-LLM
-=
-Evidence-bound Interpretation
-```
-
-Meaning:
-
-```text
-SQL
-→ What was observed?
-
-R
-→ Why is it risky?
-
-Python
-→ How should it be executed and validated?
-
-LLM
-→ What should be explained?
+Operational Truth
 ```
 
 ---
 
 # Final Definition
 
-The current ML/AI Architecture is not a generic AI operations layer.
+The current v0.5 ML/AI structure is not simply an AI enhancement layer.
 
-More precisely, it is a:
+More precisely, it is an:
 
 ```text
 Measurement
 → Reliability Analytics
+→ Semantic Interpretation
 → Unified Risk
 → Operational Action
 → ML Calibration
 → AI Explanation
 → AI Validation
-→ AI Reliability
+→ AI Reliability Governance
 ```
 
 architecture that governs:
@@ -836,7 +529,7 @@ Behavior
 ↔ State
 ```
 
-reliability decisions through:
+based reliability decisions through:
 
 ```text
 Calibration
@@ -845,8 +538,8 @@ Validation
 Governance
 ```
 
-This is fundamentally a:
+This is fundamentally an:
 
 ```text
-ML / AI Reliability Architecture
+Operational ML / AI Reliability Governance Architecture
 ```
