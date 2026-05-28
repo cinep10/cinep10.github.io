@@ -48,36 +48,7 @@ Operational Reliability Governance Platform
 
 # Architecture Overview
 
-```mermaid
-flowchart LR
-
-A["Behavior Data"]
-B["Transaction Data"]
-C["State Data"]
-
-D["Measurement & Evidence"]
-E["Reliability Analytics"]
-F["Semantic Interpretation"]
-G["Unified Risk"]
-H["Operational Action"]
-
-I["ML Calibration"]
-J["AI Reliability Governance"]
-K["Replay Governance"]
-
-A --> D
-B --> D
-C --> D
-
-D --> E
-E --> F
-F --> G
-G --> H
-
-G --> I
-H --> J
-H --> K
-```
+![Architecture](/assets/images/operational-observability.png)
 
 ---
 
