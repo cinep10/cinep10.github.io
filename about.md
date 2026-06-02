@@ -1,54 +1,87 @@
 # About
 
-This blog is a technical portfolio created to analyze and document data reliability issues in data pipelines from a structural perspective.
+This site documents my work and research on operational data quality, governance, and reliability.
 
-I work with log-based data systems, focusing on problems such as missing data, duplication, latency, and inconsistency.  
-These issues are not treated as simple errors, but as risks that need to be interpreted and explained.
+Over the years, I have worked with behavioral data, collection systems, analytics platforms, and reporting environments where business decisions depended on the quality and consistency of operational data.
 
-Based on this perspective, the following structure has been designed and implemented:
+A recurring observation has been that many failures do not originate from analytics models or dashboards themselves.
 
-- Validation  
-- Drift / Structural Anomaly  
-- Risk Scoring  
-- Root Cause Analysis  
-- Action Mapping  
-- ML / AI for classification and explanation  
+Instead, they originate from:
 
-This blog does not focus on individual techniques or models.  
-Instead, it aims to explain why data becomes unreliable and how those issues impact downstream systems and decisions.
+* Missing data
+* Inconsistent metrics
+* Collection failures
+* Delayed processing
+* Identifier mismatches
+* Misinterpreted operational signals
 
----
+Because of this, my focus is not simply on how data is collected or processed.
 
-## Blog Structure
+My primary interest is understanding:
 
-This portfolio is organized as a system rather than a collection of posts:
-
-- [Architecture](/architecture/)   
-  System design and conceptual structure  
-
-- [Portfolio](/portfolio/)   
-  Implementation and system-level outputs  
-
-- [Engineering Notes](/engineering-notes/)   
-  Pipeline, data modeling, and ML/AI engineering details  
-
-- [Case Studies](/case-studies/)   
-  Scenario-based and real-world data reliability analysis  
+* When data becomes unreliable
+* Why metrics become inconsistent
+* How operational risks emerge
+* What actions should be recommended
 
 ---
 
-## Overview
+## Areas of Interest
 
-A simplified overview of the problem space and approach is available here:
+* Operational Data Quality
+* Data Governance
+* Data Validation
+* Behavioral Data Analytics
+* KPI Verification
+* Operational Data Reliability
+* Risk Quantification
+* Reliability Analytics
+* ML / AI Reliability Governance
 
-→ [https://cinep10.notion.site/Data-Reliability-Risk-Architecture-3518d50d5ad18064bff0c342b1da949a](https://cinep10.notion.site/Data-Reliability-Risk-Architecture-3518d50d5ad18064bff0c342b1da949a)
+---
+
+## Portfolio Structure
+
+The portfolio is organized around the operational data lifecycle.
+
+### Architecture
+
+Design principles and system structures.
+
+### Portfolio
+
+Implementation-focused reliability architectures.
+
+### Case Studies
+
+Scenario-based operational data risk investigations.
+
+### Engineering Notes
+
+Technical implementation details and lessons learned.
+
+---
+
+## Core Philosophy
+
+Reliable data is not a technical assumption.
+
+It is something that must be continuously measured, validated, interpreted, and governed.
+
+The purpose of this portfolio is to explore how operational data quality, governance, and reliability can be integrated into analytics and decision-making systems.
 
 ---
 
 ## Contact
 
-- GitHub: [https://cinep10.github.io](https://cinep10.github.io)  
-- LinkedIn: [https://linkedin.com/in/dwkim-0179083b1](https://linkedin.com/in/dwkim-0179083b1)
-- Email : cinep10 [at] gmail.com
+GitHub
 
-This page is intended for personal portfolio and documentation purposes.
+https://cinep10.github.io
+
+LinkedIn
+
+https://linkedin.com/in/dwkim-0179083b1
+
+Email
+
+cinep10 [at] gmail.com
