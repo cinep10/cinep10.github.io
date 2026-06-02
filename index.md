@@ -1,15 +1,21 @@
-# Data Reliability Engineering
+# Operational Data Quality & Reliability
 
-Designing systems that make data trustworthy, interpretable, and actionable
+Understanding when data becomes unreliable and how it impacts analytics, operations, and decision-making.
 
 ---
 
 ## What This Site Covers
 
-This blog documents the design and implementation of data reliability systems.
+This site documents architectures, case studies, and implementation practices focused on operational data quality, governance, and reliability.
 
-The focus is not only on building data pipelines,
-but on ensuring that data can be trusted and explained.
+The primary focus is not building data platforms.
+
+The focus is understanding:
+
+* When data should not be trusted
+* Why metrics become inconsistent
+* How operational risks emerge from data issues
+* What actions should be recommended
 
 ---
 
@@ -17,11 +23,16 @@ but on ensuring that data can be trusted and explained.
 
 ### Portfolio
 
-End-to-end systems for reliable, explainable, and operable in production environments
+End-to-end architectures for operational data quality and reliability.
 
+Topics include:
+
+* Operational Data Quality
+* Data Governance
 * Data Reliability
-* ML Data Reliability
-* Observability
+* Reliability Analytics
+* Operational Risk Interpretation
+* ML / AI Reliability Governance
 
 → [portfolio](/portfolio/)
 
@@ -29,13 +40,16 @@ End-to-end systems for reliable, explainable, and operable in production environ
 
 ### Case Studies
 
-Problem-solving cases based on scenario-based data anomaly cases
+Scenario-based reliability investigations and operational data risk analysis.
 
-* Traffic spike and conversion drop
-* Funnel distortion detection
-* Data mapping issues
-* Drift to risk escalation
-* prediction instability
+Examples:
+
+* Missing collection data
+* KPI distortion
+* Behavior ↔ Transaction inconsistency
+* State transition failures
+* AI interpretation failures
+* Runtime operational anomalies
 
 → [case-studies](/case-studies/)
 
@@ -43,10 +57,18 @@ Problem-solving cases based on scenario-based data anomaly cases
 
 ### Architecture
 
-Design principles behind the system.
+Design principles and system architectures.
 
-* Data Reliability Architecture
-* Data Engineering Lifecycle
+Topics include:
+
+* Customer Journey Architecture
+* Data Generation
+* Ingestion
+* Transformation
+* Measurement & Analytics
+* Decision / Action
+* ML / AI Reliability Governance
+* Operational Observability
 
 → [architecture](/architecture/)
 
@@ -54,30 +76,36 @@ Design principles behind the system.
 
 ### Engineering Notes
 
-Implementation details and technical records.
+Technical implementation details and operational lessons learned.
 
-* Data Pipeline
+Topics include:
+
+* Data Validation
+* Statistical Drift Detection
 * Data Modeling
-* Reliability Signals
-* ML & AI Engineering
-* Performance & Operations
+* Reconciliation Frameworks
+* Runtime Evidence
+* ML Calibration
+* AI Validation
 
 → [engineering-notes](/engineering-notes/)
 
 ---
 
-## Key Perspective
+## Core Perspective
 
-Reliable data is not assumed.
+Reliable data should not be assumed.
 
-It is defined, validated, monitored, and explained through system design.
+It must be measured, validated, interpreted, and governed.
+
+The central question behind this work is:
+
+Can we trust the data?
 
 ---
 
 ## About
 
-More about background and focus:
+Background, experience, and portfolio philosophy:
 
 → [about](/about)
-
----
